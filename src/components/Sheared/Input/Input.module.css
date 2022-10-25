@@ -1,0 +1,53 @@
+.form_control {
+  position: relative;
+}
+.form_control.form_control--error{
+  margin-bottom: 24px;
+}
+
+.form_control label {
+  margin: 0;
+  font-weight: 500;
+  width: 100%;
+  color: var(--text);
+}
+
+.form_control__label {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.form_control__label__option {
+  color: rgb(170, 170, 170);
+  font-size: 12px;
+}
+
+.form_control input {
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.form_control input:disabled {
+  background-color: gainsboro;
+  cursor: not-allowed;
+}
+
+.form_control input:hover {
+  border: 1px solid rgba(165, 165, 165, 0.616);
+}
+
+.form_control input:focus {
+  padding: 4px 8px;
+  outline: none;
+  border: 1px solid rgba(165, 165, 165);
+}
+
+.form_control small {
+  position: absolute;
+  top: 100%;
+  color: rgb(199, 55, 0);
+  left: 0;
+  margin-top: 5px;
+}

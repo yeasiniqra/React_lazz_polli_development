@@ -1,0 +1,40 @@
+.form_control {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form_control label {
+  margin: 0;
+  font-weight: 500;
+  width: 100%;
+  color: var(--text);
+}
+
+.form_control__label {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.form_control__label__option {
+  color: rgb(170, 170, 170);
+  font-size: 12px;
+}
+
+.form_control textarea {
+  border-radius: 4px;
+  /* padding: 8px; */
+}
+
+/* .form_control textarea:focus {
+  padding: 8px;
+} */
+
+
+.form_control small {
+  position: absolute;
+  top: 92%;
+  color: rgb(199, 55, 0);
+  left: 0;
+}
