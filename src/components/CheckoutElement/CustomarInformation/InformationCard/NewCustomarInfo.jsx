@@ -8,6 +8,7 @@ import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
 
 const NewCustomarInfo = () => {
+   //form validations State
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ const NewCustomarInfo = () => {
     });
   };
 
-  //form validations code
+  //form validations handeler
   const fnameChangeHandler = (fname) => {
     setFname(fname);
   };
@@ -340,11 +341,11 @@ const NewCustomarInfo = () => {
                     </Link>
                   </label>
                 </p>
-                <div className="book_table_item dtl-btn">
+                <div onClick={submitHandler} className="book_table_item dtl-btn">
                   <button
                     // data-modal="modal-one"
                     type="button"
-                    onClick={submitHandler}
+                    onClick={checkClickHandler}
                   >
                     Check Out
                   </button>

@@ -2231,7 +2231,7 @@ p.site ul.footer-links li a:before {
   -webkit-box-shadow: 0px 3px 57px 0px rgba(0, 0, 0, 0.18);
   box-shadow: 0px 3px 57px 0px rgba(0, 0, 0, 0.18);
   clear: both;
-  padding: 28px 40px 35px 32px;
+  padding: 28px 40px 13px 32px;
   margin-top: -25px !important;
   z-index: 20;
   position: relative;
@@ -2299,7 +2299,7 @@ p.site ul.footer-links li a:before {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-  margin-top: 20px;
+  margin-top: -10px;
 }
 
 .book_table_item>button:hover {
@@ -4094,4 +4094,13 @@ textarea:focus {
   font-size: 14px;
   position: relative;
   top: -10px;
+}
+
+.book_table_item span {
+  font-weight: 500;
+}
+
+
+.book_table_item.disable-input-append {
+  margin-top: -25px;
 }

@@ -33,6 +33,7 @@ const ExistingCustomarInfo = () => {
   const sendOnClickedHandler = (evt) => {
     setBtnClicked(true)
     evt.preventDefault();
+    console.log(phone)
   }
 
   return (

@@ -81,6 +81,7 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  color: #923131;
 }
 
 .options {

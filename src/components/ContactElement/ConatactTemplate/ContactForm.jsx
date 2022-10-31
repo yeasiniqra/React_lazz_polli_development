@@ -93,6 +93,12 @@ const ContactForm = () => {
       const sendOnClickedHandler = (evt) => {
         setClicked(true);
         evt.preventDefault();
+        console.log({
+          name : name,
+          email : email,
+          phone : phone,
+          message : message,
+        })
       }
   
 

@@ -5,13 +5,22 @@ import App from "./App";
 import "./responsive.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import "../node_modules/font-awesome/css/font-awesome.min.css";
+import CartContextProvider from "./store/CartContextProvider";
+import CheckOutContextProvider from "./store/CheckOutContextProvider";
+import AppContextProvider from "./store/AppContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AppContextProvider>
+        <CartContextProvider>
+          <CheckOutContextProvider>
+            <App />
+          </CheckOutContextProvider>
+        </CartContextProvider>
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

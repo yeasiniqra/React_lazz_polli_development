@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import career from '../../../images/career.jpg' 
 import OppertunityTem from './OppertunityTem';
 
@@ -9,6 +10,22 @@ const CareerContentTemplate = () => {
     }
 
     const {title, subTitle} = careerContent;
+
+
+    const [file, setFile] = useState('')
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const file = form.file.value;
+
+        setFile(file)
+        
+        // console.log(file)
+    }
+
+    console.log(file)
+
     return (
         <>
         <section className="career-page-area">
@@ -19,9 +36,9 @@ const CareerContentTemplate = () => {
                         <span>{subTitle}</span>
 
                         <div className="career-form">
-                            <form id="resume-form">
+                            <form onSubmit={submitHandler} id="resume-form">
                                 <div className="custom-inputs">
-                                    <input name="resume" type="file" className="custom-file-input" id="customFileLangHTML resume" />
+                                    <input name="file" type="file" className="custom-file-input" id="customFileLangHTML resume" />
                                     <label className="custom-file-label" htmlFor="customFileLangHTML" data-browse="Bestand kiezen"></label><label></label>
                                     <button type="submit">
                                         Send
@@ -32,7 +49,7 @@ const CareerContentTemplate = () => {
                         </div>
                     </div>
                     <div className="drop-cv-right">
-                        <img src={career} alt="career Images" />
+                        <img src={career} alt="number one resort bangladesh" />
                     </div>
                 </div>
             </div>

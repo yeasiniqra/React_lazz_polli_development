@@ -7,32 +7,33 @@ const Review = () => {
   const [clicked, setClicked] = useState(false);
 
   //email state
-  const [email, setEmail] = useState("");
-  const [emaileIsTouched, setEmaileIsTouched] = useState(false);
-  const [emailIsValid, setEmailIsValid] = useState(false);
+  const [review, setReview] = useState("");
+  const [reviewIsTouched, setReviewIsTouched] = useState(false);
+  const [reviewIsValid, setReviewIsValid] = useState(false);
 
   //email functions
-  const emailOnChangeHandeler = ({ target }) => {
-    setEmail(target.value);
+  const reviewOnChangeHandeler = ({ target }) => {
+    setReview(target.value);
   };
-  const emailTouchedHandeler = () => {
-    setEmaileIsTouched(true);
+  const reviewTouchedHandeler = () => {
+    setReviewIsTouched(true);
   };
 
   useEffect(() => {
     if (clicked) {
       if (
-        (emaileIsTouched && email.length === 0) ||
-        (!emaileIsTouched && email.length === 0)
+        (reviewIsTouched && review.length === 0) ||
+        (!reviewIsTouched && review.length === 0)
       ) {
-        setEmailIsValid(true);
+        setReviewIsValid(true);
       }
-    } else setEmailIsValid(false);
-  }, [email.length, emaileIsTouched, clicked]);
+    } else setReviewIsValid(false);
+  }, [review.length, reviewIsTouched, clicked]);
 
   const sendOnClickedHandler = (evt) => {
     setClicked(true);
     evt.preventDefault();
+    console.log(review)
   };
 
   return (
@@ -47,15 +48,15 @@ const Review = () => {
                 name=""
                 id="ename"
                 placeholder="Write Review...."
-                value={email} 
-                onChange={emailOnChangeHandeler} 
-                onBlur={emailTouchedHandeler}
+                value={review} 
+                onChange={reviewOnChangeHandeler} 
+                onBlur={reviewTouchedHandeler}
               />
             </div>
-            {emailIsValid && (
+            {reviewIsValid && (
               <div className="alert alert-error">Is required.</div>
            )}
-            {emailIsValid && email.length === 0 && !emailIsValid && (
+            {reviewIsValid && review.length === 0 && !reviewIsValid && (
               <div className="alert alert-error">Is required.</div>
             )}
             <div className="book_table_item dtl-btn">

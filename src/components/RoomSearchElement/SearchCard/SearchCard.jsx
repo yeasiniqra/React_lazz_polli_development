@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import cartContext from '../../../store/cart-context';
 
 const SearchCard = ({item}) => {
+    const { storeRoom } = useContext(cartContext);
     const [count, setCount] = useState(1);
     const IncOnClickedHandler = () => setCount(count + 1);
     const DecOnClickedHandler = () => setCount (count - 1);
 
     const [isActive, setActive] = useState();
+
     const toggleClass = () => {
-        setActive(!isActive)
+        setActive(!isActive);
+        storeRoom({item});
     };
 
     return (
@@ -28,8 +32,12 @@ const SearchCard = ({item}) => {
                     </div>
                     <div className="sp-right">
                         <h4>BDT <span>{item.amount}</span></h4>
-                        <small>{item.priceNight} </small>
-                        <small> {item.adults}  </small>
+                        <small> Price for {item.priceNight} Night </small>
+                        <div className='card-adults'>
+                            <small> {item.adults}  Adults</small>
+                            <small> {item.child}  Child</small>
+                            <small> {item.room}  Room</small>
+                        </div>
                     </div>
                 </div>
                 <div className="common-btn book-search-btn">

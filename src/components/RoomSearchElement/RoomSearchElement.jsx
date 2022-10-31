@@ -20,13 +20,21 @@ const RoomSearchElement = () => {
                             <div className="search-room-main-items-grid">
                                 {
                                    searchService.map( (item, index) =>
-                                   <SearchCard item={item} key={index} />
+                                   <SearchCard 
+                                   item={item} 
+                                   key={index} />
+                                   
                                    ) 
                                 }
                             </div>
                          </div>
                     </div>
-                    <BookingSummary />
+                    <div className="room-search-cart-right">
+                         <div className="shopping-cart">
+                            <h4>Booking Summary</h4>
+                            <BookingSummary />
+                        </div>
+                    </div>        
                 </div>
             </div>
          </section>
