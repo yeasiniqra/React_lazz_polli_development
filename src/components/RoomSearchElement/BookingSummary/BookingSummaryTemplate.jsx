@@ -1,15 +1,14 @@
 import React from 'react';
+import { humanizeDate } from '../../../lib/utils';
+
 
 const BookingSummaryTemplate = ({summeryItem,removeClickHandler}) => {
-        //get current date
-        const today = new Date(),
-        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     return (
         <>
             <div className="summery-main-grid">
                     <div className="smy-date">
-                        <span> Dates : <small>{date}</small> - <small>{date}</small> </span>
+                        <span> Dates : <small>{humanizeDate(summeryItem.arrivalDate)}</small> - <small>{humanizeDate(summeryItem.departureDate)}</small> </span>
                     </div>
                     <div className="smy-date">
                         <span> Night : <small>{summeryItem.priceNight}</small></span>
@@ -17,7 +16,7 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler}) => {
                     <div className="super-flex-item">
                         <div className="spk-left">
                             <p>{summeryItem.title}</p>
-                            <p> {summeryItem.adults} Adults {summeryItem.child} Child {summeryItem.room} Room</p>
+                            <p> {summeryItem.adultsCount * summeryItem.quantity} Adults {summeryItem.childrenCount * summeryItem.quantity} Child {summeryItem.room * summeryItem.quantity} Room</p>
                             <button><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                         </div>
                         <div className="spk-right">

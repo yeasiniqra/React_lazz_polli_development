@@ -18,19 +18,21 @@ const SearchRoomFilter = () => {
   const [depdate, setDepdate] = useState("");
   const [adults, setAdults] = useState({});
   const [children, setChildren] = useState({});
+  const [startDate, setStartDate] = useState(null);
 
-  const arrdateChangeHandler = (arrdate) => {
-    setArrdate(arrdate);
-  };
+  // const arrdateChangeHandler = (arrdate) => {
+  //   setArrdate(arrdate);
+  // };
+
   const depdateChangeHandler = (depdate) => {
     setDepdate(depdate);
   };
 
 
   const arrivalBlurHandler = (time, x) => {
-    console.log({time, x});
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
+    setArrdate(time);
   }
   
   const depdateBlurHandler = (dtime) => {
@@ -47,8 +49,6 @@ const SearchRoomFilter = () => {
     storeFilters({...filters, childrenCount : fchild.children})
     setChildren(fchild);
   }
-
-
 
 
   const submitHandler = () => {
@@ -72,7 +72,7 @@ const SearchRoomFilter = () => {
     });
   };
 
-  const [startDate, setStartDate] = useState(null);
+  
 
 
   return (
@@ -97,15 +97,6 @@ const SearchRoomFilter = () => {
                     placeholderText = "mm/dd/yyyy"
                     //onBlur={arrivalBlurHandler}
                   />
-
-                  {/* <Input
-                    onChange={arrdateChangeHandler}
-                    value={arrdate}
-                    name="setTodaysDate"
-                    required
-                    type={"date"}
-                    onBlur={arrivalBlurHandler}
-                  /> */}
                   <button className="add-on" type="button">
                     <i className="fa fa-calendar" aria-hidden="true"></i>
                   </button>

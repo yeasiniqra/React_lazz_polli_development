@@ -1,6 +1,7 @@
 import { createContext } from "react";
 
 const appContext = createContext({
+  
   storeFilters: ({
     arrivalDate,
     departureDate,

@@ -3,8 +3,10 @@ import { createContext } from "react";
 const cartContext = createContext({
     rooms: [],
     isInitiating: true,
-    storeRoom: (room) => {},
-    removeRoom: (room) => {}
+    totalAmount: 0,
+    storeRoom: (room, quantity) => {},
+    removeRoom: (room) => {},
+    getQuantity: (id) => {}
 });
 
 export default cartContext;

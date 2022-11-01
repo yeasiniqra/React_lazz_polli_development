@@ -854,7 +854,6 @@ const APP_DATA = {
             room : 1,
             btnLink : '#',
             btnText : 'Book Room',
-            overlyBtn : 'Item Add',
             quantity : 0
         },
         {
@@ -872,7 +871,6 @@ const APP_DATA = {
             room : 1,
             btnLink : '#',
             btnText : 'Book Room',
-            overlyBtn : 'Item Add',
             quantity : 0
         },
         {
@@ -890,7 +888,6 @@ const APP_DATA = {
             room : 1,
             btnLink : '#',
             btnText : 'Book Room',
-            overlyBtn : 'Item Add',
             quantity : 0
         },
         {
@@ -908,7 +905,6 @@ const APP_DATA = {
             room : 1,
             btnLink : '#',
             btnText : 'Book Room',
-            overlyBtn : 'Item Add',
             quantity : 0
         },
     ],

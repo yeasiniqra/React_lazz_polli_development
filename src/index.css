@@ -1960,7 +1960,7 @@ p.site ul.footer-links li a:before {
 
 .room-search-area {
   padding: 50px 0px;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #fff;
 }
 
@@ -2470,12 +2470,21 @@ p.site ul.footer-links li a:before {
   opacity: 0;
   visibility: hidden;
   border: 2px solid var(--secundery-color);
+  width: 139px;
+  display: none;
 }
 
 .add-tocart-overlay.show {
   opacity: 1;
   visibility: visible;
   transition: 0.4s;
+  display: block;
+}
+
+.qty-holder2 aside small {
+  background: #2b2a2a;
+  padding: 10px 28px;
+ 
 }
 
 .inner-card-flex {
@@ -2506,6 +2515,8 @@ p.site ul.footer-links li a:before {
 
 .qty-inc-btn2 {
   padding-left: 0px;
+  position: relative;
+    right: 5px;
 }
 
 .qty-holder2>aside {
@@ -2518,7 +2529,7 @@ p.site ul.footer-links li a:before {
 .qty-holder2>aside>small {
   font-weight: bold;
   color: #fff;
-  padding-right: 4px;
+  /* padding-right: 4px; */
 }
 
 .room-search-cart-right {
@@ -2526,6 +2537,9 @@ p.site ul.footer-links li a:before {
   padding: 10px;
   /* max-height: 276px;
   overflow-y: scroll; */
+  position: sticky;
+  top: 100px;
+  align-self: self-start;
 }
 
 .shopping-cart h4 {

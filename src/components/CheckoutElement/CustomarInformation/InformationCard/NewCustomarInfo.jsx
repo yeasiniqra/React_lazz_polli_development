@@ -1,13 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { countries } from "../../../../data/countries";
+import checkoutContext from "../../../../store/checkout-context";
 import Alert from "../../../Sheared/alert/Alert";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
 
 const NewCustomarInfo = () => {
+
+  const {formValus, storeForms} = useContext(checkoutContext)
+ 
+
+
+
    //form validations State
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
@@ -25,6 +34,107 @@ const NewCustomarInfo = () => {
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
 
+  
+  //form validations handeler
+  const fnameChangeHandler = (fname) => {
+    setFname(fname);
+    storeForms({...formValus, firstName : fname})
+
+  };
+  const lnameChangeHandler = (lname) => {
+    setLname(lname);
+    storeForms({...formValus, lastName : lname})
+  };
+
+  const genderChangeHandler = (gender) => {
+    setGender(gender);
+    storeForms({...formValus, gender: gender})
+  };
+
+  const emailChangeHandler = (email) => {
+    setEmail(email);
+    storeForms({...formValus, email: email})
+  };
+
+  const phoneChangeHandler = (phone) => {
+    setPhone(phone);
+    storeForms({...formValus, phone: phone})
+  };
+
+  const countryChangeHandler = (country) => {
+    setCountry(country);
+    storeForms({...formValus, country: country})
+  };
+
+  const cityChangeHandler = (city) => {
+    setCity(city);
+    storeForms({...formValus, city: city})
+  };
+
+  const mstateChangeHandler = (mstate) => {
+    setMstate(mstate);
+    storeForms({...formValus, state: mstate})
+  };
+
+  const pcodeChangeHandler = (pcode) => {
+    setPcode(pcode);
+    storeForms({...formValus, postalCode: pcode})
+  };
+
+  const faxChangeHandler = (fax) => {
+    setFax(fax);
+    storeForms({...formValus, fax: fax})
+  };
+
+  const addressChangeHandler = (address) => {
+    setAddress(address);
+    storeForms({...formValus, address: address})
+  };
+
+  const identityChangeHandler = (identity) => {
+    setIdentity(identity);
+    storeForms({...formValus, identity: identity})
+  };
+
+  const idnumChangeHandler = (idnum) => {
+    setIdNum(idnum);
+    storeForms({...formValus, no: idnum})
+  };
+
+  const expDateChangeHandler = (expDate) => {
+    setExpDate(expDate);
+    storeForms({...formValus, expiryDate: expDate})
+  };
+  const dobChangeHandler = (dob) => {
+    setDob(dob);
+    storeForms({...formValus, dateOfBirth: dob})
+  };
+ 
+
+  useEffect(() => {
+    setFname(formValus.firstName);
+    setLname(formValus.lastName);
+    setGender(formValus.gender);
+    setEmail(formValus.email);
+    setPhone(formValus.phone);
+    setCountry(formValus.country);
+    setCity(formValus.city);
+    setMstate(formValus.state);
+    setPcode(formValus.postalCode);
+    setFax(formValus.fax);
+    setAddress(formValus.address);
+    setIdentity(formValus.identity);
+    setIdNum(formValus.no);
+    setExpDate(formValus.expiryDate);
+    setDob(formValus.dateOfBirth)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
+
+
+  //start alert for submit
+
   const [alert, setAlert] = useState({ show: false, text: "" });
 
   const alertCloseHandler = () => {
@@ -38,96 +148,68 @@ const NewCustomarInfo = () => {
     });
   };
 
-  //form validations handeler
-  const fnameChangeHandler = (fname) => {
-    setFname(fname);
-  };
-  const lnameChangeHandler = (lname) => {
-    setLname(lname);
-  };
-  const emailChangeHandler = (email) => {
-    setEmail(email);
-  };
-  const phoneChangeHandler = (phone) => {
-    setPhone(phone);
-  };
+  //End alert for submit
 
-  const cityChangeHandler = (city) => {
-    setCity(city);
-  };
-  const mstateChangeHandler = (mstate) => {
-    setMstate(mstate);
-  };
-  const pcodeChangeHandler = (pcode) => {
-    setPcode(pcode);
-  };
-  const faxChangeHandler = (fax) => {
-    setFax(fax);
-  };
-  const addressChangeHandler = (address) => {
-    setAddress(address);
-  };
-  const idnumChangeHandler = (idnum) => {
-    setIdNum(idnum);
-  };
-
-  const countryChangeHandler = (country) => {
-    setCountry(country);
-  };
-
-  const expDateChangeHandler = (expDate) => {
-    setExpDate(expDate);
-  };
-  const dobChangeHandler = (dob) => {
-    setDob(dob);
-  };
-  const identityChangeHandler = (identity) => {
-    setIdentity(identity);
-  };
-  const genderChangeHandler = (gender) => {
-    setGender(gender);
-  };
+  
 
   const submitHandler = () => {
+
     const errors = [];
 
-    if (fname.length < 1) errors.push("First Name");
-    if (lname.length < 1) errors.push("Last Name");
-    if (!!!gender.id) errors.push("Gender");
-    if (!!!country.name) errors.push("Country");
-    if (!!!identity.id) errors.push("identity");
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
-      errors.push("Email");
-    if (phone.length !== 11) errors.push("phone");
-    if (city.length < 1) errors.push("city");
-    if (mstate.length < 1) errors.push("State");
-    if (pcode.length < 1) errors.push("Postal Code");
-    if (fax.length < 1) errors.push("fax");
-    if (address.length === 0) errors.push("Address");
-    if (idNum.length === 0) errors.push("No");
-    if (dob.length === 0) errors.push("Dath of Birth");
+    // if (fname.length < 1) errors.push("First Name");
+    // if (lname.length < 1) errors.push("Last Name");
+    // if (!!!gender.id) errors.push("Gender");
+    // if (!!!country.name) errors.push("Country");
+    // if (!!!identity.id) errors.push("identity");
+    // if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    //   errors.push("Email");
+    // if (phone.length !== 11) errors.push("phone");
+    // if (city.length < 1) errors.push("city");
+    // if (mstate.length < 1) errors.push("State");
+    // if (pcode.length < 1) errors.push("Postal Code");
+    // if (fax.length < 1) errors.push("fax");
+    // if (address.length === 0) errors.push("Address");
+    // if (idNum.length === 0) errors.push("No");
+    // if (dob.length === 0) errors.push("Dath of Birth");
 
     if (errors.length !== 0) {
       console.log(errors.join(", ") + " Are Required");
       return false;
     }
 
+  
+
     console.log({
-      fname: fname,
-      lname: lname,
-      gender: gender,
-      expDate: expDate,
-      email: email,
-      phone: phone,
-      city: city,
-      mstate: mstate,
-      pcode: pcode,
-      fax: fax,
-      address: address,
-      idNum: idNum,
-      country: country,
-      identity: identity,
+      // fname: fname,
+      // lname: lname,
+      // gender: gender,
+      // expDate: expDate,
+      // email: email,
+      // phone: phone,
+      // city: city,
+      // mstate: mstate,
+      // pcode: pcode,
+      // fax: fax,
+      // address: address,
+      // idNum: idNum,
+      // country: country,
+      // identity: identity,
     });
+    setFname('');
+    setLname('')
+    setEmail('')
+    setPhone('')
+    setCity('')
+    setMstate('')
+    setPcode('')
+    setFax('')
+    setAddress('')
+    setIdNum('')
+    setCountry('{}')
+    setExpDate('')
+    setDob('')
+    setIdentity('{}')
+    setGender('{}')
   };
 
   return (

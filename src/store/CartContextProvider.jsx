@@ -7,21 +7,67 @@ import cartContext from "./cart-context";
 const initialState = {
   rooms: [],
   isInitiating: true,
+  totalAmount: 0,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case CONTEXT_KEYS.CART_STORE_ROOM:
-      return {
+    case CONTEXT_KEYS.CART_STORE_ROOM: {
+      const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id);
+
+      const amount = action.quantity * action.room.amount;
+      
+      let newRooms = state.rooms;
+
+      if (!roomFromStore)
+        newRooms = [
+          ...newRooms,
+          { ...action.room, quantity: 1, amount: action.room.amount },
+        ];
+      else {
+        newRooms = newRooms.map((r) => {
+          if (r.Id === action.room.Id) {
+            return {
+              ...r,
+              amount,
+              quantity: action.quantity,
+            };
+          } 
+
+          return r;
+        });
+      }
+
+      let totalAmount = 0;
+      newRooms.forEach((r) => (totalAmount += r.amount));
+
+      const newState = {
         ...state,
-        rooms: [...state.rooms, action.room],
+        rooms: newRooms,
+        totalAmount: totalAmount,
       };
 
-    case CONTEXT_KEYS.CART_REMOVE_ROOM:
-      return {
+      localStorage.setItem(LOCAL_STORAGE_KEY.CART, JSON.stringify(newState));
+
+      return newState;
+    }
+
+    case CONTEXT_KEYS.CART_REMOVE_ROOM: {
+      const newRooms = [...state.rooms.filter((r) => action.id !== r.Id)];
+
+      let totalAmount = 0;
+      newRooms.forEach((r) => (totalAmount += r.amount));
+
+      const newState = {
         ...state,
-        rooms: [...state.rooms.filter((r) => action.id !== r.Id)],
+        rooms: newRooms,
+        totalAmount: totalAmount,
       };
+
+      localStorage.setItem(LOCAL_STORAGE_KEY.CART, JSON.stringify(newState));
+
+      return newState;
+    }
 
     case CONTEXT_KEYS.CART_INITIATED:
       return {
@@ -57,21 +103,28 @@ const CartContextProvider = ({ children }) => {
 
     dispatch({ type: CONTEXT_KEYS.CART_INITIATED });
   }, []);
-  
 
-  const storeRoom = (room) => {
-    dispatch({ type: CONTEXT_KEYS.CART_STORE_ROOM, room });
+  const storeRoom = (room, quantity = 1) => {
+    dispatch({ type: CONTEXT_KEYS.CART_STORE_ROOM, room, quantity });
   };
- 
+
   const removeRoom = (room) => {
     dispatch({ type: CONTEXT_KEYS.CART_REMOVE_ROOM, id: room.Id });
+  };
+
+  const getQuantity = (id) => {
+    const room = state.rooms.find((r) => r.Id === id);
+
+    return room ? room.quantity : 0;
   };
 
   const context = {
     rooms: state.rooms,
     isInitiating: state.isInitiating,
+    totalAmount: state.totalAmount,
     storeRoom,
     removeRoom,
+    getQuantity,
   };
 
   return (
