@@ -4,12 +4,12 @@ import { useState } from "react";
 import commonBg from "../../../images/room.jpg";
 import appContext from "../../../store/app-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
-import Input from "../../Sheared/Input/Input";
+// import Input from "../../Sheared/Input/Input";
 
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 
+const today = new Date();
 
 const SearchRoomFilter = () => {
   const { filters, storeFilters } = useContext(appContext);
@@ -18,14 +18,17 @@ const SearchRoomFilter = () => {
   const [depdate, setDepdate] = useState("");
   const [adults, setAdults] = useState({});
   const [children, setChildren] = useState({});
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date().setDate(today.getDate() + 1));
 
   // const arrdateChangeHandler = (arrdate) => {
   //   setArrdate(arrdate);
   // };
 
   const depdateChangeHandler = (depdate) => {
-    setDepdate(depdate);
+    setDepdate(depdate)
+    storeFilters({...filters, departureDate : depdate})
+    setEndDate(depdate)
   };
 
 
@@ -34,10 +37,16 @@ const SearchRoomFilter = () => {
     storeFilters({...filters, arrivalDate: time});
     setArrdate(time);
   }
+
+  // const depdateBlurHandler = (dtime) => {
+  //   setDepdate(dtime)
+  //   storeFilters({...filters, departureDate : dtime})
+  //   setEndDate(dtime)
+  // }
   
-  const depdateBlurHandler = (dtime) => {
-    storeFilters({...filters, departureDate : dtime})
-  }
+  // const depdateBlurHandler = (dtime) => {
+  //   storeFilters({...filters, departureDate : dtime})
+  // }
 
   const adultsBlurHandler = (fadults) => {
     storeFilters({...filters, adultsCount : fadults.adults});
@@ -61,6 +70,7 @@ const SearchRoomFilter = () => {
 
     if (errors.length !== 0) {
       console.log(errors.join(", ") + " Are Required");
+      alert(`${errors.join(", ")} Are Required`)
       return false;
     }
 
@@ -82,6 +92,7 @@ const SearchRoomFilter = () => {
     >
       <div className="container">
         <div className="hotel-booking-search">
+    
           <form name="hb-search-form" action="">
             <div className="book_table_inner">
             
@@ -92,29 +103,43 @@ const SearchRoomFilter = () => {
                     selected={startDate}
                     onChange={arrivalBlurHandler}
                     minDate={new Date()}
-                    // maxDate={addMonths(new Date(), 5)}
                     showDisabledMonthNavigation
-                    placeholderText = "mm/dd/yyyy"
-                    //onBlur={arrivalBlurHandler}
+                    placeholderText = "dd/mm/yyyy"
+                    monthsShown={2}
+                    showTimeSelect
+                    showYearDropdown
                   />
-                  <button className="add-on" type="button">
-                    <i className="fa fa-calendar" aria-hidden="true"></i>
-                  </button>
+                  <div className="claender-btn">
+                    <div className="add-on">
+                       <i className="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="book_table_item">
+              <div className="book_table_item disable-input-append">
                 <span>Departure Date</span>
                 <div className="input-append">
-                  <Input
+                <DatePicker
+                    selected={endDate}
+                    onChange={depdateChangeHandler}
+                    showDisabledMonthNavigation
+                    placeholderText = "mm/dd/yyyy"
+                    monthsShown={2}
+                    showTimeSelect
+                    showYearDropdown
+                  />
+                  {/* <Input
                     onChange={depdateChangeHandler}
                     value={depdate}
                     required
                     type={"date"}
                     onBlur={depdateBlurHandler}
-                  />
-                  <button className="add-on" type="button">
-                    <i className="fa fa-calendar" aria-hidden="true"></i>
-                  </button>
+                  /> */}
+                  <div className="claender-btn">
+                    <div className="add-on">
+                       <i className="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="book_table_item">

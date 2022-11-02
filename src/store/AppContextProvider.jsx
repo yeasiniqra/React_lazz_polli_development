@@ -1,13 +1,16 @@
 import React from "react";
 import { useReducer } from "react";
+import { humanizeDate } from "../lib/utils";
 import appContext from "./app-context";
+
+const today = new Date()
 
 const initialState = {
   filters: {
-    arrivalDate: new Date(),
-    departureDate: new Date(),
+    arrivalDate: humanizeDate(new Date()),
+    departureDate: humanizeDate(new Date().setDate(today.getDate() + 1)),
     adultsCount: 1,
-    childrenCount: 0,
+    childrenCount: 1,
   },
 };
 

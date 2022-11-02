@@ -1,4 +1,7 @@
 import { createContext } from "react";
+import { humanizeDate } from "../lib/utils";
+
+const today = new Date()
 
 const appContext = createContext({
   
@@ -9,10 +12,10 @@ const appContext = createContext({
     childrenCount,
   }) => {},
   filters: {
-    arrivalDate: new Date(),
-    departureDate: new Date(),
+    arrivalDate: humanizeDate(new Date()),
+    departureDate: humanizeDate(new Date().setDate(today.getDate() + 1)),
     adultsCount: 1,
-    childrenCount: 0,
+    childrenCount: 1,
   },
 });
 

@@ -2270,7 +2270,7 @@ p.site ul.footer-links li a:before {
   border-radius: 5px;
 }
 
-.input-append button {
+/* .input-append button {
   position: absolute;
   top: 4px;
   right: 4px;
@@ -2278,11 +2278,38 @@ p.site ul.footer-links li a:before {
   background: #fff;
   border: none;
   padding: 8px;
-}
+} */
 
-.input-append {
+.claender-btn {
   position: relative;
 }
+
+.add-on {
+  position: absolute;
+  top: -36px;
+  right: 5px;
+  pointer-events: none;
+  background: #fff;
+  border: none;
+  padding: 8px;
+}
+
+
+.react-datepicker__time-container {
+  float: right;
+  border-left: 1px solid #aeaeae;
+  width: 85px;
+  display: none !important;
+}
+
+.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {
+  right: 0px !important;
+}
+
+
+/* .input-append {
+  position: relative;
+} */
 
 .book_table_item>button {
   text-align: center;
@@ -2441,6 +2468,16 @@ p.site ul.footer-links li a:before {
 
 .search-room-content .common-btn {
   position: relative;
+  height: 45px;
+}
+
+.room-book-summery {
+  max-height: 435px;
+  overflow: auto;
+}
+
+h4.roomNight {
+  font-size: 14px;
 }
 
 .book-search-btn>a {
@@ -4117,4 +4154,35 @@ textarea:focus {
 
 .book_table_item.disable-input-append {
   margin-top: -25px;
+}
+
+.room-book-summery h2 {
+  font-size: 15px;
+} 
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: #212121;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0px;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: -50px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  transition: 0.5s;
 }
