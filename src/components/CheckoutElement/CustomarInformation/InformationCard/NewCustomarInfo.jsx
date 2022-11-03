@@ -11,13 +11,9 @@ import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
 
 const NewCustomarInfo = () => {
+  const { formValus, storeForms } = useContext(checkoutContext);
 
-  const {formValus, storeForms} = useContext(checkoutContext)
- 
-
-
-
-   //form validations State
+  //form validations State
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -33,83 +29,86 @@ const NewCustomarInfo = () => {
   const [dob, setDob] = useState("");
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
+  const [otp, setOtp] = useState({});
 
-  
   //form validations handeler
   const fnameChangeHandler = (fname) => {
     setFname(fname);
-    storeForms({...formValus, firstName : fname})
-
+    storeForms({ ...formValus, firstName: fname });
   };
   const lnameChangeHandler = (lname) => {
     setLname(lname);
-    storeForms({...formValus, lastName : lname})
+    storeForms({ ...formValus, lastName: lname });
   };
 
   const genderChangeHandler = (gender) => {
     setGender(gender);
-    storeForms({...formValus, gender: gender})
+    storeForms({ ...formValus, gender: gender });
   };
 
   const emailChangeHandler = (email) => {
     setEmail(email);
-    storeForms({...formValus, email: email})
+    storeForms({ ...formValus, email: email });
   };
 
   const phoneChangeHandler = (phone) => {
     setPhone(phone);
-    storeForms({...formValus, phone: phone})
+    storeForms({ ...formValus, phone: phone });
   };
 
   const countryChangeHandler = (country) => {
     setCountry(country);
-    storeForms({...formValus, country: country})
+    storeForms({ ...formValus, country: country });
   };
 
   const cityChangeHandler = (city) => {
     setCity(city);
-    storeForms({...formValus, city: city})
+    storeForms({ ...formValus, city: city });
   };
 
   const mstateChangeHandler = (mstate) => {
     setMstate(mstate);
-    storeForms({...formValus, state: mstate})
+    storeForms({ ...formValus, state: mstate });
   };
 
   const pcodeChangeHandler = (pcode) => {
     setPcode(pcode);
-    storeForms({...formValus, postalCode: pcode})
+    storeForms({ ...formValus, postalCode: pcode });
   };
 
   const faxChangeHandler = (fax) => {
     setFax(fax);
-    storeForms({...formValus, fax: fax})
+    storeForms({ ...formValus, fax: fax });
   };
 
   const addressChangeHandler = (address) => {
     setAddress(address);
-    storeForms({...formValus, address: address})
+    storeForms({ ...formValus, address: address });
   };
 
   const identityChangeHandler = (identity) => {
     setIdentity(identity);
-    storeForms({...formValus, identity: identity})
+    storeForms({ ...formValus, identity: identity });
   };
 
   const idnumChangeHandler = (idnum) => {
     setIdNum(idnum);
-    storeForms({...formValus, no: idnum})
+    storeForms({ ...formValus, no: idnum });
   };
 
   const expDateChangeHandler = (expDate) => {
     setExpDate(expDate);
-    storeForms({...formValus, expiryDate: expDate})
+    storeForms({ ...formValus, expiryDate: expDate });
   };
   const dobChangeHandler = (dob) => {
     setDob(dob);
-    storeForms({...formValus, dateOfBirth: dob})
+    storeForms({ ...formValus, dateOfBirth: dob });
   };
- 
+
+  const otpChangeHandler = (otp) => {
+    setOtp(otp);
+    storeForms({ ...formValus, otp: otp });
+  };
 
   useEffect(() => {
     setFname(formValus.firstName);
@@ -126,12 +125,11 @@ const NewCustomarInfo = () => {
     setIdentity(formValus.identity);
     setIdNum(formValus.no);
     setExpDate(formValus.expiryDate);
-    setDob(formValus.dateOfBirth)
+    setDob(formValus.dateOfBirth);
+    setOtp(formValus.otp);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
-
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //start alert for submit
 
@@ -144,16 +142,14 @@ const NewCustomarInfo = () => {
   const checkClickHandler = () => {
     setAlert({
       show: true,
+      btn: "fff",
       text: `Your submission has been received. Your order number is "0070230090". Our agent will call your number "0172000000" to reconfirm.`,
     });
   };
 
   //End alert for submit
 
-  
-
   const submitHandler = () => {
-
     const errors = [];
 
     // if (fname.length < 1) errors.push("First Name");
@@ -177,8 +173,6 @@ const NewCustomarInfo = () => {
       return false;
     }
 
-  
-
     console.log({
       // fname: fname,
       // lname: lname,
@@ -195,21 +189,22 @@ const NewCustomarInfo = () => {
       // country: country,
       // identity: identity,
     });
-    setFname('');
-    setLname('')
-    setEmail('')
-    setPhone('')
-    setCity('')
-    setMstate('')
-    setPcode('')
-    setFax('')
-    setAddress('')
-    setIdNum('')
-    setCountry('{}')
-    setExpDate('')
-    setDob('')
-    setIdentity('{}')
-    setGender('{}')
+    setFname("");
+    setLname("");
+    setEmail("");
+    setPhone("");
+    setCity("");
+    setMstate("");
+    setPcode("");
+    setFax("");
+    setAddress("");
+    setIdNum("");
+    setCountry("{}");
+    setExpDate("");
+    setDob("");
+    setIdentity("{}");
+    setGender("{}");
+    setOtp("");
   };
 
   return (
@@ -266,20 +261,19 @@ const NewCustomarInfo = () => {
                 <div className="customar-dts-from-inner-flex">
                   <div className="custom-input-resort">
                     <Input
-                      label={"Email"}
-                      onChange={emailChangeHandler}
-                      value={email}
-                      placeholder={"Email"}
-                      required
-                    />
-                  </div>
-
-                  <div className="custom-input-resort">
-                    <Input
                       label={"Phone"}
                       onChange={phoneChangeHandler}
                       value={phone}
                       placeholder={"phone"}
+                      required
+                    />
+                  </div>
+                  <div className="custom-input-resort">
+                    <Input
+                      label={"Email"}
+                      onChange={emailChangeHandler}
+                      value={email}
+                      placeholder={"Email"}
                       required
                     />
                   </div>
@@ -409,29 +403,58 @@ const NewCustomarInfo = () => {
                   </div>
                 </div>
 
-                <p className="trams-condition">
-                  <label>
-                    <input
-                      className="trams-checkbox"
-                      type="checkbox"
-                      name="tos"
-                      value="1"
-                    />
-                    I agree with{" "}
-                    <Link to="#" target="_blank">
-                      Terms and Conditions
-                    </Link>
-                  </label>
-                </p>
-                <div onClick={submitHandler} className="book_table_item dtl-btn">
-                  <button
-                    // data-modal="modal-one"
-                    type="button"
-                    onClick={checkClickHandler}
-                  >
-                    Check Out
-                  </button>
-                </div>
+                {phone ? (
+                  <div className="phone-verifaction-sec">
+                    <h2>Verify Phone Number</h2>
+                    <div className="custom-input-resort otp-input">
+                      <Input
+                        label={"Please Enter Your OTP Code"}
+                        onChange={otpChangeHandler}
+                        value={otp}
+                        placeholder={"Otp"}
+                        required
+                      />
+                    </div>
+                    <div className="otp-send">
+                      <span>
+                        Did not get OTP code ? <Link to="/#">Resend</Link>
+                      </span>
+                      <div className="book_table_item dtl-btn">
+                        <button type="button" onClick={checkClickHandler}>
+                          Apply
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="toggle-condition">
+                    <p className="trams-condition">
+                      <label>
+                        <input
+                          className="trams-checkbox"
+                          type="checkbox"
+                          name="tos"
+                          value="1"
+                        />
+                        I agree with{" "}
+                        <Link to="#" target="_blank">
+                          Terms and Conditions
+                        </Link>
+                      </label>
+                    </p>
+                    <div
+                      onClick={submitHandler}
+                      className="book_table_item dtl-btn"
+                    >
+                      <button
+                        // data-modal="modal-one"
+                        type="button"
+                      >
+                        Check Out
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </form>
           </div>

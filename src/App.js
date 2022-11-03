@@ -19,6 +19,11 @@ import CheckoutElement from './components/CheckoutElement/CheckoutElement';
 import ErrorPage from './pages/ErrorPage';
 import SuitsRoom from './pages/SuitsRoom';
 import FullPackage from './components/FullPackage/FullPackage/FullPackage';
+import Profile from './pages/Profile';
+import OrderHistory from './components/Profile/OrderHistory/OrderHistory';
+import Edit from './components/Profile/Edit/Edit';
+
+
 // import { HideInspect } from './lib/Hide';
 
 function App() {
@@ -56,6 +61,10 @@ function App() {
             <Route path="/checkout" element={ <CheckoutElement />} />
             <Route path="/package" element={ <FullPackage />} />
             <Route path="/suits" element={ <SuitsRoom />} />
+            <Route path="/profile" element={ <Profile />} >
+              <Route path="order" element={<OrderHistory />} />
+              <Route path="edit" element={<Edit />} />
+            </Route>
             <Route path="/*" element={<ErrorPage />} />
         </Routes>
       <Footer /> 

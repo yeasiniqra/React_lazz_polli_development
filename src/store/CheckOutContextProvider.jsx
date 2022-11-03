@@ -19,7 +19,8 @@ const initialState = {
         identity : "",
         no : "",
         expiryDate : "",
-        dateOfBirth : "",   
+        dateOfBirth : "",
+        otp : "",     
     }
   };
   

@@ -2284,6 +2284,14 @@ p.site ul.footer-links li a:before {
   position: relative;
 }
 
+.phone-verifaction-sec h2 {
+  font-size: 16px;
+}
+
+.custom-input-resort.otp-input {
+  width: 50%;
+}
+
 .add-on {
   position: absolute;
   top: -36px;
@@ -4185,4 +4193,122 @@ textarea:focus {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   transition: 0.5s;
+}
+
+
+.profile-grid{
+  padding-top: 114px;
+  position: relative;
+
+}
+
+.profile-grid:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 114px;
+  background: rgba(39,36,49,0.8);
+  top: 0;
+  left: 0;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 2fr 9fr;
+  grid-gap: 40px;
+  padding-right: 50px;
+}
+
+.profile-nav {
+  /* background: #3a3f51; */
+  background: #353535;
+  min-height: 100vh;
+}
+
+.profile-img img {
+  width: 90px;
+  height: auto;
+}
+
+.profile-body {
+  box-shadow: 0 0 25px -5px #9e9c9e;
+  margin: 15px 0px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+
+.profile-img {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 2px;
+}
+
+.profile-img h2 {
+  color: #fff;
+  margin: 5px 0px;
+}
+
+.profile-nav-inner {
+  padding-left: 25px;
+}
+
+.profile-nav-inner > ul > li > a {
+  display: block;
+  margin: 25px 0px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.profile-nav-inner > ul > li > a .new-p {
+  margin-right: 10px;
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+}
+
+button.sign-out {
+  background: transparent;
+  border: navajowhite;
+  color: #fff;
+  font-size: 16px;
+  margin-left: -5px;
+  cursor: pointer;
+}
+
+
+
+.order-history-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  margin: 0px 20px;
+}
+
+.order-history-header span {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #212121;
+  flex: 0 0 14%;
+}
+
+.order-history-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px 20px;
+}
+
+.order-history-body small {
+  flex: 0 0 14%;
+  font-weight: 500;
+  font-size: 14px;
+  color: #212121;
+}
+
+.order-history-body-parent .order-history-body:nth-child(2n){
+  background: #ddd;
 }
