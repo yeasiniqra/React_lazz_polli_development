@@ -22,6 +22,9 @@ import FullPackage from './components/FullPackage/FullPackage/FullPackage';
 import Profile from './pages/Profile';
 import OrderHistory from './components/Profile/OrderHistory/OrderHistory';
 import Edit from './components/Profile/Edit/Edit';
+import Auth from './Auth/Auth';
+import Invoice from './components/Profile/Invoice/Invoice';
+
 
 
 // import { HideInspect } from './lib/Hide';
@@ -64,10 +67,12 @@ function App() {
             <Route path="/profile" element={ <Profile />} >
               <Route path="order" element={<OrderHistory />} />
               <Route path="edit" element={<Edit />} />
+              <Route path="inv" element={<Invoice />} />
             </Route>
             <Route path="/*" element={<ErrorPage />} />
         </Routes>
       <Footer /> 
+      <Auth />
     </div>
   );
 }

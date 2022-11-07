@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ProfileInfo from './ProfileInfo';
 
 const ProfileNav = () => {
@@ -24,6 +24,15 @@ const ProfileNav = () => {
                     >
                         <i className="fa fa-pencil-square-o new-p" aria-hidden="true"></i>
                     Edit Profile
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/profile/inv"
+                        className={({ isActive }) => (isActive ? "link-active" : "link")}
+                    >
+                        <i className="fa fa-pencil-square-o new-p" aria-hidden="true"></i>
+                    invoice
                     </NavLink>
                 </li>
                 <button className='sign-out'><i className="fa fa-sign-out" aria-hidden="true"></i> LogOut</button>

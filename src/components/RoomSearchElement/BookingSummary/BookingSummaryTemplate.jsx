@@ -3,7 +3,7 @@ import { humanizeDate } from '../../../lib/utils';
 
 
 const BookingSummaryTemplate = ({summeryItem,removeClickHandler}) => {
-
+    console.log(summeryItem)
     return (
         <>
             <div className="summery-main-grid">

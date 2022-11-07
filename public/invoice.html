@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchase Invoice</title>
+  </head>
+  <style>
+    /* REPORT PAGE STYLES */
+    body {
+      background: rgb(204, 204, 204);
+      text-transform: capitalize;
+      box-sizing: border-box;
+    }
+    page {
+      background: white;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0.5cm;
+      /* box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); */
+    }
+    page[size="A4"] {
+      height: 297mm;
+      width: 210mm;
+    }
+    @media print {
+      body,
+      page {
+        margin: 0;
+        box-shadow: 0;
+      }
+    }
+    /* INVOICE STYLES */
+    html {
+      font-size: 14px;
+    }
+    .invoice * {
+      margin: 0;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .sheet {
+      padding: 0.5in;
+    }
+    .invoice strong {
+      font-weight: 500;
+    }
+    .invoice h1 {
+      font-size: 1.75rem;
+      text-decoration: underline;
+      text-align: center;
+      margin: 1rem 0 2rem 0;
+    }
+    .invoice__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .table-grid > tr {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      place-items: inherit;
+    }
+    .invoice__top img {
+      width: 200px;
+    }
+    .invoice__top h2 {
+      font-size: 1.6rem;
+    }
+    .general-info {
+      padding: 0.25rem;
+      background: #f5f5f5;
+      border-radius: 0.25rem;
+    }
+    .invoice__top table {
+      width: 100%;
+    }
+    .invoice__top td:nth-child(2n + 1) {
+      padding-right: 0.5rem;
+      padding-bottom: 0.25rem;
+      text-align: right;
+    }
+    .invoice__top td:nth-child(2n) {
+      padding-left: 0.5rem;
+      text-align: left;
+    }
+    .invoice-mid {
+      min-width: 100%;
+      max-width: 100%;
+      background: #f5f5f5;
+      padding-left: 0.25rem;
+      margin-bottom: 2rem;
+    }
+    .invoice-mid table {
+      min-width: 100%;
+      max-width: 100%;
+      width: 100%;
+    }
+    .invoice-mid table,
+    .invoice-mid td,
+    .invoice-mid th {
+      border: 1px solid rgba(0, 0, 0, 0.26);
+      border-collapse: collapse;
+    }
+    .invoice-mid table tr th {
+      /* text-align: center; */
+      font-weight: 500;
+      padding: 0.25rem 1rem;
+    }
+    .invoice-mid table tr td {
+      padding: 0.25rem 1rem;
+    }
+    .invoice__bottom {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: end;
+    }
+    .invoice__bottom table td,
+    .invoice__bottom table {
+      border-collapse: collapse;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      text-align: left;
+    }
+    .invoice__bottom table td {
+      padding: 0.25rem 2rem;
+    }
+    .cross {
+      text-decoration: line-through;
+      font-size: 12px;
+    }
+    .right {
+      text-align: right;
+    }
+    .no-wrap {
+      white-space: nowrap;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <page size="A4" class="sheet invoice">
+      <h1>Purchase Invoice</h1>
+      <div class="invoice__top">
+        <div>
+          <img src="/logo-black.png" alt="logo" class="logo" />
+          <div>
+            <h2>Lazz Pharma Limited</h2>
+            <address>
+              Lazz Center, 63/C, Lake Circus, Kalabagan<br />West Panthapath,
+              Dhaka
+            </address>
+          </div>
+        </div>
+        <div class="general-info">
+          <table>
+            <tbody class="table-grid">
+              <tr>
+                <td>
+                  <strong>Name</strong>
+                </td>
+                <td id="username">{userName}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Order no</strong>
+                </td>
+                <td id="order-no">#{orderNo}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Mobile</strong>
+                </td>
+                <td id="phone">{phone}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Order Date</strong>
+                </td>
+                <td id="order-date">{orderDate}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Invoice Date</strong>
+                </td>
+                <td id="order-today">{today}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Address</strong>
+                </td>
+                <td id="address">{addressText}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="invoice-mid">
+        <table id="products">
+          <thead>
+            <tr>
+              <th class="center">sl</th>
+              <th style="text-align: left">Product</th>
+              <th class="right">Price(Tk)</th>
+              <th class="center">Quantity</th>
+              <th class="right">Discount(Tk)</th>
+              <th class="right">Amount(Tk)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="invoice__bottom">
+        <table class="table table-bordered small-table-sum">
+          <tbody>
+            <tr>
+              <td>SubTotal</td>
+              <td id="sub-total">{subTotal}৳</td>
+            </tr>
+            <tr>
+              <td>Coupon Discount</td>
+              <td id="coupon-discount">-{couponDiscount}৳</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Total order value</strong>
+              </td>
+              <td>
+                <strong id="order-value">{orderValue}৳</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Delivery charge</td>
+              <td id="delivery-charge">{deliveryCharge}৳</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Payable Amount</strong>
+              </td>
+              <td class="SubTotal-tab">
+                <strong id="payable">{payable.toFixed(2)}৳</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </page>
+
+    <template id="product-row-template">
+      <tr>
+        <td class="center">{i}</td>
+        <td>{p.Name}</td>
+        <td class="right">
+          {price}
+        </td>
+        <td class="center">{Quantity}</td>
+        <td class="right">{DiscountTotal}</td>
+        <td class="right">{PayableAmount}</td>
+      </tr>
+    </template>
+
+    <script>
+      let data = {};
+
+      const DOM = (query) => {
+        return document.querySelector(query);
+      };
+
+      const renderHTML = (template = "", data, i) => {
+        console.log({ data });
+
+        template = template.replace("{i}", i + 1);
+        template = template.replace("{p.Name}", data.Name);
+        template = template.replace("{price}", data.UnitPrice.toFixed(2));
+        template = template.replace("{Quantity}", data.Quantity);
+        template = template.replace(
+          "{DiscountTotal}",
+          data.Discount.toFixed(2)
+        );
+        template = template.replace(
+          "{PayableAmount}",
+          data.TotalAmount.toFixed(2)
+        );
+
+        return template;
+      };
+
+      const bindInvoice = (data) => {
+        DOM("#username").innerHTML = data.userName;
+        DOM("#order-no").innerHTML = data.orderNo;
+        DOM("#phone").innerHTML = data.phone;
+        DOM("#order-date").innerHTML = data.orderDate;
+        DOM("#order-today").innerHTML = data.today;
+        DOM("#address").innerHTML = `
+        ${data.address.text && data.address.text}
+        ${data.address.upazila && data.address.upazila}
+        ${data.address.district && data.address.district}
+        ${data.address.division && data.address.division}`;
+
+        const rowTemplate = DOM("#product-row-template").innerHTML;
+        const productRows = data.products.map((p, i) =>
+          renderHTML(rowTemplate, p, i)
+        );
+        DOM("#products tbody").innerHTML = productRows.join("");
+
+        DOM("#sub-total").innerText = data.subTotal.toFixed(2) + " Tk";
+        DOM("#coupon-discount").innerText =
+          data.couponDiscount.toFixed(2) + " Tk";
+        DOM("#order-value").innerText = data.subTotal.toFixed(2) + " Tk";
+        DOM("#delivery-charge").innerText =
+          data.deliveryChange.toFixed(2) + "Tk";
+        DOM("#payable").innerText = data.payable.toFixed(2) + " Tk";
+      };
+
+      window.onload = () => {
+        const orderJSON = localStorage.getItem("Invoice");
+        if (orderJSON) {
+          data = JSON.parse(orderJSON);
+          bindInvoice(data);
+        } else {
+          alert("Failed to load invoice Data, please try again.");
+          window.close();
+          return;
+        }
+      };
+
+      window.onbeforeunload = function () {
+        localStorage.removeItem("Invoice");
+      };
+    </script>
+  </body>
+</html>

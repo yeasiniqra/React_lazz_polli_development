@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../images/logo-white.png';
 import logoBlack from '../../../images/logo-black.png';
+import authContext from '../../../store/auth-context';
+
 
 
 const HeaderNav = () => {
+    const { open } = useContext(authContext);
+
     const [isActive, setActive] = useState();
+
+    
+
     const toggleClass = () => {
         setActive(!isActive)
     };
@@ -19,6 +26,12 @@ const HeaderNav = () => {
     const toggleClassSearch = () => {
         setActiveSearch(!isActiveSearch)
     };
+
+    const loginClickHandler = () => {
+        open();
+    }
+
+
 
     return (
         <>
@@ -145,6 +158,11 @@ const HeaderNav = () => {
                                     <Link to="#"><i className="fa fa-search openBtn" onClick={toggleClassSearch}></i> </Link>
                                 </li>
                                 <li className="book-now"><Link  onClick={toggleClass} to="/searchroom">Book Now</Link></li>
+
+
+                                <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+
+
                               
                                 <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                     <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
@@ -284,6 +302,8 @@ const HeaderNav = () => {
                                    <Link onClick={toggleClassSearch} to="#"><i className="fa fa-search openBtn" ></i> </Link>
                                 </li>
                                 <li className="book-now"><Link  onClick={toggleClass} to="/searchroom">Book Now</Link></li>
+
+                                <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
                               
                                 <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                 <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
@@ -299,6 +319,7 @@ const HeaderNav = () => {
                     </div>
                 </div>
             </div>
+       
         </>
     );
 };

@@ -49,7 +49,6 @@ const OrderHistory = () => {
                     <small>1 Adults 1 Child</small>
                     <small>BDT 980000</small>
                 </div>
-
            </div>
         </div>
     );

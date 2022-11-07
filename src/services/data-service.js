@@ -19,8 +19,10 @@ import findThree from '../images/relax/gym.jpg';
 import findFour from '../images/relax/amphitheater.jpg';
 
 // Resort director iamges
-import dicOne from '../images/st3.jpg';
-import dicTwo from '../images/st1.jpg';
+import dicOne from '../images/team-1.jpg';
+import dicTwo from '../images/team-2.jpg';
+import dicThree from '../images/team-3.jpg';
+import dicFour from '../images/team-4.jpg';
 
 // Resort Room iamges
 import roomOne from '../images/r1.jpg';
@@ -283,12 +285,12 @@ const APP_DATA = {
             dirSubTitle : "CHAIRMAN"
         },
         {
-            image : dicOne,
+            image : dicThree,
             dirTitle : "Shakib Rahman",
             dirSubTitle : "Director, Business Operation"
         },
         {
-            image : dicTwo,
+            image : dicFour,
             dirTitle : "Sumona Rahman",
             dirSubTitle : "Director, Admin & Business Strategy"
         }

@@ -100,6 +100,7 @@ const NewCustomarInfo = () => {
     setExpDate(expDate);
     storeForms({ ...formValus, expiryDate: expDate });
   };
+
   const dobChangeHandler = (dob) => {
     setDob(dob);
     storeForms({ ...formValus, dateOfBirth: dob });
@@ -142,8 +143,9 @@ const NewCustomarInfo = () => {
   const checkClickHandler = () => {
     setAlert({
       show: true,
-      btn: "fff",
-      text: `Your submission has been received. Your order number is "0070230090". Our agent will call your number "0172000000" to reconfirm.`,
+      text: `Your submission has been received. 
+      Your order number is "0070230090". Our agent will call
+      your number "0172000000" to reconfirm.`,
     });
   };
 
@@ -406,6 +408,7 @@ const NewCustomarInfo = () => {
                 {phone ? (
                   <div className="phone-verifaction-sec">
                     <h2>Verify Phone Number</h2>
+                    <div className="new-veryfi-otp">
                     <div className="custom-input-resort otp-input">
                       <Input
                         label={"Please Enter Your OTP Code"}
@@ -415,16 +418,28 @@ const NewCustomarInfo = () => {
                         required
                       />
                     </div>
+                    <div className="book_table_item dtl-btn">
+                        <button type="button">
+                          Apply
+                        </button>
+                     </div>
+                     </div>
                     <div className="otp-send">
                       <span>
                         Did not get OTP code ? <Link to="/#">Resend</Link>
                       </span>
-                      <div className="book_table_item dtl-btn">
-                        <button type="button" onClick={checkClickHandler}>
-                          Apply
-                        </button>
-                      </div>
                     </div>
+                    <div className="paymet-radio-btn">
+                        <input type="radio" id="html" name="fav_language" value="HTML" />
+                        <label htmlFor="html">Online Payment</label>
+                        <input type="radio" id="css" name="fav_language" value="CSS" />
+                        <label htmlFor="css">Cash On Arrival</label>
+                    </div> 
+                    <div className="book_table_item dtl-btn">
+                        <button onClick={checkClickHandler} type="button">
+                          Check Out
+                        </button>
+                     </div>
                   </div>
                 ) : (
                   <div className="toggle-condition">
@@ -450,11 +465,12 @@ const NewCustomarInfo = () => {
                         // data-modal="modal-one"
                         type="button"
                       >
-                        Check Out
+                        Submit
                       </button>
                     </div>
                   </div>
                 )}
+
               </div>
             </form>
           </div>

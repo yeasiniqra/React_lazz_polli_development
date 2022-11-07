@@ -3363,9 +3363,9 @@ select {
   border: 1px dashed #000;
 }
 
-.staff-single-item img {
+/* .staff-single-item img {
   height: 350px;
-}
+} */
 
 /**************************************/
 /************other page Gallery css*************/
@@ -4311,4 +4311,358 @@ button.sign-out {
 
 .order-history-body-parent .order-history-body:nth-child(2n){
   background: #ddd;
+}
+
+.customar-detaits-main.edit-profile {
+  padding: 20px;
+}
+
+
+
+button.nav-login > i {
+  margin-right: 8px;
+}
+
+button.nav-login {
+  cursor: pointer;
+  /* border: 2px solid rgba(39,36,49,0.4); */
+  border: 2px solid var(--secundery-color);
+  margin-left: 10px;
+  background: var(--secundery-color);
+  border-radius: 5px;
+  font-family: var(--raleway);
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.5s;
+  padding: 8px 16px;
+}
+
+button.nav-login:hover{
+  background: transparent;
+  transition: 0.5s;
+  color: #fff;
+}
+
+.main-header-area.fade-in .animi button.nav-login:hover{
+  color: #000;
+}
+
+.new-veryfi-otp {
+  display: flex;
+  align-items: center;
+}
+
+.new-veryfi-otp .book_table_item.dtl-btn {
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.otp-send {
+  position: relative;
+  top: -17px;
+}
+
+.otp-send span {
+  font-size: 14px;
+}
+
+.paymet-radio-btn {
+  padding: 15px 0px;
+}
+
+.paymet-radio-btn label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+
+
+
+/***************** invoice css *****************/
+
+.inv-flex-content {
+  padding: 8px 16px;
+  background: #f6f2f2;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+.inv-flex-content > h4 {
+  font-family: var(--roboto);
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.inv-flex-content > button {
+  background: transparent;
+  border: 2px solid var(--primary);
+  display: block;
+  padding: 6px 15px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 16px;
+}
+
+.inv-flex-content > button:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.invoice-tab {
+  border: inherit !important;
+  margin: 0 !important;
+}
+
+.custom-row-top .span4 {
+  text-align: center;
+}
+
+.order-invoice-ea .custom-row-top .span4 img {
+  width: 100px !important;
+  height: auto;
+}
+
+.order-invoice-ea .invoice-head td {
+  padding: 2px 8px;
+}
+
+.order-invoice-ea .container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 35px;
+}
+
+.order-invoice-ea .invoice-body {
+  background-color: transparent;
+}
+
+.order-invoice-ea .invoice-thank {
+  margin-top: 60px;
+  padding: 5px;
+}
+
+.order-invoice-ea address {
+  margin-top: 15px;
+  font-size: 15px;
+  font-family: var(--poppins);
+  text-align: left;
+  font-style: normal;
+}
+
+.invoice {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px;
+}
+
+.order-invoice-ea .custom-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-invoice-ea .span8 {
+  width: 620px;
+}
+
+.order-invoice-ea .custom-row-top .well {
+  padding: 15px;
+  padding-right: 0;
+}
+
+.order-invoice-ea .invoice h2 {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  text-transform: uppercase;
+}
+
+.order-invoice-ea .cask-rewarded span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cask-rewarded > span > i {
+  font-size: 25px;
+  color: #000;
+  margin-left: 5px;
+}
+
+tr.grand-total {
+  background: #ddd;
+}
+
+.order-invoice-ea .cask-rewarded p {
+  font-size: 15px;
+  color: #000;
+  font-weight: 400;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.order-invoice-ea .footer-row {
+  padding: 30px;
+  position: relative;
+  top: 50px;
+}
+
+.order-invoice-ea .cask-rewarded h5 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+}
+
+.order-invoice-ea .invoice-body {
+  background-color: transparent;
+}
+
+.order-invoice-ea .table-bordered {
+  border: 1px solid var(--primary);
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.order-invoice-ea .table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.order-invoice-ea .table thead th {
+  vertical-align: bottom;
+}
+
+.order-invoice-ea .table-bordered th,
+.order-invoice-ea .table-bordered td {
+  border-left: 1px solid #ddd;
+}
+
+.order-invoice-ea .table th,
+.order-invoice-ea .table td {
+  padding: 4px 8px;
+  line-height: 20px;
+  vertical-align: top;
+  border-top: 1px solid var(--primary);
+  font-size: 16px;
+  font-weight: 400;
+}
+.order-invoice-ea .table th {
+  text-align: left;
+}
+
+
+.order-invoice-ea .table-bordered th {
+  font-weight: 600;
+}
+
+.order-invoice-ea .table-bordered th,
+.order-invoice-ea .table-bordered td {
+  border-left: 1px solid var(--primary);
+}
+
+.order-invoice-ea strong {
+  font-weight: 600;
+}
+
+.order-invoice-ea .cask-rewarded {
+  text-align: center;
+}
+
+/* .custom-row-top .invoice-head .pull-right {
+  width: 115px;
+} */
+
+.custom-row-top .invoice-head {
+  width: 285px;
+  text-align: end;
+}
+
+.custom-row-top .invoice-head tbody tr {
+  font-size: 16px;
+}
+
+.order-invoice-ea .custom-row-top address h2 {
+  font-weight: 600;
+  display: block;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 7px;
+  line-height: 1;
+  font-style: normal;
+  font-family: 'Poppins';
+}
+
+.order-invoice-ea .sum-table-for-invoice {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.order-invoice-ea .table.table-bordered.small-table-sum {
+  flex: 0 0 391px;
+  margin-top: 25px;
+}
+
+table.table.table-bordered.small-table-sum > tbody {
+  border: none;
+}
+
+.order-invoice-ea .SubTotal-tab {
+  width: 80px;
+}
+
+img.print {
+  display: none;
+}
+
+@media print {
+  .page {
+    width: 8.3in;
+    height: 11.7in;
+    padding: 0.5in;
+  }
+
+  img.print {
+    display: block;
+  }
+
+  img.no-print {
+    display: none;
+  }
+}
+
+div#page {
+  padding: 20px;
+}
+
+table.table.table-bordered >thead {
+  /* border-bottom: 2px solid #cdbfbf; */
+  background: #ddd;
+}
+
+table.table.table-bordered >tbody {
+  border-bottom: 1px solid #ddd;
+}
+
+table.table.table-bordered >tbody > tr.tr-border {
+  border-bottom: 1px solid #ddd;
 }

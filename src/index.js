@@ -9,11 +9,13 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import CartContextProvider from "./store/CartContextProvider";
 import CheckOutContextProvider from "./store/CheckOutContextProvider";
 import AppContextProvider from "./store/AppContextProvider";
+import AuthContextProvider from "./store/AuthContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <AuthContextProvider>
       <AppContextProvider>
         <CartContextProvider>
           <CheckOutContextProvider>
@@ -21,6 +23,7 @@ root.render(
           </CheckOutContextProvider>
         </CartContextProvider>
       </AppContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

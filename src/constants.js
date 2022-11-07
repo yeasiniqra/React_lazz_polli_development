@@ -1,0 +1,34 @@
+export const VIEWPORTS_FOR_BANNER = {
+    LARGE: 'large',
+    MEDIUM: 'medium',
+    SMALL: 'small'
+}
+
+export const CATEGORY_SLIDER_TYPE = {
+    VERTICAL: 'VERTICAL',
+    INLINE: 'INLINE',
+    SLIDER: 'SLIDER'
+}
+
+export const PAYMENT_STATUS = {
+    UNPAID: 'Unpaid',
+    INITIAL_PAID: 'Initial Paid',
+    FULL_PAID: 'Full Paid'
+}
+
+export const AUTH_LOGIN = '[AUTH] LOGIN';
+export const STORE_REGISTRATION_DATA = '[AUTH] STORE_REGISTRATION_DATA';
+export const OPEN_AUTH_FORM = '[AUTH] OPEN_AUTH_FORM';
+export const CLOSE_AUTH_FORM = '[AUTH] CLOSE_AUTH_FORM';
+export const STORE_CALLBACK = '[AUTH] STORE_CALLBACK';
+export const AUTO_LOGIN = '[AUTH] AUTO_LOGIN';
+export const AUTO_LOGIN_V2 = '[AUTH] AUTO_LOGIN_V2';
+export const LOGOUT = '[AUTH] LOGOUT';
+export const AUTH_REMOVE_PATH = '[AUTH] AUTH_REMOVE_PATH';
+export const AUTHENTICATING_FINISHED = '[AUTH] AUTHENTICATION_FINISHED';
+export const STORE_USER_PROFILE_INFO = '[AUTH] STORE_USER_PROFILE_INFO';
+
+export const UPDATE_UNSEEN_NOTIFICATION = '[APP] UPDATE UNSEEN NOTIFICATION';
+export const OPEN_USER_MENU = '[APP] OPEN_USER_MENU';
+export const CLOSE_USER_MENU = '[APP] CLOSE_USER_MENU';
+export const TOGGLE_USER_MENU = '[APP] TOGGLE_USER_MENU';

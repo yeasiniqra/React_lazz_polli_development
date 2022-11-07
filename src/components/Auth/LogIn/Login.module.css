@@ -36,23 +36,6 @@
     z-index: 99;
 }
 
-.popbtn{
-    text-align: center;
-    display: block;
-    border: 2px solid transparent;
-    font-weight: 500;
-    padding: 10px 15px;
-    font-size: 16px;
-    background: var(--secundery-color);
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.4s;
-    display: inline-block;
-}
-.popbtn a{
-    color: #fff;
-}
 
 .modal.open {
     visibility: visible;
@@ -71,8 +54,8 @@
     border-radius: 10px;
     background: #fff;
     position: relative;
-    padding: 18px;
-    max-width: 450px;
+    padding: 20px;
+    max-width: 380px;
     width: 100%;
     text-align: center;
 }
@@ -143,16 +126,81 @@
     font-weight: 500;
 }
 
-.popup-img {
-    width: 80px !important;
-    margin-top: 10px;
+
+
+
+.single{
+    text-align: left;
+    position: relative;
+    padding-top: 8px;
 }
 
-.book_table_item > span {
+.mobile-icon{
+    position: absolute;
+    top: 42px;
+    font-size: 20px;
+    left: 5px;
+    color: #212121;
+}
+
+.single input {
+    width: 100%;
+    border: none;
+    font-size: 12px;
     font-weight: 500;
+    font-family: 'Poppins';
+    border-bottom: 2px solid #E9E9E9;
+    padding: 10px;
+    box-sizing: border-box;
+    padding-left: 25px;
+    margin: 8px 0px;
+}
+
+.single input:hover {
+    border: none;
+    border-bottom: 2px solid #E9E9E9;
+  }
+  
+  .single input:focus {
+    border: none;
+    padding: 10px;
+    outline: none;
+    border-bottom: 2px solid #E9E9E9;
+    padding-left: 25px;
+  }
+
+
+.single label{
     display: block;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Poppins';
     margin-bottom: 5px;
 }
+
+.LogInBtn{
+    border: 2px solid transparent;
+    display: inline-block;
+    padding: 8px 20px;
+    color: #000;
+    transition: 0.4s;
+    background: var(--secundery-color);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
+.signUp{
+    font-size: 13px;
+    font-family: var(--poppins);
+    text-align: left;
+    font-weight: 600;
+    margin: 12px 0px;
+}
+
 
 @media all and (max-width: 575px) {
     .modal-container {
