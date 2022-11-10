@@ -10,10 +10,7 @@ const Login = () => {
   const { close, open, login: loginCtx } = useContext(authContext);
 
   const [error, setError] = useState(null);
-
   const [phone, setPhone] = useState('');
- 
-
   const [phoneError, setPhoneError] = useState(false);
 
 
@@ -35,6 +32,7 @@ const Login = () => {
     } 
 
     login();
+    requestOTP();
   };
 
   const login = () => {
@@ -58,8 +56,27 @@ const Login = () => {
     });
   };
 
+
+  const requestOTP = () => {
+    // const payload = {
+    //   ActivityId: window.ActivityId,
+    //   Phone: phone,
+    //   fname : fname,
+    //   lname : lname,
+    // };
+    // postV2({ url: 'GET_OTP', payload }).then((data) => {
+    //   if (!data.IsError) {
+    //     storeSignupData({ phone: phone, fname: fname, lname:lname, optId: data.Id });
+        open('OTP');
+    //   } else {
+    //     console.log(data);
+    //     setError(data.Msg);
+    //   }
+    // });
+  };
+
   const singupClickHandler = () => {
-    open('SIGNUP');
+    open('SIGNUP'); 
   }
 
 

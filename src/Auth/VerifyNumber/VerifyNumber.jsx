@@ -36,6 +36,8 @@ const VerifyNumber = () => {
       return;
     }
 
+    console.log(code)
+
     const payload = {
       Code: code,
       Id: signupData.optId,
@@ -181,7 +183,11 @@ const VerifyNumber = () => {
               onChange={codeChangeHandler}
               onFocus={codeFocusHandler}
               value={code}
+              placeholder={"Otp Code Here"}
             />
+             <div className={styles['mobile-icon']}>
+              <i className="fa fa-user" aria-hidden="true"></i>
+            </div>
             <small>{codeError ? 'Code number is empty' : ' '}</small>
           </label>
         </div>
@@ -202,7 +208,7 @@ const VerifyNumber = () => {
           </div>
 
           <button
-            className={styles.auth_dialouge__actions__button}
+            className={styles.LogInBtn}
             onClick={sendHandler}
           >
             Send

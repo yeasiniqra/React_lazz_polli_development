@@ -65,20 +65,21 @@ const Signup = () => {
   };
 
   const requestOTP = () => {
-    const payload = {
-      ActivityId: window.ActivityId,
-      Phone: phone,
-      fname : fname
-    };
-    postV2({ url: 'GET_OTP', payload }).then((data) => {
-      if (!data.IsError) {
-        storeSignupData({ phone: phone, fname: fname, lname:lname, optId: data.Id });
+    // const payload = {
+    //   ActivityId: window.ActivityId,
+    //   Phone: phone,
+    //   fname : fname,
+    //   lname : lname,
+    // };
+    // postV2({ url: 'GET_OTP', payload }).then((data) => {
+    //   if (!data.IsError) {
+    //     storeSignupData({ phone: phone, fname: fname, lname:lname, optId: data.Id });
         open('OTP');
-      } else {
-        console.log(data);
-        setError(data.Msg);
-      }
-    });
+    //   } else {
+    //     console.log(data);
+    //     setError(data.Msg);
+    //   }
+    // });
   };
 
   const loginClickHandler = () => {
@@ -159,7 +160,7 @@ const Signup = () => {
             </p>
           </div>
 
-           <button className={styles.LogInBtn} label={'Login'} onClick={signupHandler} type={'button'} >Sign Up</button>
+           <button className={styles.LogInBtn} onClick={signupHandler} type={'button'} >Sign Up</button>
         </div>
       </form>
     </>

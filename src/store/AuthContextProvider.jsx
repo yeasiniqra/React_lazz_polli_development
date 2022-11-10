@@ -22,7 +22,7 @@ const initialState = {
   isAuthenticating: true,
   isAuthenticated: false,
   user: { name: '', id: '', email: '', phone: '', image: '', token: '' },
-  signupData: { phone: '', password: '', fname : '', optId: '', otp: '' },
+  signupData: { phone: '', password: '', fname : '', lname:'', optId: '', otp: '' },
   form: null, //OTP || SINGUP || RESET_PASSWROD || LOGIN || OTP_RESET_PASSWORD
   path: null,
   profile: {
