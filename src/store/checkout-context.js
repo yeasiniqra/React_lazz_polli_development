@@ -35,7 +35,7 @@ const checkoutContext = createContext({
             expiryDate : "",
             dateOfBirth : "",
             otp : "",   
-    }
+        }
     
 });
 

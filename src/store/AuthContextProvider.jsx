@@ -38,7 +38,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         signupData: { ...action.data },
-      };
+      }; 
 
     case OPEN_AUTH_FORM:
       const path = action.data.path || state.path;

@@ -20,9 +20,38 @@
         padding: 0px 15px;
         font-size: 14px;
     }
+    .main-menu>ul>li a {
+        padding: 8px 10px;
+    }
 }
 
 @media all and (max-width: 991px) {
+    .profile-grid {
+        grid-template-columns: 3fr 9fr;
+        grid-gap: 8px;
+    }
+    .profile-body {
+        width: 100%;
+        overflow: auto;
+    }
+    .order-history {
+        width: 165%;
+    }
+
+    div#page {
+        width: 135%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .profile-body .customar-dts-from-inner-flex {
+        flex-wrap: wrap;
+    }
+    .profile-body .customar-dts-from-inner-flex.customar-dts-from-inner-flex2 .custom-input-resort {
+        flex: 0 0 49%;
+    }
+
+
     .main-menu > ul {
         flex-direction: column;
     }
@@ -293,6 +322,37 @@
 }
 
 @media all and (max-width: 767px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 75px;
+    }
+    .order-history-body {
+        margin: 10px 20px;
+    }
+    .profile-nav {
+        background: #353535;
+        min-height: auto;
+    }
+    .profile-nav-inner > ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .profile-nav-inner > ul > li {
+        flex: 0 0 27%;
+    }
+    .profile-grid:after {
+        height: 65px;
+    }
+    .profile-nav-inner {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
     .relax-spa-img-left {
         flex: 0 0 100%;
         margin-bottom: 15px;
@@ -391,6 +451,9 @@
 }
 
 @media all and (max-width: 575px) {
+    div#page {
+        width: 160%;
+    }
     .package-grid-content > h2 {
         font-size: 25px;
         margin-bottom: 10px;

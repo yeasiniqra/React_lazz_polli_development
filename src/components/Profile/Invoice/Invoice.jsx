@@ -6,37 +6,37 @@ const Invoice = () => {
     window.open("/invoice.html", "_blank");
   };
   return (
-    <div id="page" class="order-invoice">
-      <div class="order-invoice-ea">
-        <div class="page">
-          <div class="custom-row-top">
-            <div class="span4">
-              <img src={logo} alt="img" class="no-print" />
-              <img src={logo} alt="img" class="print" />
+    <div id="page" className="order-invoice">
+      <div className="order-invoice-ea">
+        <div className="page">
+          <div className="custom-row-top">
+            <div className="span4">
+              <img src={logo} alt="img" className="no-print" />
+              <img src={logo} alt="img" className="print" />
               <address>
                 <h2>Lazz Polli Convention</h2>
                 Hemayetpur Saver, Dhaka
                 <br />
               </address>
             </div>
-            <div class="span4 well">
-              <table class="invoice-head">
+            <div className="span4 well">
+              <table className="invoice-head">
                 <tbody>
                   <tr>
-                    {/* <td class="pull-right">
+                    {/* <td className="pull-right">
                         <strong>Order ID</strong>
                       </td> */}
                     <td>OrderID #0144327586</td>
                   </tr>
                   <tr>
-                    {/* <td class="pull-right">
+                    {/* <td className="pull-right">
                         <strong>Name</strong>
                       </td> */}
                     <td>max well</td>
                   </tr>
 
                   <tr>
-                    {/* <td class="pull-right">
+                    {/* <td className="pull-right">
                         <strong>Invoice Date</strong>
                       </td> */}
                     <td>07-11-2022</td>
@@ -45,13 +45,13 @@ const Invoice = () => {
               </table>
             </div>
           </div>
-          <div class="invoice">
+          <div className="invoice">
             <h2>Invoice</h2>
             <button onClick={print}>Print</button>
           </div>
-          <div class="custom-table-row">
-            <div class="span12 well invoice-body">
-              <table class="table table-bordered">
+          <div className="custom-table-row">
+            <div className="span12 well invoice-body">
+              <table className="table table-bordered">
                 <thead>
                   <tr>
                     <th>#sl</th>
@@ -90,24 +90,24 @@ const Invoice = () => {
                 </tbody>
               </table>
             </div>
-            <div class="sum-table-for-invoice">
-              <table class="table table-bordered small-table-sum">
+            <div className="sum-table-for-invoice">
+              <table className="table table-bordered small-table-sum">
                 <tbody>
                   <tr>
                     <td>SubTotal</td>
-                    <td class="SubTotal-tab">
+                    <td className="SubTotal-tab">
                       <span>435435435</span>
                     </td>
                   </tr>
                   <tr>
                     <td>Paid Amount</td>
-                    <td class="SubTotal-tab">
+                    <td className="SubTotal-tab">
                       <span>3452345</span>
                     </td>
                   </tr>
                   <tr>
                     <td>Unpaid Amount</td>
-                    <td class="SubTotal-tab">
+                    <td className="SubTotal-tab">
                       <span>1312342</span>
                     </td>
                   </tr>
@@ -115,7 +115,7 @@ const Invoice = () => {
                     <td>
                       <strong>Grand Total (Incl.Tax)</strong>
                     </td>
-                    <td class="SubTotal-tab">
+                    <td className="SubTotal-tab">
                       <strong>&#2547; 1233334</strong>
                     </td>
                   </tr>
@@ -123,8 +123,8 @@ const Invoice = () => {
               </table>
             </div>
           </div>
-          <div class="footer-row">
-            <div class="cask-rewarded">
+          <div className="footer-row">
+            <div className="cask-rewarded">
               <span>
                 Have a nice day
                 <i className="fa fa-smile-o" aria-hidden="true"></i>

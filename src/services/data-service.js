@@ -909,6 +909,8 @@ const APP_DATA = {
             btnText : 'Book Room',
             quantity : 0
         },
+        
+
     ],
     CottageSuits : [
         { 

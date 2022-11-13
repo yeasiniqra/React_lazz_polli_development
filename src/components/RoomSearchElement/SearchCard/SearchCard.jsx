@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 
+
 const SearchCard = ({ item }) => {
   const { storeRoom, getQuantity, isInitiating, rooms, removeRoom } =
     useContext(cartContext);
@@ -99,6 +100,7 @@ const SearchCard = ({ item }) => {
           )}
         </div>
       </div>
+      
     </div>
   );
 };
