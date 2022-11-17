@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTitle } from '../hooks/UseTitle';
 
 const ErrorPage = () => {
+    useTitle('Page Not Found')
     return (
         <>
          <div className='page-not-found-area'>

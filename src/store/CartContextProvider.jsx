@@ -63,9 +63,9 @@ const reducer = (state, action) => {
         rooms: newRooms,
         totalAmount: totalAmount,
       };
-
+      
       localStorage.setItem(LOCAL_STORAGE_KEY.CART, JSON.stringify(newState));
-
+      
       return newState;
     }
 

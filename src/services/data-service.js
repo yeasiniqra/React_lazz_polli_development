@@ -909,6 +909,23 @@ const APP_DATA = {
             btnText : 'Book Room',
             quantity : 0
         },
+        {
+            Id : 4,
+            image : searchRoomFour,
+            title : 'Superior King',
+            spTitle : 'Special Conditions',
+            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+            bookItemTitle : 'Booked 1 time(s) today',
+            brackFirstTitle : 'Breakfast is included in the room rates ',
+            amount : 9800,
+            priceNight : 1,
+            adults : 2,
+            child : 1,  
+            room : 1,
+            btnLink : '#',
+            btnText : 'Book Room', 
+            quantity : 0
+        },
         
 
     ],

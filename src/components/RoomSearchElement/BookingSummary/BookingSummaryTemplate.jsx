@@ -16,7 +16,7 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler}) => {
                     <div className="spk-left">
                         <p>{summeryItem.title}</p>
                         <p> {summeryItem.adultsCount * summeryItem.quantity} Adults {summeryItem.childrenCount * summeryItem.quantity} Child {summeryItem.room * summeryItem.quantity} Room</p>
-                        <button><i className="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Room</button>
+                        <button><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                     </div>
                     <div className="spk-right">
                         <span onClick={removeClickHandler.bind(null, summeryItem)}><i className="fa fa-times" aria-hidden="true"></i></span>

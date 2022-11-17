@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { countries } from "../../../data/countries";
+import { useTitle } from "../../../hooks/UseTitle";
 import checkoutContext from "../../../store/checkout-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../Sheared/Input/Input";
@@ -10,6 +11,7 @@ import Textarea from "../../Sheared/Textarea/Textarea";
 
 
 const Edit = () => {
+    useTitle('Edit Profile')
     const { formValus, storeForms } = useContext(checkoutContext);
 
     //form validations State

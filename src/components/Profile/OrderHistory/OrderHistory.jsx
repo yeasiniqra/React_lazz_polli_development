@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTitle } from '../../../hooks/UseTitle';
 
 const OrderHistory = () => {
+    useTitle('Order History')
     return (
         <div className='order-history'>
             <div className='order-history-header'>

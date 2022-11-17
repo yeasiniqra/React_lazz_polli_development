@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { humanizeDate } from '../../../lib/utils';
 
+
 const CheckOutSummeryTemplate = ({room, index}) => {
   
+    
     return (
         <>
                 <h2>Room : {index + 1}</h2>
@@ -34,11 +36,11 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                         <div className="room-chargeq-single">
                             <small>Room Charges </small>
                             <small>BDT {room.amount}</small>
-                        </div>
-                        <div className="room-chargeq-single">
+                        </div>  
+                        {/* <div className="room-chargeq-single">
                             <small>Taxes & Fees </small>
-                            <small>BDT 9,100 </small>
-                        </div>
+                            <small>BDT {newTax} </small>
+                        </div> */}
                     </div>
                 </div>
          </>

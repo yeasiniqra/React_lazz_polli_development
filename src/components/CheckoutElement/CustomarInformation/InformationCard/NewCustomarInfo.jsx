@@ -9,6 +9,7 @@ import Alert from "../../../Sheared/alert/Alert";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
+import { toast } from 'react-toastify';
 
 const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
@@ -174,6 +175,8 @@ const NewCustomarInfo = () => {
       console.log(errors.join(", ") + " Are Required");
       return false;
     }
+
+    toast.warning('Please Fill In All Required Fields', {autoClose : 5000})
 
     console.log({
       // fname: fname,

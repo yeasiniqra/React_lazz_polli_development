@@ -20,7 +20,6 @@ const SearchCard = ({ item }) => {
   const DecOnClickedHandler = () => {
     if (count - 1 === 0) removeRoom(item);
     else storeRoom({ ...item, ...filters }, count - 1);
-    
     setCount((prevState) => --prevState);
   };
 

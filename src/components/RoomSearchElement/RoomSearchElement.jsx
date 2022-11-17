@@ -1,12 +1,9 @@
 import React from 'react';
 import { getroomSearchCard } from '../../services/data-service';
-import Pagenator from '../CareerContent/Pagenator';
 import BookingSummary from './BookingSummary/BookingSummary';
 import FilterPrice from './FilterPrice/FilterPrice';
 import SearchRoomFilter from './RoomSearchFilter/SearchRoomFilter';
 import SearchCard from './SearchCard/SearchCard';
-
-
 
 const RoomSearchElement = () => {
     const searchService = getroomSearchCard();
@@ -38,7 +35,6 @@ const RoomSearchElement = () => {
                     </div>        
                 </div>
             </div>
-            <Pagenator itemsPerPage={3} /> 
          </section>
         </>
     );

@@ -10,13 +10,19 @@ const CheckOutSummery = () => {
     const title = {
         title : 'Your booking summary'
     }
+
+    //checkout suymmery 
+    const newTax = totalAmount * 0.15;
+    console.log(typeof newTax)
+    const grandTotal = totalAmount + newTax;
+
     return (
         <div className="room-search-cart-right">
             <div className="shopping-cart">
                 <h4>{title.title}</h4>
                  <div className="summery-main-grid checkout-summery-main-grid">
                     <div className="smy-date">
-                        <span> Lazz Polli Resort </span>
+                        <span>Lazz Polli Resort</span>
                         <div className="ratting">
                             <div className="rate">
                                 <input type="radio" id="star5" name="rate" value="5" />
@@ -28,7 +34,7 @@ const CheckOutSummery = () => {
                                 <input type="radio" id="star2" name="rate" value="2" />
                                 <label htmlFor="star2" title="text">2 stars</label>
                                 <input type="radio" id="star1" name="rate" value="1" />
-                                <label htmlFor="star1" title="text">1 star</label>
+                                <label htmlFor="star1" title="text">1 stars</label>
                             </div>
                         </div>
                     </div>
@@ -47,38 +53,34 @@ const CheckOutSummery = () => {
                     </div>
 
                     <div className='room-book-summery'>
-                    <h4 className='roomNight'>Rooms & Rates ( Price For 1 Night )</h4>
-                     {
-                        rooms.map((room, index) => <CheckOutSummeryTemplate index={index} key={room.Id} room={room} />)
-                     }
+                        <h4 className='roomNight'>Rooms & Rates ( Price For 1 Night )</h4>
+                        {
+                            rooms.map((room, index) => <CheckOutSummeryTemplate index={index} key={room.Id} room={room} />)
+                        }
                     </div>
 
                     <div className="total-rom-service">
                         <div className="room-chargeq-single">
-                            <small>Total Room Charges </small>
-                            <small>BDT 0,000</small>
+                            <small>Total Room Charges</small>
+                            <small>BDT {totalAmount}</small>
                         </div>
                         <div className="room-chargeq-single">
-                            <small>Total Taxes </small>
-                            <small>BDT 0,000</small>
+                            <small>Total Taxes</small>
+                            <small>BDT {newTax}</small>
                         </div>
                         <div className="room-chargeq-single">
-                            <small>Total Price (Inc. Of Taxes) </small>
-                            <small>BDT 0,000</small>
+                            <small>Total Payable Now</small>
+                            <small>BDT {grandTotal}</small>
                         </div>
                         <div className="room-chargeq-single">
-                            <small>Total Payable Now </small>
-                            <small>BDT 0,000</small>
-                        </div>
-                        <div className="room-chargeq-single">
-                            <small>Amount due at time of check-in </small>
-                            <small>BDT 0,000</small>
+                            <small>Amount due at time of check-in</small>
+                            <small>BDT 0</small>
                         </div>
                         <Link className="brack-down-2022" to='/searchroom'>Price Breakdown / Rate Details</Link>
                     </div>
                     <div className="total-amount">
-                        <span> Pay Now</span>
-                        <h5>BDT <span>{totalAmount}</span></h5>
+                        <span>Pay Now</span>
+                        <h5>BDT <span>{grandTotal}</span></h5>
                     </div>
                 </div>
             </div>

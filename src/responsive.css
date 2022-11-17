@@ -26,6 +26,15 @@
 }
 
 @media all and (max-width: 991px) {
+    button.nav-login {
+        margin-top: 10px;
+        display: inline-block;
+        width: 103px;
+    }
+    li.book-now {
+        position: relative;
+        left: -5px;
+    }
     .profile-grid {
         grid-template-columns: 3fr 9fr;
         grid-gap: 8px;
@@ -451,6 +460,37 @@
 }
 
 @media all and (max-width: 575px) {
+    .profile-nav-inner > ul > li > a .new-p {
+        display: none;
+    }
+    button.sign-out > i {
+        display: none;
+    }
+    .profile-nav-inner > ul > li {
+        flex: 0 0 auto;
+    }
+    .order-history {
+        width: 210%;
+    }
+
+    .profile-nav-inner > ul > li > a {
+        margin: 10px 5px;
+        font-size: 15px;
+        padding: 10px 15px;
+        text-align: center;
+    }
+    button.sign-out {
+        text-align: center;
+        padding-bottom: 10px;
+        margin-left: 0px;
+    }
+    .profile-nav-inner > ul > li > a.link-active {
+        background: #fff;
+        color: #000 !important;
+        font-weight: 600;
+    }
+
+
     div#page {
         width: 160%;
     }
@@ -774,9 +814,40 @@
     .dts-heading-content h1 {
         font-size: 30px;
     }
+    .profile-nav-inner > ul > li > a {
+        padding: 10px 7px;
+        text-align: center;
+    }
+    div#page {
+        width: 185%;
+    }
+    .profile-body .customar-dts-from-inner-flex.customar-dts-from-inner-flex2 .custom-input-resort {
+        flex: 0 0 100%;
+    }
+    .profile-grid:after {
+        height: 58px;
+    }
+    .order-history {
+        width: 235%;
+    }
 }
 
 @media all and (max-width: 374px) {
+    .profile-nav-inner > ul > li > a {
+        padding: 10px 2px;
+    }
+    .profile-nav-inner > ul > li > a {
+        font-size: 14px;
+    }
+    .order-history {
+        width: 285%;
+    }
+    div#page {
+        width: 205%;
+    }
+    button.sign-out {
+        font-size: 14px;
+    }
     .header-top-left > ul > li > a, .header-top-right > ul > li > a {
         font-size: 11px;
     }
