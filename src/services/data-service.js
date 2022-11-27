@@ -339,8 +339,8 @@ const APP_DATA = {
                     ]
                 },
                 {
-                    infoTab : ' Additional Information',
-                    reviewTab : ' Reviews'
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
                 }
 
             ],
@@ -388,8 +388,8 @@ const APP_DATA = {
                     ]
                 },
                 {
-                    infoTab : ' Additional Information',
-                    reviewTab : ' Reviews'
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
                 }
 
             ],
@@ -431,12 +431,11 @@ const APP_DATA = {
                         { serviceTitle : "flat screen tv"},
                         { serviceTitle : "fully AC"},
                         { serviceTitle : "mountain view"},
-                        
                     ]
                 },
                 {
-                    infoTab : ' Additional Information',
-                    reviewTab : ' Reviews'
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
                 }
             ]
         },
@@ -481,8 +480,8 @@ const APP_DATA = {
                     ]
                 },
                 {
-                    infoTab : ' Additional Information',
-                    reviewTab : ' Reviews'
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
                 }
             ]
         },
@@ -527,8 +526,8 @@ const APP_DATA = {
                     ]
                 },
                 {
-                    infoTab : ' Additional Information',
-                    reviewTab : ' Reviews'
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
                 }
             ]
         },
