@@ -11,8 +11,8 @@ const Invoice = () => {
         <div className="page">
           <div className="custom-row-top">
             <div className="span4">
-              <img src={logo} alt="img" className="no-print" />
-              <img src={logo} alt="img" className="print" />
+              <img src={logo} alt="lazz polli resort no-print" className="no-print" />
+              <img src={logo} alt="resort lazz polli print" className="print" />
               <address>
                 <h2>Lazz Polli Convention</h2>
                 Hemayetpur Saver, Dhaka

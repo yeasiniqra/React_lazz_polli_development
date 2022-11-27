@@ -4,7 +4,7 @@ const BannerTemplate = ({banner}) => {
 
   return (
     <div className="slide custom-splide">
-      <img src={banner.image} alt="banner" />
+      <img src={banner.image} alt="lazz polli resort" />
       <div className="banner-content-overly">
         <div className="banner-content">
           <h2>{banner.heading}</h2>

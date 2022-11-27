@@ -10,26 +10,26 @@ import CartContextProvider from "./store/CartContextProvider";
 import CheckOutContextProvider from "./store/CheckOutContextProvider";
 import AppContextProvider from "./store/AppContextProvider";
 import AuthContextProvider from "./store/AuthContextProvider";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <AuthContextProvider>
-      <AppContextProvider>
-        <CartContextProvider>
-          <CheckOutContextProvider>
-            <ToastContainer
-             position="top-right"
-             autoClose={5000}
-             theme="dark"
-            />
-            <App />
-          </CheckOutContextProvider>
-        </CartContextProvider>
-      </AppContextProvider>
+      <AuthContextProvider>
+        <AppContextProvider>
+          <CartContextProvider>
+            <CheckOutContextProvider>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                theme="light"
+              />
+              <App />
+            </CheckOutContextProvider>
+          </CartContextProvider>
+        </AppContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>

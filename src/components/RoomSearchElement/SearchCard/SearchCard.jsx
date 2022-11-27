@@ -23,7 +23,7 @@ const SearchCard = ({ item }) => {
     setCount((prevState) => --prevState);
   };
 
-  const toggleClass = () => {
+  const isToggleClass = () => {
     storeRoom({ ...item, ...filters });
   };
 
@@ -31,16 +31,17 @@ const SearchCard = ({ item }) => {
     if (!isInitiating) {
       const quantity = getQuantity(item.Id);
       setCount(quantity);
+      
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitiating, rooms]);
 
   return (
     <div className="min-items-inner-single">
       <div className="search-room-img">
         <Link to="#">
-          <img src={item.image} alt="room" />
+          <img src={item.image} alt="react lazz polli" />
         </Link>
       </div>
       <div className="search-room-content">
@@ -68,7 +69,7 @@ const SearchCard = ({ item }) => {
         </div>
         <div className="common-btn book-search-btn">
           {!!!count && (
-            <button onClick={toggleClass} className="searchBtn">
+            <button onClick={isToggleClass} className="searchBtn">
               {item.btnText}
             </button>
           )}

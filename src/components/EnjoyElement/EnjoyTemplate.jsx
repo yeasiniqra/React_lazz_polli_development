@@ -5,7 +5,7 @@ const EnjoyTemplate = ({enjoy}) => {
         <>
             <div className="relax-spa-inner-grid">
                 <div className="relax-spa-img-left">
-                    <img src={enjoy.image} alt="spa" />
+                    <img src={enjoy.image} alt="resort enjoy polls" />
                 </div>
                 <div className="relax-spa-img-content">
                     <h1>{enjoy.title}</h1>

@@ -4,7 +4,7 @@ const RestaurantDineTem = ({dineService}) => {
   return (
     <>
         <div className="our-dise-single-items">
-          <img src={dineService.image} alt="dish" />
+          <img src={dineService.image} alt="lazz polli resort dish" />
           <h3>{dineService.title}</h3>
           <p>
             {dineService.subTitle}

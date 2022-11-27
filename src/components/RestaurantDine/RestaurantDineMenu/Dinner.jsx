@@ -8,7 +8,7 @@ const Dinner = () => {
         <div id="Tab6" className="tabcontent">
             <div className="room-detaits-main">
                 <div className="restue-inner-items">
-                    <img src={serviceDineMenu[2].image} alt="img" />
+                    <img src={serviceDineMenu[2].image} alt="resort lazz polli dinner" />
                     <p>{serviceDineMenu[2].subTitle}</p>
                     {
                     serviceDineMenu[2].menuShedul.map((item, index) =>

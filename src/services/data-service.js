@@ -932,7 +932,10 @@ const APP_DATA = {
     CottageSuits : [
         { 
            id : 0,
-           image : aboutStoryOne,
+           images : [
+            {image : aboutStoryOne},
+            {image : aboutStoryTwo},
+           ],
            title : 'Cottages',
            desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti. Vivamus luctus diam eu neque rutrum, vitae aliquet dolor venenatis. Nulla consequat fringilla massa.',
            cottagesTitle : 'Cottages Specials',
@@ -947,7 +950,10 @@ const APP_DATA = {
         },
         { 
             id : 1,
-            image : aboutStoryTwo,
+            images : [
+                {image : aboutStoryOne},
+                {image : aboutStoryTwo},
+               ],
             title : 'Hotel',
             desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti.',
             cottagesTitle : 'Hotel Specials',

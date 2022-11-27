@@ -3,6 +3,7 @@ import logo from '../../../images/logo-white.png';
 import NewsLogo from '../../../images/logo-black.png';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
+import SocialGroup from '../../SocialGroup/SocialGroup';
 
 const FooterMiddle = () => {
     return (
@@ -36,7 +37,7 @@ const FooterMiddle = () => {
                                <h2>Explore & Enjoy With Our Resort.</h2>
                              </Marquee>
                             <div className="footer-overly">
-                                <img src={NewsLogo} alt="Footer Logo" />
+                                <img src={NewsLogo} alt="best resort in bangldesh online book" />
                             </div>
                         </div>
                     </div>
@@ -47,6 +48,7 @@ const FooterMiddle = () => {
                     <span>Site Developed by - <a target="_blank" href='https://iqrasys.com' rel="noopener noreferrer">Iqrasys Solutions Ltd.</a></span>
                 </div>
             </div>
+            <SocialGroup />
         </section>
     );
 };

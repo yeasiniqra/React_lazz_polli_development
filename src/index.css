@@ -1842,7 +1842,7 @@ p.site ul.footer-links li a:before {
 #toTop {
   display: block;
   position: fixed;
-  bottom: 40px;
+  bottom: 105px;
   right: 35px;
   font-size: 45px;
   width: 45px;
@@ -4588,10 +4588,6 @@ tr.grand-total {
 .order-invoice-ea .cask-rewarded {
   text-align: center;
 }
-
-/* .custom-row-top .invoice-head .pull-right {
-  width: 115px;
-} */
 
 .custom-row-top .invoice-head {
   width: 285px;

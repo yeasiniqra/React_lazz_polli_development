@@ -4,7 +4,7 @@ const RelaxTemplate = ({relax}) => {
     return (
         <div className="relax-spa-inner-grid">
             <div className="relax-spa-img-left">
-                <img src={relax.image} alt="spa" />
+                <img src={relax.image} alt="lazz pollli resort spa" />
             </div>
             <div className="relax-spa-img-content">
                 <h1>{relax.title}</h1>

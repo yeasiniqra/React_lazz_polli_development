@@ -22,7 +22,7 @@ const Banner = () => {
   return (
     <div className="banner-area">
       <div className="butterfly-stacic">
-        <img src={butterfly} alt="0butterfly" />
+        <img src={butterfly} alt="lazz polli butterfly" />
       </div>
       <Splide options={options} aria-label="React Splide Example">
         {

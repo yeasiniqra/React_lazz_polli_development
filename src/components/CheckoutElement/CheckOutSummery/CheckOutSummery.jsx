@@ -16,6 +16,7 @@ const CheckOutSummery = () => {
     console.log(typeof newTax)
     const grandTotal = totalAmount + newTax;
 
+
     return (
         <div className="room-search-cart-right">
             <div className="shopping-cart">

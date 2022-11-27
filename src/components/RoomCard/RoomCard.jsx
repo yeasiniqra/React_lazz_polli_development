@@ -5,7 +5,7 @@ const RoomCard = ({room}) => {
   return (
     <div className="choose-room-single-item">
         <Link to={`${room.id}`}>
-          <img src={room.image} alt="room" />
+          <img src={room.image} alt="lazz polli resort" />
         </Link>
         <div className="room-content-x">
             <Link to={`${room.id}`}>{room.roomTitle}</Link>

@@ -28,7 +28,6 @@ const BookingSummary = () => {
                     <Link to='/checkout'>Check Out</Link>
                 </div>
            </div>
-
         </>
     );
 };

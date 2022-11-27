@@ -23,7 +23,7 @@ const FullPackageTemplate = ({item}) => {
                     {
                         item.images.map((banner, index) => (
                         <SplideSlide key={index}>
-                            <img src={banner.image} alt="" />
+                            <img src={banner.image} alt="resort cottage & hotel price in bangladesh" />
                         </SplideSlide>
                         ))
                     }

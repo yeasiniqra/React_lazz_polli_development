@@ -8,7 +8,7 @@ const BrackFast = () => {
         <div id="Tab6" className="tabcontent">
             <div className="room-detaits-main">
                 <div className="restue-inner-items">
-                    <img src={serviceDineMenu[0].image} alt="img" />
+                    <img src={serviceDineMenu[0].image} alt="react lazz polli brackfirst" />
                     <p>{serviceDineMenu[0].subTitle}</p>
 
                     {

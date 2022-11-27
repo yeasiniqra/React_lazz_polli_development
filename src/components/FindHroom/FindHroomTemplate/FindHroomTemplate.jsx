@@ -12,7 +12,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                     <div className="col-md-5">
                             <div className="grid">
                                 <figure className="effect-layla">
-                                    <img src={FindHroom[1].image} alt="lazz polli" />
+                                    <img src={FindHroom[1].image} alt="lazz polli resort bd best resort" />
                                     <figcaption>
                                         <h3>{FindHroom[1].topHeading} </h3>
                                         
@@ -27,7 +27,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                         <div className="col-md-7">
                             <div className="grid">
                                 <figure className="effect-layla">
-                                    <img src={FindHroom[0].image} alt="lazz polli" />
+                                    <img src={FindHroom[0].image} alt="new resort lazz polli" />
                                     <figcaption>
                                         <h3>{FindHroom[0].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[0].link}>{FindHroom[0].topBtn} </Link></h6>
@@ -43,7 +43,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                         <div className="col-md-7">
                             <div className="grid">
                                 <figure className="effect-layla">
-                                    <img src={FindHroom[3].image} alt="lazz polli" />
+                                    <img src={FindHroom[3].image} alt="lazz polli cox's bazar" />
                                     <figcaption>
                                         <h3>{FindHroom[3].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[3].link}>{FindHroom[3].topBtn} </Link></h6>
@@ -57,7 +57,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                         <div className="col-md-5">
                             <div className="grid">
                                 <figure className="effect-layla">
-                                    <img src={FindHroom[2].image} alt="lazz polli" />
+                                    <img src={FindHroom[2].image} alt="lazz polli bangladesh" />
                                     <figcaption>
                                         <h3>{FindHroom[2].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[2].link}>{FindHroom[2].topBtn} </Link></h6>
@@ -73,7 +73,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                     <div className="col-md-5x">
                             <div className="grid">
                                 <figure className="effect-layla">
-                                    <img src={FindHroom[4].image} alt="lazz polli" />
+                                    <img src={FindHroom[4].image} alt="lazz polli room" />
                                     <figcaption>
                                         <h3>{FindHroom[4].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[4].link}>{FindHroom[4].topBtn} </Link></h6>

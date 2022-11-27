@@ -11,7 +11,7 @@ const Alert = ({ show, text, onClose }) => {
       <div className={styles.modal} id="modal-one">
         <div className={`${styles["modal-bg"]} ${styles["modal-close"]}`}></div>
           <div className={`${styles["modal-container"]}`}>
-            <img src={image} alt="" />
+            <img src={image} alt="lazz polli resort" />
             <h1>{text}</h1>
             {/* <img className={`${styles["popup-img"]}`} src={logo} alt="" /> */}
             <div class={styles.popbtn}>
