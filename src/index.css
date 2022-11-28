@@ -4664,3 +4664,73 @@ table.table.table-bordered>tbody {
 table.table.table-bordered>tbody>tr.tr-border {
   border-bottom: 1px solid #ddd;
 }
+
+
+
+
+/*******============== start react date picker customize csss ==============*******/
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+	background-color: var(--main-color) !important;
+}
+
+.react-datepicker {
+	font-family: "Poppins", sans-serif;
+	background-color: #fff;
+	color: #000;
+	border: none !important;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.3) !important;
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+	font-weight: 600;
+	font-family: "Poppins", sans-serif;
+}
+
+.react-datepicker__header {
+	background-color: #faf6f6 !important;
+  border: none !important;
+}
+
+
+.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {
+	border-color: var(--main-color) !important;
+	border-width: 2px 2px 0 0 !important;
+	height: 7px !important;
+	top: 6px;
+	width: 7px !important;
+}
+
+
+.react-datepicker__year-dropdown, .react-datepicker__month-dropdown, .react-datepicker__month-year-dropdown {
+	background-color: #fff !important;
+	border-radius: 0.3rem;
+	border: none !important;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.3) !important;
+}
+
+.react-datepicker__navigation.react-datepicker__navigation--years.react-datepicker__navigation--years-upcoming {
+	display: none;
+}
+
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover {
+	background-color: var(--main-color) !important;
+	color: #fff !important;
+}
+
+.react-datepicker__year-option:hover, .react-datepicker__month-option:hover, .react-datepicker__month-year-option:hover {
+	background-color: var(--main-color) !important;
+	color: #fff !important;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+	background-color: var(--main-color) !important;
+	color: #fff;
+}
+
+/*******============== end react date picker customize csss ==============*******/

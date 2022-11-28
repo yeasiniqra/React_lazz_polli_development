@@ -924,8 +924,7 @@ const APP_DATA = {
             btnLink : '#',
             btnText : 'Book Room', 
             quantity : 0
-        },
-        
+        }
 
     ],
     CottageSuits : [
@@ -1087,7 +1086,7 @@ export const getResortRoom = () => {
 export const getRoom = (id) => {
     return APP_DATA.ResortRoom.find(r => r.id === id);
 }
-export const getResortDine = () => {
+export const getResortDine = () => { 
     return APP_DATA.ResortDine.slice();
 }
 export const getRelax = () => {
