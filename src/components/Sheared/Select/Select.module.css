@@ -126,3 +126,13 @@
   color: red;
   position: absolute;
 } */
+
+
+
+@media all and (max-width: 991px) {
+  .form_control {
+    margin-bottom: 0px; 
+  }
+}
+
+

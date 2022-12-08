@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap'); 
+
 body {
   margin: 0;
   padding: 0;
@@ -1999,6 +2003,7 @@ p.site ul.footer-links li a:before {
 .room-content-x .common-btn>a {
   border: 2px solid var(--secundery-color);
   color: #000;
+  margin: 2px;
 }
 
 .room-content-x>a {
@@ -4665,6 +4670,10 @@ table.table.table-bordered>tbody>tr.tr-border {
   border-bottom: 1px solid #ddd;
 }
 
+
+.phone-verifaction-sec {
+  overflow: hidden;
+}
 
 
 

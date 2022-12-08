@@ -16,6 +16,8 @@ const Auth = () => {
 
   useEffect(() => {
     if (form) document.querySelector('body').style.position = 'fixed';
+    if (form) document.querySelector('body').style.height = '100vh';
+    if (form) document.querySelector('body').style.width = '100%';
     else document.querySelector('body').style.position = 'unset';
   }, [form]);
 

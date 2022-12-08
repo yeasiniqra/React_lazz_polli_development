@@ -51,3 +51,10 @@
   left: 0;
   margin-top: 5px;
 }
+
+
+@media all and (max-width: 991px) {
+  .form_control.form_control--error{
+    margin-bottom: 0px;
+  }
+}

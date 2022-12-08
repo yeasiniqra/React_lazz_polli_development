@@ -41,9 +41,15 @@ const HeaderNav = () => {
                         <div className="logo">
                             <Link to="/home"><img src={logo} alt="logo" /></Link>
                         </div>
-                        <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
-                            <i className="fa fa-bars"></i>
-                        </button>
+
+                        <div className='normal-mobile-view'>
+                            <button onClick={loginClickHandler} className='nav-login mobile-desk'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+
+                            <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
+                                <i className="fa fa-bars"></i>
+                            </button>
+                        </div>
+
                         <div id="mySidepanel" className={`main-menu sidepanel ${isActive && 'showMenu'}`}   >
                             <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>
                             <ul>
@@ -159,8 +165,9 @@ const HeaderNav = () => {
                                 </li>
                                 <li className="book-now"><Link  onClick={toggleClass} to="/searchroom">Book Now</Link></li>
 
-
-                                <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+                                <div className='login-mobile-hide'>
+                                  <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+                                </div>
 
 
                               
@@ -185,9 +192,20 @@ const HeaderNav = () => {
                         <div className="logo">
                             <Link to="/home"><img src={logoBlack} alt="logo" /></Link>
                         </div>
-                        <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
+
+                        <div className='normal-mobile-view'>
+                            <button onClick={loginClickHandler} className='nav-login mobile-desk'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+
+                            <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
+                                <i className="fa fa-bars"></i>
+                            </button>
+                        </div>
+
+                        {/* <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
                             <i className="fa fa-bars"></i>
                         </button>
+                        <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button> */}
+
                         <div id="mySidepanel2" className={`main-menu sidepanel ${isActive && 'showMenu'}`}>
                            <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>
                            <ul>
@@ -303,7 +321,10 @@ const HeaderNav = () => {
                                 </li>
                                 <li className="book-now"><Link  onClick={toggleClass} to="/searchroom">Book Now</Link></li>
 
-                                <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+                                <div className='login-mobile-hide'>
+                                     <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+                                </div>
+
                               
                                 <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                 <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>

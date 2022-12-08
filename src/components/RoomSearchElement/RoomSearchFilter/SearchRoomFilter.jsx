@@ -180,7 +180,7 @@ const SearchRoomFilter = () => {
                   placeholder={"--Select--"}
                 />
               </div>
-              <div className="book_table_item">
+              <div className="book_table_item book_table_item_mobile">
                 <button onClick={submitHandler} type="button">
                   Check Availability
                 </button>

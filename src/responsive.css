@@ -23,13 +23,36 @@
     .main-menu>ul>li a {
         padding: 8px 10px;
     }
+    .room-service-list>ul li {
+        flex: 0 0 35%;
+    }
+
 }
 
 @media all and (max-width: 991px) {
-    button.nav-login {
+    .about-inner-content {
+        padding: 20px;
+    }
+    .contact-search-area {
+        padding-top: 25px;
+    }
+    .dts-heading-content {
         margin-top: 10px;
-        display: inline-block;
-        width: 103px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .details-room-main-grid-inner {
+        grid-gap: 20px;
+    }
+    .dts-right-content-inner h2 {
+        font-size: 24px;
+    }
+    .room-service-list>h3 {
+        font-size: 22px;
+    }
+    button.nav-login {
+        margin-top: 0px;
     }
     li.book-now {
         position: relative;
@@ -156,7 +179,7 @@
         color: #fff;
         border: none;
         position: relative;
-        top: -3px;
+        /* top: -3px; */
     }
     .main-header-area.fade-in .animi .openbtn {
         color: #000;
@@ -189,6 +212,7 @@
     }
     .book_table_inner {
         flex-wrap: wrap;
+        padding: 40px 40px 13px 32px;
     }
     .book_table_item > button {
         margin-top: 0px;
@@ -206,7 +230,7 @@
     .service-single-item-grid {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 25px;
-        margin-top: 35px;
+        margin-top: 15px;
     }
     .about-let,
     .about-right {
@@ -245,8 +269,12 @@
     }
     h6.find-more {
         position: absolute;
-        bottom: 160px;
+        bottom: 80px;
         left: 34%;
+    }
+    figure.effect-layla p {
+        width: 69%;
+        margin-top: -75px;
     }
     .logo > a > img {
         width: 70px;
@@ -259,16 +287,16 @@
         font-size: 35px;
     }
     .about-us-area {
-        padding: 35px 0px;
+        padding: 30px 0px;
     }
     .staff-single-item {
         align-self: self-start;
     }
     .our-service-area {
-        padding-bottom: 25px;
+        padding-bottom: 15px;
     }
     .our-resort-staff-area.our-service-area {
-        padding-top: 25px;
+        padding-top: 15px;
     }
     .support-given-area {
         padding: 20px 0;
@@ -286,7 +314,7 @@
         padding: 25px 0px;
     }
     .other-page-heading > h1 {
-        font-size: 25px;
+        font-size: 20px;
     }
     .relax-area {
         padding: 25px 0px;
@@ -327,10 +355,57 @@
         right: -10px;
         bottom: -8px;
     }
+    figure.effect-layla h3 {
+        padding: 55px 0px 10px 0px;
+    }
+    .book_table_item.book_table_item_mobile {
+        margin-bottom: 0;
+    }
+    .new-veryfi-otp .book_table_item.dtl-btn {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .customar-dts-from-inner-flex {
+        flex-wrap: wrap;
+    }
+    .customar-dts-from-inner-flex.customar-dts-from-inner-flex2 .custom-input-resort {
+        flex: 0 0 48%;
+    }
+    .niiceeTabContent {
+        padding: 20px 20px;
+    }
+    .custom-input-resort.extera-adrs textarea {
+        margin-bottom: 0px;
+    }
+
+    .login-mobile-hide{
+        display: none;
+    }
+    .normal-mobile-view {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+    }
 
 }
 
 @media all and (max-width: 767px) {
+    .reqest-demo-right {
+        flex: 0 0 100%;
+    }
+    .reqest-demo-left {
+        flex: 0 0 100%;
+    }
+    .reqest-demo-main-flex::before {
+        display: none;
+    }
+    .reqest-demo-main-flex::after {
+        display: none;
+    }
+    section.request-demo-area.section-padding.contact-us-area {
+        padding-bottom: 30px;
+    }
     .profile-grid {
         grid-template-columns: 1fr;
         padding-left: 15px;
@@ -457,9 +532,44 @@
     .current-oppertunity-empty-content span {
         width: 85%;
     }
+    .slide.custom-splide img {
+        height: 450px;
+        object-fit: cover;
+    }
+    .support-given-main-flex {
+        flex-wrap: wrap;
+    }
+    .support-given-single-item {
+        flex: 0 0 24%;
+    }
+    .footer-bottom {
+        flex-direction: column;
+    }
+    .service-single-item-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media all and (max-width: 575px) {
+    button.nav-login {
+        padding: 6px 0px;
+        width: 80px;
+    }
+    .service-single-item {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .dts-right-content-inner h2 {
+        font-size: 18px;
+    }
+    .room-service-list>h3 {
+        font-size: 18px;
+    }
+    .room-service-list>ul {
+        gap: 0px;
+    }
     .profile-nav-inner > ul > li > a .new-p {
         display: none;
     }
@@ -581,6 +691,7 @@
     }
     .min-items-inner-single {
         flex-wrap: wrap;
+        margin-bottom: 20px;
     }
     .search-room-img {
         flex: 0 0 100%;
@@ -591,7 +702,7 @@
         margin-top: 35px;
     }
     .other-page-area .common-heading h2 {
-        font-size: 35px;
+        font-size: 25px;
     }
     .room-search-cart-left > h3 {
         font-size: 16px;
@@ -646,7 +757,7 @@
         grid-template-columns: repeat(1, 1fr); 
     }
     .other-page-heading > h1 {
-        font-size: 22px;
+        font-size: 20px;
     }
     p {
         font-size: 14px;
@@ -672,7 +783,7 @@
     .footer-area {
         overflow: hidden;
         background: #353535;
-        padding: 25px 0px 15px 0px;
+        padding: 15px 0px 15px 0px;
     }
     .logo > a > img {
         width: 60px;
@@ -696,10 +807,14 @@
         bottom: 175px;
     }
     h6.find-more {
-        bottom: 82px;
+        bottom: 56px;
+        font-size: 14px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     figure.effect-layla h3 {
-        padding: 80px 0px 10px 0px;
+        padding: 55px 0px 10px 0px;
+        font-size: 25px;
     }
     .support-given-single-item {
         flex: 0 0 24%;
@@ -730,10 +845,10 @@
         padding: 25px 0;
     }
     .common-heading h2 {
-        font-size: 25px;
+        font-size: 20px;
     }
     h3 {
-        font-size: 18px;
+        font-size: 16px;
     }
     .location .map-widget .attraction-trigger-wrapper a {
         font-size: 16px;
@@ -769,7 +884,7 @@
         padding: 15px;
     }
     .contact-search-area {
-        padding-top: 30px;
+        padding-top: 20px;
     }
     .service-single-item-grid {
         margin-top: 15px;
@@ -799,20 +914,93 @@
     .relax-spa-img-content h1 {
         font-size: 25px;
     }
-
+    .booking-room-area {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    .custom-rows {
+        margin-top: 0px;
+    }
+    .location .common-heading h2 {
+        padding-bottom: 20px;
+    }
+    .footer-menu>ul>li {
+        flex: 0 0 auto;
+    }
+    figure.effect-layla figcaption::before {
+        top: 40px;
+        bottom: 40px;
+    }
+    figure.effect-layla figcaption::after {
+        right: 40px;
+        left: 40px;
+    }
+    .book_table_item.disable-input-append {
+        margin-top: -0px;
+    }
+    .react-datepicker {
+        width: 63%;
+    }
+    .book_table_item span {
+        font-size: 14px;
+    }
+    .search-room-main-items-grid {
+        margin-top: 20px;
+    }
+    .otp-send {
+        top: 0px;
+    }
+    .new-veryfi-otp .book_table_item.dtl-btn {
+        position: relative;
+        top: 11px;
+    }
+    .customar-detaits-main h2 {
+        margin-bottom: 0px;
+        font-size: 15px;
+    }
+    .paymet-radio-btn {
+        padding-bottom: 0;
+    }
+    .paymet-radio-btn label {
+        font-size: 14px;
+    }
+    .choose-room-main-grid {
+        margin-top: 20px;
+    }
+    .room-content-x {
+        padding: 15px;
+    }
+    .room-content-x > a {
+        min-height: 30px;
+    }
+    .room-content-x>h3 {
+        margin-top: 8px;
+    }
+    .choose-room-main-grid {
+        grid-gap: 20px;
+    }
+    .room-service-list>ul li {
+        font-size: 14px;
+    }
+    .search-room-single-main-tab {
+        margin-top: 20px;
+    }
+    .room-detaits-main>h6 {
+        font-size: 14px;
+    }
 
 }
 
 
 @media all and (max-width: 413px) {
+    .other-page-heading > h1 {
+        font-size: 18px;
+    }
     .main-menu > ul ul {
         padding-left: 0px;
     }
     .niiceeTabBtn button {
         padding: 15px 15px;
-    }
-    .dts-heading-content h1 {
-        font-size: 30px;
     }
     .profile-nav-inner > ul > li > a {
         padding: 10px 7px;
@@ -829,6 +1017,11 @@
     }
     .order-history {
         width: 235%;
+    }
+    figure.effect-layla p {
+        width: 72%;
+        margin-top: -70px;
+        font-size: 12px;
     }
 }
 
@@ -855,7 +1048,7 @@
         font-size: 13px;
     }
     figure.effect-layla h3 {
-        font-size: 26px;
+        font-size: 18px;
     }
     .gallery-main-grid .niiceeTabBtn button {
         padding: 15px 8px;
@@ -869,5 +1062,8 @@
     .custom-inputs > button {
         font-size: 14px;
         padding: 0px 16px;
+    }
+    p.mobile-desc {
+        margin-top: -100px !important;
     }
 }

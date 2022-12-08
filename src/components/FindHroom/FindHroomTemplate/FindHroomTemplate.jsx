@@ -32,7 +32,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                                         <h3>{FindHroom[0].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[0].link}>{FindHroom[0].topBtn} </Link></h6>
                                         <h2><span>{FindHroom[0].btmHeading} </span></h2>
-                                        <p>{FindHroom[0].description} </p>
+                                        <p className='mobile-desc'>{FindHroom[0].description} </p>
                                         <Link to={FindHroom[0].link}>{FindHroom[0].bottomBtn} </Link>
                                     </figcaption>
                                 </figure>
@@ -78,7 +78,7 @@ const FindHroomTemplate = ({FindHroom}) => {
                                         <h3>{FindHroom[4].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[4].link}>{FindHroom[4].topBtn} </Link></h6>
                                         <h2><span>{FindHroom[4].btmHeading} </span></h2>
-                                        <p>{FindHroom[4].description} </p>
+                                        <p className='mobile-desc'>{FindHroom[4].description} </p>
                                         <Link to={FindHroom[4].link}>{FindHroom[4].bottomBtn} </Link>
                                     </figcaption>
                                 </figure>
