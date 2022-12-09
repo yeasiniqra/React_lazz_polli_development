@@ -4,34 +4,9 @@ import career from '../../../images/career.jpg'
 import OppertunityTem from './OppertunityTem';
 
 const CareerContentTemplate = () => {
-    // start dark mode toggle function
-    const [button, setButton] = useState('Dark Mode');
-    const [style, setStyle] = useState({
-        color:'black',
-        backgroundColor:'white'
-    })
-
-    const handlemode = (event) => {
-        if (button === 'Dark Mode') {
-            setButton(`light Mode`);
-            setStyle({
-                color:'white',
-                backgroundColor:'black'
-            })
-        }
-        else {
-            setButton('Dark Mode');
-            setStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-        }
-    }
-  // End dark mode toggle function
-
     const careerContent = {
         title : 'Are you Dedicated, Hardworking and Fun? Join Us!',
-        subTitle : 'We believe in those people who are passionate about their work and feel the joy of working. We are always welcome and eagerly waiting for you.'
+        subTitle : 'We believe in those people who are passionate about their work and feel the joy of working. We are always welcome and eagerly waiting for you.',
     }
 
     const {title, subTitle} = careerContent;
@@ -44,6 +19,7 @@ const CareerContentTemplate = () => {
         const file = form.file.value;
         setFile(file)
         // console.log(file)
+        console.log(file)
     }
 
     console.log(file)
@@ -52,10 +28,10 @@ const CareerContentTemplate = () => {
         <div>
             <section className="career-page-area">
                 <div className="container">
-                    <div style={style} className="drop-cv-main">
+                    <div className="drop-cv-main">
                         <div className="drop-cv-left">
-                            <h3 style={style}>{title}</h3>
-                            <span style={style}>{subTitle}</span>
+                            <h3>{title}</h3>
+                            <span>{subTitle}</span>
 
                             <div className="career-form">
                                 <form onSubmit={submitHandler} id="resume-form">
@@ -71,13 +47,10 @@ const CareerContentTemplate = () => {
                             </div>
                         </div>
                         <div className="drop-cv-right">
-                            <img style={style} src={career} alt="number one resort in bangladesh" />
+                            <img src={career} alt="number one resort in bangladesh" />
                         </div>
                     </div>
-                    <button style={style} onClick={handlemode}>{button}</button>
-                </div>
-
-               
+                </div>              
             </section>
           <OppertunityTem />   
         </div>

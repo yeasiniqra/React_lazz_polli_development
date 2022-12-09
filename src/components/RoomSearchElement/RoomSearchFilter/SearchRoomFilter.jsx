@@ -78,7 +78,7 @@ const SearchRoomFilter = () => {
       arrdate: arrdate,
       depdate: depdate,
       adults: adults,
-      children: children,
+      children: children
     });
   };
 
@@ -128,13 +128,6 @@ const SearchRoomFilter = () => {
                     showTimeSelect
                     showYearDropdown
                   />
-                  {/* <Input
-                    onChange={depdateChangeHandler}
-                    value={depdate}
-                    required
-                    type={"date"}
-                    onBlur={depdateBlurHandler}
-                  /> */}
                   <div className="claender-btn">
                     <div className="add-on">
                        <i className="fa fa-calendar" aria-hidden="true"></i>

@@ -319,7 +319,7 @@ const APP_DATA = {
                 },
                 {
                     title : 'Room Description 1',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Rajendra Eco Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polli Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
                     subTitle : 'Room Services 1'
                 },
                 {
@@ -368,8 +368,8 @@ const APP_DATA = {
                 },
                 {
                     title : 'Room Description 2',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Rajendra Eco Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                    subTitle : 'Room Services 2'
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz Polli Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                    subTitle : 'Room Services 2',
                 },
                 {
                     roomService : [
@@ -417,7 +417,7 @@ const APP_DATA = {
                 },
                 {
                     title : 'Room Description 3',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Rajendra Eco Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
                 },
                 {
                     roomService : [
@@ -462,7 +462,7 @@ const APP_DATA = {
                 },
                 {
                     title : 'Room Description 4',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Rajendra Eco Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polly resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
                 },
                 {
                     roomService : [
@@ -508,7 +508,7 @@ const APP_DATA = {
                 },
                 {
                     title : 'Room Description 5',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Rajendra Eco Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
                 },
                 {
                     roomService : [

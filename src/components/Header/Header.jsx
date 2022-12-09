@@ -11,10 +11,10 @@ const Header = () => {
     ),[]);
     return (
         <>
-        <div className={`main-header-area ${scroll && 'fade-in'}`}>
-            <HeaderTop /> 
-            <HeaderNav />
-         </div>
+            <div className={`main-header-area ${scroll && 'fade-in'}`}>
+                <HeaderTop /> 
+                <HeaderNav />
+            </div>
         </>
     );
 };

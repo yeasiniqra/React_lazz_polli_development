@@ -1057,6 +1057,7 @@ figure.effect-layla figcaption::before {
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
+  display: none;
 }
 
 figure.effect-layla figcaption::before,
@@ -1097,8 +1098,9 @@ figure.effect-layla h3 {
 h6.find-more {
   position: absolute;
   bottom: 90px;
-  left: 42%;
+  left: 50%;
   font-family: "Poppins", sans-serif;
+  transform: translateX(-50%);
 }
 
 h6.find-more a {
@@ -1128,13 +1130,6 @@ figure.effect-layla h2 {
   text-shadow: 0px 10px 15px #000;
 }
 
-/* figure.effect-layla p {
-  padding: 0.5em 2em;
-  text-transform: none;
-  opacity: 0;
-  -webkit-transform: translate3d(0, -10px, 0);
-  transform: translate3d(0, -10px, 0);
-} */
 
 figure.effect-layla p {
   padding: 0.5em 2em;
@@ -1176,6 +1171,7 @@ figure.effect-layla figcaption::after {
   -webkit-transform-origin: 100% 0;
   -ms-transform-origin: 100% 0;
   transform-origin: 100% 0;
+  display: none;
 }
 
 figure.effect-layla:hover figcaption::after,
@@ -1234,7 +1230,6 @@ figure.effect-layla:hover p {
   width: 80%;
   margin: 0 auto;
   color: #fff;
-
 }
 
 .row {
@@ -1798,7 +1793,6 @@ p.site ul.footer-links li a:before {
   background: #2b2a2a;
   padding: 5px 0px;
   overflow: hidden;
-  /* box-shadow: 0px 0px 15px rgba(255,255,255,0.5); */
   position: relative;
   z-index: 2;
 }
@@ -1996,9 +1990,6 @@ p.site ul.footer-links li a:before {
   padding: 30px;
 }
 
-/* .room-content-x .common-btn {
-  text-align: end;
-} */
 
 .room-content-x .common-btn>a {
   border: 2px solid var(--secundery-color);
@@ -2276,16 +2267,6 @@ p.site ul.footer-links li a:before {
   border-radius: 5px;
 }
 
-/* .input-append button {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  pointer-events: none;
-  background: #fff;
-  border: none;
-  padding: 8px;
-} */
-
 .claender-btn {
   position: relative;
 }
@@ -2320,10 +2301,6 @@ p.site ul.footer-links li a:before {
   right: 0px !important;
 }
 
-
-/* .input-append {
-  position: relative;
-} */
 
 .book_table_item>button {
   text-align: center;
@@ -2941,10 +2918,6 @@ select {
   font-weight: 400;
   flex: 0 0 50%;
 }
-
-/* .roomNight {
-	font-size: 13px;
-} */
 
 .room-chargeq-single small:last-child {
   text-align: end;
@@ -4067,16 +4040,6 @@ textarea:focus {
   margin-top: 35px;
 }
 
-/* .package-img {
-	max-height: 400px;
-	width: 100%;
-}
-.package-img > img {
-	width: 100%;
-	max-height: 400px;
-	object-fit: cover;
-} */
-
 .getway-item {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -4670,14 +4633,11 @@ table.table.table-bordered>tbody>tr.tr-border {
   border-bottom: 1px solid #ddd;
 }
 
-
 .phone-verifaction-sec {
   overflow: hidden;
 }
 
-
-
-/*******============== start react date picker customize csss ==============*******/
+/*******============== start react date picker customize css ==============*******/
 
 .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
 	font-family: "Poppins", sans-serif;
@@ -4743,3 +4703,8 @@ table.table.table-bordered>tbody>tr.tr-border {
 }
 
 /*******============== end react date picker customize csss ==============*******/
+
+.room-detaits-main p > small {
+  color: blue;
+  cursor: pointer;
+}

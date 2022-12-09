@@ -5,15 +5,12 @@ import logoBlack from '../../../images/logo-black.png';
 import authContext from '../../../store/auth-context';
 
 
-
 const HeaderNav = () => {
     const { open } = useContext(authContext);
 
     const [isActive, setActive] = useState();
 
-    
-
-    const toggleClass = () => {
+    const toggleClass = (e) => {
         setActive(!isActive)
     };
 
@@ -200,11 +197,6 @@ const HeaderNav = () => {
                                 <i className="fa fa-bars"></i>
                             </button>
                         </div>
-
-                        {/* <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
-                            <i className="fa fa-bars"></i>
-                        </button>
-                        <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button> */}
 
                         <div id="mySidepanel2" className={`main-menu sidepanel ${isActive && 'showMenu'}`}>
                            <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>

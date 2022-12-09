@@ -30,6 +30,22 @@
 }
 
 @media all and (max-width: 991px) {
+    button.nav_icon.mobile-desk.openbtn i {
+        padding: 3px;
+    }
+    .relax-spa-inner-grid {
+        margin-bottom: 30px;
+    }
+    .niiceeTabBtn button {
+        font-size: 15px;
+    }
+    .overly-content-inner {
+        padding: 20px;
+    }
+    .cottagesuits-area {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
     .about-inner-content {
         padding: 20px;
     }
@@ -175,12 +191,13 @@
     .openbtn {
         font-size: 28px;
         cursor: pointer;
-        background-color: transparent;
-        color: #fff;
+        background-color: var(--secundery-color);
+        color: #000;
         border: none;
         position: relative;
-        /* top: -3px; */
+        border-radius: 5px;
     }
+
     .main-header-area.fade-in .animi .openbtn {
         color: #000;
     }
@@ -255,7 +272,7 @@
         font-size: 14px;
     }
     .drop-cv-left h3 {
-        font-size: 30px;
+        font-size: 22px;
     }
     .banner-content h2 {
         font-size: 40px;
@@ -387,10 +404,20 @@
         justify-content: center;
         flex-direction: row-reverse;
     }
+    .career-page-area {
+        padding: 25px 0px;
+    }
+    .oppertunites-area {
+        padding: 5px 0px;
+    }
 
 }
 
 @media all and (max-width: 767px) {
+    .relax-spa-inner-grid {
+        margin-bottom: 30px;
+    }
+
     .reqest-demo-right {
         flex: 0 0 100%;
     }
@@ -527,7 +554,7 @@
         flex-wrap: wrap;
     }
     .drop-cv-left h3 {
-        font-size: 23px;
+        font-size: 22px;
     }
     .current-oppertunity-empty-content span {
         width: 85%;
@@ -548,9 +575,40 @@
     .service-single-item-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .gallery-main-grid .niiceeTabBtn button {
+        font-size: 13px;
+        padding: 14px 10px;
+    }
 }
 
 @media all and (max-width: 575px) {
+    .our-restaurant-single-main-tab .other-page-heading {
+        margin: 25px 0px;
+    }
+    .our-restaurant-room-main-grid-inner {
+        margin: 25px 0px;
+    }
+    .SuitSpecials-item {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+    .cottagesuits-single {
+        margin-bottom: 25px;
+    }
+    .cottagesuits-area {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .current-oppertunity-empty-content {
+        padding-bottom: 0;
+    }
+    .custom-inputs {
+        margin-top: 25px;
+    }
+    button.nav_icon.mobile-desk.openbtn i {
+        padding: 2px;
+    }
+
     button.nav-login {
         padding: 6px 0px;
         width: 80px;
@@ -763,7 +821,7 @@
         font-size: 14px;
     }
     .gallery-main-grid .niiceeTabBtn button {
-        margin: 4px;
+        margin: 1px;
     }
     .gallery-grid {
         grid-template-columns: repeat(1, 1fr);
@@ -907,6 +965,7 @@
     }
     .current-oppertunity-empty-content img {
         max-width: 130px;
+        margin-top: 20px;
     }
     .relax-spa-inner-grid {
         margin-bottom: 30px;
@@ -988,11 +1047,18 @@
     .room-detaits-main>h6 {
         font-size: 14px;
     }
+    .gallery-main-grid .niiceeTabBtn button {
+        font-size: 12px;
+        padding: 12px 5px;
+    }
 
 }
 
 
 @media all and (max-width: 413px) {
+    .relax-spa-img-content h1 {
+        font-size: 20px;
+    }
     .other-page-heading > h1 {
         font-size: 18px;
     }
@@ -1022,6 +1088,9 @@
         width: 72%;
         margin-top: -70px;
         font-size: 12px;
+    }
+    .drop-cv-left h3 {
+        font-size: 18px;
     }
 }
 
