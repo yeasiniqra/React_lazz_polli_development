@@ -1086,7 +1086,7 @@ figure.effect-layla h3 {
   color: #fff;
   font-size: 37px;
   letter-spacing: 2px;
-  /* border-bottom: 1px solid; */
+  border-bottom: 1px solid #fff;
   width: 70%;
   margin: 0 auto;
   -webkit-transition-duration: 0.5s;
@@ -2778,6 +2778,7 @@ select {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
   margin-top: 15px;
+  display: inline-block;
 }
 
 .ex-customar .custom-input-resort {

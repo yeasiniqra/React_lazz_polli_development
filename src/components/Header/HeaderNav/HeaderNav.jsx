@@ -28,8 +28,6 @@ const HeaderNav = () => {
         open();
     }
 
-
-
     return (
         <>
             <div className="header-top-area">

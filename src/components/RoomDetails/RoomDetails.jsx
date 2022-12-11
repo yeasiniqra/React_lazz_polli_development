@@ -6,9 +6,8 @@ import { getRoom } from '../../services/data-service';
 
 const RoomDetails = () => {
     const {id} = useParams();
-    
     const roomData = getRoom(+id);
-
+    
     return (
         <>
             <PageHeader imageURL={commonBg} title={'Room Details'} />
