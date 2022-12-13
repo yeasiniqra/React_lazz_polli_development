@@ -119,7 +119,7 @@ const SearchRoomFilter = () => {
               <div className="book_table_item disable-input-append">
                 <span>Departure Date</span>
                 <div className="input-append">
-                <DatePicker
+                 <DatePicker
                     selected={endDate}
                     onChange={depdateChangeHandler}
                     showDisabledMonthNavigation

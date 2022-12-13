@@ -26,7 +26,6 @@
     .room-service-list>ul li {
         flex: 0 0 35%;
     }
-
 }
 
 @media all and (max-width: 991px) {
@@ -291,7 +290,7 @@
     }
     figure.effect-layla p {
         width: 69%;
-        margin-top: -75px;
+        margin-top: -58px;
     }
     .logo > a > img {
         width: 70px;
@@ -410,10 +409,27 @@
     .oppertunites-area {
         padding: 5px 0px;
     }
+    h6.find-more {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    figure.effect-layla h2 {
+        font-size: 32px;
+    }
+
 
 }
 
 @media all and (max-width: 767px) {
+    figure.effect-layla p {
+        margin-top: -22px;
+    }
+    h6.find-more {
+        bottom: 56px;
+        font-size: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     .relax-spa-inner-grid {
         margin-bottom: 30px;
     }
@@ -582,6 +598,10 @@
 }
 
 @media all and (max-width: 575px) {
+    figure.effect-layla p {
+        width: 69%;
+        margin-top: -61px;
+    }
     .our-restaurant-single-main-tab .other-page-heading {
         margin: 25px 0px;
     }
@@ -865,7 +885,7 @@
         bottom: 175px;
     }
     h6.find-more {
-        bottom: 56px;
+        bottom: 48px;
         font-size: 14px;
         left: 50%;
         transform: translateX(-50%);
@@ -1051,6 +1071,9 @@
         font-size: 12px;
         padding: 12px 5px;
     }
+    .overly-content-inner>h2 {
+        font-size: 22px;
+    }
 
 }
 
@@ -1086,7 +1109,7 @@
     }
     figure.effect-layla p {
         width: 72%;
-        margin-top: -70px;
+        margin-top: -58px;
         font-size: 12px;
     }
     .drop-cv-left h3 {

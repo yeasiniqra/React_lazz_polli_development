@@ -31,7 +31,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.SPACES
                         )}
                     >
-                        spaces
+                    spaces
                     </button>
                     <button
                         className={`tablinks ${
@@ -42,7 +42,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.ACTIVITIES
                         )}
                     >
-                        activities
+                    activities
                     </button>
                     <button
                         className={`tablinks ${
@@ -64,7 +64,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.RESTAURANTS
                         )}
                     >
-                        restaurants
+                    restaurants
                     </button>
                     <button
                         className={`tablinks ${
@@ -75,7 +75,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.SPA
                         )}
                     >
-                        spaa
+                    spaa
                     </button>
                     <button
                         className={`tablinks ${
@@ -86,7 +86,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.REVIEWS
                         )}
                     >
-                        Reviews
+                    Reviews
                     </button>
 
                  </nav>

@@ -952,7 +952,7 @@ const APP_DATA = {
                 {image : aboutStoryOne},
                 {image : aboutStoryTwo},
                ],
-            title : 'Hotel',
+            title : 'Rooms',
             desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti.',
             cottagesTitle : 'Hotel Specials',
             cottagesSpecials : [
@@ -964,6 +964,25 @@ const APP_DATA = {
             link : '/room',
             btnText : 'View Hotel'
          },
+         { 
+            id : 2,
+            images : [
+                {image : aboutStoryOne},
+                {image : aboutStoryTwo},
+               ],
+            title : 'Villas',
+            desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti.',
+            cottagesTitle : 'Hotel Specials',
+            cottagesSpecials : [
+                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
+                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
+                {  title : 'Private heated pool'}, 
+                {  title : 'Panoramic Santorini view with sunrise and sunset'},             
+            ],
+            link : '/room',
+            btnText : 'View Villa',
+         }, 
+
     ],
     FullPackage : [
         {
@@ -1002,7 +1021,7 @@ const APP_DATA = {
                 {  title : 'Panoramic Santorini view with sunrise and sunset'},       
                 {  title : 'Panoramic Santorini view with sunrise and sunset'},       
                 {  title : 'Private heated pool'},       
-                {  title : 'Private heated pool'},       
+                {  title : 'Private heated pool'},     
             ],
             standard : [
                 { title : 'Free Wifi'},

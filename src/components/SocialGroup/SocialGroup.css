@@ -37,6 +37,8 @@
 	left: 0px;
     transition: 0.3s;
     visibility: hidden;
+	border-radius: 8px;
+	overflow: hidden;
 }
 
 .sticky-call-to-action-btn .collapsible.show{
