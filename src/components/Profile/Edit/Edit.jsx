@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { countries } from "../../../data/countries";
+
 import { useTitle } from "../../../hooks/UseTitle";
 import checkoutContext from "../../../store/checkout-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
@@ -124,14 +125,27 @@ const Edit = () => {
       setExpDate(formValus.expiryDate);
       setDob(formValus.dateOfBirth);
  
-  
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   
  
     const submitHandler = () => {
-        console.log('hey');
-  
+        console.log('hey',{
+          fname: fname,
+          lname: lname,
+          gender: gender,
+          expDate: expDate,
+          email: email,
+          phone: phone,
+          city: city,
+          mstate: mstate,
+          pcode: pcode,
+          fax: fax,
+          address: address,
+          idNum: idNum,
+          country: country,
+          identity: identity,
+        });
     };
   
     return (
@@ -150,7 +164,6 @@ const Edit = () => {
                         value={fname}
                         placeholder={"First Name"}
                         required
-                    
                       />
                     </div>
   

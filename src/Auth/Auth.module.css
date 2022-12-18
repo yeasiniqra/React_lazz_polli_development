@@ -117,10 +117,11 @@
 
 .auth_dialouge__form_field small{
     position: absolute;
-    top: 100%;
+    /* top: 100%; */
     color: rgb(199, 55, 0);
     left: 0;
     font-size: 13px;
+    top: 60px;
 }
 
 .auth_dialouge__error{

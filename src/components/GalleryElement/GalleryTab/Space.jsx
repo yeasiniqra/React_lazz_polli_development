@@ -21,6 +21,7 @@ const Space = () => {
         images,
         start: index
       });
+      
     };
 
 

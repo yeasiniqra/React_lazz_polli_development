@@ -4,11 +4,13 @@ import styles from '../Auth.module.css';
 import { useContext } from 'react';
 import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
+import { REGISTER , GET_OTP} from '../../lib/endpoints';
 
+console.log(REGISTER);
 const Signup = () => {
   const { open, storeSignupData } = useContext(authContext);
 
-  console.log(storeSignupData);
+  // console.log(storeSignupData);
 
   const [error, setError] = useState(null);
 
@@ -56,6 +58,10 @@ const Signup = () => {
       setFnameError(true)
       isValid = false
     }
+    if (lname.length === 0) {
+      setLnameError(true)
+      isValid = false
+    }
 
     console.log(fname,lname,phone)
 
@@ -65,21 +71,23 @@ const Signup = () => {
   };
 
   const requestOTP = () => {
-    // const payload = {
-    //   ActivityId: window.ActivityId,
-    //   Phone: phone,
-    //   fname : fname,
-    //   lname : lname,
-    // };
-    // postV2({ url: 'GET_OTP', payload }).then((data) => {
-    //   if (!data.IsError) {
-    //     storeSignupData({ phone: phone, fname: fname, lname:lname, optId: data.Id });
+    const payload = {
+      // ActivityId: window.ActivityId,
+      firstName : fname,
+      lastName : lname,
+      phoneNumber : phone,
+      messageId : '',
+      otp : ''
+    };
+    postV2({ url: GET_OTP, payload }).then((data) => {
+      if (!data.IsError) {
+        storeSignupData({ phoneNumber: phone, firstName: fname, lastName:lname, messageId : '', otp : ''});
         open('OTP');
-    //   } else {
-    //     console.log(data);
-    //     setError(data.Msg);
-    //   }
-    // });
+      } else {
+        console.log(data);
+        setError('inside err', data.Msg);
+      }
+    });
   };
 
   const loginClickHandler = () => {
@@ -97,6 +105,7 @@ const Signup = () => {
             <input
               type='text'
               id='fname'
+              name='fname'
               onChange={fnameChangeHandler}
               onFocus={fnameFocusHandler}
               value={fname}
@@ -105,7 +114,7 @@ const Signup = () => {
             <div className={styles['mobile-icon']}>
               <i className="fa fa-user" aria-hidden="true"></i>
             </div>
-            <small>{fnameError ? fnameError : ' '}</small>
+            <small>{fnameError ? 'First Name is empty' : ' '}</small>
           </label>
         </div>
         <div className={styles.auth_dialouge__form_field}>
@@ -114,6 +123,7 @@ const Signup = () => {
             <input
               type='text'
               id='lname'
+              name='lname'
               onChange={lnameChangeHandler}
               onFocus={lnameFocusHandler}
               value={lname}
@@ -123,7 +133,7 @@ const Signup = () => {
               <i className="fa fa-user" aria-hidden="true"></i>
             </div>
             <small>
-              {lnameError ? 'Retype the number is empty' : ' '}
+              {lnameError ? 'Last Name is empty' : ' '}
             </small>
           </label>
         </div>
@@ -133,6 +143,7 @@ const Signup = () => {
             <input
               type='text'
               id='phone'
+              name='phone'
               onChange={phoneChangeHandler}
               onFocus={phoneFocusHandler}
               value={phone}

@@ -13,6 +13,7 @@ const authContext = createContext({
     autoLogin: () => {},
     open: (form = 'LOGIN', path) => {},
     close: () => {},
+    
 });
 
 export default authContext;

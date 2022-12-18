@@ -108,7 +108,6 @@ const reducer = (state, action) => {
         isAuthenticating: false,
         user: null,
       };
-
     case AUTH_REMOVE_PATH:
       return {
         ...state,

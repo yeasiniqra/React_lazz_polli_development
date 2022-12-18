@@ -1,8 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { POST_CONTACT } from "../../../lib/endpoints";
+import { postV2 } from "../../../services/http-service-v2";
+import Suspense from "../../Sheared/Suspense/Suspense";
 
 
 const ContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  
     const title = {
       title : 'How Can We Help?',
     }
@@ -91,19 +97,38 @@ const ContactForm = () => {
       ]);
 
       const sendOnClickedHandler = (evt) => {
+        // Loader Open
+        setIsLoading(true)
         setClicked(true);
         evt.preventDefault();
-        console.log({
-          name : name,
-          email : email,
-          phone : phone,
-          message : message,
+        
+        const payload = {
+          name,
+          phoneNumber: phone,
+          email,
+          message,
+          changeLog: ""
+        }
+
+        postV2({url: POST_CONTACT, payload})
+        .then(data => {
+          if(data.IsError){
+            toast.warning(data.Msg);
+          } else {
+            toast.success("Message Sent");
+          }
+        }).catch(err => {
+          toast.warning(err?.toString());
+        }).finally(() => {
+          // Loader Close
+          setIsLoading(false)
         })
       }
   
 
   return (
     <>
+      {!isLoading && (
       <div className="reqest-demo-left">
         <div className="contact-inner-gradient">
           <h3>{title.title}</h3>
@@ -192,6 +217,8 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
+      )}
+      {isLoading && <Suspense />}
     </>
   );
 };

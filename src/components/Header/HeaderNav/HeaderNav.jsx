@@ -26,6 +26,11 @@ const HeaderNav = () => {
 
     const loginClickHandler = () => {
         open();
+    }     
+
+    const searchHandler = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
     }
 
     return (
@@ -169,8 +174,8 @@ const HeaderNav = () => {
                                 <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                     <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
                                     <div className="overlay-content">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search Here..." name="search" />
+                                        <form>
+                                            <input onChange={(e) => searchHandler(e)} type="text" placeholder="Search Here..." name="search" />
                                             <button type="submit"><i className="fa fa-search"></i></button>
                                         </form>
                                     </div>
@@ -316,7 +321,7 @@ const HeaderNav = () => {
                                 </div>
 
                               
-                                <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
+                                {/* <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                 <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
                                     <div className="overlay-content">
                                         <form action="#">
@@ -324,7 +329,7 @@ const HeaderNav = () => {
                                             <button type="submit"><i className="fa fa-search"></i></button>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */}
                             </ul>
                         </div>
                     </div>

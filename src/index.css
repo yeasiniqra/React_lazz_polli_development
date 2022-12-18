@@ -3389,7 +3389,7 @@ select {
   overflow: hidden;
   z-index: 1;
   cursor: pointer;
-  border: 5px solid var(--secundery-color);
+  border: 3px solid var(--secundery-color);
 }
 
 .gallery-single-item a img {

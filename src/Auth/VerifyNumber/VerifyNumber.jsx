@@ -5,8 +5,9 @@ import { useContext } from 'react';
 import { userCamelCase } from '../auth.util';
 import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
-import { CREATE_REGISTRATION, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
+import { REGISTER, CREATE_REGISTRATION, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
 
+console.log(CREATE_REGISTRATION)
 const VerifyNumber = () => {
   const {
     close,
@@ -87,14 +88,15 @@ const VerifyNumber = () => {
 
   const register = () => {
     const payload = {
-      Name: '',
-      Phone: signupData.phone,
-      Password: signupData.password,
+      firstName: signupData.fname,
+      lastName: signupData.lname,
+      phoneNumber: signupData.phone,
+      // Password: signupData.password,
       OTPId: signupData.optId,
       ActivityId: window.ActivityId,
     };
 
-    postV2({ url: CREATE_REGISTRATION, payload })
+    postV2({ url: REGISTER, payload })
       .then((data) => {
         if (!data.IsError) {
           login();

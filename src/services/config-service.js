@@ -1,26 +1,10 @@
 
-// // LOCAL
-// export const CONFIG= {
-//     BASE_URL: "http://localhost:12222",
-//     LOG_URL: "https://lazzpharma.boniksoftware.com",
-//     // IMAGE_URL: "https://lazzpharma.boniksoftware.com",
-//     IMAGE_URL: "https://www.lazzpharma.com",
-// };
-
-// TEST
+// Bse URL Service
 export const CONFIG = {
-    BASE_URL: "https://lazzpharma.boniksoftware.com",
-    LOG_URL: "https://lazzpharma.boniksoftware.com",
-    IMAGE_URL: "https://lazzpharma.boniksoftware.com",
+    BASE_URL: 'https://lazzpolli.boniksoftware.com',
+    LOG_URL: 'https://lazzpolli.boniksoftware.com',
+    IMAGE_URL:'https://lazzpolli.boniksoftware.com',
 };
-
-// //PRODUCTION
-// export const CONFIG = {
-//     BASE_URL: "https://www.lazzpharma.com",
-//     LOG_URL: "https://www.lazzpharma.com",
-//     IMAGE_URL: "https://www.lazzpharma.com",
-// };
-
 
 
 const init = () => {
@@ -35,5 +19,3 @@ const configServiec = { CONFIG , init }
 
 export default configServiec;
 
-// ["abc", "d", "defg"]
-// ["abcddefg"]

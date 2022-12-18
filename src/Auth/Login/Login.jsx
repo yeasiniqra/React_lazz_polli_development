@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import { LOGIN } from '../../lib/endpoints';
 import { postV2 } from '../../services/http-service-v2';
 import authContext from '../../store/auth-context';
 import styles from '../Auth.module.css';
@@ -37,10 +38,10 @@ const Login = () => {
 
   const login = () => {
     const payload = {
-      UserName: phone
+      phoneNumber : phone
     }
 
-    postV2({url: 'LOGIN', payload})
+    postV2({url: LOGIN, payload})
     .then(data => {
       if(!data.IsError){
         const user = userCamelCase(data.Data);

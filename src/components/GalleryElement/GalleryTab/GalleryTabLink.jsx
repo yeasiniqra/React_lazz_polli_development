@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { GALLERY_MENU_TAB_BUTTON_NAMES } from "../../../constants/magic-string";
+import { GALLERY_PAGE, GET_GALLERY, IMAGE_CATEGORY, PAGE_SIZE } from "../../../lib/galleryService";
+// import { GET_GALLERY } from "../../../lib/endpoints";
 import Activities from "./Activities";
 import Pools from "./Pools";
 import Restaurants from "./Restaurants";
@@ -15,7 +18,18 @@ const GalleryTabLink = () => {
     const tabChangeHandler = (tabName) => {
         setActionTab(tabName);
     };
-      
+
+    const newUser = GET_GALLERY(IMAGE_CATEGORY.SPACES, PAGE_SIZE.PAGE_ONE, GALLERY_PAGE.ONE)
+    // console.log(newUser)
+
+    useEffect(() => {
+        const url = newUser
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    },[])
       
     return (
         <>
@@ -31,7 +45,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.SPACES
                         )}
                     >
-                    spaces
+                    {IMAGE_CATEGORY.SPACES}
                     </button>
                     <button
                         className={`tablinks ${
