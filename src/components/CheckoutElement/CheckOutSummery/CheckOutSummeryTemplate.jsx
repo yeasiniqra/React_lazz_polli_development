@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { humanizeDate } from '../../../lib/utils';
 
 
@@ -14,9 +13,6 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                             <h6>Check-In</h6>
                             <small>{humanizeDate(room.arrivalDate)}</small>
                             <h5>1 Night Stay</h5>
-                            <div className="common-btn book-search-btn smr-book-search-btn">
-                                <button><Link to='/searchroom'>Change Dates</Link></button>
-                            </div>
                         </div>
                         <div className="check-in-out">
                             <h6>Check-Out</h6>
@@ -37,10 +33,6 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                             <small>Room Charges </small>
                             <small>BDT {room.amount}</small>
                         </div>  
-                        {/* <div className="room-chargeq-single">
-                            <small>Taxes & Fees </small>
-                            <small>BDT {newTax} </small>
-                        </div> */}
                     </div>
                 </div>
          </>

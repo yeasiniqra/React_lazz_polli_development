@@ -66,13 +66,12 @@ const Signup = () => {
     console.log(fname,lname,phone)
 
     if (!isValid) return;
-
     requestOTP();
+
   };
 
   const requestOTP = () => {
     const payload = {
-      // ActivityId: window.ActivityId,
       firstName : fname,
       lastName : lname,
       phoneNumber : phone,

@@ -3,7 +3,7 @@ import { CONFIG } from "../services/config-service";
 var BASE_URL = CONFIG.IMAGE_URL;
 
 export const IMAGE_CATEGORY = {
-    SPACES : 'SPACES new',
+    SPACES : 'SPACES NEW',
     ACTIVITIES : 'ACTIVITIES',
     POOLS : 'POOLS',
     RESTAURANTS : 'RESTAURANTS',

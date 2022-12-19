@@ -6,13 +6,11 @@ import { POST_RESUME } from "../lib/endpoints.js";
 
 //post method
 export const postV2 = ({ url, payload }) => {
-  // const token = getTokenSync();
-  // const headers = {};
-  // if (token) {
-  //   headers[AUTH.AUTH_TOKEN_NAME] = token;
-  // }
-
+  const token = getTokenSync();
   const headers = {};
+  if (token) {
+    headers[AUTH.AUTH_TOKEN_NAME] = token;
+  }
 
   return fetch(`${CONFIG.BASE_URL}/${url}`, {
     method: "POST",
@@ -25,14 +23,13 @@ export const postV2 = ({ url, payload }) => {
   }).then((response) => {
     if (!response.ok) {
       const message = httpErrorHandler(response);
-      throw new Error('hhtp1', message);
+      throw new Error(message);
     }
 
     let responseJSON;
     try {
       responseJSON = response.json();
     } catch (error) {
-      console.log(error);
       throw new Error("Unexpected Error Occurred!");
     }
 
@@ -82,6 +79,7 @@ export const sendResume = async (payload) => {
       method: 'POST',
       headers: {
           'Access-Control-Allow-Origin': "*",
+          'content-type': 'multipart/form-data', 
       },
       body: payload
   });
@@ -106,6 +104,7 @@ const file = ({ url, payload }) => {
       method: "POST",
       headers: {
         'Access-Control-Allow-Origin': "*",
+        'content-type': 'multipart/form-data', 
       },
       body: payload,
     }).then((response) => {
