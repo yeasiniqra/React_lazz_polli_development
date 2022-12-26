@@ -95,7 +95,7 @@ export const sendResume = async (payload) => {
 
 //for file upload 2
 const file = ({ url, payload }) => {
-    const token = getTokenSync();
+    const token = getTokenSync(); 
     const headers = {};
     if (token) {
       headers[AUTH.AUTH_TOKEN_NAME] = token;

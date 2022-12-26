@@ -14,7 +14,7 @@ const Alert = ({ show, text, onClose }) => {
             <img src={image} alt="lazz polli resort" />
             <h1>{text}</h1>
             {/* <img className={`${styles["popup-img"]}`} src={logo} alt="" /> */}
-            <div class={styles.popbtn}>
+            <div className={styles.popbtn}>
                  <Link to='/profile/order'>View Order</Link>
             </div>
             <button

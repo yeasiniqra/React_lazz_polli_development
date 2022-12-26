@@ -3,7 +3,7 @@ import { CONFIG } from "../services/config-service";
 var BASE_URL = CONFIG.IMAGE_URL;
 
 export const IMAGE_CATEGORY = {
-    SPACES : 'SPACES NEW',
+    SPACES : 'SPACES',
     ACTIVITIES : 'ACTIVITIES',
     POOLS : 'POOLS',
     RESTAURANTS : 'RESTAURANTS',
@@ -17,6 +17,7 @@ export const PAGE_SIZE = {
     PAGE_THREE : '3',
     PAGE_FOUR : '4',
     PAGE_FIVE : '5',
+    PAGE_SIX : '6'
 }
 
 export const GALLERY_PAGE = {
@@ -24,7 +25,8 @@ export const GALLERY_PAGE = {
     TWO : '2',
     THREE : '3',
     FOUR : '4',
-    FIVE : '5'
+    FIVE : '5',
+    SIX : '6'
 }
 
 export const GET_GALLERY = (category, pageSize, page) =>  {

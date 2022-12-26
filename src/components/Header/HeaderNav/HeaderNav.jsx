@@ -142,20 +142,11 @@ const HeaderNav = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/relax"
+                                                to="/convention"
                                                 onClick={toggleClass}
                                                 className={({ isActive }) => (isActive ? "link-active" : "link")}
                                             >
-                                            Relax
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to="/enjoy"
-                                                onClick={toggleClass}
-                                                className={({ isActive }) => (isActive ? "link-active" : "link")}
-                                            >
-                                            Enjoy
+                                            Convention
                                             </NavLink>
                                         </li>
                                     </ul>
@@ -293,20 +284,11 @@ const HeaderNav = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/relax"
+                                                to="/convention"
                                                 onClick={toggleClass}
                                                 className={({ isActive }) => (isActive ? "link-active" : "link")}
                                             >
-                                             Relax
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to="/enjoy"
-                                                onClick={toggleClass}
-                                                className={({ isActive }) => (isActive ? "link-active" : "link")}
-                                            >
-                                             Enjoy
+                                             Convention
                                             </NavLink>
                                         </li>
                                     </ul>

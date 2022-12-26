@@ -622,7 +622,7 @@ p {
 }
 
 .footer-logo>a>img {
-  width: 135px;
+  width: 105px;
   height: auto;
 }
 
@@ -864,7 +864,7 @@ p {
 }
 
 .logo>a>img {
-  width: 85px;
+  width: 80px;
   height: auto;
 }
 
@@ -4211,7 +4211,7 @@ textarea:focus {
 
 .profile-img {
   text-align: center;
-  padding-top: 25px;
+  padding-top: 30px;
   padding-bottom: 2px;
 }
 
@@ -4707,5 +4707,15 @@ table.table.table-bordered>tbody>tr.tr-border {
 
 .room-detaits-main p > small {
   color: blue;
+  cursor: pointer;
+}
+
+
+.relax-spa-img-content .common-btn a {
+  border: 2px solid #ffb606;
+  border: 2px solid var(--secundery-color);
+  color: #000;
+  font-size: 18px;
+  padding: 13px 50px;
   cursor: pointer;
 }

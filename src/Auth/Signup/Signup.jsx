@@ -4,9 +4,11 @@ import styles from '../Auth.module.css';
 import { useContext } from 'react';
 import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
-import { REGISTER , GET_OTP} from '../../lib/endpoints';
+import { GET_OTP} from '../../lib/endpoints';
 
-console.log(REGISTER);
+// console.log(REGISTER);
+
+
 const Signup = () => {
   const { open, storeSignupData } = useContext(authContext);
 

@@ -145,7 +145,7 @@ const NewCustomarInfo = () => {
     setAlert({
       show: true,
       text: `Your submission has been received. 
-      Your order number is "0070230090". Our agent will call
+      Your order number is "00702300909". Our agent will call
       your number "0172000000" to reconfirm.`,
     });
   };
@@ -179,20 +179,20 @@ const NewCustomarInfo = () => {
     toast.warning('Please Fill In All Required Fields', {autoClose : 5000})
 
     console.log({
-      // fname: fname,
-      // lname: lname,
-      // gender: gender,
-      // expDate: expDate,
-      // email: email,
-      // phone: phone,
-      // city: city,
-      // mstate: mstate,
-      // pcode: pcode,
-      // fax: fax,
-      // address: address,
-      // idNum: idNum,
-      // country: country,
-      // identity: identity,
+      fname: fname,
+      lname: lname,
+      gender: gender,
+      expDate: expDate,
+      email: email,
+      phone: phone,
+      city: city,
+      mstate: mstate,
+      pcode: pcode,
+      fax: fax,
+      address: address,
+      idNum: idNum,
+      country: country,
+      identity: identity,
     });
     setFname("");
     setLname("");
@@ -434,9 +434,9 @@ const NewCustomarInfo = () => {
                     </div>
                     <div className="paymet-radio-btn">
                         <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label htmlFor="html">Online Payment</label>
+                        <label htmlFor="html">Pay Full Payment</label>
                         <input type="radio" id="css" name="fav_language" value="CSS" />
-                        <label htmlFor="css">Cash On Arrival</label>
+                        <label htmlFor="css">Pay 30% Payment</label>
                     </div> 
                     <div className="book_table_item dtl-btn">
                         <button onClick={checkClickHandler} type="button">

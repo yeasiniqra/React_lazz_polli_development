@@ -31,7 +31,6 @@ const Login = () => {
       setPhoneError(true);
       return;
     } 
-
     login();
     requestOTP();
   };

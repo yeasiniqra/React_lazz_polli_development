@@ -2,6 +2,8 @@ import React from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import CommonModal from '../components/Sheared/CommonModal/CommonModal';
+import SwimmingModal from '../components/Sheared/CommonModal/SwimmingModal';
 import authContext from '../store/auth-context';
 import styles from './Auth.module.css';
 import Login from './Login/Login';
@@ -42,7 +44,15 @@ const Auth = () => {
     case 'OTP':
       title = 'Verify Phone Number';
       formComponent = <VerifyNumber />;
-      break;
+    break;
+    case 'CMODAL':
+      title = 'Convention Form';
+      formComponent = <CommonModal />;
+    break;
+    case 'SPOOL':
+      title = 'Swimming Form';
+      formComponent = <SwimmingModal />;
+    break;      
     default:
       title = 'Login';
       formComponent = <Login />;

@@ -5,9 +5,8 @@ import { useContext } from 'react';
 import { userCamelCase } from '../auth.util';
 import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
-import { REGISTER, CREATE_REGISTRATION, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
+import { REGISTER, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
 
-console.log(CREATE_REGISTRATION)
 const VerifyNumber = () => {
   const {
     close,
@@ -172,6 +171,7 @@ const VerifyNumber = () => {
       getCodeFromForResetPassword();
     }
   };
+
 
   return (
     <>

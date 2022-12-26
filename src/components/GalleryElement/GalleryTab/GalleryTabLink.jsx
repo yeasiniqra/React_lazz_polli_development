@@ -29,7 +29,8 @@ const GalleryTabLink = () => {
         .then(data => {
             console.log(data);
         })
-    },[])
+    },[newUser])
+
       
     return (
         <>

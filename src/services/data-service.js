@@ -42,7 +42,6 @@ import dineFour from '../images/dish-4.jpg';
 import relaxOne from '../images/relax/spa.jpg';
 import relaxTwo from '../images/relax/jacuzzi.jpg';
 import relaxThree from '../images/relax/gym.jpg';
-import relaxFour from '../images/relax/amphitheater.jpg';
 
 // Enjoy iamges
 import enjoyOne from '../images/relax/swimming-pool-2018.jpg';
@@ -170,30 +169,30 @@ const APP_DATA = {
         },
         {
             image : findTwo,
+            topHeading: "Lazz Convention",
+            topBtn : "View More",
+            btmHeading : "Lazz Convention",
+            description : "Dine at Banana Leaf and Tea Valley restaurant to enjoy delicious food from diverse range of cuisine.",
+            bottomBtn : "View More",
+            link: '/convention'
+        },
+        {
+            image : findThree,
             topHeading: "Dine",
             topBtn : "View More",
-            btmHeading : "Dine",
-            description : "Dine at Banana Leaf and Tea Valley restaurant to enjoy delicious food from diverse range of cuisine.",
+            btmHeading: "Dine",
+            description : "Holistic spa indulgence awaits to fulfill your every wish with an all-natural package that includes herbal and floral concoctions.",
             bottomBtn : "View More",
             link: '/dine'
         },
         {
-            image : findThree,
-            topHeading: "Relax",
-            topBtn : "View More",
-            btmHeading: "Relax",
-            description : "Holistic spa indulgence awaits to fulfill your every wish with an all-natural package that includes herbal and floral concoctions.",
-            bottomBtn : "View More",
-            link: '/relax'
-        },
-        {
             image : findFour,
-            topHeading : "Enjoy",
+            topHeading : "swimming pool",
             topBtn : "View More",
-            btmHeading : "Enjoy",
+            btmHeading : "swimming pool",
             description : "70 feet long first infinity edged swimming pool in the country with sunken pool bar. 50 feet long lap pool on the lower layer.",
             bottomBtn : "View More",
-            link : '/enjoy'
+            link : '/swimmingpool'
         },
         {
             image : findFour,
@@ -554,50 +553,38 @@ const APP_DATA = {
             subTitle : 'Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod ipsum dolor sit ame',
         }
     ],
-    Relax:[
+    SwimmingPool:[
         {
+            Id : 1,
             image:relaxOne,
-            title : 'Spa',
+            title : 'Swimming Pool One',
             description: 'Holistic spa indulgence awaits to fulfill your every wish with an all-natural package that includes herbal and floral concoctions. be ushered into the realm of quiet calm through a warmly appointed reception, a Bamboo ,wood and thatch combined natural atmosphere. sparkling crystal reflections of indoor water body with 5 Spa Treatment Suites. Pick from treatments originating from the Majestic Thai Experience to Exotic Armana experience, and relax under the skilled pressure of nimble fingers of our professional Thai Therapists as you enjoy a massage. Operating hours 10.00 am to 10.pm.',
-            battonTitle: 'Photo Gallery',
-            btnLink : '/gallery'
         },
         {
+            Id : 2,
             image:relaxTwo,
-            title : 'Open Air Jacuzzi',
+            title : 'Swimming Pool Two',
             description: 'Professionally designed open air hot Jacuzzi means total relaxation and fun for you and your family. Whether its winter or summer. Jacuzzi is open 9.00am to 9.00pm',
-            battonTitle: 'Photo Gallery',
-            btnLink : '/gallery'
         },
         {
+            Id : 3,
             image:relaxThree,
-            title : 'Gym',
+            title : 'Swimming Pool Three',
             description: 'A professionally designed facility with natural lighting, located in front of the lap pool. the Gym offers you state of the art equipment for your work out With separate locker room for males and females. Open 7.00am to 9.00pm',
-            battonTitle: 'Photo Gallery',
-            btnLink : '/gallery'
-        },
-        {
-            image:relaxFour,
-            title : 'Amphitheater',
-            description: 'Open air amphitheater located behind Tea valley restaurant ready for your outdoor entertainments. BBQ nights could be arranged upon request while entertainments on.',
-            battonTitle: 'Photo Gallery',
-            btnLink : '/gallery'
         },
     ],
-    Enjoy:[
+    Convention:[
         {
             image:enjoyOne,
-            title : 'Swimming pool',
+            title : 'Convention One',
             description: '70 feet long first infinity edged swimming pool in the country with sunken pool bar. 50 feet long lap pool on the lower layer. Shimmering beneath the sky the pool is fringed by lush green plants to create the sensation of swimming within the tropics. The pool is open from 9:00am to 9:00pm daily.',
-            battonTitle: 'Photo Gallery',
-            btnLink : '/gallery'
+           
         },
         {
             image:enjoyTwo,
-            title : 'Facilities at our Resort',
+            title : 'Convention Two',
             description: 'Professionally designed open air hot Jacuzzi means total relaxation and fun for you and your family. Whether its winter or summer. Jacuzzi is open 9.00am to 9.00pm',
-            battonTitle: 'Photo Gallery',
-            btnLink : '/gallery'
+            
         },
     ],
     DineMenu:[
@@ -1108,11 +1095,11 @@ export const getRoom = (id) => {
 export const getResortDine = () => { 
     return APP_DATA.ResortDine.slice();
 }
-export const getRelax = () => {
-    return APP_DATA.Relax.slice();
+export const getSwimmingPool = () => {
+    return APP_DATA.SwimmingPool.slice();
 }
-export const getEnjoy = () => {
-    return APP_DATA.Enjoy.slice();
+export const getConvention = () => {
+    return APP_DATA.Convention.slice();
 }
 export const getDineMenu = () => {
     return APP_DATA.DineMenu.slice();

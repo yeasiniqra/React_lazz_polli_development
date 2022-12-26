@@ -12,9 +12,9 @@
 }
 .auth_dialouge{
     margin-top: 10vw;
-    width: 50%;
-    max-width: 380px;
-    min-width: 320px;
+    width: 70%;
+    max-width: 480px;
+    min-width: 420px;
     background-color: white;
     border-radius: 4px;
     /* overflow: hidden; */
@@ -75,11 +75,11 @@
     font-size: 12px;
     font-weight: 500;
     font-family: 'Poppins';
-    border-bottom: 2px solid #E9E9E9;
+    border: 2px solid #E9E9E9;
     padding: 10px;
     padding-left: 10px;
     box-sizing: border-box;
-    padding-left: 25px;
+    padding: 10px;
     margin: 8px 0px;
 }
 
@@ -155,6 +155,12 @@
     color: white;
     border-radius: 4px;
     box-shadow: 2px 2px 3px 1px var(--primary);
+}
+
+.dateFormate{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .auth_dialouge__actions__button--text{

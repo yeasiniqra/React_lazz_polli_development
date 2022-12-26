@@ -11,8 +11,6 @@ import RoomDetails from './components/RoomDetails/RoomDetails';
 import Career from './pages/Career';
 import Dine from './pages/Dine';
 import Contact from './pages/Contact';
-import Relax from './pages/Relax';
-import Enjoy from './pages/Enjoy';
 import Gallery from './pages/Gallery';
 import RoomSearch from './pages/RoomSearch';
 import CheckoutElement from './components/CheckoutElement/CheckoutElement';
@@ -24,6 +22,8 @@ import OrderHistory from './components/Profile/OrderHistory/OrderHistory';
 import Edit from './components/Profile/Edit/Edit';
 import Auth from './Auth/Auth';
 import Invoice from './components/Profile/Invoice/Invoice';
+import Convention from './pages/Convention';
+import SwimmingPool from './pages/SwimmingPool';
 
 
 
@@ -57,8 +57,8 @@ function App() {
             <Route path="/career" element={<Career /> } />
             <Route path="/dine" element={<Dine /> } />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/relax" element={<Relax />} />
-            <Route path="/enjoy" element={<Enjoy />} />
+            <Route path="/swimmingpool" element={<SwimmingPool />} />
+            <Route path="/convention" element={<Convention />} />
             <Route path="/gallery" element={ <Gallery />} />
             <Route path="/searchroom" element={ <RoomSearch />} />
             <Route path="/checkout" element={ <CheckoutElement />} />

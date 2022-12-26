@@ -13,10 +13,14 @@ export const REGISTER = 'AppUser/Register';
 export const LOGIN = 'AppUser/Login';
 export const GET_OTP = "Message/OTP";
 
-//profile
+//Profile
 export const GET_USER = 'AppUser';
 export const GET_USER_PROFILE = 'AppUser/Profile';
 export const POST_UPDATE_PROFILE = 'AppUser/Profile';
+
+//Review
+export const POST_REVIEW = 'Review';
+
 
 // Lazz Polli
 export const POST_CONTACT = 'Contact';

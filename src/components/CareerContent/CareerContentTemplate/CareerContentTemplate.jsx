@@ -19,6 +19,7 @@ const CareerContentTemplate = () => {
 
     const handleChange =(event) =>{
         setFile(event.target.files[0])
+        console.log(event.target.files[0])
       }
   
       const handleSubmit = (event) => {
@@ -39,7 +40,7 @@ const CareerContentTemplate = () => {
         //   alert('upload Done')
         // });
 
-        http.file(({url:POST_RESUME, formData}))
+        http.file(({url: POST_RESUME, formData}))
         .then(data => {
             if(data.IsError){
               toast.warning(data.Msg);

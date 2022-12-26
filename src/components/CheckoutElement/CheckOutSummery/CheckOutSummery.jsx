@@ -12,7 +12,7 @@ const CheckOutSummery = () => {
 
     //checkout suymmery 
     const newTax = totalAmount * 0.15;
-    console.log(typeof newTax)
+    // console.log(typeof newTax)
     const grandTotal = totalAmount + newTax;
 
 
