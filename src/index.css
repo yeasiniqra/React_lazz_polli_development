@@ -842,6 +842,7 @@ p {
 
 .common-btn {
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .common-btn>a {
@@ -4718,4 +4719,152 @@ table.table.table-bordered>tbody>tr.tr-border {
   font-size: 18px;
   padding: 13px 50px;
   cursor: pointer;
+}
+
+
+/* text modal css */
+.parent-modal input[type="checkbox"] {
+	display:none;
+}
+.parent-modal input[type="checkbox"]:checked ~ .modal,
+.parent-modal input[type="checkbox"]:checked ~ .modal-background {
+	display: block;
+}
+.parent-modal .modal-background {
+	width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 9998;
+   
+}
+.parent-modal .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  display: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+.modal-inner {
+  width: 50%;
+  max-width: 380px;
+  min-width: 320px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 30%);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  margin-top: 8vw;
+}
+
+
+.parent-modal .modal > p {
+	padding: 15px;
+    margin: 0;
+}
+
+.common-modal-label > label > small {
+  font-size: 13px;
+  color: red;
+}
+
+.parent-modal .modal-header h2 {
+  box-sizing: border-box;
+  line-height: 50px;
+  color: #000;
+  font-size: 16px;
+  display: block;
+  text-align: center;
+  font-family: var(--poppins);
+  font-weight: 700;
+}
+.parent-modal .modal-header label {
+	box-sizing: border-box;
+    border-left: 1px solid #dddddd;
+    float: right;
+    line-height: 50px;
+    padding: 0 15px 0 15px;
+    cursor: pointer;
+}
+
+.modal-header > label > i{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 18px;
+}
+
+.common-modal-action {
+  text-align: center;
+}
+
+button.common-modal-submit {
+  border: 2px solid transparent;
+  display: block;
+  padding: 8px 20px;
+  color: #000;
+  transition: 0.4s;
+  background: var(--secundery-color);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  margin: 0 auto;
+}
+
+.parent-modal .example-label {
+	box-sizing: border-box;
+    display: inline-block;
+    padding: 10px;
+    background-color: #375d91;
+    color: #f9f9f9;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.parent-modal .example-label:hover {
+	background-color: #3c669f;
+}
+
+.dateFormate {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.common-modal-label > label input {
+  width: 100%;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Poppins';
+  border: 2px solid #E9E9E9;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 8px 0px;
+}
+.common-modal-label > label {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+
+.cottage-room-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 50px;
 }

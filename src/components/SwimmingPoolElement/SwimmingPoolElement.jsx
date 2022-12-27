@@ -4,7 +4,8 @@ import commonBg from "../../images/room.jpg";
 import SwimmingPoolTemplate from './SwimmingPoolTemplate';
 import { getSwimmingPool } from '../../services/data-service';
 import { useState } from 'react';
-import SwimmingModal from '../Sheared/CommonModal/SwimmingModal';
+// import SwimmingModal from '../Sheared/CommonModal/SwimmingModal';
+import NewModal from '../Sheared/CommonModal/NewModal';
 
 const SwimmingPoolElement = () => {
     const swimmingpool = getSwimmingPool()
@@ -20,14 +21,13 @@ const SwimmingPoolElement = () => {
                                 <SwimmingPoolTemplate pool={pool} key={pool.Id} setSwimmin={setSwimmin} />
                             ))
                         }
-                        {
-                          swimmin && 
-                           <SwimmingModal
-                             setSwimmin={setSwimmin}
-                             swimmin={swimmin}
-
-                           />     
-                        }
+                       {
+                         swimmin && 
+                         <NewModal
+                           setSwimmin={setSwimmin}
+                           swimmin={swimmin}
+                         />
+                       }
                        
                     </div>
                 </div>

@@ -54,10 +54,6 @@ const CheckOutSummery = () => {
                             <small>Total Taxes</small>
                             <small>BDT {newTax}</small>
                         </div>
-                        <div className="room-chargeq-single">
-                            <small>Total Payable Now</small>
-                            <small>BDT {grandTotal}</small>
-                        </div>
                     </div>
                     <div className="total-amount">
                         <span>Pay Now</span>

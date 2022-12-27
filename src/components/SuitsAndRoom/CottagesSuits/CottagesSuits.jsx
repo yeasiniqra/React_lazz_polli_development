@@ -30,7 +30,7 @@ const CottagesSuits = ({ item }) => {
            </Splide>
           <div className="book-overly">
             <div className="common-btn">
-              <Link to="/room">View Cottages</Link>
+              <Link to={`${item.id}`}>{item.btnText}</Link>
             </div>
           </div>
         </div>
@@ -56,9 +56,10 @@ const CottagesSuits = ({ item }) => {
               </div>
             </div>
             <div className="common-btn">
-              <Link to="/room">{item.btnText}</Link>
+              <Link to={`${item.id}`}>{item.btnText}</Link>
             </div>
           </div>
+
           <div className="hover-ef-2"></div>
         </div>
       </div>

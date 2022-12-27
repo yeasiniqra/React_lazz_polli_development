@@ -575,12 +575,14 @@ const APP_DATA = {
     ],
     Convention:[
         {
+            Id: 1,
             image:enjoyOne,
             title : 'Convention One',
             description: '70 feet long first infinity edged swimming pool in the country with sunken pool bar. 50 feet long lap pool on the lower layer. Shimmering beneath the sky the pool is fringed by lush green plants to create the sensation of swimming within the tropics. The pool is open from 9:00am to 9:00pm daily.',
            
         },
         {
+            Id : 2,
             image:enjoyTwo,
             title : 'Convention Two',
             description: 'Professionally designed open air hot Jacuzzi means total relaxation and fun for you and your family. Whether its winter or summer. Jacuzzi is open 9.00am to 9.00pm',
@@ -931,7 +933,24 @@ const APP_DATA = {
                {  title : 'Panoramic Santorini view with sunrise and sunset'},             
            ],
            link : '/room',
-           btnText : 'View Cottages'
+           btnText : 'View Cottages',
+           CottageSuitsSingle : [
+             {
+                id: 1,
+                image : roomOne,
+                roomTitle : "Book Single Room From",
+                roomAmount : "7,000.0৳",
+                dayNight : "Night",
+              },
+              {
+                id: 2,
+                image : roomOne,
+                roomTitle : "Book Entire",
+                roomAmount : "7,000.0৳",
+                dayNight : "Night",
+              },
+           ]
+
         },
         { 
             id : 1,
@@ -949,7 +968,23 @@ const APP_DATA = {
                 {  title : 'Panoramic Santorini view with sunrise and sunset'},             
             ],
             link : '/room',
-            btnText : 'View Hotel'
+            btnText : 'View Hotel',
+            CottageSuitsSingle : [
+                {
+                    id: 1,
+                    image : roomOne,
+                    roomTitle : "Book Single Room From",
+                    roomAmount : "7,000.0৳",
+                    dayNight : "Night",
+                  },
+                  {
+                    id: 2,
+                    image : roomOne,
+                    roomTitle : "Book Entire",
+                    roomAmount : "7,000.0৳",
+                    dayNight : "Night",
+                  },
+              ]
          },
          { 
             id : 2,
@@ -968,12 +1003,28 @@ const APP_DATA = {
             ],
             link : '/room',
             btnText : 'View Villa',
+            CottageSuitsSingle : [
+                {
+                    id: 1,
+                    image : roomOne,
+                    roomTitle : "Book Single Room From",
+                    roomAmount : "7,000.0৳",
+                    dayNight : "Night",
+                  },
+                  {
+                    id: 2,
+                    image : roomOne,
+                    roomTitle : "Book Entire",
+                    roomAmount : "7,000.0৳",
+                    dayNight : "Night",
+                  },
+              ]
          }, 
 
     ],
     FullPackage : [
         {
-            id : 0,
+            Id : 0,
             images : [
                 {id : 0, image : aboutStoryOne},
                 {id : 1, image : aboutStoryTwo},
@@ -1023,7 +1074,7 @@ const APP_DATA = {
 
         },
         {
-            id : 1,
+            Id : 1,
             images : [
                 {id : 0, image : aboutStoryOne},
                 {id : 1, image : aboutStoryTwo},
@@ -1116,6 +1167,12 @@ export const getroomSearchCard = () => {
 export const getCottageSuites = () => {
     return APP_DATA.CottageSuits.slice()
 }
+export const getCottageSuitesSingle = (id) => {
+    return APP_DATA.CottageSuits.find(s => s.id === id)
+}
+
+
+
 export const getFullpackage = () => {
     return APP_DATA.FullPackage.slice()
 }

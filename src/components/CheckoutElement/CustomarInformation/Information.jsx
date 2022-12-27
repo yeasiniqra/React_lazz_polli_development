@@ -13,7 +13,7 @@ const Information = () => {
                 <div className="room-search-cart-left">
                     <h3>{title.title}</h3>
                     <div className="room-search-inner-content">
-                         <CheckoutTabLinks />
+                        <CheckoutTabLinks />
                     </div>
                 </div>
                 <CheckOutSummery />

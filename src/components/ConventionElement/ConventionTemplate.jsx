@@ -1,13 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { useContext } from 'react';
-import authContext from '../../store/auth-context';
-
-const ConventionTemplate = ({convention}) => {
-    const { open } = useContext(authContext);
-    const modlClickHandler = () => {
-        open('CMODAL');
-    } 
+const ConventionTemplate = ({convention, setConventions}) => {
+   
     return (
         <>
             <div className="relax-spa-inner-grid">
@@ -17,7 +11,9 @@ const ConventionTemplate = ({convention}) => {
                 <div className="relax-spa-img-content">
                     <h1>{convention.title}</h1>
                     <p>{convention.description}</p>
-                    <div className="common-btn"><a onClick={modlClickHandler}>Book Now</a></div>
+                    <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setConventions(convention)}> 
+                     <a>Book Now</a>
+                    </label>
                 </div>
             </div>
         </>
