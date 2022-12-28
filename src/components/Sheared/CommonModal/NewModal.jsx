@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
 
 const NewModal = ({ swimmin }) => {
-  console.log(swimmin.title);
   // console.log(storeSignupData);
 
   const [error, setError] = useState(null);
@@ -15,6 +14,8 @@ const NewModal = ({ swimmin }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [remark, setRemark] = useState("");
+  const [hours, setHours] = useState("");
+  const [perhours, setPerhours] = useState(50);
 
   const [phoneError, setPhoneError] = useState(false);
   const [fnameError, setFnameError] = useState(false);
@@ -22,29 +23,36 @@ const NewModal = ({ swimmin }) => {
   const [startDateError, setStartDateError] = useState(false);
   const [endDateError, setEndDateError] = useState(false);
   const [remarkError, setRemarkError] = useState(false);
+  const [HoursError, setHoursError] = useState(false);
 
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
-    console.log(el.value);
   };
-
   const fnameChangeHandler = ({ target: el }) => {
     setFname(el.value);
   };
-
   const adultsChangeHandler = ({ target: el }) => {
     setAdults(el.value);
+    console.log(el.value)
   };
   const remarkChangeHandler = ({ target: el }) => {
     setRemark(el.value);
   };
-
   const startDateChangeHandler = (date) => {
     setStartDate(date);
   };
   const endDateChangeHandler = (date) => {
     setEndDate(date);
   };
+  const hoursChangeHandler = ({ target: el }) => {
+    setHours(el.value);
+    console.log(el.value)
+  };
+  const perhoursChangeHandler = ({ target: el }) => {
+    setPerhours(el.value);
+    console.log(el.value)
+  };
+
 
   const phoneFocusHandler = () => {
     setPhoneError(false);
@@ -67,6 +75,11 @@ const NewModal = ({ swimmin }) => {
   const remarkFocusHandler = () => {
     setRemarkError(false);
   };
+  const hoursFocusHandler = () => {
+    setHoursError(false);
+  };
+
+  const grandTotal = adults * hours * perhours;
 
   const conventionHandler = (e) => {
     e.preventDefault();
@@ -96,6 +109,7 @@ const NewModal = ({ swimmin }) => {
       startDate: startDate,
       endDate: endDate,
       remark: remark,
+      toTal : grandTotal
     });
 
     if (!isValid) return;
@@ -108,7 +122,7 @@ const NewModal = ({ swimmin }) => {
       <input type="checkbox" id="swimmin" />
       <label htmlFor="swimmin" className="modal-background"></label>
       <div className="modal">
-        <div className="modal-inner">
+        <div className="modal-inner swimmin-inner">
         <div className="modal-header">
           <h2>{swimmin.title}</h2>
           <label htmlFor="swimmin">
@@ -184,20 +198,66 @@ const NewModal = ({ swimmin }) => {
             </div>
           </div>
 
-          <div className='common-modal-label'>
-            <label htmlFor="adults">
-              Person
-              <input
-                type="text"
-                id="adults"
-                name="adults"
-                onChange={adultsChangeHandler}
-                onFocus={adultsFocusHandler}
-                value={adults}
-                placeholder={"Type Your Person"}
-              />
-              <small>{adultsError ? "Person is empty" : " "}</small>
-            </label>
+          <div className='dateFormate'>
+            <div className='common-modal-label'>
+              <label htmlFor="adults">
+                Person
+                <input
+                  type="text"
+                  id="adults"
+                  name="adults"
+                  onChange={adultsChangeHandler}
+                  onFocus={adultsFocusHandler}
+                  value={adults}
+                  placeholder={"Type Your Person"}
+                />
+                <small>{adultsError ? "Person is empty" : " "}</small>
+              </label>
+            </div>
+            <div className='common-modal-label'>
+              <label htmlFor="hours">
+                Hours
+                <input
+                  type="text"
+                  id="hours"
+                  name="hours"
+                  onChange={hoursChangeHandler}
+                  onFocus={hoursFocusHandler}
+                  value={hours}
+                  placeholder={"Type Your Hours"}
+                />
+                <small>{HoursError ? "Hours is empty" : " "}</small>
+              </label>
+            </div>
+          </div>
+          <div className='dateFormate'>
+            <div className='common-modal-label'>
+              <label htmlFor="perhours">
+               Per Hours Cost
+                <input
+                  type="text"
+                  id="perhours"
+                  name="perhours"
+                  onChange={perhoursChangeHandler}
+                  value={perhours}
+                  placeholder={"50 tk"}
+                  disabled
+                />
+                <small>{adultsError ? "Perhours is empty" : " "}</small>
+              </label>
+            </div>
+            <div className='common-modal-label'>
+              <label htmlFor="totalAmount">
+                Total Amount
+                <input
+                  type="text"
+                  id="totalAmount"
+                  name="totalAmount"
+                  value={grandTotal}
+                  disabled
+                />
+              </label>
+            </div>
           </div>
 
           <div className='common-modal-label'>
@@ -215,6 +275,11 @@ const NewModal = ({ swimmin }) => {
               <small>{remarkError ? "Remark is empty" : " "}</small>
             </label>
           </div>
+
+          <div className="paymet-radio-btn">
+              <input type="radio" id="swimming" name="swimming_pool" value="swimming" />
+              <label htmlFor="swimming">Online Payment</label>
+          </div> 
 
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>

@@ -31,7 +31,6 @@ const SearchCard = ({ item }) => {
     if (!isInitiating) {
       const quantity = getQuantity(item.Id);
       setCount(quantity);
-      
     }
 
     //eslint-disable-next-line react-hooks/exhaustive-deps

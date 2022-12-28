@@ -8,28 +8,13 @@ const FindHroomTemplate = ({FindHroom}) => {
         <section className="booking-room-area">
             <div className="container">
                 <div className="booking-room-main">
-                    <div className="row">
-                    <div className="col-md-5">
-                            <div className="grid">
-                                <figure className="effect-layla">
-                                    <img src={FindHroom[1].image} alt="lazz polli resort bd best resort" />
-                                    <figcaption>
-                                        <h3>{FindHroom[1].topHeading} </h3>
-                                        
-                                        <h6 className="find-more"><Link to={FindHroom[1].link}>{FindHroom[1].topBtn} </Link></h6>
-                                        <h2><span>{FindHroom[1].btmHeading} </span></h2>
-                                        <p>{FindHroom[1].description} </p>
-                                        <Link to={FindHroom[1].link}>{FindHroom[1].bottomBtn} </Link>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                        <div className="col-md-7">
+                  <div className="row">
+                    <div className="col-md-5x col-md-5xl">
                             <div className="grid">
                                 <figure className="effect-layla">
                                     <img src={FindHroom[0].image} alt="new resort lazz polli" />
                                     <figcaption>
-                                        <h3>{FindHroom[0].topHeading} </h3>
+                                        <h3 className='room-hide-border'>{FindHroom[0].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[0].link}>{FindHroom[0].topBtn} </Link></h6>
                                         <h2><span>{FindHroom[0].btmHeading} </span></h2>
                                         <p className='mobile-desc'>{FindHroom[0].description} </p>
@@ -43,6 +28,20 @@ const FindHroomTemplate = ({FindHroom}) => {
                         <div className="col-md-7">
                             <div className="grid">
                                 <figure className="effect-layla">
+                                    <img src={FindHroom[2].image} alt="lazz polli bangladesh" />
+                                    <figcaption>
+                                        <h3 className='room-hide-border'>{FindHroom[2].topHeading} </h3>
+                                        <h6 className="find-more"><Link to={FindHroom[2].link}>{FindHroom[2].topBtn} </Link></h6>
+                                        <h2><span>{FindHroom[2].btmHeading} </span></h2>
+                                        <p>{FindHroom[2].description} </p>
+                                        <Link to={FindHroom[2].link}>{FindHroom[2].bottomBtn} </Link>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div className="col-md-5">
+                            <div className="grid">
+                                <figure className="effect-layla">
                                     <img src={FindHroom[3].image} alt="lazz polli cox's bazar" />
                                     <figcaption>
                                         <h3>{FindHroom[3].topHeading} </h3>
@@ -54,28 +53,32 @@ const FindHroomTemplate = ({FindHroom}) => {
                                 </figure>
                             </div>
                         </div>
-                        <div className="col-md-5">
+                    </div>
+                    <div className="row">
+                       <div className="col-md-5x">
                             <div className="grid">
                                 <figure className="effect-layla">
-                                    <img src={FindHroom[2].image} alt="lazz polli bangladesh" />
+                                    <img src={FindHroom[1].image} alt="lazz polli resort bd best resort" />
                                     <figcaption>
-                                        <h3>{FindHroom[2].topHeading} </h3>
-                                        <h6 className="find-more"><Link to={FindHroom[2].link}>{FindHroom[2].topBtn} </Link></h6>
-                                        <h2><span>{FindHroom[2].btmHeading} </span></h2>
-                                        <p>{FindHroom[2].description} </p>
-                                        <Link to={FindHroom[2].link}>{FindHroom[2].bottomBtn} </Link>
+                                        <h3 className='room-hide-border'>{FindHroom[1].topHeading} </h3>
+                                        
+                                        <h6 className="find-more"><Link to={FindHroom[1].link}>{FindHroom[1].topBtn} </Link></h6>
+                                        <h2><span>{FindHroom[1].btmHeading} </span></h2>
+                                        <p>{FindHroom[1].description} </p>
+                                        <Link to={FindHroom[1].link}>{FindHroom[1].bottomBtn} </Link>
                                     </figcaption>
                                 </figure>
                             </div>
                         </div>
                     </div>
+
                     <div className="row">
-                    <div className="col-md-5x">
+                       <div className="col-md-5x">
                             <div className="grid">
                                 <figure className="effect-layla">
                                     <img src={FindHroom[4].image} alt="lazz polli room" />
                                     <figcaption>
-                                        <h3>{FindHroom[4].topHeading} </h3>
+                                        <h3 className='room-hide-border'>{FindHroom[4].topHeading} </h3>
                                         <h6 className="find-more"><Link to={FindHroom[4].link}>{FindHroom[4].topBtn} </Link></h6>
                                         <h2><span>{FindHroom[4].btmHeading} </span></h2>
                                         <p className='mobile-desc'>{FindHroom[4].description} </p>

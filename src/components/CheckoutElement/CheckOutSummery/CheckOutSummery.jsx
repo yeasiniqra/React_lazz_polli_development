@@ -6,6 +6,7 @@ import CheckOutSummeryTemplate from './CheckOutSummeryTemplate';
 const CheckOutSummery = () => {
     const {rooms,totalAmount} = useContext(cartContext)
 
+    console.log(rooms);
     const title = {
         title : 'Your booking summary'
     }

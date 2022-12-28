@@ -163,16 +163,16 @@ const APP_DATA = {
             topHeading: "Rooms & Suites",
             topBtn : "View More",
             btmHeading: "Rooms & Suites",
-            description : "Accommodation in the resort consists of 30 superior and premium type rooms in the terraced main hotel.",
+            description : "Accommodation in the resort consists of premium deluxe bedrooms and amenities.",
             bottomBtn : "View More",
             link: '/suits'
         },
         {
             image : findTwo,
-            topHeading: "Lazz Convention",
+            topHeading: "Convention Hall",
             topBtn : "View More",
-            btmHeading : "Lazz Convention",
-            description : "Dine at Banana Leaf and Tea Valley restaurant to enjoy delicious food from diverse range of cuisine.",
+            btmHeading : "Convention Hall",
+            description : "Host seminars and large corporate mettings at our spacious auditorium.",
             bottomBtn : "View More",
             link: '/convention'
         },
@@ -181,7 +181,7 @@ const APP_DATA = {
             topHeading: "Dine",
             topBtn : "View More",
             btmHeading: "Dine",
-            description : "Holistic spa indulgence awaits to fulfill your every wish with an all-natural package that includes herbal and floral concoctions.",
+            description : "Dine at our open-concept restaurant to enjoy delicious bengali cuisine.",
             bottomBtn : "View More",
             link: '/dine'
         },
@@ -190,8 +190,7 @@ const APP_DATA = {
             topHeading : "swimming pool",
             topBtn : "View More",
             btmHeading : "swimming pool",
-            description : "70 feet long first infinity edged swimming pool in the country with sunken pool bar. 50 feet long lap pool on the lower layer.",
-            bottomBtn : "View More",
+            description : "Take a dive in our 70 feet swimming pool open call year round.",
             link : '/swimmingpool'
         },
         {
@@ -199,7 +198,7 @@ const APP_DATA = {
             topHeading : "Full Package",
             topBtn : "View More",
             btmHeading : "Full Package",
-            description : "70 feet long first infinity edged swimming pool in the country with sunken pool bar. 50 feet long lap pool on the lower layer.",
+            description : "Book the entire resort to your self.",
             bottomBtn : "View More",
             link : '/package'
         },
@@ -935,8 +934,9 @@ const APP_DATA = {
            link : '/room',
            btnText : 'View Cottages',
            CottageSuitsSingle : [
-             {
+              {
                 id: 1,
+                title : 'Cottages',
                 image : roomOne,
                 roomTitle : "Book Single Room From",
                 roomAmount : "7,000.0৳",
@@ -946,6 +946,7 @@ const APP_DATA = {
                 id: 2,
                 image : roomOne,
                 roomTitle : "Book Entire",
+                title : 'Cottages',
                 roomAmount : "7,000.0৳",
                 dayNight : "Night",
               },
@@ -973,6 +974,7 @@ const APP_DATA = {
                 {
                     id: 1,
                     image : roomOne,
+                    title : 'Rooms',
                     roomTitle : "Book Single Room From",
                     roomAmount : "7,000.0৳",
                     dayNight : "Night",
@@ -980,6 +982,7 @@ const APP_DATA = {
                   {
                     id: 2,
                     image : roomOne,
+                    title : 'Rooms',
                     roomTitle : "Book Entire",
                     roomAmount : "7,000.0৳",
                     dayNight : "Night",
@@ -1006,6 +1009,7 @@ const APP_DATA = {
             CottageSuitsSingle : [
                 {
                     id: 1,
+                    title : 'Villas',
                     image : roomOne,
                     roomTitle : "Book Single Room From",
                     roomAmount : "7,000.0৳",
@@ -1013,6 +1017,7 @@ const APP_DATA = {
                   },
                   {
                     id: 2,
+                    title : 'Villas',
                     image : roomOne,
                     roomTitle : "Book Entire",
                     roomAmount : "7,000.0৳",

@@ -4,8 +4,12 @@ import { getCottageSuitesSingle } from '../../services/data-service';
 import PageHeader from '../PageHeader/PageHeader';
 import commonBg from '../../images/room.jpg';
 import SuitsAndRoomDetailsTem from './SuitsAndRoomDetailsTem';
+import { useState } from 'react';
+import RoomSuitsMdl from '../Sheared/CommonModal/RoomSuitsMdl';
 
 const SuitsAndRoomDetails = () => {
+    
+    const [suitsAndRoom, setSuitsAndRoom] = useState(null)
     const {id} = useParams();
     const SuitsAndRoomData = getCottageSuitesSingle(+id)
 //    console.log(SuitsAndRoomData);
@@ -19,8 +23,15 @@ const SuitsAndRoomDetails = () => {
                             SuitsAndRoomData.CottageSuitsSingle.map(cottage => <SuitsAndRoomDetailsTem
                                  cottage={cottage}
                                   key={cottage.id} 
-                                  SuitsAndRoomData={SuitsAndRoomData}
+                                  setSuitsAndRoom={setSuitsAndRoom}
                                  /> )
+                        }
+                        {
+                            suitsAndRoom && 
+                            <RoomSuitsMdl
+                            suitsAndRoom={suitsAndRoom}
+                            setSuitsAndRoom={setSuitsAndRoom}
+                            />
                         }
                     </div> 
                 </div>
