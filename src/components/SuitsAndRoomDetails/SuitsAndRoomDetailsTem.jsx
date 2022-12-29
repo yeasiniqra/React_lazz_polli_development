@@ -11,11 +11,11 @@ const SuitsAndRoomDetailsTem = ({cottage, setSuitsAndRoom}) => {
                 <div className="room-content-x">
                     <h2>{cottage.roomTitle} - {cottage.title}</h2>
                     <h3>
-                    {cottage.roomAmount}&nbsp;<span>/ <sup>{cottage.dayNight}</sup></span>{" "}
+                    {cottage.amount}&nbsp;<span>/ <sup>{cottage.dayNight}</sup></span>{" "}
                     </h3>
                     
                     <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setSuitsAndRoom(cottage)}> 
-                     <a>Book Now</a>
+                     <a>Check Availability</a>
                     </label>
                     {/* <div className="common-btn">
                      <Link className="card-book" to='/checkout'>Book Now</Link>

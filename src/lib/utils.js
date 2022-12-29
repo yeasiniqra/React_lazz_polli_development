@@ -5,5 +5,6 @@ export const humanizeDate = (enData) => {
 
 export const humanizeTime = (enData) => {
     const timestamp = new Date(enData);
-     return `${timestamp.getHours()}`
+    return `${timestamp.getHours()}.${timestamp.getMinutes()}`
 };
+

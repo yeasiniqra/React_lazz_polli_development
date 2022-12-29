@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
+import { humanizeTime } from "../../../lib/utils";
 
 const NewModal = ({ swimmin }) => {
   // console.log(storeSignupData);
@@ -79,7 +80,11 @@ const NewModal = ({ swimmin }) => {
     setHoursError(false);
   };
 
-  const grandTotal = adults * hours * perhours;
+  const totalTime = (humanizeTime(endDate) - humanizeTime(startDate)).toFixed(2)
+
+  const grandTotal = (adults * totalTime * perhours).toFixed(2);
+
+  
 
   const conventionHandler = (e) => {
     e.preventDefault();
@@ -141,7 +146,9 @@ const NewModal = ({ swimmin }) => {
                   timeInputLabel="Time:"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   showTimeInput
+                  required
                 />
+
                 <small>
                   {startDateError ? "startDateError is empty" : " "}
                 </small>
@@ -223,8 +230,9 @@ const NewModal = ({ swimmin }) => {
                   name="hours"
                   onChange={hoursChangeHandler}
                   onFocus={hoursFocusHandler}
-                  value={hours}
+                  value={totalTime}
                   placeholder={"Type Your Hours"}
+                  disabled
                 />
                 <small>{HoursError ? "Hours is empty" : " "}</small>
               </label>

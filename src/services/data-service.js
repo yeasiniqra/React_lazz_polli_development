@@ -298,7 +298,7 @@ const APP_DATA = {
             id: 0,
             image : roomOne,
             roomTitle : "Day Long couples",
-            roomAmount : "7,000.0৳",
+            amount : "7,000.0",
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -347,7 +347,7 @@ const APP_DATA = {
             id: 1,
             image : roomTwo,
             roomTitle : "Cottage Park – Standard Room",
-            roomAmount : "7,000.0৳",
+            amount : "7,000.0",
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -396,7 +396,7 @@ const APP_DATA = {
             id: 2,
             image : roomOne,
             roomTitle : "Platinum Room 2",
-            roomAmount : "7,000.0৳",
+            amount : "7,000.0",
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -441,7 +441,7 @@ const APP_DATA = {
             id: 3,
             image : roomTwo,
             roomTitle : "Platinum Room",
-            roomAmount : "7,000.0৳",
+            amount : "7,000.0",
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -487,7 +487,7 @@ const APP_DATA = {
             id: 4,
             image : roomOne,
             roomTitle : "Day Long couples",
-            roomAmount : "7,000.0৳",
+            amount : "7,000.0",
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -939,7 +939,7 @@ const APP_DATA = {
                 title : 'Cottages',
                 image : roomOne,
                 roomTitle : "Book Single Room From",
-                roomAmount : "7,000.0৳",
+                amount : "7,000.0",
                 dayNight : "Night",
               },
               {
@@ -947,7 +947,7 @@ const APP_DATA = {
                 image : roomOne,
                 roomTitle : "Book Entire",
                 title : 'Cottages',
-                roomAmount : "7,000.0৳",
+                amount : "7,000.0",
                 dayNight : "Night",
               },
            ]
@@ -976,7 +976,7 @@ const APP_DATA = {
                     image : roomOne,
                     title : 'Rooms',
                     roomTitle : "Book Single Room From",
-                    roomAmount : "7,000.0৳",
+                    amount : "7,000.0",
                     dayNight : "Night",
                   },
                   {
@@ -984,7 +984,7 @@ const APP_DATA = {
                     image : roomOne,
                     title : 'Rooms',
                     roomTitle : "Book Entire",
-                    roomAmount : "7,000.0৳",
+                    amount : "7,000.0",
                     dayNight : "Night",
                   },
               ]
@@ -1012,7 +1012,7 @@ const APP_DATA = {
                     title : 'Villas',
                     image : roomOne,
                     roomTitle : "Book Single Room From",
-                    roomAmount : "7,000.0৳",
+                    amount : "7,000.0",
                     dayNight : "Night",
                   },
                   {
@@ -1020,7 +1020,7 @@ const APP_DATA = {
                     title : 'Villas',
                     image : roomOne,
                     roomTitle : "Book Entire",
-                    roomAmount : "7,000.0৳",
+                    amount : "7,000.0",
                     dayNight : "Night",
                   },
               ]

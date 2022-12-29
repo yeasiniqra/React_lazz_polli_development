@@ -4789,10 +4789,24 @@ table.table.table-bordered>tbody>tr.tr-border {
   margin-top: 2vw;
 } 
 
+.modal-inner.modal-inner-cottage {
+  margin-top: 2vw;
+  max-width: 800px;
+  min-width: 800px;
+  padding: 10px;
+}
+
+.modal-body-start .parent-suites-room {
+  max-width: 290px;
+  width: 100%;
+}
 
 .parent-modal .modal > p {
 	padding: 15px;
     margin: 0;
+}
+.search-filter-modal-area .book_table_inner {
+  padding: 5px;
 }
 
 .common-modal-label > label > small {
@@ -4845,7 +4859,7 @@ button.common-modal-submit {
   margin: 0 auto;
 }
 
-.parent-modal .example-label {
+/* .parent-modal .example-label {
 	box-sizing: border-box;
     display: inline-block;
     padding: 10px;
@@ -4857,7 +4871,7 @@ button.common-modal-submit {
 }
 .parent-modal .example-label:hover {
 	background-color: #3c669f;
-}
+} */
 
 .dateFormate {
   display: grid;

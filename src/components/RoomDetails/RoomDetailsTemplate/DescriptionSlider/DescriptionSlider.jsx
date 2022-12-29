@@ -57,7 +57,7 @@ const DescriptionSlider = ( {room} ) => {
             <div className="dts-heading-content">
                 <h1>{room.roomTitle}</h1>
                 <h4>
-                    {room.roomAmount} / <span>{room.dayNight}</span>
+                    {room.amount} / <span>{room.dayNight}</span>
                 </h4>
                 <div className="common-btn">
                   <Link to="/checkout">Book Now</Link>
