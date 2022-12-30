@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 import SearchRoomFilterMdl from "../../RoomSearchElement/RoomSearchFilter/SearchRoomFilterMdl";
+
 const RoomSuitsMdl = ({ suitsAndRoom,setSuitsAndRoom }) => {
   const { storeRoom } = useContext(cartContext);
   const { filters } = useContext(appContext);
@@ -12,17 +13,20 @@ const RoomSuitsMdl = ({ suitsAndRoom,setSuitsAndRoom }) => {
 const isToggleClass = () => {
   storeRoom({ ...suitsAndRoom, ...filters });
 };
+
+// console.log(isToggleClass)
+
   const {roomTitle,title,image,amount,dayNight} = suitsAndRoom
   return (
     <div className="parent-modal">
      
-      <input type="checkbox" id="swimmin" />
-      <label htmlFor="swimmin" className="modal-background"></label>
+      <input type="checkbox" id="cottage" />
+      <label htmlFor="cottage" className="modal-background"></label>
       <div className="modal">
         <div className="modal-inner modal-inner-cottage">
         <div className="modal-header">
           <h2>{roomTitle} {title}</h2>
-          <label htmlFor="swimmin">
+          <label htmlFor="cottage">
              <i className="fa fa-times" aria-hidden="true"></i>
           </label>
         </div>
@@ -37,7 +41,7 @@ const isToggleClass = () => {
                     {amount}&nbsp;<span>/ <sup>{dayNight}</sup></span>{" "}
                     </h3>
                     
-                    <label className="example-label common-btn" htmlFor="swimmin" onClick={isToggleClass}> 
+                    <label className="example-label common-btn" htmlFor="cottage" onClick={isToggleClass}> 
                      <Link to='/checkout'>Book Now</Link>
                     </label>
                     {/* <div className="common-btn">

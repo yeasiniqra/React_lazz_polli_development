@@ -11,6 +11,7 @@ const SuitsAndRoomDetails = () => {
     
     const [suitsAndRoom, setSuitsAndRoom] = useState(null)
     const {id} = useParams();
+    // console.log(id);
     const SuitsAndRoomData = getCottageSuitesSingle(+id)
 //    console.log(SuitsAndRoomData);
     return (
@@ -20,7 +21,7 @@ const SuitsAndRoomDetails = () => {
                 <div className='container'>
                     <div className='cottage-room-details-grid'>
                         {
-                            SuitsAndRoomData.CottageSuitsSingle.map(cottage => <SuitsAndRoomDetailsTem
+                            SuitsAndRoomData?.CottageSuitsSingle?.map(cottage => <SuitsAndRoomDetailsTem
                                  cottage={cottage}
                                   key={cottage.id} 
                                   setSuitsAndRoom={setSuitsAndRoom}

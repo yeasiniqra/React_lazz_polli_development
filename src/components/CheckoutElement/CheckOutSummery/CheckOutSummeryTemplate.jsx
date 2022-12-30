@@ -7,12 +7,12 @@ const CheckOutSummeryTemplate = ({room, index}) => {
     
     return (
         <>
-                <h2>Room : {index + 1}</h2>
+                <h2>NO : {index + 1}</h2>
                 <div className="smy-date">
                         <div className="check-in-out">
                             <h6>Check-In</h6>
                             <small>{humanizeDate(room.arrivalDate)}</small>
-                            <h5>1 Night Stay</h5>
+                            <h5>Stay</h5>
                         </div>
                         <div className="check-in-out">
                             <h6>Check-Out</h6>
@@ -21,13 +21,13 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                     </div>
                 <div className="super-flex-item">
                     <div className="spk-left">
-                        <p><span>Rateplan Name : </span>{room.title}</p>
-                        <p><span>Pax Details : </span> {room.adultsCount * room.quantity} Adults {room.childrenCount * room.quantity} Child</p>
+                        <p><span>Name : </span>{room.title}</p>
+                        <p><span></span> {room.adultsCount * room.quantity} Adults {room.childrenCount * room.quantity} Child</p>
                     </div>
                 </div>
                 <div className="special-conditions-check">
-                    <span className='tooltip'> Special conditions : <small className='tooltiptext'>Full prepayment is needed for booking under this rate</small> </span>
-                    <small>Breakfast is included in the room rates</small>
+                    {/* <span className='tooltip'> Special conditions : <small className='tooltiptext'>Full prepayment is needed for booking under this rate</small> </span>
+                    <small>Breakfast is included in the room rates</small> */}
                     <div className="room-chargeq">
                         <div className="room-chargeq-single">
                             <small>Room Charges </small>

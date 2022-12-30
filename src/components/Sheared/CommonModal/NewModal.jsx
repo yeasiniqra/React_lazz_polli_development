@@ -81,11 +81,9 @@ const NewModal = ({ swimmin }) => {
   };
 
   const totalTime = (humanizeTime(endDate) - humanizeTime(startDate)).toFixed(2)
-
   const grandTotal = (adults * totalTime * perhours).toFixed(2);
 
   
-
   const conventionHandler = (e) => {
     e.preventDefault();
 

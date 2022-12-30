@@ -6,7 +6,7 @@ import CheckOutSummeryTemplate from './CheckOutSummeryTemplate';
 const CheckOutSummery = () => {
     const {rooms,totalAmount} = useContext(cartContext)
 
-    console.log(rooms);
+    // console.log(rooms);
     const title = {
         title : 'Your booking summary'
     }
@@ -40,7 +40,7 @@ const CheckOutSummery = () => {
                     </div>
 
                     <div className='room-book-summery'>
-                        <h4 className='roomNight'>Rooms & Rates ( Price For 1 Night )</h4>
+                        {/* <h4 className='roomNight'>Rooms & Rates ( Price For 1 Night )</h4> */}
                         {
                             rooms.map((room, index) => <CheckOutSummeryTemplate index={index} key={room.Id} room={room} />)
                         }
@@ -48,7 +48,7 @@ const CheckOutSummery = () => {
 
                     <div className="total-rom-service">
                         <div className="room-chargeq-single">
-                            <small>Total Room Charges</small>
+                            <small>Total Charges</small>
                             <small>BDT {totalAmount}</small>
                         </div>
                         <div className="room-chargeq-single">

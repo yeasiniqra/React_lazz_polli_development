@@ -298,7 +298,7 @@ const APP_DATA = {
             id: 0,
             image : roomOne,
             roomTitle : "Day Long couples",
-            amount : "7,000.0",
+            amount : 70000,
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -347,7 +347,7 @@ const APP_DATA = {
             id: 1,
             image : roomTwo,
             roomTitle : "Cottage Park – Standard Room",
-            amount : "7,000.0",
+            amount : 70000,
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -396,7 +396,7 @@ const APP_DATA = {
             id: 2,
             image : roomOne,
             roomTitle : "Platinum Room 2",
-            amount : "7,000.0",
+            amount : 70000,
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -441,7 +441,7 @@ const APP_DATA = {
             id: 3,
             image : roomTwo,
             roomTitle : "Platinum Room",
-            amount : "7,000.0",
+            amount : 70000,
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -487,7 +487,7 @@ const APP_DATA = {
             id: 4,
             image : roomOne,
             roomTitle : "Day Long couples",
-            amount : "7,000.0",
+            amount : 70000,
             dayNight : "Night",
             btnText : "View details",
             roomSingle : [
@@ -596,27 +596,27 @@ const APP_DATA = {
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
             ]
 
@@ -628,27 +628,27 @@ const APP_DATA = {
                 {
                     title: 'CONFIT DE CANARD 2',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
             ]
 
@@ -660,27 +660,27 @@ const APP_DATA = {
                 {
                     title: 'CONFIT DE CANARD 3',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
                 {
                     title: 'CONFIT DE CANARD',
                     description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : '250',
+                    amount : 70000,
                 },
             ]
 
@@ -691,27 +691,27 @@ const APP_DATA = {
             space: [
                 {
                     image : galleryOne,
-                    id : 0
+                    Id : 0
                 },
                 {
                     image : galleryTwo,
-                    id : 1
+                    Id : 1
                 },
                 {
                     image : galleryThree,
-                    id : 2
+                    Id : 2
                 },
                 {
                     image : galleryFour,
-                    id : 3
+                    Id : 3
                 },
                 {
                     image : galleryFive,
-                    id : 4
+                    Id : 4
                 },
                 {
                     image : gallerySix,
-                    id : 5
+                    Id : 5
                 },
             ]
         },
@@ -935,19 +935,17 @@ const APP_DATA = {
            btnText : 'View Cottages',
            CottageSuitsSingle : [
               {
-                id: 1,
-                title : 'Cottages',
+                Id: 1,
                 image : roomOne,
-                roomTitle : "Book Single Room From",
-                amount : "7,000.0",
+                title : "Book Single Room From - Cottage",
+                amount : 70000,
                 dayNight : "Night",
               },
               {
-                id: 2,
+                Id: 2,
                 image : roomOne,
-                roomTitle : "Book Entire",
-                title : 'Cottages',
-                amount : "7,000.0",
+                title : "Book Entire - Cottage",
+                amount : 70000,
                 dayNight : "Night",
               },
            ]
@@ -972,19 +970,17 @@ const APP_DATA = {
             btnText : 'View Hotel',
             CottageSuitsSingle : [
                 {
-                    id: 1,
+                    Id: 1,
                     image : roomOne,
-                    title : 'Rooms',
-                    roomTitle : "Book Single Room From",
-                    amount : "7,000.0",
+                    title : "Book Single Room From - Rooms",
+                    amount : 70000,
                     dayNight : "Night",
                   },
                   {
-                    id: 2,
+                    Id: 2,
                     image : roomOne,
-                    title : 'Rooms',
-                    roomTitle : "Book Entire",
-                    amount : "7,000.0",
+                    title : "Book Entire - Rooms",
+                    amount : 70000,
                     dayNight : "Night",
                   },
               ]
@@ -1008,19 +1004,17 @@ const APP_DATA = {
             btnText : 'View Villa',
             CottageSuitsSingle : [
                 {
-                    id: 1,
-                    title : 'Villas',
+                    Id: 1,
                     image : roomOne,
-                    roomTitle : "Book Single Room From",
-                    amount : "7,000.0",
+                    title : "Book Single Room From - Villas",
+                    amount : 70000,
                     dayNight : "Night",
                   },
                   {
-                    id: 2,
-                    title : 'Villas',
+                    Id: 2,
                     image : roomOne,
-                    roomTitle : "Book Entire",
-                    amount : "7,000.0",
+                    title : "Book Entire - Villas",
+                    amount : 70000,
                     dayNight : "Night",
                   },
               ]
@@ -1175,9 +1169,6 @@ export const getCottageSuites = () => {
 export const getCottageSuitesSingle = (id) => {
     return APP_DATA.CottageSuits.find(s => s.id === id)
 }
-
-
-
 export const getFullpackage = () => {
     return APP_DATA.FullPackage.slice()
 }

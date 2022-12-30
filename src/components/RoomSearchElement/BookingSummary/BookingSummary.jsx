@@ -13,8 +13,8 @@ const BookingSummary = () => {
     return (
             <>
             {
-                rooms.map((summeryItem) => <BookingSummaryTemplate
-                    key={summeryItem.Id}
+                rooms.map((summeryItem, index) => <BookingSummaryTemplate
+                    key={index}
                     summeryItem={summeryItem}
                     removeClickHandler={removeClickHandler}
                 />)

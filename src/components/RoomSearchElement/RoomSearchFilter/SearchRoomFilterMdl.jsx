@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import appContext from "../../../store/app-context";
-import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
+// import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 // import Input from "../../Sheared/Input/Input";
 
 import DatePicker from "react-datepicker";
@@ -15,8 +15,8 @@ const SearchRoomFilterMdl = () => {
 
   const [arrdate, setArrdate] = useState("");
   const [depdate, setDepdate] = useState("");
-  const [adults, setAdults] = useState({});
-  const [children, setChildren] = useState({});
+  // const [adults, setAdults] = useState({});
+  // const [children, setChildren] = useState({});
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date().setDate(today.getDate() + 1));
 
@@ -47,16 +47,16 @@ const SearchRoomFilterMdl = () => {
   //   storeFilters({...filters, departureDate : dtime})
   // }
 
-  const adultsBlurHandler = (fadults) => {
-    storeFilters({...filters, adultsCount : fadults.adults});
-    setAdults(fadults);
-  }
+  // const adultsBlurHandler = (fadults) => {
+  //   storeFilters({...filters, adultsCount : fadults.adults});
+  //   setAdults(fadults);
+  // }
 
 
-  const childrenBlurHandler = (fchild) => {
-    storeFilters({...filters, childrenCount : fchild.children})
-    setChildren(fchild);
-  }
+  // const childrenBlurHandler = (fchild) => {
+  //   storeFilters({...filters, childrenCount : fchild.children})
+  //   setChildren(fchild);
+  // }
 
 
   const submitHandler = () => {
@@ -64,7 +64,7 @@ const SearchRoomFilterMdl = () => {
 
     if (arrdate.length < 1) errors.push("Arrival Date");
     if (depdate.length < 1) errors.push("Departure Date");
-    if (!!!adults.id) errors.push("Adults");
+    // if (!!!adults.id) errors.push("Adults");
     //  if(!!!children.id) errors.push('children')
 
     if (errors.length !== 0) {
@@ -76,8 +76,8 @@ const SearchRoomFilterMdl = () => {
     console.log({
       arrdate: arrdate,
       depdate: depdate,
-      adults: adults,
-      children: children
+      // adults: adults,
+      // children: children
     });
   };
 
@@ -130,7 +130,7 @@ const SearchRoomFilterMdl = () => {
                   </div>
                 </div>
               </div>
-              <div className="book_table_item">
+              {/* <div className="book_table_item">
                 <AutoComplete
                   dataset={[
                     { adults: 1, id: 1 },
@@ -167,7 +167,7 @@ const SearchRoomFilterMdl = () => {
                   value={children}
                   placeholder={"--Select--"}
                 />
-              </div>
+              </div> */}
               <div className="book_table_item book_table_item_mobile">
                 <button onClick={submitHandler} type="button">
                   Check

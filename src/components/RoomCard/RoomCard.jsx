@@ -13,7 +13,7 @@ const RoomCard = ({room}) => {
               {room.amount}&nbsp;<span>/ <sup>{room.dayNight}</sup></span>{" "}
             </h3>
             <div className="common-btn">
-             <Link className="card-book" to='/checkout'>Book Now</Link>
+              <Link className="card-book" to='/checkout'>Book Now</Link>
               <Link to={`${room.id}`}>{room.btnText}</Link>
             </div>
         </div>
