@@ -26,6 +26,7 @@ import Convention from './pages/Convention';
 import SwimmingPool from './pages/SwimmingPool';
 import SuitsAndRoomDetails from './components/SuitsAndRoomDetails/SuitsAndRoomDetails';
 import NewCustomarInfo from './components/CheckoutElement/CustomarInformation/InformationCard/NewCustomarInfo';
+import SuitsAndCottageDetails from './components/SuitsAndCottageDetails/SuitsAndCottageDetails';
 
 
 
@@ -55,7 +56,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About/> } />
             <Route path="/room" element={<Room /> } />
-            <Route path="/room/:id" element={<RoomDetails />} />
+            <Route path="/room/:Id" element={<RoomDetails />} />
             <Route path="/career" element={<Career /> } />
             <Route path="/dine" element={<Dine /> } />
             <Route path="/contact" element={<Contact />} />
@@ -66,7 +67,8 @@ function App() {
             <Route path="/checkout" element={ <CheckoutElement />} />
             <Route path="/package" element={ <FullPackage />} />
             <Route path="/suits" element={ <SuitsRoom />} />
-            <Route path="/suits/:id" element={ <SuitsAndRoomDetails />} />
+            <Route path="/suits/:Id" element={ <SuitsAndRoomDetails />} />
+            <Route path="/suits/:Id/:roomId" element={ <SuitsAndCottageDetails />} />
             <Route path="/profile" element={ <Profile />} >
               <Route path="order" element={<OrderHistory />} />
               <Route path="edit" element={<Edit />} />

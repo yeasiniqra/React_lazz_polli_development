@@ -31,10 +31,10 @@ const RoomReview = ({room}) => {
                     className="tablinks" 
                     onClick={toggleHandler}
                     >
-                       {room.roomSingle[3].infoTab}
+                       {room?.roomSingle[3].infoTab}
                     </button>
                     <button className="tablinks" onClick={toggleHandler}>
-                    {room.roomSingle[3].reviewTab}
+                    {room?.roomSingle[3].reviewTab}
                     </button>
                 </nav>
 

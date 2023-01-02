@@ -8,18 +8,18 @@ import authContext from '../../../store/auth-context';
 const HeaderNav = () => {
     const { open } = useContext(authContext);
 
-    const [isActive, setActive] = useState();
+    const [isActive, setActive] = useState(false);
 
     const toggleClass = (e) => {
         setActive(!isActive)
     };
 
-    const [isActiveSub, setActiveSub] = useState();
+    const [isActiveSub, setActiveSub] = useState(false);
     const toggleClassSub = () => {
         setActiveSub(!isActiveSub)
     }; 
 
-    const [isActiveSearch, setActiveSearch] = useState();
+    const [isActiveSearch, setActiveSearch] = useState(false);
     const toggleClassSearch = () => {
         setActiveSearch(!isActiveSearch)
     };

@@ -8,7 +8,9 @@ const CheckOutSummeryTemplate = ({room, index}) => {
     return (
         <>
                 <h2>NO : {index + 1}</h2>
-                <div className="smy-date">
+                {
+                    room.arrivalDate && room.arrivalDate &&
+                    <div className="smy-date">
                         <div className="check-in-out">
                             <h6>Check-In</h6>
                             <small>{humanizeDate(room.arrivalDate)}</small>
@@ -19,6 +21,8 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                             <small>{humanizeDate(room.departureDate)}</small>
                         </div>
                     </div>
+                }
+               
                 <div className="super-flex-item">
                     <div className="spk-left">
                         <p><span>Name : </span>{room.title}</p>

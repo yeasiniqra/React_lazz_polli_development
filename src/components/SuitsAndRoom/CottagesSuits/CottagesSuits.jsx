@@ -15,6 +15,7 @@ const CottagesSuits = ({ item }) => {
     fixedHeight: "auto",
   };
 
+  
   return (
     <div className="cottagesuits-grid">
       <div className="cottagesuits-single">
@@ -30,7 +31,7 @@ const CottagesSuits = ({ item }) => {
            </Splide>
           <div className="book-overly">
             <div className="common-btn">
-              <Link to={`${item.id}`}>{item.btnText}</Link>
+              <Link to={`${item.Id}`}>{item.btnText}</Link>
             </div>
           </div>
         </div>
@@ -56,7 +57,7 @@ const CottagesSuits = ({ item }) => {
               </div>
             </div>
             <div className="common-btn">
-              <Link to={`${item.id}`}>{item.btnText}</Link>
+              <Link to={`${item.Id}`}>{item.btnText}</Link>
             </div>
           </div>
 

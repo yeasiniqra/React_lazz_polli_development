@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
 import { humanizeTime } from "../../../lib/utils";
 
-const NewModal = ({ swimmin }) => {
+const SwimmingMdl = ({ swimmin }) => {
   // console.log(storeSignupData);
 
   const [error, setError] = useState(null);
@@ -306,4 +306,4 @@ const NewModal = ({ swimmin }) => {
   );
 };
 
-export default NewModal;
+export default SwimmingMdl;

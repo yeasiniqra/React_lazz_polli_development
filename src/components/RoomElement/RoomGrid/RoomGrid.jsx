@@ -7,6 +7,7 @@ const RoomGrid = () => {
         subTitle : 'choose room according to budget',
     }
     const resortRoom = getResortRoom();
+    console.log(resortRoom)
     return (
         <section className="room-search-area">
             <div className="container">
@@ -19,7 +20,7 @@ const RoomGrid = () => {
 
                 <div className="choose-room-main-grid">
                     {resortRoom.map((room) => (
-                    <RoomCard room={room} key={room.id}/>
+                    <RoomCard room={room} key={room.Id}/>
                     ))}
                 </div>
             </div>

@@ -4911,3 +4911,30 @@ button.common-modal-submit {
   gap: 30px;
   padding: 50px;
 }
+
+.cottage-btn {
+  display: flex;
+  gap: 10px;
+}
+
+
+.relax-spa-inner-grid.convention-hall-area {
+  display: inherit;
+}
+
+.relax-spa-inner-grid.convention-hall-area .relax-spa-img-left:hover img {
+  transform: inherit;
+  transition-duration: 1s;
+}
+
+.relax-spa-inner-grid.convention-hall-area .relax-spa-img-left {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.relax-spa-inner-grid.convention-hall-area .relax-spa-img-left .splide__slide {
+  -webkit-tap-highlight-color: transparent;
+  height: 380px !important;
+}

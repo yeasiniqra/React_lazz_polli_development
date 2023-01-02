@@ -55,7 +55,7 @@ const DescriptionSlider = ( {room} ) => {
                 </Splide>
             </div>
             <div className="dts-heading-content">
-                <h1>{room.roomTitle}</h1>
+                <h1>{room.title}</h1>
                 <h4>
                     {room.amount} / <span>{room.dayNight}</span>
                 </h4>

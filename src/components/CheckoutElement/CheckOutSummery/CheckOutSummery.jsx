@@ -40,7 +40,6 @@ const CheckOutSummery = () => {
                     </div>
 
                     <div className='room-book-summery'>
-                        {/* <h4 className='roomNight'>Rooms & Rates ( Price For 1 Night )</h4> */}
                         {
                             rooms.map((room, index) => <CheckOutSummeryTemplate index={index} key={room.Id} room={room} />)
                         }

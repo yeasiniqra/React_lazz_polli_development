@@ -5,7 +5,7 @@ import SwimmingPoolTemplate from './SwimmingPoolTemplate';
 import { getSwimmingPool } from '../../services/data-service';
 import { useState } from 'react';
 // import SwimmingModal from '../Sheared/CommonModal/SwimmingModal';
-import NewModal from '../Sheared/CommonModal/NewModal';
+import SwimmingMdl from '../Sheared/CommonModal/SwimmingMdl';
 
 const SwimmingPoolElement = () => {
     const swimmingpool = getSwimmingPool()
@@ -23,7 +23,7 @@ const SwimmingPoolElement = () => {
                         }
                        {
                          swimmin && 
-                         <NewModal
+                         <SwimmingMdl
                            setSwimmin={setSwimmin}
                            swimmin={swimmin}
                          />

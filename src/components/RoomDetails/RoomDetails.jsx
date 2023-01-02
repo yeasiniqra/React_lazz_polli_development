@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import { getRoom } from '../../services/data-service';
 
 const RoomDetails = () => {
-    const {id} = useParams();
-    const roomData = getRoom(+id);
+    const {Id} = useParams();
+    const roomData = getRoom(+Id);
     
     return (
         <>

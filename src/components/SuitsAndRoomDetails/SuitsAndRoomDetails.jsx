@@ -8,12 +8,9 @@ import { useState } from 'react';
 import RoomSuitsMdl from '../Sheared/CommonModal/RoomSuitsMdl';
 
 const SuitsAndRoomDetails = () => {
-    
     const [suitsAndRoom, setSuitsAndRoom] = useState(null)
-    const {id} = useParams();
-    // console.log(id);
-    const SuitsAndRoomData = getCottageSuitesSingle(+id)
-//    console.log(SuitsAndRoomData);
+    const {Id} = useParams();
+    const SuitsAndRoomData = getCottageSuitesSingle(+Id)
     return (
         <div>
            <PageHeader imageURL={commonBg} title={'Cottage & Room Details'} />
@@ -23,7 +20,7 @@ const SuitsAndRoomDetails = () => {
                         {
                             SuitsAndRoomData?.CottageSuitsSingle?.map(cottage => <SuitsAndRoomDetailsTem
                                  cottage={cottage}
-                                  key={cottage.id} 
+                                  key={cottage.Id} 
                                   setSuitsAndRoom={setSuitsAndRoom}
                                  /> )
                         }
@@ -34,6 +31,7 @@ const SuitsAndRoomDetails = () => {
                             setSuitsAndRoom={setSuitsAndRoom}
                             />
                         }
+                       
                     </div> 
                 </div>
             </div>  
