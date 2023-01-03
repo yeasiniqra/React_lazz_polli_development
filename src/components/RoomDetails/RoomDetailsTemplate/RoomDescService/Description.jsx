@@ -1,4 +1,5 @@
 import React from 'react';
+import RoomReview from '../RoomReview/RoomReview';
 import ServiceItem from './ServiceItem';
 
 const Description = ({room}) => {
@@ -18,6 +19,7 @@ const Description = ({room}) => {
                         </ul>
                     </div>
                 </div>
+                <RoomReview room={room} />
             </div>
         </div>
     

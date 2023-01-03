@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const SuitsAndRoomDetailsTem = ({cottage, setSuitsAndRoom}) => {
 
@@ -15,11 +14,8 @@ const SuitsAndRoomDetailsTem = ({cottage, setSuitsAndRoom}) => {
                     </h3>
                     <div className="cottage-btn">
                         <label className="example-label common-btn" htmlFor="cottage" onClick={() => setSuitsAndRoom(cottage)}> 
-                        <a>Book Now</a>
+                        <a>View Details</a>
                         </label>
-                        <div className="common-btn">
-                            <Link to={`${cottage.Id}`}>View Details</Link>
-                        </div>
                     </div>
                 </div>
             </div>

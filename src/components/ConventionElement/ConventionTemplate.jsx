@@ -31,7 +31,7 @@ const ConventionTemplate = ({convention, setConventions}) => {
                 </div>
                 <div className="relax-spa-img-content">
                     <h1>{convention.title}</h1>
-                    <p>{convention.description}</p>
+                    <p dangerouslySetInnerHTML={{__html: convention.description}}></p>
                     <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setConventions(convention)}> 
                      <a>Book Now</a>
                     </label>

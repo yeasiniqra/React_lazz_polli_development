@@ -1,5 +1,4 @@
 import React from 'react';
-import RoomReview from "./RoomReview/RoomReview";
 import DescriptionSlider from "./DescriptionSlider/DescriptionSlider";
 import RoomDescService from './RoomDescService/RoomDescService';
 
@@ -10,7 +9,7 @@ const RoomDetailsTemplate = ({room}) => {
         <DescriptionSlider room={room} />
         <RoomDescService room={room} />
       </div>
-      <RoomReview room={room} />
+     
     </>
   );
 };

@@ -7,6 +7,7 @@ import { getRoom } from '../../services/data-service';
 const RoomDetails = () => {
     const {Id} = useParams();
     const roomData = getRoom(+Id);
+    console.log(roomData);
     
     return (
         <>

@@ -38,14 +38,9 @@ import dineTwo from '../images/dish-2.jpg';
 import dineThree from '../images/dish-3.jpg';
 import dineFour from '../images/dish-4.jpg';
 
-// relax iamges
-import relaxOne from '../images/relax/spa.jpg';
-import relaxTwo from '../images/relax/jacuzzi.jpg';
-import relaxThree from '../images/relax/gym.jpg';
-
 // Enjoy iamges
 import enjoyOne from '../images/relax/swimming-pool-2018.jpg';
-import enjoyTwo from '../images/relax/4-new.jpg';
+
 
 //Our resturent  dine images
 import dineMenuOne from '../images/di1.jpg';
@@ -316,7 +311,7 @@ const APP_DATA = {
                     ]
                 },
                 {
-                    title : 'Room Description 1',
+                    title : 'Room Description 1xxxxxxxxxxxx',
                     description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polli Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
                     subTitle : 'Room Services 1'
                 },
@@ -381,8 +376,6 @@ const APP_DATA = {
                         { serviceTitle : "good room service"},
                         { serviceTitle : "flat screen tv"},
                         { serviceTitle : "fully AC"},
-                        { serviceTitle : "mountain view"},
-                        
                     ]
                 },
                 {
@@ -555,22 +548,14 @@ const APP_DATA = {
     SwimmingPool:[
         {
             Id : 1,
-            image:relaxOne,
-            title : 'Swimming Pool One',
-            description: 'Holistic spa indulgence awaits to fulfill your every wish with an all-natural package that includes herbal and floral concoctions. be ushered into the realm of quiet calm through a warmly appointed reception, a Bamboo ,wood and thatch combined natural atmosphere. sparkling crystal reflections of indoor water body with 5 Spa Treatment Suites. Pick from treatments originating from the Majestic Thai Experience to Exotic Armana experience, and relax under the skilled pressure of nimble fingers of our professional Thai Therapists as you enjoy a massage. Operating hours 10.00 am to 10.pm.',
+            images : [
+                {image : enjoyOne},
+                {image : enjoyOne},
+               ],
+            title : 'Swimming Pool',
+            description: "<p>The Lazz Polli swimming pool resort is a true oasis. Located in the corner of the resort's stunning gardens, the pool is surrounded by trees and tropical plants, creating a serene and tropical atmosphere. The pool itself is a large, rectangular shape, with a deep end for diving and a shallow end for children to play. The water is crystal clear and inviting, and there are plenty of comfortable sitting area and convenient washrooms. Guests can also enjoy refreshing drinks and snacks while they soak up the sun.</p><p>In addition to the main pool, there is also a small, cozy hut located nearby. This hut is perfect for guests seeking a more relaxing experience. It features a round table and large sitting space.</p><p>For those who prefer a more active experience, there is also a field close by. This field area is ideal for working out or getting cardio by engaging in sports such as football/cricket.</p><p>Whether you want to take a leisurely swim, relax by the water, or get in a good workout, the pool area at Lazz Polli has something for everyone. It is the perfect place to escape the stresses of daily life and soak up the sun in style.</p><p>Swimming pool is included with all the packages offered in Lazz Polli Resort. However, the swimming pool is available for single-use visits. For more information, please click </p>",
         },
-        {
-            Id : 2,
-            image:relaxTwo,
-            title : 'Swimming Pool Two',
-            description: 'Professionally designed open air hot Jacuzzi means total relaxation and fun for you and your family. Whether its winter or summer. Jacuzzi is open 9.00am to 9.00pm',
-        },
-        {
-            Id : 3,
-            image:relaxThree,
-            title : 'Swimming Pool Three',
-            description: 'A professionally designed facility with natural lighting, located in front of the lap pool. the Gym offers you state of the art equipment for your work out With separate locker room for males and females. Open 7.00am to 9.00pm',
-        },
+
     ],
     Convention:[
         {
@@ -580,7 +565,7 @@ const APP_DATA = {
                 {image : enjoyOne},
                ],
             title : 'Convention Hall',
-            description : "The Lazz Polli convention hall at this luxurious resort is a versatile and spacious space that is perfect for hosting events of all kinds. With a capacity of up to 400 people, the hall can easily accommodate large conferences, corporate meetings, and social gatherings. The hall is outfitted with state-of-the-art audiovisual equipment, including a high-definition projector, sound system, and microphone, making it easy to give presentations and host events.The hall itself is tastefully decorated, with neutral colors, stylish furnishings, and plenty of natural light. Large windows offer sweeping views of the surrounding landscape, and there is ample space for attendees to spread out and move around. The hall is also equipped with a stage, making it ideal for performances and presentations.In addition to the main convention hall, there is a meeting space available for smaller gatherings or discussions. The resort also offers catering services and can provide a variety of food and beverage options to suit any event.The Convention Hall at Lazz Polli is not only a functional space for hosting events, but it is also a beautiful and inviting place to be. The hall is surrounded by the resort's stunning gardens and is just a short walk from the pool and other amenities. It is the perfect place to host a successful and memorable event.We understand that prices will vary upon the sizes of each party. Therefore, we have instilled a brilliant way you can connect with our live agent to discuss further details about booking the convention hall. Please contact us via this",
+            description : "<p>The Lazz Polli convention hall at this luxurious resort is a versatile and spacious space that is perfect for hosting events of all kinds. With a capacity of up to 400 people, the hall can easily accommodate large conferences, corporate meetings, and social gatherings. The hall is outfitted with state-of-the-art audiovisual equipment, including a high-definition projector, sound system, and microphone, making it easy to give presentations and host events.</p><p>The hall itself is tastefully decorated, with neutral colors, stylish furnishings, and plenty of natural light. Large windows offer sweeping views of the surrounding landscape, and there is ample space for attendees to spread out and move around. The hall is also equipped with a stage, making it ideal for performances and presentations.</p><p>In addition to the main convention hall, there is a meeting space available for smaller gatherings or discussions. The resort also offers catering services and can provide a variety of food and beverage options to suit any event.</p><P> The Convention Hall at Lazz Polli is not only a functional space for hosting events, but it is also a beautiful and inviting place to be. The hall is surrounded by the resort's stunning gardens and is just a short walk from the pool and other amenities. It is the perfect place to host a successful and memorable event.</P><p>We understand that prices will vary upon the sizes of each party. Therefore, we have instilled a brilliant way you can connect with our live agent to discuss further details about booking the convention hall. Please contact us via this</p>",
            
         },
 
@@ -914,7 +899,7 @@ const APP_DATA = {
     ],
     CottageSuits : [
         { 
-           Id : 0,
+           Id : 11,
            images : [
             {image : aboutStoryOne},
             {image : aboutStoryTwo},
@@ -932,7 +917,7 @@ const APP_DATA = {
            btnText : 'View Rania House',
            CottageSuitsSingle : [
               {
-                Id: 1,
+                Id: 12,
                 image : roomOne,
                 title : "Book Single Room From - Rania House",
                 amount : 70000,
@@ -954,6 +939,7 @@ const APP_DATA = {
                     {
                         title : 'Room Description Cottage',
                         description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                        subTitle : 'test'
                     },
                     {
                         roomService : [
@@ -977,7 +963,7 @@ const APP_DATA = {
                 ]
               },
               {
-                Id: 2,
+                Id: 13,
                 image : roomOne,
                 title : "Book Entire - Rania House",
                 amount : 70000,
@@ -999,6 +985,7 @@ const APP_DATA = {
                     {
                         title : 'Room Description Rania House',
                         description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                        subTitle : 'test2'
                     },
                     {
                         roomService : [
@@ -1024,7 +1011,7 @@ const APP_DATA = {
 
         },
         { 
-            Id : 1,
+            Id : 14,
             images : [
                 {image : aboutStoryOne},
                 {image : aboutStoryTwo},
@@ -1042,7 +1029,7 @@ const APP_DATA = {
             btnText : 'View Double Dom',
             CottageSuitsSingle : [
                 {
-                    Id: 3,
+                    Id: 15,
                     image : roomOne,
                     title : "Book Single Room From - Double Dom",
                     amount : 70000,
@@ -1064,6 +1051,7 @@ const APP_DATA = {
                         {
                             title : 'Room Description Rooms1',
                             description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                            subTitle : 'test3'
                         },
                         {
                             roomService : [
@@ -1087,7 +1075,7 @@ const APP_DATA = {
                     ]
                   },
                   {
-                    Id: 4,
+                    Id: 16,
                     image : roomOne,
                     title : "Book Entire - Double Dom",
                     amount : 70000,
@@ -1109,6 +1097,7 @@ const APP_DATA = {
                         {
                             title : 'Room Description Rooms2',
                             description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                            subTitle : 'test4'
                         },
                         {
                             roomService : [
@@ -1134,7 +1123,7 @@ const APP_DATA = {
               ]
          },
          { 
-            Id : 2,
+            Id : 17,
             images : [
                 {image : aboutStoryOne},
                 {image : aboutStoryTwo},
@@ -1152,7 +1141,7 @@ const APP_DATA = {
             btnText : 'View Mud House',
             CottageSuitsSingle : [
                 {
-                    Id: 5,
+                    Id: 18,
                     image : roomOne,
                     title : "Book Single Room From - Mud House",
                     amount : 70000,
@@ -1174,6 +1163,7 @@ const APP_DATA = {
                         {
                             title : 'Room Description Rooms1',
                             description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                            subTitle : 'test5'
                         },
                         {
                             roomService : [
@@ -1198,7 +1188,7 @@ const APP_DATA = {
 
                   },
                   {
-                    Id: 6,
+                    Id: 19,
                     image : roomOne,
                     title : "Book Entire - Mud House",
                     amount : 70000,
@@ -1220,6 +1210,7 @@ const APP_DATA = {
                         {
                             title : 'Room Description Rooms1',
                             description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                            subTitle : 'test6'
                         },
                         {
                             roomService : [

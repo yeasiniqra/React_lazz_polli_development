@@ -4,7 +4,6 @@ import "@splidejs/react-splide/css";
 
 import GalleryPreview from "../../../Sheared/GalleryPreview/GalleryPreview";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const DescriptionSlider = ( {room} ) => {
       const options = {
@@ -59,9 +58,6 @@ const DescriptionSlider = ( {room} ) => {
                 <h4>
                     {room.amount} / <span>{room.dayNight}</span>
                 </h4>
-                <div className="common-btn">
-                  <Link to="/checkout">Book Now</Link>
-               </div>
             </div>
        </div>
         <GalleryPreview start={preview.start} show={preview.show} images={preview.images} onClose={previewCloseHandler} />

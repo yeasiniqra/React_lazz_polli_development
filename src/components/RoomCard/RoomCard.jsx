@@ -1,30 +1,24 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useContext } from "react";
-import { Link } from 'react-router-dom';
-import cartContext from "../../store/cart-context";
 
-const RoomCard = ({room}) => {
-  const { storeRoom } = useContext(cartContext);
-
-
-  const isToggleClass = () => {
-    storeRoom({ ...room });
-  };
+const RoomCard = ({room, setRoomdetails}) => {
 
   return (
     <div className="choose-room-single-item">
-        <Link to={`${room.Id}`}>
           <img src={room.image} alt="lazz polli resort" />
-        </Link>
+        
         <div className="room-content-x">
-            <Link to={`${room.Id}`}>{room.title}</Link>
+            <h2>{room.title}</h2>
             <h3>
               {room.amount}&nbsp;<span>/ <sup>{room.dayNight}</sup></span>{" "}
             </h3>
-            <div className="common-btn">
-              <Link onClick={isToggleClass} className="card-book" to='/checkout'>Book Now</Link>
-              <Link to={`${room.Id}`}>{room.btnText}</Link>
+
+            <div className="cottage-btn">
+              <label className="example-label common-btn" htmlFor="cottage" onClick={() => setRoomdetails(room)}> 
+              <a>View Details</a>
+              </label>
             </div>
+
         </div>
     </div>
   );

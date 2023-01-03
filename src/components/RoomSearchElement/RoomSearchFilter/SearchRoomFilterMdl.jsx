@@ -28,6 +28,7 @@ const SearchRoomFilterMdl = () => {
     setDepdate(depdate)
     storeFilters({...filters, departureDate : depdate})
     setEndDate(depdate)
+    console.log(depdate)
   };
 
 

@@ -1,11 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import { getResortRoom } from '../../../services/data-service';
 import RoomCard from '../../RoomCard/RoomCard';
+import RoomSuitsMdl from '../../Sheared/CommonModal/RoomSuitsMdl';
 
 const RoomGrid = () => {
+    const [roomdetails, setRoomdetails] = useState(null)
     const title = {
         subTitle : 'choose room according to budget',
     }
+
     const resortRoom = getResortRoom();
     console.log(resortRoom)
     return (
@@ -20,8 +24,15 @@ const RoomGrid = () => {
 
                 <div className="choose-room-main-grid">
                     {resortRoom.map((room) => (
-                    <RoomCard room={room} key={room.Id}/>
+                    <RoomCard room={room} key={room.Id} setRoomdetails={setRoomdetails} />
                     ))}
+                      {
+                            roomdetails && 
+                            <RoomSuitsMdl
+                            suitsAndRoom={roomdetails}
+                           
+                            />
+                        }
                 </div>
             </div>
        </section>
