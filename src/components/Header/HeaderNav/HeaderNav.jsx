@@ -64,20 +64,11 @@ const HeaderNav = () => {
                                 </li>
                                 <li>
                                     <NavLink
-                                        to="/searchroom"
-                                        onClick={toggleClass}
-                                        className={({ isActive }) => (isActive ? "link-active" : "link")}
-                                    >
-                                    Search Room
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
                                         to="/room"
                                         onClick={toggleClass}
                                         className={({ isActive }) => (isActive ? "link-active" : "link")}
                                     >
-                                    Rooms
+                                    Room & Suite
                                     </NavLink>
                                 </li>
                                 <li>
@@ -206,20 +197,11 @@ const HeaderNav = () => {
                                 </li>
                                  <li>
                                     <NavLink
-                                        to="/searchroom"
-                                        onClick={toggleClass}
-                                        className={({ isActive }) => (isActive ? "link-active" : "link")}
-                                    >
-                                    Search Room
-                                    </NavLink>
-                                </li>
-                                 <li>
-                                    <NavLink
                                         to="/room"
                                         onClick={toggleClass}
                                         className={({ isActive }) => (isActive ? "link-active" : "link")}
                                     >
-                                    Rooms
+                                    Room & Suite
                                     </NavLink>
                                 </li>
                                  <li>

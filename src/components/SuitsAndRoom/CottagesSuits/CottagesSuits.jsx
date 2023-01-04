@@ -43,15 +43,26 @@ const CottagesSuits = ({ item }) => {
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
             <div className="SuitSpecials">
-              <h3>{item.cottagesTitle}</h3>
+              {
+                item.cottagesTitle && 
+                <h3>{item.cottagesTitle}</h3>
+              }
+              
               <div className="SuitSpecials-item">
+                
                 {item.cottagesSpecials.map((product, index) => (
                   <div
                     key={index}
                     className="getway-single-item suitSpecials-single-item"
                   >
-                    <i className="fa fa-check-circle" aria-hidden="true"></i>
-                    <h4>{product.title}</h4>
+                    {
+                      product.title &&
+                      <>
+                      <i className="fa fa-check-circle" aria-hidden="true"></i>
+                      <h4>{product.title}</h4>
+                      </>
+                    }
+                    
                   </div>
                 ))}
               </div>

@@ -16,67 +16,26 @@ const FullPackageTemplate = ({item, setPackage}) => {
       };
 
     return (
-        <div className='package-grid-inner'>
-            <div className="package-grid-img">
-               <div className="package-img">
-                  <Splide options={options} aria-label="React Splide Example">
-                    {
-                        item.images.map((banner, index) => (
-                        <SplideSlide key={index}>
-                            <img src={banner.image} alt="resort cottage & hotel price in bangladesh" />
-                        </SplideSlide>
-                        ))
-                    }
-                </Splide>
-               </div>
-            </div>
-            <div className="package-grid-content">
-                <h2>{item.title}</h2>
-                <p>{item.desc}</p>
-                <div className="getway-item">
-                   {
-                    item.guests.map((product, index)  => 
-                    <div key={index} className='getway-single-item'>
-                        <h4>{product.heading}</h4>
-                        <h5>{product.subHeading}</h5>
-                    </div> 
-                    )
-                   }
-                </div>
-                <div className='SuitSpecials'>
-                   <h3>{item.specialTitle}</h3>
-                   <div className='SuitSpecials-item'>
-                   {
-                    item.suitSpecials.map((product, index)  => 
-                    <div key={index} className='getway-single-item suitSpecials-single-item'>
-                        <i className="fa fa-check-circle" aria-hidden="true"></i>
-                        <h4>{product.title}</h4>
-                    </div> 
-                    )
-                   }
-                   </div>
-                </div>
-                <div className='SuitSpecials'>
-                   <h3>{item.standerdTitle}</h3>
-                   <div className='SuitSpecials-item'>
-                   {
-                    item.standard.map((product, index)  => 
-                    <div key={index} className='getway-single-item suitSpecials-single-item full-pkg'>
-                        <i className="fa fa-circle" aria-hidden="true"></i>
-                        <h4>{product.title}</h4>
-                    </div> 
-                    )
-                   }
-                   </div>
-                </div>
-                <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setPackage(item)}> 
-                     <a>Book Now</a>
-                    </label> 
-                {/* <div className='common-btn'>
-                    <Link to={item.link}>Book Now</Link>
-                </div>     */}
-            </div>
+        <div className="relax-spa-inner-grid convention-hall-area full-package-area">
+        <div className="relax-spa-img-left">
+            <Splide options={options} aria-label="React Splide Example">
+                {
+                    item.images.map((banner, index) => (
+                    <SplideSlide key={index}>
+                        <img src={banner.image} alt="resort full pakage price in bangladesh" />
+                    </SplideSlide>
+                    ))
+                }
+            </Splide>
         </div>
+        <div className="relax-spa-img-content">
+            <h1>{item.title}</h1>
+            <p dangerouslySetInnerHTML={{__html: item.description}}></p>
+            <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setPackage(item)}> 
+             <a>Book Now</a>
+            </label>
+        </div>
+    </div>
     );
 };
 

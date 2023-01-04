@@ -11,7 +11,7 @@ const Banner = () => {
   const options = {
     rewind: true,
     type: "fade",
-    autoplay: true,
+    autoplay: false,
     rewindSpeed: 1000,
     speed: 500,
     pauseOnHover: false,

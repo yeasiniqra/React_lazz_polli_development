@@ -15,6 +15,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
     storeRoom({ ...suitsAndRoom, ...filters });
   };
 
+
   const { roomTitle, title } = suitsAndRoom;
   return (
     <div className="parent-modal">

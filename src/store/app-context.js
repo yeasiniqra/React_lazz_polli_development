@@ -4,7 +4,6 @@ import { humanizeDate } from "../lib/utils";
 const today = new Date()
 
 const appContext = createContext({
-  
   storeFilters: ({
     arrivalDate,
     departureDate,

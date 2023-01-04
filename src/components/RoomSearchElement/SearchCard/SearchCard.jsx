@@ -47,18 +47,12 @@ const SearchCard = ({ item }) => {
         <h4>{item.title}</h4>
         <div className="super-king-flex">
           <div className="sp-left">
-            <span className="sp-margin">
-              <Link to="#">{item.spTitle}</Link>
-            </span>
             <p>{item.roomRateTitle}</p>
-            <p>{item.bookItemTitle}</p>
-            <span>{item.brackFirstTitle}</span>
           </div>
           <div className="sp-right">
             <h4>
               BDT <span>{item.amount}</span>
             </h4>
-            <small> Price for {item.priceNight} Night </small>
             <div className="card-adults">
               <small> {item.adults} Adults</small>
               <small> {item.child} Child</small>

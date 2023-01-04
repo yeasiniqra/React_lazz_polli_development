@@ -32,20 +32,11 @@ import singleOne from "../images/dtl2.jpg";
 import singleTwo from "../images/dtl.jpg";
 import singleThree from "../images/dtl3.jpg";
 
-// Our Resturent Dine iamges
-import dineOne from '../images/dish-1.jpg';
-import dineTwo from '../images/dish-2.jpg';
-import dineThree from '../images/dish-3.jpg';
-import dineFour from '../images/dish-4.jpg';
+
 
 // Enjoy iamges
 import enjoyOne from '../images/relax/swimming-pool-2018.jpg';
 
-
-//Our resturent  dine images
-import dineMenuOne from '../images/di1.jpg';
-import dineMenuTwo from '../images/di2.jpg';
-import dineMenuThree from '../images/di3.jpg';
 
 //gallery images
 import galleryOne from '../images/ab1.jpg';
@@ -288,262 +279,17 @@ const APP_DATA = {
             dirSubTitle : "Director, Admin & Business Strategy"
         }
     ],
-    ResortRoom:[
-        {
-            Id: 0,
-            image : roomOne,
-            title : "Day Long couples",
-            amount : 70000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : roomOne,
-                        },
-                        {
-                            image : singleOne,
-                        },
-                        {
-                            image : singleTwo,
-                        },
-                    ]
-                },
-                {
-                    title : 'Room Description 1xxxxxxxxxxxx',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polli Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                    subTitle : 'Room Services 1'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Breakfast Included 1"},
-                        { serviceTitle : "Free wifi"},
-                        { serviceTitle : "Double Bed"},
-                        { serviceTitle : "120 sq mt."},
-                        { serviceTitle : "8 persons"},
-                        { serviceTitle : "Free internet"},
-                        { serviceTitle : "private balcony"},
-                        { serviceTitle : "good room service"},
-                        { serviceTitle : "flat screen tv"},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "mountain view"},
-                        { serviceTitle : "free pick & drop facilies"},
-                    ]
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-
-            ],
-        },
-        {
-            Id: 1,
-            image : roomTwo,
-            title : "Cottage Park – Standard Room",
-            amount : 70000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : singleOne,
-                        },
-                        {
-                            image : singleTwo,
-                        },
-                        {
-                            image : singleThree,
-                        },
-                    ]
-                },
-                {
-                    title : 'Room Description 2',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz Polli Resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                    subTitle : 'Room Services 2',
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Breakfast Included 2"},
-                        { serviceTitle : "Free wifi"},
-                        { serviceTitle : "Double Bed"},
-                        { serviceTitle : "120 sq mt."},
-                        { serviceTitle : "8 persons"},
-                        { serviceTitle : "Free internet"},
-                        { serviceTitle : "private balcony"},
-                        { serviceTitle : "good room service"},
-                        { serviceTitle : "flat screen tv"},
-                        { serviceTitle : "fully AC"},
-                    ]
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-
-            ],
-        },
-        {
-            Id: 2,
-            image : roomOne,
-            title : "Platinum Room 2",
-            amount : 70000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : singleOne,
-                        },
-                        {
-                            image : singleTwo,
-                        },
-                        {
-                            image : singleThree,
-                        },
-                    ]
-                },
-                {
-                    title : 'Room Description 3',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Breakfast Included 3"},
-                        { serviceTitle : "Free wifi"},
-                        { serviceTitle : "Double Bed"},
-                        { serviceTitle : "120 sq mt."},
-                        { serviceTitle : "8 persons"},
-                        { serviceTitle : "Free internet"},
-                        { serviceTitle : "good room service"},
-                        { serviceTitle : "flat screen tv"},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "mountain view"},
-                    ]
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 3,
-            image : roomTwo,
-            title : "Platinum Room",
-            amount : 70000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : singleOne,
-                        },
-                        {
-                            image : singleTwo,
-                        },
-                        {
-                            image : singleThree,
-                        },
-                    ]
-                },
-                {
-                    title : 'Room Description 4',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polly resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Breakfast Included 4"},
-                        { serviceTitle : "Free wifi"},
-                        { serviceTitle : "Double Bed"},
-                        { serviceTitle : "120 sq mt."},
-                        { serviceTitle : "8 persons"},
-                        { serviceTitle : "Free internet"},
-                        { serviceTitle : "good room service"},
-                        { serviceTitle : "flat screen tv"},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "mountain view"},
-                        
-                    ]
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 4,
-            image : roomOne,
-            title : "Day Long couples",
-            amount : 70000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : singleOne,
-                        },
-                        {
-                            image : singleTwo,
-                        },
-                        {
-                            image : singleThree,
-                        },
-                    ]
-                },
-                {
-                    title : 'Room Description 5',
-                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Breakfast Included 5"},
-                        { serviceTitle : "Free wifi"},
-                        { serviceTitle : "Double Bed"},
-                        { serviceTitle : "120 sq mt."},
-                        { serviceTitle : "8 persons"},
-                        { serviceTitle : "Free internet"},
-                        { serviceTitle : "good room service"},
-                        { serviceTitle : "flat screen tv"},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "mountain view"},
-                        
-                    ]
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-    ],
     ResortDine:[
         {
-            image : dineOne,
-            title : 'Bakery Iteams',
-            subTitle : 'Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod ipsum dolor sit ame',
+            Id : 1,
+            images : [
+                {image : enjoyOne},
+                {image : enjoyOne},
+               ],
+            title : 'Dine',
+            description: "<p>Welcome to our Lazz Polli restaurant, where we prepare a range of delicious and expertly prepared dishes ON-DEMAND to satisfy all palates.</p><p>Our menu features a variety of Bengali dishes made with fresh, locally sourced ingredients, ensuring that each bite is bursting with flavor. Our talented chefs have created an extensive selection of dishes that showcase the best local cuisine.</p><p>Our restaurant boasts a stunning setting, with indoor and outdoor seating options available. The outdoor area features beautiful views of the surrounding landscape and a tranquil atmosphere, making it the perfect place to relax and unwind. Inside, the dining area is elegantly decorated and features comfortable seating, making it the perfect place to enjoy a meal with friends and family.</p><p>Whether you're in the mood for a light snack or a full-course meal, our resort restaurant has something for everyone. We also offer a range of refreshing drinks and desserts to round out your dining experience. So come on in and enjoy a truly memorable meal at our resort restaurant.</p>",
         },
-        {
-            image : dineTwo,
-            title : 'Bakery Iteams',
-            subTitle : 'Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod ipsum dolor sit ame',
-        },
-        {
-            image : dineThree,
-            title : 'Bakery Iteams',
-            subTitle : 'Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod ipsum dolor sit ame',
-        },
-        {
-            image : dineFour,
-            title : 'Bakery Iteams',
-            subTitle : 'Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod ipsum dolor sit ame',
-        }
+
     ],
     SwimmingPool:[
         {
@@ -569,104 +315,6 @@ const APP_DATA = {
            
         },
 
-    ],
-    DineMenu:[
-        {
-            image : dineMenuOne,
-            subTitle : 'Break Fast is served from 6 AM to 12 PM',
-            menuShedul : [
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-            ]
-
-        },
-        {
-            image : dineMenuTwo,
-            subTitle : 'Lunch is served from 1 PM to 6 PM',
-            menuShedul : [
-                {
-                    title: 'CONFIT DE CANARD 2',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-            ]
-
-        },
-        {
-            image : dineMenuThree,
-            subTitle : 'Dinner is served from 7 PM to 12 PM ',
-            menuShedul : [
-                {
-                    title: 'CONFIT DE CANARD 3',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-                {
-                    title: 'CONFIT DE CANARD',
-                    description : 'Duck confit, white bean & ham cassoulet, wilted spinach, green veg cassoulet',
-                    amount : 70000,
-                },
-            ]
-
-        },
     ],
     Gallery:[
         {
@@ -813,13 +461,9 @@ const APP_DATA = {
         {
             Id : 0,
             image : searchRoomOne,
-            title : 'Superior King',
-            spTitle : 'Special Conditions',
+            title : 'Book Single Room From - Rania House',
             roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            bookItemTitle : 'Booked 1 time(s) today',
-            brackFirstTitle : 'Breakfast is included in the room rates ',
             amount : 9800,
-            priceNight : 1,
             adults : 2,
             child : 1,
             room : 1,
@@ -830,13 +474,9 @@ const APP_DATA = {
         {
             Id : 1,
             image : searchRoomTwo,
-            title : 'Superior Twin',
-            spTitle : 'Special Conditions',
+            title : 'Book Entire - Rania House',
             roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            bookItemTitle : 'Booked 1 time(s) today',
-            brackFirstTitle : 'Breakfast is included in the room rates ',
             amount : 800,
-            priceNight : 1,
             adults : 2,
             child : 1,
             room : 1,
@@ -847,13 +487,9 @@ const APP_DATA = {
         {
             Id : 2,
             image : searchRoomThree,
-            title : 'Superior King',
-            spTitle : 'Special Conditions',
+            title : 'Book Single Room From - Double Dom',
             roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            bookItemTitle : 'Booked 1 time(s) today',
-            brackFirstTitle : 'Breakfast is included in the room rates ',
             amount : 12000,
-            priceNight : 1,
             adults : 2,
             child : 1,
             room : 1,
@@ -864,13 +500,9 @@ const APP_DATA = {
         {
             Id : 3,
             image : searchRoomFour,
-            title : 'Superior King',
-            spTitle : 'Special Conditions',
+            title : 'Book Entire - Double Dom',
             roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            bookItemTitle : 'Booked 1 time(s) today',
-            brackFirstTitle : 'Breakfast is included in the room rates ',
             amount : 9800,
-            priceNight : 1,
             adults : 2,
             child : 1,
             room : 1,
@@ -881,13 +513,22 @@ const APP_DATA = {
         {
             Id : 4,
             image : searchRoomFour,
-            title : 'Superior King',
-            spTitle : 'Special Conditions',
+            title : 'Book Single Room From - Mud House',
             roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            bookItemTitle : 'Booked 1 time(s) today',
-            brackFirstTitle : 'Breakfast is included in the room rates ',
             amount : 9800,
-            priceNight : 1,
+            adults : 2,
+            child : 1,  
+            room : 1,
+            btnLink : '#',
+            btnText : 'Book Room', 
+            quantity : 0
+        },
+        {
+            Id : 5,
+            image : searchRoomFour,
+            title : 'Book Entire - Mud House',
+            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+            amount : 9800,
             adults : 2,
             child : 1,  
             room : 1,
@@ -897,6 +538,291 @@ const APP_DATA = {
         }
 
     ],
+
+
+    ResortRoom:[
+        {
+            Id: 0,
+            image : roomOne,
+            title : "Book Single Room From - Rania House",
+            amount : 70000,
+            dayNight : "Night",
+            btnText : "View details",
+            roomSingle : [
+                {
+                    images : [
+                        {
+                            image : singleOne,
+                        },
+                        {
+                            image : singleTwo,
+                        },
+                        {
+                            image : singleThree,
+                        },
+                    ]
+                },
+                {
+                    title : 'Room description Rania House ',
+                    description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+                    subTitle : 'Room Services'
+                },
+                {
+                    roomService : [
+                        { serviceTitle : "Swimming Pool access included"},
+                        { serviceTitle : "Comfortable lounge"},
+                        { serviceTitle : "Outdoor Playground"},
+                        { serviceTitle : "Flat-screen TV with cable channels"},
+                        { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+                        { serviceTitle : "Modern bathroom with shower"},
+                        { serviceTitle : "Free Wifi internet access"},
+                        { serviceTitle : "Excellent Room Service "},
+                        { serviceTitle : "fully AC"},
+                        { serviceTitle : "Ceiling Fan"},
+                        { serviceTitle : "Outdoor Sports"},
+                    ],
+                    additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
+                },
+                {
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
+                }
+            ]
+        },
+        {
+            Id: 1,
+            image : roomTwo,
+            title : "Book Entire - Rania House",
+            amount : 70000,
+            dayNight : "Night",
+            btnText : "View details",
+            roomSingle : [
+                {
+                    images : [
+                        {
+                            image : singleOne,
+                        },
+                        {
+                            image : singleTwo,
+                        },
+                        {
+                            image : singleThree,
+                        },
+                    ]
+                },
+                {
+                    title : 'Room description Rania House ',
+                    description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+                    subTitle : 'Room Services'
+                },
+                {
+                    roomService : [
+                        { serviceTitle : "Swimming Pool access included"},
+                        { serviceTitle : "Comfortable lounge"},
+                        { serviceTitle : "Outdoor Playground"},
+                        { serviceTitle : "Flat-screen TV with cable channels"},
+                        { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+                        { serviceTitle : "Modern bathroom with shower"},
+                        { serviceTitle : "Free Wifi internet access"},
+                        { serviceTitle : "Excellent Room Service "},
+                        { serviceTitle : "fully AC"},
+                        { serviceTitle : "Ceiling Fan"},
+                        { serviceTitle : "Outdoor Sports"},
+                    ],
+                    additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
+                },
+                {
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
+                }
+            ]
+        },
+        {
+            Id: 2,
+            image : roomOne,
+            title : "Book Single Room From - Double Dom",
+            amount : 70000,
+            dayNight : "Night",
+            btnText : "View details",
+            roomSingle : [
+                {
+                    images : [
+                        {
+                            image : singleOne,
+                        },
+                        {
+                            image : singleTwo,
+                        },
+                        {
+                            image : singleThree,
+                        },
+                    ]
+                },
+                {
+                    title : 'Room Description 3',
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                },
+                {
+                    roomService : [
+                        { serviceTitle : "Breakfast Included 3"},
+                        { serviceTitle : "Free wifi"},
+                        { serviceTitle : "Double Bed"},
+                        { serviceTitle : "120 sq mt."},
+                        { serviceTitle : "8 persons"},
+                        { serviceTitle : "Free internet"},
+                        { serviceTitle : "good room service"},
+                        { serviceTitle : "flat screen tv"},
+                        { serviceTitle : "fully AC"},
+                        { serviceTitle : "mountain view"},
+                    ]
+                },
+                {
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
+                }
+            ]
+        },
+        {
+            Id: 3,
+            image : roomTwo,
+            title : "Book Entire - Double Dom",
+            amount : 70000,
+            dayNight : "Night",
+            btnText : "View details",
+            roomSingle : [
+                {
+                    images : [
+                        {
+                            image : singleOne,
+                        },
+                        {
+                            image : singleTwo,
+                        },
+                        {
+                            image : singleThree,
+                        },
+                    ]
+                },
+                {
+                    title : 'Room Description 4',
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The Lazz polly resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                },
+                {
+                    roomService : [
+                        { serviceTitle : "Breakfast Included 4"},
+                        { serviceTitle : "Free wifi"},
+                        { serviceTitle : "Double Bed"},
+                        { serviceTitle : "120 sq mt."},
+                        { serviceTitle : "8 persons"},
+                        { serviceTitle : "Free internet"},
+                        { serviceTitle : "good room service"},
+                        { serviceTitle : "flat screen tv"},
+                        { serviceTitle : "fully AC"},
+                        { serviceTitle : "mountain view"},
+                        
+                    ]
+                },
+                {
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
+                }
+            ]
+        },
+        {
+            Id: 4,
+            image : roomOne,
+            title : "Book Single Room From - Mud House",
+            amount : 70000,
+            dayNight : "Night",
+            btnText : "View details",
+            roomSingle : [
+                {
+                    images : [
+                        {
+                            image : singleOne,
+                        },
+                        {
+                            image : singleTwo,
+                        },
+                        {
+                            image : singleThree,
+                        },
+                    ]
+                },
+                {
+                    title : 'Room Description 5',
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                },
+                {
+                    roomService : [
+                        { serviceTitle : "Breakfast Included 5"},
+                        { serviceTitle : "Free wifi"},
+                        { serviceTitle : "Double Bed"},
+                        { serviceTitle : "120 sq mt."},
+                        { serviceTitle : "8 persons"},
+                        { serviceTitle : "Free internet"},
+                        { serviceTitle : "good room service"},
+                        { serviceTitle : "flat screen tv"},
+                        { serviceTitle : "fully AC"},
+                        { serviceTitle : "mountain view"},
+                        
+                    ]
+                },
+                {
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
+                }
+            ]
+        },
+        {
+            Id: 5,
+            image : roomOne,
+            title : "Book Entire - Mud House",
+            amount : 70000,
+            dayNight : "Night",
+            btnText : "View details",
+            roomSingle : [
+                {
+                    images : [
+                        {
+                            image : singleOne,
+                        },
+                        {
+                            image : singleTwo,
+                        },
+                        {
+                            image : singleThree,
+                        },
+                    ]
+                },
+                {
+                    title : 'Room Description 5',
+                    description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
+                },
+                {
+                    roomService : [
+                        { serviceTitle : "Breakfast Included 5"},
+                        { serviceTitle : "Free wifi"},
+                        { serviceTitle : "Double Bed"},
+                        { serviceTitle : "120 sq mt."},
+                        { serviceTitle : "8 persons"},
+                        { serviceTitle : "Free internet"},
+                        { serviceTitle : "good room service"},
+                        { serviceTitle : "flat screen tv"},
+                        { serviceTitle : "fully AC"},
+                        { serviceTitle : "mountain view"},
+                        
+                    ]
+                },
+                {
+                    infoTab : 'Additional Information',
+                    reviewTab : 'Reviews'
+                }
+            ]
+        },
+    ],
+
+
     CottageSuits : [
         { 
            Id : 11,
@@ -905,13 +831,13 @@ const APP_DATA = {
             {image : aboutStoryTwo},
            ],
            title : 'Rania House',
-           desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti. Vivamus luctus diam eu neque rutrum, vitae aliquet dolor venenatis. Nulla consequat fringilla massa.',
-           cottagesTitle : 'Cottages Specials',
+           desc : 'Welcome to our luxurious Rania House hotel rooms! Nestled in a picturesque setting, Rania House offers the perfect blend of comfort and style. Rania house features 9 of our most exclusive bedrooms, kitchen, dining room, and common living space. Additionally, Rania house features a large convention hall to host large corporate events. ',
+           cottagesTitle : 'Rania house specials:',
            cottagesSpecials : [
-               {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-               {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-               {  title : 'Private heated pool'}, 
-               {  title : 'Panoramic Santorini view with sunrise and sunset'},             
+               {  title : 'All Bookings include swimming pool access'},       
+               {  title : 'Panoramic view of sunrise and sunset '},       
+               {  title : 'Breathtaking views of Lazz Polli’s greenery'}, 
+               {  title : '24 hour room service'},             
            ],
            link : '/room',
            btnText : 'View Rania House',
@@ -922,6 +848,7 @@ const APP_DATA = {
                 title : "Book Single Room From - Rania House",
                 amount : 70000,
                 dayNight : "Night",
+                quantity : 0,
                 roomSingle : [
                     {
                         images : [
@@ -937,24 +864,25 @@ const APP_DATA = {
                         ]
                     },
                     {
-                        title : 'Room Description Cottage',
-                        description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                        subTitle : 'test'
+                        title : 'Room description Rania House ',
+                        description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+                        subTitle : 'Room Services'
                     },
                     {
                         roomService : [
-                            { serviceTitle : "Breakfast Included Cottage"},
-                            { serviceTitle : "Free wifi"},
-                            { serviceTitle : "Double Bed"},
-                            { serviceTitle : "120 sq mt."},
-                            { serviceTitle : "8 persons"},
-                            { serviceTitle : "Free internet"},
-                            { serviceTitle : "good room service"},
-                            { serviceTitle : "flat screen tv"},
+                            { serviceTitle : "Swimming Pool access included"},
+                            { serviceTitle : "Comfortable lounge"},
+                            { serviceTitle : "Outdoor Playground"},
+                            { serviceTitle : "Flat-screen TV with cable channels"},
+                            { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+                            { serviceTitle : "Modern bathroom with shower"},
+                            { serviceTitle : "Free Wifi internet access"},
+                            { serviceTitle : "Excellent Room Service "},
                             { serviceTitle : "fully AC"},
-                            { serviceTitle : "mountain view"},
-                            
-                        ]
+                            { serviceTitle : "Ceiling Fan"},
+                            { serviceTitle : "Outdoor Sports"},
+                        ],
+                        additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
                     },
                     {
                         infoTab : 'Additional Information',
@@ -968,6 +896,7 @@ const APP_DATA = {
                 title : "Book Entire - Rania House",
                 amount : 70000,
                 dayNight : "Night",
+                quantity : 0,
                 roomSingle : [
                     {
                         images : [
@@ -983,23 +912,25 @@ const APP_DATA = {
                         ]
                     },
                     {
-                        title : 'Room Description Rania House',
-                        description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                        subTitle : 'test2'
+                        title : 'Room description Rania House ',
+                        description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+                        subTitle : 'Room Services'
                     },
                     {
                         roomService : [
-                            { serviceTitle : "Breakfast Included Cottage2"},
-                            { serviceTitle : "Free wifi"},
-                            { serviceTitle : "Double Bed"},
-                            { serviceTitle : "120 sq mt."},
-                            { serviceTitle : "8 persons"},
-                            { serviceTitle : "Free internet"},
-                            { serviceTitle : "good room service"},
-                            { serviceTitle : "flat screen tv"},
+                            { serviceTitle : "Swimming Pool access included"},
+                            { serviceTitle : "Comfortable lounge"},
+                            { serviceTitle : "Outdoor Playground"},
+                            { serviceTitle : "Flat-screen TV with cable channels"},
+                            { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+                            { serviceTitle : "Modern bathroom with shower"},
+                            { serviceTitle : "Free Wifi internet access"},
+                            { serviceTitle : "Excellent Room Service "},
                             { serviceTitle : "fully AC"},
-                            { serviceTitle : "mountain view"},
-                        ]
+                            { serviceTitle : "Ceiling Fan"},
+                            { serviceTitle : "Outdoor Sports"},
+                        ],
+                        additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
                     },
                     {
                         infoTab : 'Additional Information',
@@ -1016,14 +947,13 @@ const APP_DATA = {
                 {image : aboutStoryOne},
                 {image : aboutStoryTwo},
                ],
-            title : 'Double Dom',
-            desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti.',
-            cottagesTitle : 'Hotel Specials',
+            title : 'DOUBLE DOM (Private Suite)',
+            desc : 'Welcome to the Double Dom private suite at Lazz Polli resort! Nestled in a secluded corner of the property, this spacious and elegantly appointed suite offers the ultimate in privacy and comfort.',
+            cottagesTitle : 'Double Dom Private Suite Specials:',
             cottagesSpecials : [
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Private heated pool'}, 
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},             
+                {  title : '3 rooms with a king-size bed '},       
+                {  title : 'Cozy living area, and with stunning views '},       
+                {  title : 'Perfect retreat for small families or solo travelers seeking a relaxing and intimate getaway.'},              
             ],
             link : '/room',
             btnText : 'View Double Dom',
@@ -1034,6 +964,7 @@ const APP_DATA = {
                     title : "Book Single Room From - Double Dom",
                     amount : 70000,
                     dayNight : "Night",
+                    quantity : 0,
                     roomSingle : [
                         {
                             images : [
@@ -1049,24 +980,26 @@ const APP_DATA = {
                             ]
                         },
                         {
-                            title : 'Room Description Rooms1',
-                            description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                            subTitle : 'test3'
+                            title : 'Room Description Double Dom',
+                            description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+                            subTitle : 'Room Services'
                         },
                         {
                             roomService : [
-                                { serviceTitle : "Breakfast Included Rooms1"},
-                                { serviceTitle : "Free wifi"},
-                                { serviceTitle : "Double Bed"},
-                                { serviceTitle : "120 sq mt."},
-                                { serviceTitle : "8 persons"},
-                                { serviceTitle : "Free internet"},
-                                { serviceTitle : "good room service"},
-                                { serviceTitle : "flat screen tv"},
+                                { serviceTitle : "Swimming Pool access included"},
+                                { serviceTitle : "Separate kitchen and dining room "},
+                                { serviceTitle : "Outdoor Playground"},
+                                { serviceTitle : "Flat-screen TV with cable channels"},
+                                { serviceTitle : "Fridge stocked with snacks and drinks"},
+                                { serviceTitle : "Modern bathroom with shower"},
+                                { serviceTitle : "Free Wifi internet access"},
+                                { serviceTitle : "Excellent Room Service "},
                                 { serviceTitle : "fully AC"},
-                                { serviceTitle : "mountain view"},
+                                { serviceTitle : "Ceiling Fan"},
+                                { serviceTitle : "Outdoor Sports"},
                                 
-                            ]
+                            ],
+                            additional : ""
                         },
                         {
                             infoTab : 'Additional Information',
@@ -1080,6 +1013,7 @@ const APP_DATA = {
                     title : "Book Entire - Double Dom",
                     amount : 70000,
                     dayNight : "Night",
+                    quantity : 0,
                     roomSingle : [
                         {
                             images : [
@@ -1095,24 +1029,26 @@ const APP_DATA = {
                             ]
                         },
                         {
-                            title : 'Room Description Rooms2',
-                            description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                            subTitle : 'test4'
+                            title : 'Room Description Double Dom',
+                            description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+                            subTitle : 'Room Services'
                         },
                         {
                             roomService : [
-                                { serviceTitle : "Breakfast Included Rooms2"},
-                                { serviceTitle : "Free wifi"},
-                                { serviceTitle : "Double Bed"},
-                                { serviceTitle : "120 sq mt."},
-                                { serviceTitle : "8 persons"},
-                                { serviceTitle : "Free internet"},
-                                { serviceTitle : "good room service"},
-                                { serviceTitle : "flat screen tv"},
+                                { serviceTitle : "Swimming Pool access included"},
+                                { serviceTitle : "Separate kitchen and dining room "},
+                                { serviceTitle : "Outdoor Playground"},
+                                { serviceTitle : "Flat-screen TV with cable channels"},
+                                { serviceTitle : "Fridge stocked with snacks and drinks"},
+                                { serviceTitle : "Modern bathroom with shower"},
+                                { serviceTitle : "Free Wifi internet access"},
+                                { serviceTitle : "Excellent Room Service "},
                                 { serviceTitle : "fully AC"},
-                                { serviceTitle : "mountain view"},
+                                { serviceTitle : "Ceiling Fan"},
+                                { serviceTitle : "Outdoor Sports"},
                                 
-                            ]
+                            ],
+                            additional : ""
                         },
                         {
                             infoTab : 'Additional Information',
@@ -1129,13 +1065,10 @@ const APP_DATA = {
                 {image : aboutStoryTwo},
                ],
             title : 'Mud House',
-            desc : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut,interdum odio. Suspendisse potenti.',
-            cottagesTitle : 'Hotel Specials',
+            desc : 'Experience the charm and authenticity of a traditional mud house at our beautiful Lazz Polli. Nestled among the lush greenery of our property, our mud houses offer a unique and eco-friendly vacation experience.',
+            cottagesTitle : '',
             cottagesSpecials : [
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Private heated pool'}, 
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},             
+                {  title : ''},                   
             ],
             link : '/room',
             btnText : 'View Mud House',
@@ -1146,6 +1079,7 @@ const APP_DATA = {
                     title : "Book Single Room From - Mud House",
                     amount : 70000,
                     dayNight : "Night",
+                    quantity : 0,
                     roomSingle : [
                         {
                             images : [
@@ -1161,24 +1095,15 @@ const APP_DATA = {
                             ]
                         },
                         {
-                            title : 'Room Description Rooms1',
-                            description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                            subTitle : 'test5'
+                            title : 'Room Description Mud House',
+                            description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
+                            subTitle : ''
                         },
                         {
                             roomService : [
-                                { serviceTitle : "Breakfast Included Rooms1"},
-                                { serviceTitle : "Free wifi"},
-                                { serviceTitle : "Double Bed"},
-                                { serviceTitle : "120 sq mt."},
-                                { serviceTitle : "8 persons"},
-                                { serviceTitle : "Free internet"},
-                                { serviceTitle : "good room service"},
-                                { serviceTitle : "flat screen tv"},
-                                { serviceTitle : "fully AC"},
-                                { serviceTitle : "mountain view"},
-                                
-                            ]
+                                { serviceTitle : ""},
+                            ],
+                            additional : ""
                         },
                         {
                             infoTab : 'Additional Information',
@@ -1193,6 +1118,7 @@ const APP_DATA = {
                     title : "Book Entire - Mud House",
                     amount : 70000,
                     dayNight : "Night",
+                    quantity : 0,
                     roomSingle : [
                         {
                             images : [
@@ -1208,24 +1134,132 @@ const APP_DATA = {
                             ]
                         },
                         {
-                            title : 'Room Description Rooms1',
-                            description : "The park area is totally eco friendly features with beautiful natural landscaping, garden areas, playground, lakes that make it a great place for recreational activities. The lazz polli resort & Village Cottage Park Standard Rooms are designed to hospitalities the families who are looking for a secure and comfortable place with all modern amenities within a budget. It’s the perfect place for a family getaway or romantic escape for two.",
-                            subTitle : 'test6'
+                            title : 'Room Description Mud House',
+                            description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
+                            subTitle : ''
                         },
                         {
                             roomService : [
-                                { serviceTitle : "Breakfast Included Rooms1"},
-                                { serviceTitle : "Free wifi"},
-                                { serviceTitle : "Double Bed"},
-                                { serviceTitle : "120 sq mt."},
-                                { serviceTitle : "8 persons"},
-                                { serviceTitle : "Free internet"},
-                                { serviceTitle : "good room service"},
-                                { serviceTitle : "flat screen tv"},
-                                { serviceTitle : "fully AC"},
-                                { serviceTitle : "mountain view"},
-                                
+                                { serviceTitle : ""},
+                            ],
+                            additional : ""
+                        },
+                        {
+                            infoTab : 'Additional Information',
+                            reviewTab : 'Reviews'
+                        }
+                    ]
+                  },
+              ]
+         },
+         { 
+            Id : 20,
+            images : [
+                {image : aboutStoryOne},
+                {image : aboutStoryTwo},
+               ],
+            title : 'Ichamoti',
+            desc : 'Welcome to the Double Dom private suite at Lazz Polli resort! Nestled in a secluded corner of the property, this spacious and elegantly appointed suite offers the ultimate in privacy and comfort.',
+            cottagesTitle : 'Double Dom Private Suite Specials:',
+            cottagesSpecials : [
+                {  title : '3 rooms with a king-size bed '},       
+                {  title : 'Cozy living area, and with stunning views '},       
+                {  title : 'Perfect retreat for small families or solo travelers seeking a relaxing and intimate getaway.'},              
+            ],
+            link : '/room',
+            btnText : 'View Ichamoti',
+            CottageSuitsSingle : [
+                {
+                    Id: 21,
+                    image : roomOne,
+                    title : "Book Single Room From - Ichamoti",
+                    amount : 70000,
+                    dayNight : "Night",
+                    quantity : 0,
+                    roomSingle : [
+                        {
+                            images : [
+                                {
+                                    image : singleOne,
+                                },
+                                {
+                                    image : singleTwo,
+                                },
+                                {
+                                    image : singleThree,
+                                },
                             ]
+                        },
+                        {
+                            title : 'Room Description Ichamoti',
+                            description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+                            subTitle : 'Room Services'
+                        },
+                        {
+                            roomService : [
+                                { serviceTitle : "Swimming Pool access included"},
+                                { serviceTitle : "Separate kitchen and dining room "},
+                                { serviceTitle : "Outdoor Playground"},
+                                { serviceTitle : "Flat-screen TV with cable channels"},
+                                { serviceTitle : "Fridge stocked with snacks and drinks"},
+                                { serviceTitle : "Modern bathroom with shower"},
+                                { serviceTitle : "Free Wifi internet access"},
+                                { serviceTitle : "Excellent Room Service "},
+                                { serviceTitle : "fully AC"},
+                                { serviceTitle : "Ceiling Fan"},
+                                { serviceTitle : "Outdoor Sports"},
+                                
+                            ],
+                            additional : ""
+                        },
+                        {
+                            infoTab : 'Additional Information',
+                            reviewTab : 'Reviews'
+                        }
+                    ]
+                  },
+                  {
+                    Id: 22,
+                    image : roomOne,
+                    title : "Book Entire - Ichamoti",
+                    amount : 70000,
+                    dayNight : "Night",
+                    quantity : 0,
+                    roomSingle : [
+                        {
+                            images : [
+                                {
+                                    image : singleOne,
+                                },
+                                {
+                                    image : singleTwo,
+                                },
+                                {
+                                    image : singleThree,
+                                },
+                            ]
+                        },
+                        {
+                            title : 'Room Description Ichamoti',
+                            description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+                            subTitle : 'Room Services'
+                        },
+                        {
+                            roomService : [
+                                { serviceTitle : "Swimming Pool access included"},
+                                { serviceTitle : "Separate kitchen and dining room "},
+                                { serviceTitle : "Outdoor Playground"},
+                                { serviceTitle : "Flat-screen TV with cable channels"},
+                                { serviceTitle : "Fridge stocked with snacks and drinks"},
+                                { serviceTitle : "Modern bathroom with shower"},
+                                { serviceTitle : "Free Wifi internet access"},
+                                { serviceTitle : "Excellent Room Service "},
+                                { serviceTitle : "fully AC"},
+                                { serviceTitle : "Ceiling Fan"},
+                                { serviceTitle : "Outdoor Sports"},
+                                
+                            ],
+                            additional : ""
                         },
                         {
                             infoTab : 'Additional Information',
@@ -1239,102 +1273,13 @@ const APP_DATA = {
     ],
     FullPackage : [
         {
-            Id : 0,
+            Id: 1,
             images : [
-                {id : 0, image : aboutStoryOne},
-                {id : 1, image : aboutStoryTwo},
-                {id : 2, image : aboutStoryOne},
-            ],
-            title : 'Full Resort Day and Night',
-            desc : 'Continually simplify world-class communities without multidisciplinary data. Collaboratively empower optimal resources via top-line ideas. Enthusiastically benchmark functional outsourcing via exceptional processes. Continually recaptiualize global best practices.',
-            guests : [
-                {
-                    heading : '2 Guests',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Locker',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Spa & massage',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Breakfast',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Pickup',
-                    subHeading : 'Guest Allowed'
-                },
-            ],
-            specialTitle : 'Suit Specials',
-            suitSpecials : [
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Private heated pool'},       
-                {  title : 'Private heated pool'},     
-            ],
-            standard : [
-                { title : 'Free Wifi'},
-                { title : 'Double Bed'},
-                { title : '8 Persons'},
-                { title : 'Free Wifi'},
-                { title : 'Free Wifi'},
-                { title : 'Free Wifi'},
-            ],
-            standerdTitle : 'Package Standard',
-            link : '/checkout'
-
-        },
-        {
-            Id : 1,
-            images : [
-                {id : 0, image : aboutStoryOne},
-                {id : 1, image : aboutStoryTwo},
-                {id : 2, image : aboutStoryOne},
-            ],
-            title : 'Full Resort One Day',
-            desc : 'Continually simplify world-class communities without multidisciplinary data. Collaboratively empower optimal resources via top-line ideas. Enthusiastically benchmark functional outsourcing via exceptional processes. Continually recaptiualize global best practices.',
-            guests : [
-                {
-                    heading : '2 Guests',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Locker',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Spa & massage',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Breakfast',
-                    subHeading : 'Guest Allowed'
-                },
-                {
-                    heading : 'Pickup',
-                    subHeading : 'Guest Allowed'
-                },
-            ],
-            specialTitle : 'Suit Specials',
-            suitSpecials : [
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Panoramic Santorini view with sunrise and sunset'},       
-                {  title : 'Private heated pool'},             
-            ],
-            standard : [
-                { title : '8 Persons'},
-                { title : 'Free Wifi'},
-                { title : 'Free Wifi'},
-                { title : 'Free Wifi'},
-                { title : 'Free Wifi'},
-            ],
-            standerdTitle : 'Package Standard',
-            link : '/checkout'
-
+                {image : enjoyOne},
+                {image : enjoyOne},
+               ],
+            title : 'Full Package',
+            description : "<p>We offer the option to book an entire resort for a truly luxurious and private vacation experience. Imagine having an entire paradise to yourself, with all the amenities and services at your fingertips.</p><p>Lazz Polli Resort is perfect for family reunions, corporate retreats, destination weddings, and any other special occasion. With a wide range of activities and facilities, there is something for everyone to enjoy. </p><p>Our friendly and professional staff will be on hand to help you plan every aspect of your stay, from organizing activities and excursions to making dining reservations. And with a variety of room types and sizes to choose from, we can accommodate groups of all sizes.</p><P>So why wait? Start planning your dream vacation today and book an entire resort with us. You won't be disappointed! For further details regarding booking the entire resort, please contact us here. </p>",   
         },
     ]
 
@@ -1366,9 +1311,6 @@ export const getSwimmingPool = () => {
 }
 export const getConvention = () => {
     return APP_DATA.Convention.slice();
-}
-export const getDineMenu = () => {
-    return APP_DATA.DineMenu.slice();
 }
 export const getGallery = () => {
     return APP_DATA.Gallery.slice();
