@@ -868,6 +868,9 @@ p {
   background: transparent;
   color: #fff;
 }
+.book-overly .common-btn>a:hover {
+  color: #fff;
+}
 
 .logo>a>img {
   width: 80px;
@@ -1047,7 +1050,7 @@ figure.effect-layla img {
 }
 
 figure.effect-layla figcaption {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 figure.effect-layla figcaption::before {
@@ -1553,7 +1556,7 @@ section article {
   font-size: 14px;
   font-weight: bold;
   line-height: 18px;
-  padding: 15px 0;
+  padding: 13px 0;
   list-style-position: inside;
 }
 
@@ -3265,45 +3268,6 @@ select {
   margin-bottom: 5px;
 }
 
-.staff-main-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 25px 1fr 25px 1fr 25px 1fr;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 25px;
-  margin-top: 35px;
-}
-
-.stf-content {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.staff-single-item {
-  -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.3);
-  border-radius: 0px 0px 15px;
-}
-
-.stf-content {
-  text-align: center;
-  margin-top: 15px;
-  padding-bottom: 25px;
-}
-
-.stf-content h4 {
-  font-size: 20px;
-  font-weight: 700;
-  display: block;
-  padding-bottom: 5px;
-}
-
-.stf-content span {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--main-color);
-}
-
 .our-resort-staff-area.our-service-area {
   padding-top: 50px;
 }
@@ -3415,7 +3379,7 @@ select {
 /************other page relax css*************/
 /************************************/
 .relax-area {
-  padding: 70px 0px;
+  padding: 50px 0px;
   overflow: hidden;
 }
 
@@ -4286,11 +4250,11 @@ button.sign-out {
 
 
 
-button.nav-login>i {
+.nav-login>i {
   margin-right: 8px;
 }
 
-button.nav-login {
+.nav-login {
   cursor: pointer;
   /* border: 2px solid rgba(39,36,49,0.4); */
   border: 2px solid var(--secundery-color);
@@ -4305,13 +4269,13 @@ button.nav-login {
   color: #fff;
 }
 
-button.nav-login:hover {
+.nav-login:hover {
   background: transparent;
   transition: 0.5s;
   color: #fff;
 }
 
-.main-header-area.fade-in .animi button.nav-login:hover {
+.main-header-area.fade-in .animi .nav-login:hover {
   color: #000;
 }
 
@@ -4895,10 +4859,7 @@ button.common-modal-submit {
   margin-bottom: 40px;
 }
 
-.relax-spa-inner-grid.convention-hall-area .relax-spa-img-left .splide__slide {
-  -webkit-tap-highlight-color: transparent;
-  height: 380px !important;
-}
+
 
 .modal-inner.modal-inner-cottage .room-search-area {
   padding: 0px;

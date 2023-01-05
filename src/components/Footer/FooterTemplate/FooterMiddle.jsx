@@ -18,15 +18,12 @@ const FooterMiddle = () => {
                             <ul className="footer-links">
                                 <li><Link to="/home">Home</Link></li>
                                 <li><Link to="/searchroom">Search Room</Link></li>
-                                <li><Link to="/room">Rooms</Link></li>
                                 <li><Link to="/contact">Contact</Link></li>
                                 <li><Link to="/about">About</Link></li>
                                 <li><Link to="/gallery">Gallery</Link></li>
                                 <li><Link to="/career">Career</Link></li>
-                                <li><Link to="/room">Suites</Link></li>
+                                <li><Link to="/room">Room & Suites</Link></li>
                                 <li><Link to="/dine">Dine</Link></li>
-                                <li><Link to="/relax">Relax</Link></li>
-                                <li><Link to="/enjoy">Enjoy</Link></li>
                                 <li><Link to="/checkout">Checkout</Link></li>
                             </ul>
                         </div>
@@ -44,7 +41,7 @@ const FooterMiddle = () => {
                 </div>
               
                 <div className="footer-bottom">
-                    <p>&copy; 2022. Lazz Polli Resort. All rights reserved.</p>
+                    <p>&copy; 2023. Lazz Polli Resort. All rights reserved.</p>
                     <span>Site Developed by - <a target="_blank" href='https://iqrasys.com' rel="noopener noreferrer">Iqrasys Solutions Ltd.</a></span>
                 </div>
             </div>

@@ -43,7 +43,7 @@ const HeaderNav = () => {
                         </div>
 
                         <div className='normal-mobile-view'>
-                            <button onClick={loginClickHandler} className='nav-login mobile-desk'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+                            <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
 
                             <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
                                 <i className="fa fa-bars"></i>
@@ -145,11 +145,10 @@ const HeaderNav = () => {
                                 <li className="search-mobile">
                                     <Link to="#"><i className="fa fa-search openBtn" onClick={toggleClassSearch}></i> </Link>
                                 </li>
-                                <li className="book-now"><Link  onClick={toggleClass} to="/searchroom">Book Now</Link></li>
-
-                                <div className='login-mobile-hide'>
-                                  <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
-                                </div>
+                                
+                                <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
+                          
+                                <button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
 
 
                               
@@ -176,8 +175,7 @@ const HeaderNav = () => {
                         </div>
 
                         <div className='normal-mobile-view'>
-                            <button onClick={loginClickHandler} className='nav-login mobile-desk'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
-
+                            <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
                             <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
                                 <i className="fa fa-bars"></i>
                             </button>
@@ -278,11 +276,12 @@ const HeaderNav = () => {
                                 <li className="search-mobile">
                                    <Link onClick={toggleClassSearch} to="#"><i className="fa fa-search openBtn" ></i> </Link>
                                 </li>
-                                <li className="book-now"><Link  onClick={toggleClass} to="/searchroom">Book Now</Link></li>
+                              
 
-                                <div className='login-mobile-hide'>
-                                     <button onClick={loginClickHandler} className='nav-login'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
-                                </div>
+                             
+                                <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
+                             
+                                <button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
 
                               
                                 {/* <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>

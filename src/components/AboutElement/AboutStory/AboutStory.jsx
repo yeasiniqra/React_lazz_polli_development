@@ -12,7 +12,7 @@ const AboutStory = () => {
                     <div className="about-let">
                         <div className="about-inner-content">
                             <div className="other-page-heading">
-                                <h1><span>our resort </span>story</h1>
+                                <h1>our<span>story</span></h1>
                             </div>
                             {
                                 aboutStory[1].resortAbout.map((about, index) =>

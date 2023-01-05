@@ -46,7 +46,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.SPACES
                         )}
                     >
-                    {IMAGE_CATEGORY.SPACES}
+                    Rania House
                     </button>
                     <button
                         className={`tablinks ${
@@ -57,7 +57,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.ACTIVITIES
                         )}
                     >
-                    activities
+                    Double Dom
                     </button>
                     <button
                         className={`tablinks ${
@@ -68,7 +68,7 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.POOLS
                         )}
                     >
-                        pools
+                        Mud House
                     </button>
                     <button
                         className={`tablinks ${
@@ -79,9 +79,9 @@ const GalleryTabLink = () => {
                         GALLERY_MENU_TAB_BUTTON_NAMES.RESTAURANTS
                         )}
                     >
-                    restaurants
+                    Ichamoti House
                     </button>
-                    <button
+                    {/* <button
                         className={`tablinks ${
                         actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.SPA && "active"
                         }`}
@@ -102,7 +102,7 @@ const GalleryTabLink = () => {
                         )}
                     >
                     Reviews
-                    </button>
+                    </button> */}
 
                  </nav>
 
@@ -111,8 +111,8 @@ const GalleryTabLink = () => {
                   {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.ACTIVITIES && <Activities />}
                   {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.POOLS && <Pools />}
                   {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.RESTAURANTS && <Restaurants />}
-                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.SPA && <Spaa />}
-                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.REVIEWS && <Reviews />}
+                  {/* {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.SPA && <Spaa />}
+                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.REVIEWS && <Reviews />} */}
                 </div>
             </div>    
         </>

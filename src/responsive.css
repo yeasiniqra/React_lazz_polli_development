@@ -29,6 +29,15 @@
 }
 
 @media all and (max-width: 991px) {
+    .room-hide-border {
+        width: 60% !important;
+    }
+    button.nav-login.nav-login-mobile {
+        width: 112px;
+    }
+    .nav-login > a {
+        color: #ffff;
+    }
     button.nav_icon.mobile-desk.openbtn i {
         padding: 3px;
     }
@@ -66,7 +75,7 @@
     .room-service-list>h3 {
         font-size: 22px;
     }
-    button.nav-login {
+    .nav-login {
         margin-top: 0px;
     }
     li.book-now {
@@ -191,14 +200,16 @@
         font-size: 28px;
         cursor: pointer;
         background-color: var(--secundery-color);
-        color: #000;
+        color: #fff;
         border: none;
         position: relative;
         border-radius: 5px;
+        width: 45px;
+        height: 36px;
     }
 
     .main-header-area.fade-in .animi .openbtn {
-        color: #000;
+        color: #fff;
     }
 
     .main-menu-flex {
@@ -281,7 +292,7 @@
         right: 0px;
     }
     figure.effect-layla h3 {
-        font-size: 30px;
+        font-size: 21px;
     }
     h6.find-more {
         position: absolute;
@@ -395,7 +406,7 @@
     }
 
     .login-mobile-hide{
-        display: none;
+        display: none !important;
     }
     .normal-mobile-view {
         display: flex;
@@ -629,10 +640,12 @@
         padding: 2px;
     }
 
-    button.nav-login {
-        padding: 6px 0px;
-        width: 80px;
+    .nav-login {
+        padding: 7px 2px;
+        width: inherit;
+        font-size: 14px;
     }
+
     .service-single-item {
         padding: 25px;
     }
@@ -742,9 +755,6 @@
     }
     .footer-bottom {
         flex-direction: column;
-    }
-    figure.effect-layla h3 {
-        width: 80%;
     }
     figure.effect-layla:hover p {
         width: 65%;
@@ -881,19 +891,14 @@
     .banner-content p {
         font-size: 15px;
     }
-    h6.find-more {
-        bottom: 175px;
-    }
+
     h6.find-more {
         bottom: 48px;
         font-size: 14px;
         left: 50%;
         transform: translateX(-50%);
     }
-    figure.effect-layla h3 {
-        padding: 55px 0px 10px 0px;
-        font-size: 25px;
-    }
+
     .support-given-single-item {
         flex: 0 0 24%;
     }
@@ -1074,6 +1079,9 @@
     .overly-content-inner>h2 {
         font-size: 22px;
     }
+    .room-hide-border {
+        width: 72% !important;
+    }
 
 }
 
@@ -1109,11 +1117,17 @@
     }
     figure.effect-layla p {
         width: 72%;
-        margin-top: -58px;
+        margin-top: -48px;
         font-size: 12px;
     }
     .drop-cv-left h3 {
         font-size: 18px;
+    }
+    figure.effect-layla h3{
+        font-size: 24px;
+    }
+    figure.effect-layla h2 {
+        font-size: 21px;
     }
 }
 
@@ -1156,6 +1170,6 @@
         padding: 0px 16px;
     }
     p.mobile-desc {
-        margin-top: -100px !important;
+        margin-top: -42px !important;
     }
 }

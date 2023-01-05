@@ -16,7 +16,7 @@ const SwimmingMdl = ({ swimmin }) => {
   const [endDate, setEndDate] = useState(new Date());
   const [remark, setRemark] = useState("");
   const [hours, setHours] = useState("");
-  const [perhours, setPerhours] = useState(50);
+  const [perhours, setPerhours] = useState(200);
 
   const [phoneError, setPhoneError] = useState(false);
   const [fnameError, setFnameError] = useState(false);

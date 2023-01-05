@@ -4,7 +4,7 @@ import React from 'react';
 const GoogleMapTemplate = () => {
     const title = {
         title : 'Our location',
-        subTitle : 'Lazz Polli Resort located only 31 miles away from Dhaka. A discrete location surrounded by forest is one of its unique delight. Lazz Polli Resort consists of 62 individual villas for family, couples and honeymooners with attractive facilities'
+        subTitle : 'Lazz Polli Resort located only 16 km away from Dhanmondi. A fantastic location near to Dhaka Aricha highway. Lazz Polli Resort consists of modern and alluring rooms & suites, swimming pool, pond, playground for family, couples and honeymooners with attractive facilities.'
     }
    
     return (
