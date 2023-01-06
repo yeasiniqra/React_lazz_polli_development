@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import commonBg from "../../../images/room.jpg";
+import commonBg from "../../../images/room.webp";
 import appContext from "../../../store/app-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 // import Input from "../../Sheared/Input/Input";

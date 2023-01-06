@@ -1,6 +1,6 @@
 import PageHeader from '../PageHeader/PageHeader';
 import RoomDetailsTemplate from './RoomDetailsTemplate/RoomDetailsTemplate';
-import commonBg from '../../images/room.jpg';
+import commonBg from '../../images/room.webp';
 import { useParams } from 'react-router-dom';
 import { getRoom } from '../../services/data-service';
 

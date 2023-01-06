@@ -1,5 +1,5 @@
 import React from "react";
-import commonBg from "../../images/room.jpg";
+import commonBg from "../../images/room.webp";
 import { getResortDine } from "../../services/data-service";
 import PageHeader from "../PageHeader/PageHeader";
 import RestaurantDineTemplate from "./RestaurantDineTemplate";

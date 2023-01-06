@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
-import bg from '../../images/room.jpg'
+import bg from '../../images/room.webp'
 import GalleryTabLink from './GalleryTab/GalleryTabLink';
 
 const GalleryElement = () => {

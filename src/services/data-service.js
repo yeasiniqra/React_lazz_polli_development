@@ -66,26 +66,8 @@ import enjoyOne from '../images/raniya/era2.webp';
 
 
 
-// Resort Room iamges
-import roomOne from '../images/r1.jpg';
-import roomTwo from '../images/r2.jpg';
-
-import singleOne from "../images/dtl2.jpg";
-import singleTwo from "../images/dtl.jpg";
-import singleThree from "../images/dtl3.jpg";
 
 
-
-
-
-
-//gallery images
-import galleryOne from '../images/ab1.jpg';
-import galleryTwo from '../images/ab2.jpg';
-import galleryThree from '../images/ab3.jpg';
-import galleryFour from '../images/dtl.jpg';
-import galleryFive from '../images/dtl2.jpg';
-import gallerySix from '../images/dtl3.jpg';
 
 //About Story  images
 import aboutStoryOne from '../images/about/about1-01.webp';

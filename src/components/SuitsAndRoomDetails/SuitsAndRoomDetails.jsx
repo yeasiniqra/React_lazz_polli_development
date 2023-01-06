@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { getCottageSuitesSingle } from '../../services/data-service';
 import PageHeader from '../PageHeader/PageHeader';
-import commonBg from '../../images/room.jpg';
+import commonBg from '../../images/room.webp';
 import SuitsAndRoomDetailsTem from './SuitsAndRoomDetailsTem';
 import { useState } from 'react';
 import RoomSuitsMdl from '../Sheared/CommonModal/RoomSuitsMdl';

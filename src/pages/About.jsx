@@ -1,5 +1,5 @@
 import React from 'react';
-import commonBg from '../images/room.jpg';
+import commonBg from '../images/room.webp';
 import PageHeader from '../components/PageHeader/PageHeader';
 import AboutElement from '../components/AboutElement/AboutElement';
 import { useTitle } from '../hooks/UseTitle';

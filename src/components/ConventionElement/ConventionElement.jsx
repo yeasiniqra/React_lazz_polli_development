@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
-import commonBg from "../../images/room.jpg";
+import commonBg from "../../images/room.webp";
 import ConventionTemplate from './ConventionTemplate';
 import { getConvention } from '../../services/data-service';
 import { useState } from 'react';

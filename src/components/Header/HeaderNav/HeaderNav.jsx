@@ -45,7 +45,7 @@ const HeaderNav = () => {
                         <div className='normal-mobile-view'>
                             <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
 
-                            <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
+                            <button className="nav_icon mobile-desk" onClick={toggleClass}>
                                 <i className="fa fa-bars"></i>
                             </button>
                         </div>
@@ -176,7 +176,7 @@ const HeaderNav = () => {
 
                         <div className='normal-mobile-view'>
                             <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
-                            <button className="nav_icon mobile-desk openbtn" onClick={toggleClass}>
+                            <button className="nav_icon mobile-desk" onClick={toggleClass}>
                                 <i className="fa fa-bars"></i>
                             </button>
                         </div>

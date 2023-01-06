@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../../PageHeader/PageHeader';
-import commonBg from '../../../images/room.jpg'
+import commonBg from '../../../images/room.webp'
 import { getFullpackage } from '../../../services/data-service';
 import FullPackageTemplate from '../FullPackageTemplate/FullPackageTemplate';
 import { useState } from 'react';
@@ -13,7 +13,6 @@ const FullPackage = () => {
     return (
         <>
           <PageHeader imageURL={commonBg} title={'Full Package'} />
-          <div className="full-package-area">
             <div className="container">
                 <div className="package-grid">
                     {
@@ -33,7 +32,6 @@ const FullPackage = () => {
                     
                 </div>
             </div>
-          </div>
         </>
     );
 };

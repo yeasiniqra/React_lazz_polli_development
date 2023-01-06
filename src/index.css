@@ -1931,7 +1931,7 @@ p.site ul.footer-links li a:before {
 
 .other-page-area:after {
   content: "";
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   position: absolute;
   left: 0px;
   width: 100%;
@@ -3703,6 +3703,7 @@ select {
 
 .gallery__Image {
   cursor: pointer;
+  height: 100%;
 }
 
 .alert.alert-error {
@@ -4282,6 +4283,8 @@ button.sign-out {
 .new-veryfi-otp {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .new-veryfi-otp .book_table_item.dtl-btn {
@@ -4842,6 +4845,9 @@ button.common-modal-submit {
   gap: 10px;
 }
 
+.hotel-checkout-main div#niiceeTab {
+  overflow: hidden;
+}
 
 .relax-spa-inner-grid.convention-hall-area {
   display: inherit;
@@ -4904,4 +4910,11 @@ label.example-label.common-btn.cottage-pp-btn:hover a{
 
 .room-content-x > h2 {
   min-height: 62px;
+}
+
+.new-veryfi-otp .custom-input-resort.otp-input {
+  flex: 0 0 50%;
+}
+.new-veryfi-otp .book_table_item.dtl-btn {
+  flex: 0 0 50%;
 }
