@@ -446,8 +446,7 @@
     .normal-mobile-view {
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: row-reverse;
+        justify-content: space-between;
     }
     .career-page-area {
         padding: 25px 0px;
@@ -650,7 +649,13 @@
 }
 
 @media all and (max-width: 575px) {
+    li.book-now {
+        left: 0px;
+    }
 
+    .cottagesuits-img:hover .book-overly {
+       display: none;
+    }
     .dts-heading-content h1 {
         font-size: 20px;
     }
@@ -1149,6 +1154,8 @@
         margin-top: -5px !important;
         width: 70%;
     }
+
+    
 
 }
 

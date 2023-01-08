@@ -58,17 +58,6 @@ import packageTwo from '../images/package/p2.webp';
 import packageThree from '../images/package/p3.webp';
 
 
-
-
-
-
-import enjoyOne from '../images/raniya/era2.webp';
-
-
-
-
-
-
 //About Story  images
 import aboutStoryOne from '../images/about/about1-01.webp';
 import aboutStoryTwo from '../images/about/about2-01.webp';
@@ -151,6 +140,43 @@ const APP_DATA = {
             link : '/searchroom'
         },
 
+        // {
+        //     "Id": 0,
+        //     "Data": {
+        //         "Data": [
+        //             {
+        //                 "Id": "f3e156d6-6ce8-4891-b187-ace855890696",
+        //                 "CreatedAt": "2023-01-04 18:56:36.4730",
+        //                 "CreatedBy": "f43d6212-1d00-4719-8ea2-a1172f0cf6ab",
+        //                 "UpdatedAt": "2023-01-04 18:56:36.4730",
+        //                 "UpdatedBy": "f43d6212-1d00-4719-8ea2-a1172f0cf6ab",
+        //                 "IsDeleted": false,
+        //                 "Remarks": "asd",
+        //                 "ChangeLog": null,
+        //                 "ActivityId": "b99784fd-df97-462e-8838-b27c96e97fd2",
+        //                 "Name": "House 1",
+        //                 "Description": "dd",
+        //                 "RoomDescription": "asd",
+        //                 "Price": 123,
+        //                 "Rank": 1,
+        //                 "Permalink": "asd",
+        //                 "RoomPrice": 123,
+        //                 "AdditionalInformation": null
+        //             }
+        //         ],
+        //         "Columns": null,
+        //         "Id": null,
+        //         "Total": 1,
+        //         "SortBy": null,
+        //         "filter": [],
+        //         "IsDescending": false,
+        //         "PageNumber": 1,
+        //         "PageSize": 10
+        //     },
+        //     "IsError": false,
+        //     "Msg": null
+        // }
+   
     ],
 
     FindHroom:[ 

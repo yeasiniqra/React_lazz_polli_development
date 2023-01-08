@@ -101,7 +101,28 @@ const ContactForm = () => {
         setIsLoading(true)
         setClicked(true);
         evt.preventDefault();
-        
+
+        if (name.length < 1 ) {
+          setNameIsValid(true);
+          setIsLoading(false)
+          return
+        }
+        if (email.length === 0 ? true : email.includes("@")) {
+          alert("Email Cant Be Empty")
+          setIsLoading(false)
+          return
+        }
+        if (phone.length < 1 ) {
+          setPhoneIsValid(true);
+          setIsLoading(false)
+          return
+        }
+        if (message.length < 1 ) {
+          setMessageIsValid(true);
+          setIsLoading(false)
+          return
+        }
+
         const payload = {
           name,
           phoneNumber: phone,
@@ -123,6 +144,9 @@ const ContactForm = () => {
           // Loader Close
           setIsLoading(false)
         })
+
+        
+       
       }
   
 
