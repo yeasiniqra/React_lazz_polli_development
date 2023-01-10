@@ -1,9 +1,9 @@
 
 // Bse URL Service
 export const CONFIG = {
-    BASE_URL: 'https://lazzpolli.boniksoftware.com',
-    LOG_URL: 'https://lazzpolli.boniksoftware.com',
-    IMAGE_URL:'https://lazzpolli.boniksoftware.com',
+    BASE_URL: 'https://test.boniksoftware.com',
+    LOG_URL: 'https://test.boniksoftware.com',
+    IMAGE_URL:'https://test.boniksoftware.com',
 };
 
 

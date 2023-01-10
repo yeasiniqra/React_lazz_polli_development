@@ -50,7 +50,6 @@ export const getV2 = ({ url }) => {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "Access-Control-Allow-Origin": "*",
       ...headers,
     },
    

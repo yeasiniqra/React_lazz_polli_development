@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate, NavLink, } from "react-router-dom";
 import logo from '../../../images/logo-white.png';
 import logoBlack from '../../../images/logo-black.png';
 import authContext from '../../../store/auth-context';
 
 
 const HeaderNav = () => {
-    const { open } = useContext(authContext);
+    const { open, user } = useContext(authContext);
+    const navigate = useNavigate();
+
+    const profileHandler = () => {
+        navigate('/profile')
+    }
 
     const [isActive, setActive] = useState(false);
 
@@ -146,10 +151,15 @@ const HeaderNav = () => {
                                 </li>
                                 
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
+
+                                {
+                                    user.id ? 
+                                    <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
+                                    :
+                                    <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
+                                    
+                                }
                           
-                                <button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
-
-
                               
                                 <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                     <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
@@ -280,7 +290,13 @@ const HeaderNav = () => {
                              
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
                              
-                                <button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button>
+                                {
+                                    user.id ? 
+                                    <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
+                                    :
+                                    <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
+                                    
+                                }
 
                               
                                 {/* <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>

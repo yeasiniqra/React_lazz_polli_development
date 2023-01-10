@@ -37,29 +37,15 @@ const VerifyNumber = () => {
     }
 
     console.log(code)
-
-    const payload = {
-      Code: code,
-      Id: signupData.optId,
-      ActivityId: window.ActivityId,
-    };
-
-    postV2({ url: VERIFY_OTP, payload })
-      .then((data) => {
-        if (!data.IsError && form === 'OTP') {
-          register();
-        } else if (!data.IsError && form === 'OTP_RESET_PASSWORD') {
-          forgotPassword();
-        } else {
-          console.log(data);
-          setError(data.Msg);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err.toString());
-      });
+    if (form === 'OTP') {
+      register();
+    }else{
+      login()
+    }
+    
   };
+
+  
 
   const forgotPassword = () => {
     const payload = {
@@ -85,16 +71,18 @@ const VerifyNumber = () => {
       });
   };
 
+
+
+
   const register = () => {
     const payload = {
-      firstName: signupData.fname,
-      lastName: signupData.lname,
-      phoneNumber: signupData.phone,
-      // Password: signupData.password,
-      OTPId: signupData.optId,
-      ActivityId: window.ActivityId,
+      "PhoneNumber": signupData.phoneNumber,
+      "FirstName": signupData.firstName,
+      "LastName": signupData.lastName,
+      "MessageId": signupData.messageId,
+      "OTP": code
     };
-
+console.log(payload);
     postV2({ url: REGISTER, payload })
       .then((data) => {
         if (!data.IsError) {
@@ -112,24 +100,24 @@ const VerifyNumber = () => {
 
   const login = () => {
     const payload = {
-      Password: signupData.password,
-      UserName: signupData.phone,
-    };
-    postV2({ url: LOGIN, payload })
-      .then((data) => {
-        if (!data.IsError) {
-          const user = userCamelCase(data.Data);
-          loginCtx(user);
-          close();
-        } else {
-          console.log(data);
-          setError(data.Msg);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error.toString());
-      });
+      UserName : signupData.phoneNumber,
+      Password : ''
+    }
+
+    postV2({url: LOGIN, payload})
+    .then(data => {
+      if(!data.IsError){
+        const user = userCamelCase(data.Data);
+        loginCtx(user);
+        close();
+      } else {
+        console.log(data);
+        setError(data.Msg);
+      }
+      
+    }).catch(error => {
+      setError(error.toString())
+    });
   };
 
   const getCodeFromForResetPassword = () => {

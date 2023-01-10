@@ -3,10 +3,9 @@ import { useState } from 'react';
 import styles from '../Auth.module.css';
 import { useContext } from 'react';
 import authContext from '../../store/auth-context';
-import { postV2 } from '../../services/http-service-v2';
-import { GET_OTP} from '../../lib/endpoints';
+import { getV2, postV2 } from '../../services/http-service-v2';
+import { GET_CUSTOMERIS_EXIST, GET_OTP} from '../../lib/endpoints';
 
-// console.log(REGISTER);
 
 
 const Signup = () => {
@@ -15,6 +14,7 @@ const Signup = () => {
   // console.log(storeSignupData);
 
   const [error, setError] = useState(null);
+  const [isValid, setIsvalid] = useState(false)
 
   const [phone, setPhone] = useState('');
   const [fname, setFname] = useState("");
@@ -23,6 +23,8 @@ const Signup = () => {
   const [phoneError, setPhoneError] = useState(false);
   const [fnameError, setFnameError] = useState(false);
   const [lnameError, setLnameError] = useState(false);
+
+
 
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
@@ -73,16 +75,10 @@ const Signup = () => {
   };
 
   const requestOTP = () => {
-    const payload = {
-      firstName : fname,
-      lastName : lname,
-      phoneNumber : phone,
-      messageId : '',
-      otp : ''
-    };
-    postV2({ url: GET_OTP, payload }).then((data) => {
+    getV2({ url: GET_OTP(phone, false) }).then((data) => {
       if (!data.IsError) {
-        storeSignupData({ phoneNumber: phone, firstName: fname, lastName:lname, messageId : '', otp : ''});
+        storeSignupData({ phoneNumber: phone, firstName: fname, lastName:lname, messageId : data.Id, otp : ''});
+        console.log(data)
         open('OTP');
       } else {
         console.log(data);
@@ -91,10 +87,26 @@ const Signup = () => {
     });
   };
 
+  const customertIsExist = (phone) => {
+    getV2({ url: GET_CUSTOMERIS_EXIST+ phone }).then((data) => {
+      if (!data.IsError) {
+        setIsvalid(data.Data)
+        if (data.Data) {
+          alert("Phone Number is Exist")
+        }
+      } else {
+       
+      }
+    });
+  };
+
   const loginClickHandler = () => {
     open('LOGIN');
   };
 
+  const phoneOnBluer = ({ target: el }) => {
+    customertIsExist(el.value)
+  }
 
 
   return (
@@ -149,6 +161,7 @@ const Signup = () => {
               onFocus={phoneFocusHandler}
               value={phone}
               placeholder={"Type Your Phon Number"}
+              onBlur={phoneOnBluer}
             />
             <div className={styles['mobile-icon']}>
               <i className="fa fa-user" aria-hidden="true"></i>

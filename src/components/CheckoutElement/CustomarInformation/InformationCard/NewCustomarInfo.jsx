@@ -433,9 +433,9 @@ const NewCustomarInfo = () => {
                       </span>
                     </div>
                     <div className="paymet-radio-btn">
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
+                        <input type="radio" id="html" name="payfull" value="HTML" />
                         <label htmlFor="html">Pay Full Payment</label>
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
+                        <input type="radio" id="css" name="payfull" value="CSS" />
                         <label htmlFor="css">Pay 30% Payment</label>
                     </div> 
                     <div className="book_table_item dtl-btn">

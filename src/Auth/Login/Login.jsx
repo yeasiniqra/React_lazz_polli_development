@@ -1,14 +1,16 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { LOGIN } from '../../lib/endpoints';
-import { postV2 } from '../../services/http-service-v2';
+import { GET_OTP, LOGIN } from '../../lib/endpoints';
+import { getV2, postV2 } from '../../services/http-service-v2';
 import authContext from '../../store/auth-context';
 import styles from '../Auth.module.css';
 import { userCamelCase } from '../auth.util';
 
+
 const Login = () => {
-  const { close, open, login: loginCtx } = useContext(authContext);
+  const { close, open, login: loginCtx, storeSignupData } = useContext(authContext);
+
 
   const [error, setError] = useState(null);
   const [phone, setPhone] = useState('');
@@ -35,9 +37,11 @@ const Login = () => {
     requestOTP();
   };
 
+  
   const login = () => {
     const payload = {
-      phoneNumber : phone
+      UserName : phone,
+      Password : ''
     }
 
     postV2({url: LOGIN, payload})
@@ -58,22 +62,18 @@ const Login = () => {
 
 
   const requestOTP = () => {
-    // const payload = {
-    //   ActivityId: window.ActivityId,
-    //   Phone: phone,
-    //   fname : fname,
-    //   lname : lname,
-    // };
-    // postV2({ url: 'GET_OTP', payload }).then((data) => {
-    //   if (!data.IsError) {
-    //     storeSignupData({ phone: phone, fname: fname, lname:lname, optId: data.Id });
-        open('OTP');
-    //   } else {
-    //     console.log(data);
-    //     setError(data.Msg);
-    //   }
-    // });
+    getV2({ url: GET_OTP(phone) }).then((data) => {
+      if (!data.IsError) {
+        storeSignupData({ phoneNumber: phone, messageId : data.Id, otp : ''});
+        console.log(data)
+        open('OTP_LOGIN');
+      } else {
+        console.log(data);
+        setError('inside err', data.Msg);
+      }
+    });
   };
+
 
   const singupClickHandler = () => {
     open('SIGNUP'); 
@@ -113,7 +113,9 @@ const Login = () => {
             </p>
           </div>
         </div>
-        <button className={styles.LogInBtn} label={'Login'} onClick={loginHandler} type={'button'} >Login</button>
+
+        <button className={styles.LogInBtn} label={'Login'} onClick={requestOTP} type={'button'} >Login</button>
+
       </form>
     </>
   );

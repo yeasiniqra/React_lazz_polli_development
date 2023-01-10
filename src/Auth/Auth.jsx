@@ -43,6 +43,10 @@ const Auth = () => {
       title = 'Verify Phone Number';
       formComponent = <VerifyNumber />;
     break; 
+    case 'OTP_LOGIN':
+      title = 'Verify Phone Number';
+      formComponent = <VerifyNumber />;
+    break; 
     default:
       title = 'Login';
       formComponent = <Login />;
