@@ -1,11 +1,14 @@
 import React from 'react';
-// import avater from '../../../images/user2.png'
+import { useContext } from 'react';
+import authContext from '../../../store/auth-context';
 const ProfileInfo = () => {
+    const {profile} = useContext(authContext)
+    const {firstName,lastName,phone} = profile
     return (
         <div className='profile-info'>
             <div className='profile-img'>
-                {/* <img src={avater} alt="profile lazz polli" /> */}
-                <h2>Jak Ma</h2>
+                <h2>{firstName} {lastName}</h2>
+                <p>{phone}</p>
             </div>
         </div>
     );

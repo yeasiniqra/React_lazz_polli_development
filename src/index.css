@@ -3719,6 +3719,10 @@ textarea:focus {
   transition: 0.2s;
 }
 
+.profile-img > p {
+    color: #fff;
+}
+
 .searchBtn {
   border: 2px solid transparent;
   display: inline-block;

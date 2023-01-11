@@ -22,7 +22,7 @@ const CottagesSuits = ({ item }) => {
         <div className="cottagesuits-img">
            <Splide options={options} aria-label="React Splide Example">
               {
-                  item.images.map((banner, index) => (
+                  item.Images.map((banner, index) => (
                   <SplideSlide key={index}>
                       <img src={banner.image} alt="resort full pakage price in bangladesh" />
                   </SplideSlide>
@@ -40,35 +40,33 @@ const CottagesSuits = ({ item }) => {
         <div className="overly-content">
           <div className="hover-ef-1"></div>
           <div className="overly-content-inner">
-            <h2>{item.title}</h2>
-            <p>{item.desc}</p>
+            <h2>{item.Name}</h2>
+            <p>{item.Description}</p>
             <div className="SuitSpecials">
               {
-                item.cottagesTitle && 
-                <h3>{item.cottagesTitle}</h3>
+                item.Name && 
+                <h3>{item.Name}</h3>
               }
-              
               <div className="SuitSpecials-item">
                 
-                {item.cottagesSpecials.map((product, index) => (
+                {item.Facalities.map((product, index) => (
                   <div
                     key={index}
                     className="getway-single-item suitSpecials-single-item"
                   >
                     {
-                      product.title &&
+                      product.Name &&
                       <>
                       <i className="fa fa-check-circle" aria-hidden="true"></i>
-                      <h4>{product.title}</h4>
+                      <h4>{product.Name}</h4>
                       </>
                     }
-                    
                   </div>
                 ))}
               </div>
             </div>
             <div className="common-btn">
-              <Link to={`${item.Id}`}>{item.btnText}</Link>
+              <Link to={`${item.Permalink}`}>{item.Name}</Link>
             </div>
           </div>
 

@@ -1415,14 +1415,25 @@ export const getroomSearchCard = () => {
 export const getCottageSuites = () => {
     return APP_DATA.CottageSuits.slice()
 }
+
 export const getCottageSuitesSingle = (id) => {
     return APP_DATA.CottageSuits.find(s => s.Id === id)
 }
 
-export const getCottageSuitesSingle2 = (id, roomId) => {
-    return APP_DATA.CottageSuits.find(c => c.Id === id)?.CottageSuitsSingle.find(m => m.Id === roomId)
-}
+// export const getCottageSuitesSingle2 = (id, roomId) => {
+//     return APP_DATA.CottageSuits.find(c => c.Id === id)?.CottageSuitsSingle.find(m => m.Id === roomId)
+// }
 
 export const getFullpackage = () => {
     return APP_DATA.FullPackage.slice()
+}
+
+let _houses = [];
+
+export const setHouses = (houses) => {
+    _houses = houses;
+}
+
+export const getHouse = (link) => {
+    return _houses.find(h => h.Permalink === link);
 }

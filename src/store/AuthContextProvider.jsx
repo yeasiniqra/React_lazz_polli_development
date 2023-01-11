@@ -1,8 +1,8 @@
-import React from 'react';
-import { useCallback } from 'react';
-import { useEffect } from 'react';
-import { useReducer } from 'react';
-import { useNavigate  } from 'react-router-dom';
+import React from "react";
+import { useCallback } from "react";
+import { useEffect } from "react";
+import { useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   AUTHENTICATING_FINISHED,
   AUTH_LOGIN,
@@ -13,22 +13,29 @@ import {
   OPEN_AUTH_FORM,
   STORE_REGISTRATION_DATA,
   STORE_USER_PROFILE_INFO,
-} from '../constants';
-import authService from '../services/auth-service';
-import { postV2 } from '../services/http-service-v2';
-import authContext from './auth-context';
+} from "../constants";
+import { GET_USER_INFO } from "../lib/endpoints";
+import authService from "../services/auth-service";
+import { postV2 } from "../services/http-service-v2";
+import authContext from "./auth-context";
 
 const initialState = {
   isAuthenticating: true,
   isAuthenticated: false,
-  user: { name: '', id: '', email: '', phone: '', image: '', token: '' },
-  signupData: { phone: '', password: '', fname : '', lname:'', optId: '', otp: '' },
+  user: { firstName: "", id: "", email: "", phone: "", image: "", token: "" },
+  signupData: {
+    phone: "",
+    password: "",
+    fname: "",
+    lname: "",
+    optId: "",
+    otp: "",
+  },
   form: null, //OTP || SINGUP || RESET_PASSWROD || LOGIN || OTP_RESET_PASSWORD
   path: null,
   profile: {
-    credit: 0,
-    debit: 0,
-    notification: 0,
+    firstName: "",
+    phone: "",
   },
 };
 
@@ -38,7 +45,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         signupData: { ...action.data },
-      }; 
+      };
 
     case OPEN_AUTH_FORM:
       const path = action.data.path || state.path;
@@ -52,11 +59,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         form: null,
-        path: null
+        path: null,
       };
 
     case AUTH_LOGIN:
-      localStorage.setItem('USER', JSON.stringify(action.user));
+      localStorage.setItem("USER", JSON.stringify(action.user));
       return {
         ...state,
         isAuthenticated: true,
@@ -66,7 +73,7 @@ const reducer = (state, action) => {
       };
 
     case AUTO_LOGIN:
-      const userJSON = localStorage.getItem('USER');
+      const userJSON = localStorage.getItem("USER");
 
       if (!userJSON)
         return {
@@ -101,7 +108,7 @@ const reducer = (state, action) => {
       };
 
     case LOGOUT:
-      localStorage.removeItem('USER');
+      localStorage.removeItem("USER");
       return {
         ...state,
         isAuthenticated: false,
@@ -112,6 +119,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         path: null,
+      };
+
+    case STORE_USER_PROFILE_INFO:
+      return {
+        ...state,
+        profile: {
+         ...action.profile
+        },
       };
 
     default:
@@ -128,7 +143,7 @@ const AuthContextProvider = ({ children }) => {
     dispatch({ type: STORE_REGISTRATION_DATA, data });
   };
 
-  const open = (form = 'LOGIN', path) => {
+  const open = (form = "LOGIN", path) => {
     dispatch({ type: OPEN_AUTH_FORM, data: { form, path } });
   };
 
@@ -137,7 +152,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const login = (
-    user = { name: '', id: '', email: '', phone: '', image: '', token: '' }
+    user = { firstName: "", id: "", email: "", phone: "", image: "", token: "" }
   ) => {
     dispatch({ type: AUTH_LOGIN, user });
   };
@@ -150,10 +165,10 @@ const AuthContextProvider = ({ children }) => {
     dispatch({ type: LOGOUT });
   };
 
-  const storeProfile = (notification, credit, debit) => {
+  const storeProfile = (firstName, lastName, phone) => {
     dispatch({
       type: STORE_USER_PROFILE_INFO,
-      profile: { notification, credit, debit },
+      profile: { firstName, lastName, phone },
     });
   };
 
@@ -167,7 +182,7 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     authService.autoLogin();
-    const userJSON = localStorage.getItem('USER');
+    const userJSON = localStorage.getItem("USER");
 
     let user;
     if (userJSON) {
@@ -183,22 +198,17 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if(isAuthenticated){
-      postV2({ url: 'GET_USER_INFO', payload: {} })
-      .then((data) => {
-        if (data.IsError) {
-          logout();
-        } else if (!data.IsError) {
-          storeProfile(
-            data.Data.NotificationCount.NotificationCount,
-            data.Data.Customer.Cashback,
-            data.Data.Customer.Pending
-          );
-        }
-      })
-      .catch((err) => console.log(err));
+    if (isAuthenticated) {
+      postV2({ url: GET_USER_INFO, payload: {} })
+        .then((data) => {
+          // if (data.IsError) {
+          //   logout();
+          // } else if (!data.IsError) {
+          storeProfile(data.FirstName, data.LastName, data.Phone);
+          // }
+        })
+        .catch((err) => console.log(err));
     }
-   
   }, [isAuthenticated]);
 
   const context = {

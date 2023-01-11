@@ -153,7 +153,7 @@ const HeaderNav = () => {
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
 
                                 {
-                                    user.id ? 
+                                    user && user.id ? 
                                     <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
                                     :
                                     <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
@@ -291,7 +291,7 @@ const HeaderNav = () => {
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
                              
                                 {
-                                    user.id ? 
+                                     user && user.id ? 
                                     <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
                                     :
                                     <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>

@@ -40,11 +40,11 @@ const DescriptionSlider = ( {room} ) => {
         <div className="dts-left-img">
             <div className="dts_banner_slide">
                 <Splide options={options} aria-label="React Splide Example">
-                    {room.roomSingle[0].images.map((imagesSlide, index) => (
+                    {room.Images.map((imagesSlide, index) => (
                     <SplideSlide key={index}>
                         <img
                           className="gallery__Image"
-                          src={imagesSlide.image}
+                          src={imagesSlide.Images}
                           alt="b1.png"
                           onClick={checkClickHandler.bind(null, index)}
                           data-large={imagesSlide.image}
@@ -54,9 +54,9 @@ const DescriptionSlider = ( {room} ) => {
                 </Splide>
             </div>
             <div className="dts-heading-content">
-                <h1>{room.title}</h1>
+                <h1>{room.Name}</h1>
                 <h4>
-                    {room.amount} / <span>{room.dayNight}</span>
+                    {room.Price} / <span></span>
                 </h4>
             </div>
        </div>

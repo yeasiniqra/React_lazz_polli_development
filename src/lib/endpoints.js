@@ -8,10 +8,10 @@ export const UPDATE_PASSWORD = "CustomerArea/Customer/UpdatePassword";
 // export const OTP_LOGIN_REQUEST = 'CustomerArea/AppCustomer/OTPLoginRequest';
 // export const OTP_LOGIN = 'CustomerArea/AppCustomer/OTPLogin';
 
-
+export const GET_USER_INFO = 'Home/GetUser';
 export const REGISTER = 'AppUser/Register';
 export const LOGIN = 'ManagedArea/Account/Login';
-export const GET_OTP = (phone, isForLogin = true) => `Message/OTP/${phone}?activityId=${window.Activity || '68DF907A-76D2-4595-959E-697D73336FA0'}&otpFor=${isForLogin ? 'LOGIN' : 'REGISTRATION'}`; // REGISTRATION | LOGIN
+export const GET_OTP = (phone, isForLogin = true) => `Message/OTP/${phone}?activityId=${window.Activity || '4271cd21-3fa3-44ba-afd2-c06676cdd4d5'}&otpFor=${isForLogin ? 'LOGIN' : 'REGISTRATION'}`; // REGISTRATION | LOGIN
 export const GET_CUSTOMERIS_EXIST = "AppUser/isExist?phoneNumber=";
 
 //Profile
@@ -21,6 +21,9 @@ export const POST_UPDATE_PROFILE = 'AppUser/Profile';
 
 //Review
 export const POST_REVIEW = 'Review';
+
+//get House
+export const GET_HOUSE = () => `HouseArea/House/GetHouses?Take=999&Page=1&takeReview=10`
 
 
 // Lazz Polli

@@ -1,8 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import authContext from '../../../store/auth-context';
 import ProfileInfo from './ProfileInfo';
 
 const ProfileNav = () => {
+    const {logout} = useContext(authContext)
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+        logout();
+        navigate('/home')
+    }
     return (
         <div className='profile-nav'>
             <ProfileInfo />
@@ -35,7 +44,7 @@ const ProfileNav = () => {
                     invoice
                     </NavLink>
                 </li>
-                <button className='sign-out'><i className="fa fa-sign-out" aria-hidden="true"></i> LogOut</button>
+                <button onClick={handleLogin} className='sign-out'><i className="fa fa-sign-out" aria-hidden="true"></i> LogOut</button>
             </ul>
             </div>
         </div>

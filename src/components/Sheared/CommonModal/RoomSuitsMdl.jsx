@@ -16,7 +16,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
   };
 
 
-  const { roomTitle, title } = suitsAndRoom;
+  const { Name } = suitsAndRoom;
   return (
     <div className="parent-modal">
       <input type="checkbox" id="cottage" />
@@ -25,7 +25,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
         <div className="modal-inner modal-inner-cottage">
           <div className="modal-header">
             <h2>
-              {roomTitle} {title}
+              {Name} 
             </h2>
             <label htmlFor="cottage">
               <i className="fa fa-times" aria-hidden="true"></i>

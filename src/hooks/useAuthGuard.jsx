@@ -1,16 +1,18 @@
 import { useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import authContextV2 from '../store/auth-context-v2';
+import { useLocation, useNavigate } from 'react-router-dom';
+import authContext from '../store/auth-context';
 
 const useAuthGuard = (fallbackPath = '/') => {
-  const history = useHistory();
-  const { isAuthenticating, isAuthenticated } = useContext(authContextV2);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { isAuthenticating, isAuthenticated } = useContext(authContext);
 
   useEffect(() => {
-    if (!isAuthenticating) {
-      history.replace(fallbackPath);
+    if (!isAuthenticating && !isAuthenticated) {
+      let from = location.state?.from?.pathname || "/";
+      navigate(from, { replace: true });
     }
-  }, [isAuthenticating, isAuthenticated, history, fallbackPath]);
+  }, [isAuthenticating, isAuthenticated, navigate, fallbackPath, location]);
 };
 
 export default useAuthGuard;
