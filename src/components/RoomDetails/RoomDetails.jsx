@@ -9,6 +9,7 @@ const RoomDetails = () => {
     const roomData = getRoom(+Id);
     console.log(roomData);
     
+    
     return (
         <>
             <PageHeader imageURL={commonBg} title={'Room Details'} />

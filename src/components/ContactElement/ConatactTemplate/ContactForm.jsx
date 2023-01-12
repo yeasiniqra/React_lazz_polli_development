@@ -107,7 +107,7 @@ const ContactForm = () => {
           setIsLoading(false)
           return
         }
-        if (email.length === 0 ? true : email.includes("@")) {
+        if (email.length < 1) {
           alert("Email Cant Be Empty")
           setIsLoading(false)
           return

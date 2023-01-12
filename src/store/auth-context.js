@@ -6,7 +6,7 @@ const authContext = createContext({
     form: null,
     user: {firstName: '', id: '', email: '', phone: '', image: '', token: ''},
     signupData: {phoneNumber: '', password: '', firstName : '', lastName : '', messageId: '', otp: ''},
-    profile: {notification: 0, credit: 0, debit: 0},
+    profile: {FirstName : '', LastName : '', Phone : ''},
     login: (user = {firstName: '', id: '', email: '', phone: '', image: '', token: ''}) => {},
     storeSignupData: (data = {phone: '', fname : '', lname : '', optId: '', otp: ''}) => {},
     logout: () => {},
@@ -17,3 +17,4 @@ const authContext = createContext({
 });
 
 export default authContext;
+

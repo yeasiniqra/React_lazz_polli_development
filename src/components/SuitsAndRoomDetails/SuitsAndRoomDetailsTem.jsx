@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-// cottage, setSuitsAndRoom
-
 const SuitsAndRoomDetailsTem = ({SuitsAndRoomData,setSuitsAndRoom}) => {
-    // console.log(SuitsAndRoomData)
+    const detailsClickHandler = (type) => {
+        setSuitsAndRoom({...SuitsAndRoomData, type});
+    }
     return (
         <>
         <div className='parent-suites-room'>
@@ -16,7 +16,7 @@ const SuitsAndRoomDetailsTem = ({SuitsAndRoomData,setSuitsAndRoom}) => {
                     {SuitsAndRoomData.Price}&nbsp;<span>/ <sup>Night</sup></span>{" "}
                     </h3>
                     <div className="cottage-btn">
-                        <label className="example-label common-btn" htmlFor="cottage" onClick={() => setSuitsAndRoom(SuitsAndRoomData)}> 
+                        <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'ROOM')}> 
                         <a>View Details</a>
                         </label>
                     </div>
@@ -33,13 +33,14 @@ const SuitsAndRoomDetailsTem = ({SuitsAndRoomData,setSuitsAndRoom}) => {
                     {SuitsAndRoomData.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
                     </h3>
                     <div className="cottage-btn">
-                        <label className="example-label common-btn" htmlFor="cottage" onClick={() => setSuitsAndRoom(SuitsAndRoomData)}> 
+                        <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'HOUSE')}> 
                         <a>View Details</a>
                         </label>
                     </div>
                 </div>
             </div>
         </div>
+
         </>
     );
 };

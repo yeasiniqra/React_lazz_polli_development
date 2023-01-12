@@ -49,19 +49,16 @@ const CottagesSuits = ({ item }) => {
               }
               <div className="SuitSpecials-item">
                 
-                {item.Facalities.map((product, index) => (
-                  <div
-                    key={index}
-                    className="getway-single-item suitSpecials-single-item"
-                  >
-                    {
-                      product.Name &&
-                      <>
-                      <i className="fa fa-check-circle" aria-hidden="true"></i>
-                      <h4>{product.Name}</h4>
-                      </>
-                    }
-                  </div>
+                {item.Facalities.map((product) => (
+                  <>
+                     {
+                      product &&
+                        <div className="getway-single-item suitSpecials-single-item">
+                            <i className="fa fa-check-circle" aria-hidden="true"></i>
+                            <h4>{product.Name}</h4>
+                        </div>
+                     }
+                  </>
                 ))}
               </div>
             </div>

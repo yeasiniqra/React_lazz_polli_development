@@ -16,7 +16,7 @@ import {
 } from "../constants";
 import { GET_USER_INFO } from "../lib/endpoints";
 import authService from "../services/auth-service";
-import { postV2 } from "../services/http-service-v2";
+import { getV2, postV2 } from "../services/http-service-v2";
 import authContext from "./auth-context";
 
 const initialState = {
@@ -34,7 +34,8 @@ const initialState = {
   form: null, //OTP || SINGUP || RESET_PASSWROD || LOGIN || OTP_RESET_PASSWORD
   path: null,
   profile: {
-    firstName: "",
+    FirstName: "",
+    LastName : "",
     phone: "",
   },
 };
@@ -165,10 +166,10 @@ const AuthContextProvider = ({ children }) => {
     dispatch({ type: LOGOUT });
   };
 
-  const storeProfile = (firstName, lastName, phone) => {
+  const storeProfile = (FirstName, LastName, Phone) => {
     dispatch({
       type: STORE_USER_PROFILE_INFO,
-      profile: { firstName, lastName, phone },
+      profile: { FirstName, LastName, Phone },
     });
   };
 
@@ -199,13 +200,13 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      postV2({ url: GET_USER_INFO, payload: {} })
+      getV2({ url: GET_USER_INFO, payload: {} })
         .then((data) => {
-          // if (data.IsError) {
-          //   logout();
-          // } else if (!data.IsError) {
-          storeProfile(data.FirstName, data.LastName, data.Phone);
-          // }
+          if (data.IsError) {
+            logout();
+          } else if (!data.IsError) {
+          storeProfile(data.Data.FirstName, data.Data.LastName, data.Data.Phone);
+          }
         })
         .catch((err) => console.log(err));
     }

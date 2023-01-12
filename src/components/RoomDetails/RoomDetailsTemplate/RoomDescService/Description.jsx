@@ -10,18 +10,18 @@ const Description = ({room}) => {
                     <h2>{room.Name}</h2>
                     {/* <p>{room.roomSingle[1].description.length > 350 ? <>{room.roomSingle[1].description.slice(0, 350) + '...'} <small>Read More</small></> : room.roomSingle[1].description}</p> */}
                     <p>{room.RoomDescription}</p>
-                    {/* <div className="room-service-list">
-                        <h3>{room.roomSingle[1].subTitle}</h3>
+                    <div className="room-service-list">
+                        {/* <h3>{room.roomSingle[1].subTitle}</h3> */}
                         <ul>
                             {
-                            room.roomSingle[2].roomService.map((service, index) => 
+                            room.Facalities.map((service, index) => 
                                 <ServiceItem service={service} key={index} />
                             )}
                         </ul>
                     </div>
-                    <p>{room.roomSingle[2].additional}</p> */}
+                    {/* <p>{room.roomSingle[2].additional}</p> */}
                 </div>
-                {/* <RoomReview room={room} /> */}
+                <RoomReview />
             </div>
         </div>
     

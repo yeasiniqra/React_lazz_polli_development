@@ -4,8 +4,8 @@ const ServiceItem = ({service}) => {
     return (
         <>
             {
-                service.serviceTitle &&
-                <li>{service.serviceTitle}</li>
+                service.Name &&
+                <li>{service.Name}</li>
             }
            
         </>

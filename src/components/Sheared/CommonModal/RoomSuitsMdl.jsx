@@ -32,7 +32,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
             </label>
           </div>
           <div className="modal-body-start">
-            <SearchRoomFilterMdl />
+            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={suitsAndRoom.type} />
 
             <div className="room-search-area">
               <div className="details-room-main-grid">

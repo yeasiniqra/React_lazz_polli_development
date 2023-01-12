@@ -1,6 +1,10 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useCallback } from 'react';
 import { useState } from 'react';
-import { getResortRoom } from '../../../services/data-service';
+import { GET_HOUSE, GET_ROOMS } from '../../../lib/endpoints';
+import { getResortRoom, setHouses } from '../../../services/data-service';
+import { getV2 } from '../../../services/http-service-v2';
 import RoomCard from '../../RoomCard/RoomCard';
 import RoomSuitsMdl from '../../Sheared/CommonModal/RoomSuitsMdl';
 
@@ -10,8 +14,28 @@ const RoomGrid = () => {
         subTitle : 'choose room according to budget',
     }
 
-    const resortRoom = getResortRoom();
-    console.log(resortRoom)
+    // const resortRoom = getResortRoom();
+    // console.log(resortRoom)
+
+    const [room, setRoom] = useState([]);
+  
+    const getHouses = useCallback(() => {
+      getV2({ url: GET_ROOMS() }).then((data) => {
+        if (!data.IsError) {
+          setRoom(data.Data.Data);
+          setHouses(data.Data.Data);
+        } else {
+          //   console.log(data);
+        }
+      });
+    }, []);
+  
+    useEffect(() => {
+      getHouses();
+    }, []);
+
+
+
     return (
         <section className="room-search-area">
             <div className="container">
@@ -23,7 +47,7 @@ const RoomGrid = () => {
                 </div>
 
                 <div className="choose-room-main-grid">
-                    {resortRoom.map((room) => (
+                    {room.map((room) => (
                     <RoomCard room={room} key={room.Id} setRoomdetails={setRoomdetails} />
                     ))}
                       {

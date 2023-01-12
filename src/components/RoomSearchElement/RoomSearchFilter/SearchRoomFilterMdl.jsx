@@ -7,10 +7,12 @@ import appContext from "../../../store/app-context";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { getV2 } from "../../../services/http-service-v2";
+import { GET_ROOM_BOOKING } from "../../../lib/endpoints";
 
 const today = new Date();
 
-const SearchRoomFilterMdl = () => {
+const SearchRoomFilterMdl = ({RoomId, Type}) => {
   const { filters, storeFilters } = useContext(appContext);
 
   const [arrdate, setArrdate] = useState("");
@@ -59,8 +61,37 @@ const SearchRoomFilterMdl = () => {
   //   setChildren(fchild);
   // }
 
+  // const getHousess = useCallback(() => {
+  //   getV2({ url: GET_SINGLE_HOUSES(Id) }).then((data) => {
+  //     if (!data.IsError) {
+  //         if (data.Data === null) {
+  //             alert('')
+  //         }
+  //         setRoomSingle(data.Data);
+  //     } else {
+  //       //   console.log(data);
+  //     }
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   getHousess();
+  // }, []);
+
 
   const submitHandler = () => {
+
+      getV2({ url: GET_ROOM_BOOKING(arrdate, depdate, 1, RoomId, Type) }).then((data) => {
+        if (!data.IsError) {
+            alert("is Aviable")
+        } else {
+          alert('not Aviable')
+        }
+      });
+ 
+  
+  
+
     const errors = [];
 
     if (arrdate.length < 1) errors.push("Arrival Date");
@@ -80,6 +111,7 @@ const SearchRoomFilterMdl = () => {
       // adults: adults,
       // children: children
     });
+
   };
 
   

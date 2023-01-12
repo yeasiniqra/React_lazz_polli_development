@@ -2,25 +2,48 @@
 import React from "react";
 
 const RoomCard = ({room, setRoomdetails}) => {
+  const detailsClickHandler = (type) => {
+    setRoomdetails({...room, type});
+}
 
   return (
-    <div className="choose-room-single-item">
-          <img src={room.image} alt="lazz polli resort" />
-        
-        <div className="room-content-x">
-            <h2>{room.title}</h2>
-            <h3>
-              {room.amount}&nbsp;<span>/ <sup>{room.dayNight}</sup></span>{" "}
-            </h3>
+    <>
+      <div className="choose-room-single-item">
+            <img src={room.Images} alt="lazz polli resort" />
+          
+          <div className="room-content-x">
+              <h2>Book Single Room From - {room.Name}</h2>
+              <h3>
+                {room.Price}&nbsp;<span>/ <sup>Night</sup></span>{" "}
+              </h3>
 
-            <div className="cottage-btn">
-              <label className="example-label common-btn" htmlFor="cottage" onClick={() => setRoomdetails(room)}> 
-              <a>View Details</a>
-              </label>
-            </div>
+              <div className="cottage-btn">
+                <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'ROOM')}> 
+                <a>View Details</a>
+                </label>
+              </div>
 
-        </div>
-    </div>
+          </div>
+      </div>
+
+      <div className="choose-room-single-item">
+            <img src={room.Images} alt="lazz polli resort" />
+          
+          <div className="room-content-x">
+              <h2>Book Entire - {room.Name}</h2>
+              <h3>
+                {room.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
+              </h3>
+
+              <div className="cottage-btn">
+                <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'HOUSE')}> 
+                <a>View Details</a>
+                </label>
+              </div>
+
+          </div>
+      </div>
+    </>
   );
 };
 
