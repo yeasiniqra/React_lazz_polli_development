@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { countries } from "../../../data/countries";
 
 import { useTitle } from "../../../hooks/UseTitle";
-import checkoutContext from "../../../store/checkout-context";
+import { GET_USER_PROFILE, POST_UPDATE_PROFILE } from "../../../lib/endpoints";
+import { getV2, postV2 } from "../../../services/http-service-v2";
+import authContext from "../../../store/auth-context";
+// import checkoutContext from "../../../store/checkout-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../Sheared/Input/Input";
 import Textarea from "../../Sheared/Textarea/Textarea";
@@ -13,16 +16,18 @@ import Textarea from "../../Sheared/Textarea/Textarea";
 
 const Edit = () => {
     useTitle('Edit Profile')
-    const { formValus, storeForms } = useContext(checkoutContext);
+    // const { formValus, storeForms } = useContext(checkoutContext);
+    const {profile} = useContext(authContext)
+    const {Id} = profile
 
     //form validations State
-    const [fname, setFname] = useState("");
-    const [lname, setLname] = useState("");
+    const [FirstName, setFname] = useState("");
+    const [LastName, setLname] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [Phone, setPhone] = useState("");
     const [city, setCity] = useState("");
-    const [mstate, setMstate] = useState("");
-    const [pcode, setPcode] = useState("");
+    const [state, setState] = useState("");
+    const [postalCode, setPostalCode] = useState("");
     const [fax, setFax] = useState("");
     const [address, setAddress] = useState("");
     const [idNum, setIdNum] = useState("");
@@ -31,121 +36,202 @@ const Edit = () => {
     const [dob, setDob] = useState("");
     const [identity, setIdentity] = useState({});
     const [gender, setGender] = useState({});
+    // const [Id, setId] = useState('')
 
   
     //form validations handeler
-    const fnameChangeHandler = (fname) => {
-      setFname(fname);
-      storeForms({ ...formValus, firstName: fname });
+    const fnameChangeHandler = (FirstName) => {
+      setFname(FirstName);
+      // storeForms({ ...formValus, firstName: FirstName });
     };
-    const lnameChangeHandler = (lname) => {
-      setLname(lname);
-      storeForms({ ...formValus, lastName: lname });
+    const lnameChangeHandler = (LastName) => {
+      setLname(LastName);
+      // storeForms({ ...formValus, lastName: LastName });
     };
   
     const genderChangeHandler = (gender) => {
       setGender(gender);
-      storeForms({ ...formValus, gender: gender });
+      // storeForms({ ...formValus, gender: gender });
     };
   
     const emailChangeHandler = (email) => {
       setEmail(email);
-      storeForms({ ...formValus, email: email });
+      // storeForms({ ...formValus, email: email });
     };
   
-    const phoneChangeHandler = (phone) => {
-      setPhone(phone);
-      storeForms({ ...formValus, phone: phone });
+    const phoneChangeHandler = (Phone) => {
+      setPhone(Phone);
+      // storeForms({ ...formValus, Phone: Phone });
     };
   
     const countryChangeHandler = (country) => {
       setCountry(country);
-      storeForms({ ...formValus, country: country });
+      // storeForms({ ...formValus, country: country });
     };
   
     const cityChangeHandler = (city) => {
       setCity(city);
-      storeForms({ ...formValus, city: city });
+      // storeForms({ ...formValus, city: city });
     };
   
-    const mstateChangeHandler = (mstate) => {
-      setMstate(mstate);
-      storeForms({ ...formValus, state: mstate });
+    const mstateChangeHandler = (state) => {
+      setState(state);
+      // storeForms({ ...formValus, state: state });
     };
   
-    const pcodeChangeHandler = (pcode) => {
-      setPcode(pcode);
-      storeForms({ ...formValus, postalCode: pcode });
+    const pcodeChangeHandler = (postalCode) => {
+      setPostalCode(postalCode);
+      // storeForms({ ...formValus, postalCode: postalCode });
     };
   
     const faxChangeHandler = (fax) => {
       setFax(fax);
-      storeForms({ ...formValus, fax: fax });
+      // storeForms({ ...formValus, fax: fax });
     };
   
     const addressChangeHandler = (address) => {
       setAddress(address);
-      storeForms({ ...formValus, address: address });
+      // storeForms({ ...formValus, address: address });
     };
   
     const identityChangeHandler = (identity) => {
       setIdentity(identity);
-      storeForms({ ...formValus, identity: identity });
+      // storeForms({ ...formValus, identity: identity });
     };
   
     const idnumChangeHandler = (idnum) => {
       setIdNum(idnum);
-      storeForms({ ...formValus, no: idnum });
+      // storeForms({ ...formValus, idnum: idnum });
     };
   
     const expDateChangeHandler = (expDate) => {
       setExpDate(expDate);
-      storeForms({ ...formValus, expiryDate: expDate });
+      // storeForms({ ...formValus, expiryDate: expDate });
     };
     const dobChangeHandler = (dob) => {
       setDob(dob);
-      storeForms({ ...formValus, dateOfBirth: dob });
+      // storeForms({ ...formValus, dateOfBirth: dob });
     };
   
   
-    useEffect(() => {
-      setFname(formValus.firstName);
-      setLname(formValus.lastName);
-      setGender(formValus.gender);
-      setEmail(formValus.email);
-      setPhone(formValus.phone);
-      setCountry(formValus.country);
-      setCity(formValus.city);
-      setMstate(formValus.state);
-      setPcode(formValus.postalCode);
-      setFax(formValus.fax);
-      setAddress(formValus.address);
-      setIdentity(formValus.identity);
-      setIdNum(formValus.no);
-      setExpDate(formValus.expiryDate);
-      setDob(formValus.dateOfBirth);
+    // useEffect(() => {
+    //   setFname(formValus.FirstName);
+    //   setLname(formValus.LastName);
+    //   setGender(formValus.gender);
+    //   setEmail(formValus.email);  
+    //   setPhone(formValus.Phone);
+    //   setCountry(formValus.country);
+    //   setCity(formValus.city);
+    //   setState(formValus.state);
+    //   setPostalCode(formValus.postalCode);
+    //   setFax(formValus.fax);
+    //   setAddress(formValus.address);
+    //   setIdentity(formValus.identity);
+    //   setIdNum(formValus.no);
+    //   setExpDate(formValus.expiryDate);
+    //   setDob(formValus.dateOfBirth);
  
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+     
+    // }, []);
+
+
+    const getProfileInfo = useCallback(() => {
+      getV2({url: GET_USER_PROFILE})
+      .then(data => {
+        if(!data.IsError){
+         console.log(data);
+         setFname(data.Data.FirstName);
+         setLname(data.Data.LastName);
+         setGender( { name: data.Data.Gender, id: data.Data.Gender });
+         setEmail(data.Data.Email);  
+         setPhone(data.Data.Phone);
+         setCountry({name : data.Data.Country, id : data.Data.Country});
+         setCity(data.Data.City);
+         setState(data.Data.State);
+         setPostalCode(data.Data.PostalCode);
+         setFax(data.Data.Fax);
+         setAddress(data.Data.Address);
+         setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
+         setIdNum(data.Data.IdentityNumber);
+         setExpDate(data.Data.IdentityExpireDate);
+         setDob(data.Data.DateOfBirth);
+         
+        } else {
+          console.log(data);
+         alert('Error')
+        }
+        
+      }).catch(error => {
+       
+      });
     }, []);
+
+
+    useEffect(() => {
+      getProfileInfo()
+  }, [getProfileInfo]);
+
+
+
+    const postProfileInfo = useCallback((payload) => {
+     
+      postV2({url: POST_UPDATE_PROFILE, payload})
+      .then(data => {
+        if(!data.IsError){
+         console.log(data);
+         setFname(data.Data.FirstName);
+         setLname(data.Data.LastName);
+         setGender( { name: data.Data.Gender, id: data.Data.Gender });
+         setEmail(data.Data.Email);  
+         setPhone(data.Data.Phone);
+         setCountry({name : data.Data.Country, id : data.Data.Country});
+         setCity(data.Data.City);
+         setState(data.Data.State);
+         setPostalCode(data.Data.PostalCode);
+         setFax(data.Data.Fax);
+         setAddress(data.Data.Address);
+         setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
+         setIdNum(data.Data.IdentityNumber);
+         setExpDate(data.Data.IdentityExpireDate);
+         setDob(data.Data.DateOfBirth);
+         
+        } else {
+          console.log(data);
+         alert('Error')
+        }
+        
+      }).catch(error => {
+       
+      });
+    }, []);
+
+
+
+
   
  
     const submitHandler = () => {
-        console.log('hey',{
-          fname: fname,
-          lname: lname,
-          gender: gender,
-          expDate: expDate,
-          email: email,
-          phone: phone,
-          city: city,
-          mstate: mstate,
-          pcode: pcode,
-          fax: fax,
-          address: address,
-          idNum: idNum,
-          country: country,
-          identity: identity,
-        });
+      const payload = {
+        FirstName : FirstName,
+        LastName : LastName,
+        Phone : Phone,
+        Gender : gender.id,
+        Country : country.id,
+        City : city,
+        State : state,
+        PostalCode : postalCode,
+        Fax : fax,
+        Address : address,
+        IdentityType : identity.id,
+        IdentityNumber : idNum,
+        IdentityExpireDate : expDate,
+        DateOfBirth : dob,
+        Id : Id,
+        Remarks : 'hey',
+        ChangeLog : 'cng',
+      }
+       postProfileInfo(payload)
+       
     };
   
     return (
@@ -161,7 +247,7 @@ const Edit = () => {
                       <Input
                         label={"First Name"}
                         onChange={fnameChangeHandler}
-                        value={fname}
+                        value={FirstName}
                         placeholder={"First Name"}
                         required
                       />
@@ -171,7 +257,7 @@ const Edit = () => {
                       <Input
                         label={"Last Name"}
                         onChange={lnameChangeHandler}
-                        value={lname}
+                        value={LastName}
                         placeholder={"Last Name"}
                         required
                       />
@@ -204,7 +290,7 @@ const Edit = () => {
                       <Input
                         label={"Phone"}
                         onChange={phoneChangeHandler}
-                        value={phone}
+                        value={Phone}
                         placeholder={"phone"}
                         required
                       />
@@ -250,7 +336,7 @@ const Edit = () => {
                       <Input
                         label={"State"}
                         onChange={mstateChangeHandler}
-                        value={mstate}
+                        value={state}
                         placeholder={"State"}
                         required
                       />
@@ -260,7 +346,7 @@ const Edit = () => {
                       <Input
                         label={"Postal Code"}
                         onChange={pcodeChangeHandler}
-                        value={pcode}
+                        value={postalCode}
                         placeholder={"Postal Code"}
                         required
                       />

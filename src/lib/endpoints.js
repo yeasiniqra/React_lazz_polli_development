@@ -30,6 +30,7 @@ export const GET_ROOMS = () => `HouseArea/House/GetRooms?Take=999&Page=1&takeRev
 
 //get room booking
 export const GET_ROOM_BOOKING = (ArrivalTime, DepartureTime,RoomNumber,RoomId,Type='ROOM') => `BookingArea/Booking/IsAvailable?ArrivalTime=${ArrivalTime}&DepartureTime=${DepartureTime}&NumberOfRoom=${RoomNumber}&Type=${Type}&Id=${RoomId}`;
+export const POST_ROOM_BOOKING = `BookingArea/Booking/Book`
 
 
 // Lazz Polli

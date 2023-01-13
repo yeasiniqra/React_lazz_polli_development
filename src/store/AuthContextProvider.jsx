@@ -34,9 +34,21 @@ const initialState = {
   form: null, //OTP || SINGUP || RESET_PASSWROD || LOGIN || OTP_RESET_PASSWORD
   path: null,
   profile: {
-    FirstName: "",
-    LastName : "",
-    phone: "",
+     FirstName : '',
+     LastName : '',
+     Phone : '',
+     Gender : '', 
+     Country : '', 
+     City : '', 
+     State : '', 
+     PostalCode : '',
+    Fax : '',
+    Address : '', 
+    IdentityType : '', 
+    IdentityNumber : '', 
+    IdentityExpireDate : '',
+    DateOfBirth : '',
+    Id : ''
   },
 };
 
@@ -166,10 +178,12 @@ const AuthContextProvider = ({ children }) => {
     dispatch({ type: LOGOUT });
   };
 
-  const storeProfile = (FirstName, LastName, Phone) => {
+
+
+  const storeProfile = (FirstName, LastName, Phone, Gender, Country, City, State, PostalCode, Fax, Address, IdentityType, IdentityNumber, IdentityExpireDate, DateOfBirth,Id) => {
     dispatch({
       type: STORE_USER_PROFILE_INFO,
-      profile: { FirstName, LastName, Phone },
+      profile: { FirstName, LastName, Phone, Gender, Country, City, State, PostalCode, Fax, Address, IdentityType, IdentityNumber, IdentityExpireDate, DateOfBirth, Id},
     });
   };
 
@@ -198,6 +212,7 @@ const AuthContextProvider = ({ children }) => {
     dispatch({ type: AUTHENTICATING_FINISHED });
   }, []);
 
+
   useEffect(() => {
     if (isAuthenticated) {
       getV2({ url: GET_USER_INFO, payload: {} })
@@ -205,7 +220,7 @@ const AuthContextProvider = ({ children }) => {
           if (data.IsError) {
             logout();
           } else if (!data.IsError) {
-          storeProfile(data.Data.FirstName, data.Data.LastName, data.Data.Phone);
+          storeProfile(data.Data.FirstName, data.Data.LastName, data.Data.Phone, data.Data.Gender, data.Data.Country, data.Data.City, data.Data.State, data.Data.PostalCode, data.Data.Fax, data.Data.Address, data.Data.IdentityType, data.Data.IdentityNumber, data.Data.IdentityExpireDate, data.Data.DateOfBirth, data.Data.Id );
           }
         })
         .catch((err) => console.log(err));

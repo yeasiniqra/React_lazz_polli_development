@@ -10,9 +10,19 @@ import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
 import { toast } from 'react-toastify';
+import { GET_CUSTOMERIS_EXIST, GET_OTP } from "../../../../lib/endpoints";
+import { getV2 } from "../../../../services/http-service-v2";
+import authContext from "../../../../store/auth-context";
 
 const NewCustomarInfo = () => {
+  const [error, setError] = useState(null);
+  const [isValid, setIsvalid] = useState(false)
+
   const { formValus, storeForms } = useContext(checkoutContext);
+
+  const { open, storeSignupData } = useContext(authContext);
+
+  const [phonIsValid, setPhonIsValid] = useState(false)
 
   //form validations State
   const [fname, setFname] = useState("");
@@ -155,62 +165,46 @@ const NewCustomarInfo = () => {
   const submitHandler = () => {
     const errors = [];
 
-    // if (fname.length < 1) errors.push("First Name");
-    // if (lname.length < 1) errors.push("Last Name");
-    // if (!!!gender.id) errors.push("Gender");
-    // if (!!!country.name) errors.push("Country");
-    // if (!!!identity.id) errors.push("identity");
-    // if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
-    //   errors.push("Email");
-    // if (phone.length !== 11) errors.push("phone");
-    // if (city.length < 1) errors.push("city");
-    // if (mstate.length < 1) errors.push("State");
-    // if (pcode.length < 1) errors.push("Postal Code");
-    // if (fax.length < 1) errors.push("fax");
-    // if (address.length === 0) errors.push("Address");
-    // if (idNum.length === 0) errors.push("No");
-    // if (dob.length === 0) errors.push("Dath of Birth");
-
     if (errors.length !== 0) {
       console.log(errors.join(", ") + " Are Required");
       return false;
     }
 
     toast.warning('Please Fill In All Required Fields', {autoClose : 5000})
-
-    console.log({
-      fname: fname,
-      lname: lname,
-      gender: gender,
-      expDate: expDate,
-      email: email,
-      phone: phone,
-      city: city,
-      mstate: mstate,
-      pcode: pcode,
-      fax: fax,
-      address: address,
-      idNum: idNum,
-      country: country,
-      identity: identity,
-    });
-    setFname("");
-    setLname("");
-    setEmail("");
-    setPhone("");
-    setCity("");
-    setMstate("");
-    setPcode("");
-    setFax("");
-    setAddress("");
-    setIdNum("");
-    setCountry("{}");
-    setExpDate("");
-    setDob("");
-    setIdentity("{}");
-    setGender("{}");
-    setOtp("");
+    setPhonIsValid(true)
+    requestOTP();
   };
+
+
+  const requestOTP = () => {
+    getV2({ url: GET_OTP(phone, false) }).then((data) => {
+      if (!data.IsError) {
+        storeSignupData({ phoneNumber: phone, firstName: fname, lastName:lname, messageId : data.Id, otp : ''});
+        console.log(data)
+      } else {
+        console.log(data);
+        setError('inside err', data.Msg);
+      }
+    });
+  };
+
+  const customertIsExist = (phone) => {
+    getV2({ url: GET_CUSTOMERIS_EXIST+ phone }).then((data) => {
+      if (!data.IsError) {
+        setIsvalid(data.Data)
+        if (data.Data) {
+          alert("Phone Number is Exist")
+        }
+      } else {
+       
+      }
+    });
+  };
+
+  const phoneOnBluer = ({ target: el }) => {
+    customertIsExist(el.value)
+  }
+
 
   return (
     <>
@@ -271,6 +265,7 @@ const NewCustomarInfo = () => {
                       value={phone}
                       placeholder={"phone"}
                       required
+                      onBlur={phoneOnBluer}
                     />
                   </div>
                   <div className="custom-input-resort">
@@ -408,7 +403,9 @@ const NewCustomarInfo = () => {
                   </div>
                 </div>
 
-                {phone ? (
+             
+
+                {phonIsValid ? (
                   <div className="phone-verifaction-sec">
                     <h2>Verify Phone Number</h2>
                     <div className="new-veryfi-otp">
@@ -434,9 +431,9 @@ const NewCustomarInfo = () => {
                     </div>
                     <div className="paymet-radio-btn">
                         <input type="radio" id="html" name="payfull" value="HTML" />
-                        <label htmlFor="html">Pay Full Payment</label>
-                        <input type="radio" id="css" name="payfull" value="CSS" />
-                        <label htmlFor="css">Pay 30% Payment</label>
+                        <label htmlFor="html">Pay Full Payment</label>
+                        <input type="radio" id="css" name="payfull" value="CSS" />
+                        <label htmlFor="css">Pay 30% Payment</label>
                     </div> 
                     <div className="book_table_item dtl-btn">
                         <button onClick={checkClickHandler} type="button">
@@ -473,6 +470,7 @@ const NewCustomarInfo = () => {
                     </div>
                   </div>
                 )}
+             
 
               </div>
             </form>

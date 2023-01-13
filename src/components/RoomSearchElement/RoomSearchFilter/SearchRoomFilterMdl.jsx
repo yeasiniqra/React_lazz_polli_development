@@ -89,9 +89,6 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
         }
       });
  
-  
-  
-
     const errors = [];
 
     if (arrdate.length < 1) errors.push("Arrival Date");

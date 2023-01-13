@@ -5,11 +5,11 @@ import checkoutContext from './checkout-context'
 
 const initialState = {
       formValus : {
-        firstName : "",
-        lastName : "",
+        FirstName : "",
+        LastName : "",
         gender : "",
         email : "",
-        phone : "",
+        Phone : "",
         country : "",
         city : "",
         state : "",
@@ -17,7 +17,7 @@ const initialState = {
         fax : "",
         address : "",
         identity : "",
-        no : "",
+        idnum : "",
         expiryDate : "",
         dateOfBirth : "",
         otp : "",     
