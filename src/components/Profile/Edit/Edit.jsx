@@ -20,6 +20,12 @@ const Edit = () => {
     const {profile} = useContext(authContext)
     const {Id} = profile
 
+
+    function formatDate(date) {
+      if(!date) return;
+      return new Date(date).toISOString().slice(0, 10).replaceAll('-', '/');
+    }
+
     //form validations State
     const [FirstName, setFname] = useState("");
     const [LastName, setLname] = useState("");
@@ -145,7 +151,7 @@ const Edit = () => {
          setGender( { name: data.Data.Gender, id: data.Data.Gender });
          setEmail(data.Data.Email);  
          setPhone(data.Data.Phone);
-         setCountry({name : data.Data.Country, id : data.Data.Country});
+         setCountry({name : data.Data.Country, code : data.Data.Country});
          setCity(data.Data.City);
          setState(data.Data.State);
          setPostalCode(data.Data.PostalCode);
@@ -184,7 +190,7 @@ const Edit = () => {
          setGender( { name: data.Data.Gender, id: data.Data.Gender });
          setEmail(data.Data.Email);  
          setPhone(data.Data.Phone);
-         setCountry({name : data.Data.Country, id : data.Data.Country});
+         setCountry({name : data.Data.Country, code : data.Data.Country});
          setCity(data.Data.City);
          setState(data.Data.State);
          setPostalCode(data.Data.PostalCode);
@@ -206,10 +212,6 @@ const Edit = () => {
     }, []);
 
 
-
-
-  
- 
     const submitHandler = () => {
       const payload = {
         FirstName : FirstName,
@@ -293,6 +295,7 @@ const Edit = () => {
                         value={Phone}
                         placeholder={"phone"}
                         required
+                        disabled
                       />
                     </div>
                     <div className="custom-input-resort">
@@ -420,7 +423,7 @@ const Edit = () => {
                       <Input
                         label={"Date of Birth"}
                         onChange={dobChangeHandler}
-                        value={dob}
+                        value={formatDate(dob)}
                         required
                         type={"date"}
                       />

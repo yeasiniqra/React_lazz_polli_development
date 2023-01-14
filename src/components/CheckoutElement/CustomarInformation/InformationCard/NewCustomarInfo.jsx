@@ -1,37 +1,41 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { countries } from "../../../../data/countries";
 import checkoutContext from "../../../../store/checkout-context";
-import Alert from "../../../Sheared/alert/Alert";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
-import { toast } from 'react-toastify';
-import { GET_CUSTOMERIS_EXIST, GET_OTP } from "../../../../lib/endpoints";
-import { getV2 } from "../../../../services/http-service-v2";
+import {  GET_USER_PROFILE, POST_ROOM_BOOKING, POST_UPDATE_PROFILE } from "../../../../lib/endpoints";
+import { getV2, postV2 } from "../../../../services/http-service-v2";
 import authContext from "../../../../store/auth-context";
+import cartContext from "../../../../store/cart-context";
 
 const NewCustomarInfo = () => {
-  const [error, setError] = useState(null);
-  const [isValid, setIsvalid] = useState(false)
-
   const { formValus, storeForms } = useContext(checkoutContext);
+  const {profile} = useContext(authContext)
 
-  const { open, storeSignupData } = useContext(authContext);
+  const {rooms} = useContext(cartContext)
+ 
+  const {Name,arrivalDate,departureDate,amount,type,quantity} = rooms;
 
-  const [phonIsValid, setPhonIsValid] = useState(false)
+  const {Id} = profile
+  const [error, setError] = useState(null);
+
+  function formatDate(date) {
+    return date.toISOString().slice(0, 10);
+  }
 
   //form validations State
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [FirstName, setFname] = useState("");
+  const [LastName, setLname] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [Phone, setPhone] = useState("");
   const [city, setCity] = useState("");
-  const [mstate, setMstate] = useState("");
-  const [pcode, setPcode] = useState("");
+  const [state, setState] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   const [fax, setFax] = useState("");
   const [address, setAddress] = useState("");
   const [idNum, setIdNum] = useState("");
@@ -40,16 +44,17 @@ const NewCustomarInfo = () => {
   const [dob, setDob] = useState("");
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
-  const [otp, setOtp] = useState({});
+  // const [Id, setId] = useState('')
+
 
   //form validations handeler
-  const fnameChangeHandler = (fname) => {
-    setFname(fname);
-    storeForms({ ...formValus, firstName: fname });
+  const fnameChangeHandler = (FirstName) => {
+    setFname(FirstName);
+    storeForms({ ...formValus, firstName: FirstName });
   };
-  const lnameChangeHandler = (lname) => {
-    setLname(lname);
-    storeForms({ ...formValus, lastName: lname });
+  const lnameChangeHandler = (LastName) => {
+    setLname(LastName);
+    storeForms({ ...formValus, lastName: LastName });
   };
 
   const genderChangeHandler = (gender) => {
@@ -62,14 +67,14 @@ const NewCustomarInfo = () => {
     storeForms({ ...formValus, email: email });
   };
 
-  const phoneChangeHandler = (phone) => {
-    setPhone(phone);
-    storeForms({ ...formValus, phone: phone });
+  const phoneChangeHandler = (Phone) => {
+    setPhone(Phone);
+    storeForms({ ...formValus, Phone: Phone });
   };
 
   const countryChangeHandler = (country) => {
     setCountry(country);
-    storeForms({ ...formValus, country: country });
+    // storeForms({ ...formValus, country: country });
   };
 
   const cityChangeHandler = (city) => {
@@ -77,14 +82,14 @@ const NewCustomarInfo = () => {
     storeForms({ ...formValus, city: city });
   };
 
-  const mstateChangeHandler = (mstate) => {
-    setMstate(mstate);
-    storeForms({ ...formValus, state: mstate });
+  const mstateChangeHandler = (state) => {
+    setState(state);
+    storeForms({ ...formValus, state: state });
   };
 
-  const pcodeChangeHandler = (pcode) => {
-    setPcode(pcode);
-    storeForms({ ...formValus, postalCode: pcode });
+  const pcodeChangeHandler = (postalCode) => {
+    setPostalCode(postalCode);
+    storeForms({ ...formValus, postalCode: postalCode });
   };
 
   const faxChangeHandler = (fax) => {
@@ -104,82 +109,103 @@ const NewCustomarInfo = () => {
 
   const idnumChangeHandler = (idnum) => {
     setIdNum(idnum);
-    storeForms({ ...formValus, no: idnum });
+    storeForms({ ...formValus, idnum: idnum });
   };
 
   const expDateChangeHandler = (expDate) => {
     setExpDate(expDate);
     storeForms({ ...formValus, expiryDate: expDate });
   };
-
   const dobChangeHandler = (dob) => {
     setDob(dob);
     storeForms({ ...formValus, dateOfBirth: dob });
   };
 
-  const otpChangeHandler = (otp) => {
-    setOtp(otp);
-    storeForms({ ...formValus, otp: otp });
-  };
 
-  useEffect(() => {
-    setFname(formValus.firstName);
-    setLname(formValus.lastName);
-    setGender(formValus.gender);
-    setEmail(formValus.email);
-    setPhone(formValus.phone);
-    setCountry(formValus.country);
-    setCity(formValus.city);
-    setMstate(formValus.state);
-    setPcode(formValus.postalCode);
-    setFax(formValus.fax);
-    setAddress(formValus.address);
-    setIdentity(formValus.identity);
-    setIdNum(formValus.no);
-    setExpDate(formValus.expiryDate);
-    setDob(formValus.dateOfBirth);
-    setOtp(formValus.otp);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getProfileInfo = useCallback(() => {
+    getV2({url: GET_USER_PROFILE})
+    .then(data => {
+      if(!data.IsError){
+       console.log(data);
+       setFname(data.Data.FirstName);
+       setLname(data.Data.LastName);
+       setGender( { name: data.Data.Gender, id: data.Data.Gender });
+       setEmail(data.Data.Email);  
+       setPhone(data.Data.Phone);
+       setCountry({name : data.Data.Country, id : data.Data.Country});
+       setCity(data.Data.City);
+       setState(data.Data.State);
+       setPostalCode(data.Data.PostalCode);
+       setFax(data.Data.Fax);
+       setAddress(data.Data.Address);
+       setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
+       setIdNum(data.Data.IdentityNumber);
+       setExpDate(data.Data.IdentityExpireDate);
+       setDob(data.Data.DateOfBirth);
+       
+      } else {
+        console.log(data);
+       alert('Error')
+      }
+      
+    }).catch(error => {
+     
+    });
   }, []);
 
-  //start alert for submit
 
-  const [alert, setAlert] = useState({ show: false, text: "" });
+  useEffect(() => {
+    getProfileInfo()
+}, [getProfileInfo]);
 
-  const alertCloseHandler = () => {
-    setAlert({ show: false, text: "" });
-  };
 
-  const checkClickHandler = () => {
-    setAlert({
-      show: true,
-      text: `Your submission has been received. 
-      Your order number is "00702300909". Our agent will call
-      your number "0172000000" to reconfirm.`,
+
+  const postProfileInfo = useCallback((payload) => {
+    postV2({url: POST_UPDATE_PROFILE, payload})
+    .then(data => {
+      if(!data.IsError){
+       console.log(data);
+       setFname(data.Data.FirstName);
+       setLname(data.Data.LastName);
+       setGender( { name: data.Data.Gender, id: data.Data.Gender });
+       setEmail(data.Data.Email);  
+       setPhone(data.Data.Phone);
+       setCountry({name : data.Data.Country, id : data.Data.Country});
+       setCity(data.Data.City);
+       setState(data.Data.State);
+       setPostalCode(data.Data.PostalCode);
+       setFax(data.Data.Fax);
+       setAddress(data.Data.Address);
+       setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
+       setIdNum(data.Data.IdentityNumber);
+       setExpDate(data.Data.IdentityExpireDate);
+       setDob(data.Data.DateOfBirth);
+       
+      } else {
+        console.log(data);
+       alert('Error')
+      }
+      
+    }).catch(error => {
+     
     });
-  };
+  }, []);
 
-  //End alert for submit
 
-  const submitHandler = () => {
-    const errors = [];
-
-    if (errors.length !== 0) {
-      console.log(errors.join(", ") + " Are Required");
-      return false;
+  //post booking 
+  const bookingRequest = () => {
+    const payload = {
+      ArrivalDate : arrivalDate,
+      DepartureDate : departureDate,
+      Name,
+      RoomCharge : amount,
+      Payable : amount,
+      Id : Id,
+      Type : type,
+      Quantity : quantity,
     }
-
-    toast.warning('Please Fill In All Required Fields', {autoClose : 5000})
-    setPhonIsValid(true)
-    requestOTP();
-  };
-
-
-  const requestOTP = () => {
-    getV2({ url: GET_OTP(phone, false) }).then((data) => {
+    postV2({ url: POST_ROOM_BOOKING, payload }).then((data) => {
       if (!data.IsError) {
-        storeSignupData({ phoneNumber: phone, firstName: fname, lastName:lname, messageId : data.Id, otp : ''});
         console.log(data)
       } else {
         console.log(data);
@@ -188,22 +214,69 @@ const NewCustomarInfo = () => {
     });
   };
 
-  const customertIsExist = (phone) => {
-    getV2({ url: GET_CUSTOMERIS_EXIST+ phone }).then((data) => {
-      if (!data.IsError) {
-        setIsvalid(data.Data)
-        if (data.Data) {
-          alert("Phone Number is Exist")
-        }
-      } else {
-       
-      }
-    });
+
+  const submitHandler = () => {
+    const payload = {
+      FirstName : FirstName,
+      LastName : LastName,
+      Phone : Phone,
+      Gender : gender.id,
+      Country : country.id,
+      City : city,
+      State : state,
+      PostalCode : postalCode,
+      Fax : fax,
+      Address : address,
+      IdentityType : identity.id,
+      IdentityNumber : idNum,
+      IdentityExpireDate : expDate,
+      DateOfBirth : dob,
+      Id : Id,
+      Remarks : 'hey',
+      ChangeLog : 'cng',
+    }
+     postProfileInfo(payload)
+     bookingRequest();
+     
   };
 
-  const phoneOnBluer = ({ target: el }) => {
-    customertIsExist(el.value)
-  }
+
+
+ 
+
+  // const submitHandler = () => {
+  //   const errors = [];
+
+  //   if (errors.length !== 0) {
+  //     console.log(errors.join(", ") + " Are Required");
+  //     return false;
+  //   }
+
+  //   toast.warning('Please Fill In All Required Fields', {autoClose : 5000})
+  //   setPhonIsValid(true)
+  //   requestOTP();
+  // };
+
+
+    useEffect(() => {
+      setFname(formValus.FirstName);
+      setLname(formValus.LastName);
+      setGender(formValus.gender);
+      setEmail(formValus.email);  
+      setPhone(formValus.Phone);
+      setCountry(formValus.country);
+      setCity(formValus.city);
+      setState(formValus.state);
+      setPostalCode(formValus.postalCode);
+      setFax(formValus.fax);
+      setAddress(formValus.address);
+      setIdentity(formValus.identity);
+      setIdNum(formValus.no);
+      setExpDate(formValus.expiryDate);
+      setDob(formValus.dateOfBirth);
+ 
+     
+    }, []);
 
 
   return (
@@ -219,7 +292,7 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"First Name"}
                       onChange={fnameChangeHandler}
-                      value={fname}
+                      value={FirstName}
                       placeholder={"First Name"}
                       required
                     />
@@ -229,7 +302,7 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"Last Name"}
                       onChange={lnameChangeHandler}
-                      value={lname}
+                      value={LastName}
                       placeholder={"Last Name"}
                       required
                     />
@@ -262,10 +335,10 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"Phone"}
                       onChange={phoneChangeHandler}
-                      value={phone}
+                      value={Phone}
                       placeholder={"phone"}
                       required
-                      onBlur={phoneOnBluer}
+                      disabled
                     />
                   </div>
                   <div className="custom-input-resort">
@@ -309,7 +382,7 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"State"}
                       onChange={mstateChangeHandler}
-                      value={mstate}
+                      value={state}
                       placeholder={"State"}
                       required
                     />
@@ -319,7 +392,7 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"Postal Code"}
                       onChange={pcodeChangeHandler}
-                      value={pcode}
+                      value={postalCode}
                       placeholder={"Postal Code"}
                       required
                     />
@@ -403,45 +476,14 @@ const NewCustomarInfo = () => {
                   </div>
                 </div>
 
-             
+                  <div className="paymet-radio-btn">
+                      <input type="radio" id="html" name="payfull" value="HTML" />
+                      <label htmlFor="html">Pay Full Payment</label>
+                      <input type="radio" id="css" name="payfull" value="CSS" />
+                      <label htmlFor="css">Pay 30% Payment</label>
+                  </div> 
 
-                {phonIsValid ? (
-                  <div className="phone-verifaction-sec">
-                    <h2>Verify Phone Number</h2>
-                    <div className="new-veryfi-otp">
-                    <div className="custom-input-resort otp-input">
-                      <Input
-                        label={"Please Enter Your OTP Code"}
-                        onChange={otpChangeHandler}
-                        value={otp}
-                        placeholder={"Otp"}
-                        required
-                      />
-                    </div>
-                    <div className="book_table_item dtl-btn">
-                        <button type="button">
-                          Apply
-                        </button>
-                     </div>
-                     </div>
-                    <div className="otp-send">
-                      <span>
-                        Did not get OTP code ? <Link to="/#">Resend</Link>
-                      </span>
-                    </div>
-                    <div className="paymet-radio-btn">
-                        <input type="radio" id="html" name="payfull" value="HTML" />
-                        <label htmlFor="html">Pay Full Payment</label>
-                        <input type="radio" id="css" name="payfull" value="CSS" />
-                        <label htmlFor="css">Pay 30% Payment</label>
-                    </div> 
-                    <div className="book_table_item dtl-btn">
-                        <button onClick={checkClickHandler} type="button">
-                          Check Out
-                        </button>
-                     </div>
-                  </div>
-                ) : (
+
                   <div className="toggle-condition">
                     <p className="trams-condition">
                       <label>
@@ -462,22 +504,18 @@ const NewCustomarInfo = () => {
                       className="book_table_item dtl-btn"
                     >
                       <button
-                        // data-modal="modal-one"
                         type="button"
                       >
                         Submit
                       </button>
                     </div>
                   </div>
-                )}
-             
 
               </div>
             </form>
           </div>
         </div>
       </div>
-      <Alert show={alert.show} text={alert.text} onClose={alertCloseHandler} />
     </>
   );
 };

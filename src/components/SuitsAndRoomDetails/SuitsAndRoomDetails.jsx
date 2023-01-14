@@ -35,7 +35,7 @@ const SuitsAndRoomDetails = () => {
       getHousess();
     }, []);
    
-    console.log(roomSingle)
+    // console.log(roomSingle)
 
     return (
         <div>

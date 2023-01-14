@@ -28,6 +28,7 @@ export const GET_HOUSE = () => `HouseArea/House/GetHouses?Take=999&Page=1&takeRe
 export const GET_SINGLE_HOUSES = (houseID) => `HouseArea/House/GetHouse/${houseID}?takeReview=10`;
 export const GET_ROOMS = () => `HouseArea/House/GetRooms?Take=999&Page=1&takeReview=5`;
 
+
 //get room booking
 export const GET_ROOM_BOOKING = (ArrivalTime, DepartureTime,RoomNumber,RoomId,Type='ROOM') => `BookingArea/Booking/IsAvailable?ArrivalTime=${ArrivalTime}&DepartureTime=${DepartureTime}&NumberOfRoom=${RoomNumber}&Type=${Type}&Id=${RoomId}`;
 export const POST_ROOM_BOOKING = `BookingArea/Booking/Book`

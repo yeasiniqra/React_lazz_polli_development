@@ -15,8 +15,6 @@ const today = new Date();
 const SearchRoomFilterMdl = ({RoomId, Type}) => {
   const { filters, storeFilters } = useContext(appContext);
 
-  const [arrdate, setArrdate] = useState("");
-  const [depdate, setDepdate] = useState("");
   // const [adults, setAdults] = useState({});
   // const [children, setChildren] = useState({});
   const [startDate, setStartDate] = useState(new Date());
@@ -27,17 +25,17 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
   // };
 
   const depdateChangeHandler = (depdate) => {
-    setDepdate(depdate)
     storeFilters({...filters, departureDate : depdate})
     setEndDate(depdate)
-    console.log(depdate)
+    submitHandler()
   };
 
 
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
-    setArrdate(time);
+
+    submitHandler()
   }
 
   // const depdateBlurHandler = (dtime) => {
@@ -81,7 +79,11 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
 
   const submitHandler = () => {
 
-      getV2({ url: GET_ROOM_BOOKING(arrdate, depdate, 1, RoomId, Type) }).then((data) => {
+    // console.log({
+    //   arrdate,
+    //   depdate
+    // });
+      getV2({ url: GET_ROOM_BOOKING(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString(), 1, RoomId, Type) }).then((data) => {
         if (!data.IsError) {
             alert("is Aviable")
         } else {
@@ -91,8 +93,8 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
  
     const errors = [];
 
-    if (arrdate.length < 1) errors.push("Arrival Date");
-    if (depdate.length < 1) errors.push("Departure Date");
+    // if (arrdate.length < 1) errors.push("Arrival Date");
+    // if (depdate.length < 1) errors.push("Departure Date");
     // if (!!!adults.id) errors.push("Adults");
     //  if(!!!children.id) errors.push('children')
 
@@ -103,8 +105,8 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
     }
 
     console.log({
-      arrdate: arrdate,
-      depdate: depdate,
+      // arrdate: arrdate,
+      // depdate: depdate,
       // adults: adults,
       // children: children
     });
@@ -199,9 +201,9 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
                 />
               </div> */}
               <div className="book_table_item book_table_item_mobile">
-                <button onClick={submitHandler} type="button">
+                {/* <button type="button">
                   Check
-                </button>
+                </button> */}
               </div>
             </div>
           </form>
