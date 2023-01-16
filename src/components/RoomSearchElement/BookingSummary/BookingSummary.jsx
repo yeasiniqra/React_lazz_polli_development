@@ -9,7 +9,7 @@ const BookingSummary = () => {
     const removeClickHandler = (room) => {
         removeRoom(room)
     }
-
+console.log(totalAmount);
     return (
             <>
             {

@@ -17,9 +17,12 @@ const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
   const {profile} = useContext(authContext)
 
-  const {rooms} = useContext(cartContext)
+  const {rooms, totalAmount} = useContext(cartContext)
  
-  const {Name,arrivalDate,departureDate,amount,type,quantity} = rooms;
+  // const {Name,arrivalDate,departureDate,amount,type,quantity} = rooms;
+
+
+  console.log(rooms)
 
   const {Id} = profile
   const [error, setError] = useState(null);
@@ -161,7 +164,7 @@ const NewCustomarInfo = () => {
 
 
   const postProfileInfo = useCallback((payload) => {
-    postV2({url: POST_UPDATE_PROFILE, payload})
+   return postV2({url: POST_UPDATE_PROFILE, payload})
     .then(data => {
       if(!data.IsError){
        console.log(data);
@@ -192,17 +195,25 @@ const NewCustomarInfo = () => {
   }, []);
 
 
+  //checkout suymmery 
+  const newTax = totalAmount * 0.15;
+  // console.log(typeof newTax)
+  const grandTotal = totalAmount + newTax;
+
+
   //post booking 
   const bookingRequest = () => {
     const payload = {
-      ArrivalDate : arrivalDate,
-      DepartureDate : departureDate,
-      Name,
-      RoomCharge : amount,
-      Payable : amount,
-      Id : Id,
-      Type : type,
-      Quantity : quantity,
+        Tax : newTax,
+        RoomCharge : totalAmount,
+        Payable : grandTotal,
+        Places: rooms.map(r => ({ Id: r.Id,
+          Quantity: r.quantity,
+          Type: r.type,
+          ArrivalDate : r.arrivalDate,
+          DepartureDate : r.departureDate,
+          Name : r.Name,
+        })),
     }
     postV2({ url: POST_ROOM_BOOKING, payload }).then((data) => {
       if (!data.IsError) {
@@ -235,27 +246,12 @@ const NewCustomarInfo = () => {
       Remarks : 'hey',
       ChangeLog : 'cng',
     }
-     postProfileInfo(payload)
-     bookingRequest();
+    postProfileInfo(payload).then(() => {
+      bookingRequest()
+    })
      
   };
 
-
-
- 
-
-  // const submitHandler = () => {
-  //   const errors = [];
-
-  //   if (errors.length !== 0) {
-  //     console.log(errors.join(", ") + " Are Required");
-  //     return false;
-  //   }
-
-  //   toast.warning('Please Fill In All Required Fields', {autoClose : 5000})
-  //   setPhonIsValid(true)
-  //   requestOTP();
-  // };
 
 
     useEffect(() => {
@@ -274,8 +270,6 @@ const NewCustomarInfo = () => {
       setIdNum(formValus.no);
       setExpDate(formValus.expiryDate);
       setDob(formValus.dateOfBirth);
- 
-     
     }, []);
 
 

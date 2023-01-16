@@ -56,7 +56,7 @@ const DescriptionSlider = ( {room} ) => {
             <div className="dts-heading-content">
                 <h1>{room.Name}</h1>
                 <h4>
-                    {room.type === 'ROOM' ? room.Price : room.RoomPrice} / <span></span>
+                    {room.type === 'ROOM' ? room.RoomPrice : room.Price} / <span></span>
                 </h4>
             </div>
        </div>

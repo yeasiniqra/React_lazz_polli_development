@@ -4922,3 +4922,8 @@ label.example-label.common-btn.cottage-pp-btn:hover a{
 .new-veryfi-otp .book_table_item.dtl-btn {
   flex: 0 0 50%;
 }
+
+
+.Toastify__toast-container{
+  z-index: 9999999 !important;
+}

@@ -9,11 +9,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { getV2 } from "../../../services/http-service-v2";
 import { GET_ROOM_BOOKING } from "../../../lib/endpoints";
+import { toast } from "react-toastify";
+import Suspense from "../../Sheared/Suspense/Suspense";
 
 const today = new Date();
 
 const SearchRoomFilterMdl = ({RoomId, Type}) => {
   const { filters, storeFilters } = useContext(appContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   // const [adults, setAdults] = useState({});
   // const [children, setChildren] = useState({});
@@ -34,7 +37,6 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
-
     submitHandler()
   }
 
@@ -78,17 +80,19 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
 
 
   const submitHandler = () => {
-
-    // console.log({
-    //   arrdate,
-    //   depdate
-    // });
+      setIsLoading(true)
       getV2({ url: GET_ROOM_BOOKING(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString(), 1, RoomId, Type) }).then((data) => {
         if (!data.IsError) {
             alert("is Aviable")
         } else {
           alert('not Aviable')
+          toast.warning(`this date not Available!`);
         }
+      }).catch(err => {
+        toast.warning(err?.toString());
+      }).finally(() => {
+        // Loader Close
+        setIsLoading(false)
       });
  
     const errors = [];
@@ -208,6 +212,7 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
             </div>
           </form>
         </div>
+        {isLoading && <Suspense />}
       </div>
   );
 };

@@ -13,7 +13,7 @@ const SuitsAndRoomDetailsTem = ({SuitsAndRoomData,setSuitsAndRoom}) => {
                 <div className="room-content-x">
                     <h2>Book Single Room From - {SuitsAndRoomData.Name}</h2>
                     <h3>
-                    {SuitsAndRoomData.Price}&nbsp;<span>/ <sup>Night</sup></span>{" "}
+                    {SuitsAndRoomData.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
                     </h3>
                     <div className="cottage-btn">
                         <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'ROOM')}> 
@@ -30,7 +30,7 @@ const SuitsAndRoomDetailsTem = ({SuitsAndRoomData,setSuitsAndRoom}) => {
                 <div className="room-content-x">
                     <h2>Book Entire - {SuitsAndRoomData.Name}</h2>
                     <h3>
-                    {SuitsAndRoomData.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
+                    {SuitsAndRoomData.Price}&nbsp;<span>/ <sup>Night</sup></span>{" "}
                     </h3>
                     <div className="cottage-btn">
                         <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'HOUSE')}> 

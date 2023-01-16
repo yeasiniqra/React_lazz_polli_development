@@ -51,7 +51,7 @@ const SearchCard = ({ item }) => {
           </div>
           <div className="sp-right">
             <h4>
-              BDT <span>{item.amount}</span>
+              BDT <span>{item.RoomPrice}</span>
             </h4>
             <div className="card-adults">
               <small> {item.adults} Adults</small>

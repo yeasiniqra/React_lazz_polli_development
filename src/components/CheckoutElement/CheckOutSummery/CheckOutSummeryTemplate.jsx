@@ -3,13 +3,12 @@ import { humanizeDate } from '../../../lib/utils';
 
 
 const CheckOutSummeryTemplate = ({room, index}) => {
-  
-    
+    console.log(room);
     return (
         <>
                 <h2>NO : {index + 1}</h2>
-                {
-                    room.arrivalDate && room.arrivalDate &&
+           
+   
                     <div className="smy-date">
                         <div className="check-in-out">
                             <h6>Check-In</h6>
@@ -21,11 +20,11 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                             <small>{humanizeDate(room.departureDate)}</small>
                         </div>
                     </div>
-                }
+               
                
                 <div className="super-flex-item">
                     <div className="spk-left">
-                        <p><span>Name : </span>{room.title}</p>
+                        <p><span>Name : </span>{room.Name}</p>
                         <p><span></span> {room.adultsCount * room.quantity} Adults {room.childrenCount * room.quantity} Child</p>
                     </div>
                 </div>
@@ -35,7 +34,7 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                     <div className="room-chargeq">
                         <div className="room-chargeq-single">
                             <small>Room Charges </small>
-                            <small>BDT {room.amount}</small>
+                            <small>BDT {room.type === 'ROOM' ? room.RoomPrice : room.Price}</small>
                         </div>  
                     </div>
                 </div>

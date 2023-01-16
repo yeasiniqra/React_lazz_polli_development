@@ -15,14 +15,16 @@ const reducer = (state, action) => {
     case CONTEXT_KEYS.CART_STORE_ROOM: {
       const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id);
 
-      const amount = action.quantity * action.room.amount;
+      const amount = action.quantity * action.room.type === 'ROOM' 
+                    ? action.room.RoomPrice 
+                    : action.room.Price;
       
       let newRooms = state.rooms;
 
       if (!roomFromStore)
         newRooms = [
           ...newRooms,
-          { ...action.room, quantity: 1, amount: action.room.amount },
+          { ...action.room, quantity: 1, amount: amount },
         ];
       else {
         newRooms = newRooms.map((r) => {
@@ -39,7 +41,9 @@ const reducer = (state, action) => {
       }
 
       let totalAmount = 0;
-      newRooms.forEach((r) => (totalAmount += r.amount));
+      newRooms.forEach((r) => (totalAmount += (r.type === 'ROOM' 
+      ? r.RoomPrice 
+      : r.Price)));
 
       const newState = {
         ...state,
@@ -56,7 +60,9 @@ const reducer = (state, action) => {
       const newRooms = [...state.rooms.filter((r) => action.id !== r.Id)];
 
       let totalAmount = 0;
-      newRooms.forEach((r) => (totalAmount += r.amount));
+      newRooms.forEach((r) => (totalAmount += (r.type === 'ROOM' 
+      ? r.RoomPrice 
+      : r.Price)));
 
       const newState = {
         ...state,
