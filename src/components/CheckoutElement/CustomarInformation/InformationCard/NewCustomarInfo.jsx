@@ -15,9 +15,10 @@ import cartContext from "../../../../store/cart-context";
 
 const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
-  const {profile} = useContext(authContext)
+  const {profile, isAuthenticated, isAuthenticating} = useContext(authContext)
 
   const {rooms, totalAmount} = useContext(cartContext)
+  const [isActiveSub, setActiveSub] = useState(false);
  
   // const {Name,arrivalDate,departureDate,amount,type,quantity} = rooms;
 
@@ -135,7 +136,7 @@ const NewCustomarInfo = () => {
        setGender( { name: data.Data.Gender, id: data.Data.Gender });
        setEmail(data.Data.Email);  
        setPhone(data.Data.Phone);
-       setCountry({name : data.Data.Country, id : data.Data.Country});
+       setCountry({name : data.Data.Country, code : data.Data.Country});
        setCity(data.Data.City);
        setState(data.Data.State);
        setPostalCode(data.Data.PostalCode);
@@ -173,7 +174,7 @@ const NewCustomarInfo = () => {
        setGender( { name: data.Data.Gender, id: data.Data.Gender });
        setEmail(data.Data.Email);  
        setPhone(data.Data.Phone);
-       setCountry({name : data.Data.Country, id : data.Data.Country});
+       setCountry({name : data.Data.Country, code : data.Data.Country});
        setCity(data.Data.City);
        setState(data.Data.State);
        setPostalCode(data.Data.PostalCode);
@@ -232,7 +233,7 @@ const NewCustomarInfo = () => {
       LastName : LastName,
       Phone : Phone,
       Gender : gender.id,
-      Country : country.id,
+      Country : country.name,
       City : city,
       State : state,
       PostalCode : postalCode,
@@ -246,6 +247,7 @@ const NewCustomarInfo = () => {
       Remarks : 'hey',
       ChangeLog : 'cng',
     }
+    console.log(payload);
     postProfileInfo(payload).then(() => {
       bookingRequest()
     })
@@ -271,6 +273,14 @@ const NewCustomarInfo = () => {
       setExpDate(formValus.expiryDate);
       setDob(formValus.dateOfBirth);
     }, []);
+
+
+    useEffect(()=> {
+      if (!isAuthenticating && isAuthenticated) {
+        getProfileInfo();
+       // window.location.reload()
+      }
+    },[isAuthenticating, isAuthenticated,])
 
 
   return (
@@ -348,7 +358,7 @@ const NewCustomarInfo = () => {
                   <div className="custom-input-resort">
                     <AutoComplete
                       dataset={countries}
-                      idField={"code"}
+                      idField={"id"}
                       nameField={"name"}
                       label={"Country"}
                       onChange={countryChangeHandler}

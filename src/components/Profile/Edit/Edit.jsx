@@ -218,7 +218,7 @@ const Edit = () => {
         LastName : LastName,
         Phone : Phone,
         Gender : gender.id,
-        Country : country.id,
+        Country : country.name,
         City : city,
         State : state,
         PostalCode : postalCode,
@@ -311,7 +311,7 @@ const Edit = () => {
                     <div className="custom-input-resort">
                       <AutoComplete
                         dataset={countries}
-                        idField={"code"}
+                        idField={"id"}
                         nameField={"name"}
                         label={"Country"}
                         onChange={countryChangeHandler}

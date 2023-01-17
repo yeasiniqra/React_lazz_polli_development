@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
@@ -14,10 +14,8 @@ const RoomGrid = () => {
         subTitle : 'choose room according to budget',
     }
 
-    // const resortRoom = getResortRoom();
-    // console.log(resortRoom)
-
     const [room, setRoom] = useState([]);
+    const mounted = useRef(false)
   
     const getHouses = useCallback(() => {
       getV2({ url: GET_ROOMS() }).then((data) => {
@@ -31,8 +29,11 @@ const RoomGrid = () => {
     }, []);
   
     useEffect(() => {
-      getHouses();
-    }, []);
+      if (!mounted.current) {
+        getHouses();
+        mounted.current = true;
+      }
+    }, [getHouses]);
 
 
 

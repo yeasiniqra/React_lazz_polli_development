@@ -14,7 +14,7 @@ import {
   STORE_REGISTRATION_DATA,
   STORE_USER_PROFILE_INFO,
 } from "../constants";
-import { GET_USER_INFO } from "../lib/endpoints";
+import { GET_USER_INFO, GET_USER_PROFILE } from "../lib/endpoints";
 import authService from "../services/auth-service";
 import { getV2, postV2 } from "../services/http-service-v2";
 import authContext from "./auth-context";
@@ -215,7 +215,7 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      getV2({ url: GET_USER_INFO, payload: {} })
+      getV2({ url: GET_USER_PROFILE, payload: {} })
         .then((data) => {
           if (data.IsError) {
             logout();

@@ -14,7 +14,7 @@ const RoomCard = ({room, setRoomdetails}) => {
           <div className="room-content-x">
               <h2>Book Single Room From - {room.Name}</h2>
               <h3>
-                {room.Price}&nbsp;<span>/ <sup>Night</sup></span>{" "}
+                {room.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
               </h3>
 
               <div className="cottage-btn">
@@ -28,19 +28,16 @@ const RoomCard = ({room, setRoomdetails}) => {
 
       <div className="choose-room-single-item">
             <img src={room.Images} alt="lazz polli resort" />
-          
           <div className="room-content-x">
               <h2>Book Entire - {room.Name}</h2>
               <h3>
-                {room.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
+                {room.Price}&nbsp;<span>/ <sup>Night</sup></span>{" "}
               </h3>
-
               <div className="cottage-btn">
                 <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'HOUSE')}> 
                 <a>View Details</a>
                 </label>
               </div>
-
           </div>
       </div>
     </>

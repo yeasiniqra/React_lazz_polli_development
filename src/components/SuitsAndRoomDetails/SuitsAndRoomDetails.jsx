@@ -8,15 +8,13 @@ import { useState } from 'react';
 import RoomSuitsMdl from '../Sheared/CommonModal/RoomSuitsMdl';
 import { GET_SINGLE_HOUSES } from '../../lib/endpoints';
 import { getV2 } from '../../services/http-service-v2';
+import { useRef } from 'react';
 
 const SuitsAndRoomDetails = () => {
     const {Id} = useParams();
-    // const SuitsAndRoomData = getHouse(Id);
-    // console.log(SuitsAndRoomData);
-
     const [suitsAndRoom, setSuitsAndRoom] = useState(null)
-
     const [roomSingle, setRoomSingle] = useState([]);
+    const mounted = useRef(false)
   
     const getHousess = useCallback(() => {
       getV2({ url: GET_SINGLE_HOUSES(Id) }).then((data) => {
@@ -29,11 +27,14 @@ const SuitsAndRoomDetails = () => {
           //   console.log(data);
         }
       });
-    }, []);
+    }, [Id]);
   
     useEffect(() => {
-      getHousess();
-    }, []);
+        if (!mounted.current) {
+            getHousess();
+            mounted.current = true
+        }
+    }, [getHousess]);
    
     // console.log(roomSingle)
 

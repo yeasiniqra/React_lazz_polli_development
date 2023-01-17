@@ -1,6 +1,7 @@
 import React from "react";
 import { useCallback } from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { GET_HOUSE } from "../../../lib/endpoints";
 import { setHouses } from "../../../services/data-service";
@@ -10,6 +11,7 @@ import CottagesSuits from "./CottagesSuits";
 
 const CottagesSuitsTemplate = () => {
   const [room, setRoom] = useState([]);
+  const mounted = useRef(false)
   
   const getHouses = useCallback(() => {
     getV2({ url: GET_HOUSE() }).then((data) => {
@@ -23,8 +25,13 @@ const CottagesSuitsTemplate = () => {
   }, []);
 
   useEffect(() => {
-    getHouses();
-  }, []);
+    if (!mounted.current) {
+      getHouses();
+      mounted.current = true;
+    }
+  }, [getHouses]);
+
+  
 
   return (
     <div className="cottagesuits-area">

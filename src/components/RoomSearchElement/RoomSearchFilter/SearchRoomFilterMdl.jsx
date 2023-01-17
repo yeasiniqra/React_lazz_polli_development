@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { useState } from "react";
 import appContext from "../../../store/app-context";
 // import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
@@ -8,24 +7,22 @@ import appContext from "../../../store/app-context";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { getV2 } from "../../../services/http-service-v2";
-import { GET_ROOM_BOOKING } from "../../../lib/endpoints";
+import { GET_ROOM_BOOKING_ISAVAIBLE } from "../../../lib/endpoints";
 import { toast } from "react-toastify";
 import Suspense from "../../Sheared/Suspense/Suspense";
+import { useEffect } from "react";
 
 const today = new Date();
 
-const SearchRoomFilterMdl = ({RoomId, Type}) => {
+const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
   const { filters, storeFilters } = useContext(appContext);
   const [isLoading, setIsLoading] = useState(false);
+  const mounted = useRef(false);
+ 
 
-  // const [adults, setAdults] = useState({});
-  // const [children, setChildren] = useState({});
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date().setDate(today.getDate() + 1));
 
-  // const arrdateChangeHandler = (arrdate) => {
-  //   setArrdate(arrdate);
-  // };
 
   const depdateChangeHandler = (depdate) => {
     storeFilters({...filters, departureDate : depdate})
@@ -40,85 +37,40 @@ const SearchRoomFilterMdl = ({RoomId, Type}) => {
     submitHandler()
   }
 
-  // const depdateBlurHandler = (dtime) => {
-  //   setDepdate(dtime)
-  //   storeFilters({...filters, departureDate : dtime})
-  //   setEndDate(dtime)
-  // }
-  
-  // const depdateBlurHandler = (dtime) => {
-  //   storeFilters({...filters, departureDate : dtime})
-  // }
-
-  // const adultsBlurHandler = (fadults) => {
-  //   storeFilters({...filters, adultsCount : fadults.adults});
-  //   setAdults(fadults);
-  // }
-
-
-  // const childrenBlurHandler = (fchild) => {
-  //   storeFilters({...filters, childrenCount : fchild.children})
-  //   setChildren(fchild);
-  // }
-
-  // const getHousess = useCallback(() => {
-  //   getV2({ url: GET_SINGLE_HOUSES(Id) }).then((data) => {
-  //     if (!data.IsError) {
-  //         if (data.Data === null) {
-  //             alert('')
-  //         }
-  //         setRoomSingle(data.Data);
-  //     } else {
-  //       //   console.log(data);
-  //     }
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   getHousess();
-  // }, []);
 
 
   const submitHandler = () => {
       setIsLoading(true)
-      getV2({ url: GET_ROOM_BOOKING(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString(), 1, RoomId, Type) }).then((data) => {
+      getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString(), 1, RoomId, Type) }).then((data) => {
         if (!data.IsError) {
-            alert("is Aviable")
+            toast.warning(`Is Aviable`);
+            setIsAvailble(data.Data)
         } else {
-          alert('not Aviable')
-          toast.warning(`this date not Available!`);
+          toast.warning(`${data.Msg}`);
         }
+       
       }).catch(err => {
         toast.warning(err?.toString());
       }).finally(() => {
-        // Loader Close
         setIsLoading(false)
       });
  
     const errors = [];
-
-    // if (arrdate.length < 1) errors.push("Arrival Date");
-    // if (depdate.length < 1) errors.push("Departure Date");
-    // if (!!!adults.id) errors.push("Adults");
-    //  if(!!!children.id) errors.push('children')
-
     if (errors.length !== 0) {
       console.log(errors.join(", ") + " Are Required");
       alert(`${errors.join(", ")} Are Required`)
       return false;
     }
 
-    console.log({
-      // arrdate: arrdate,
-      // depdate: depdate,
-      // adults: adults,
-      // children: children
-    });
-
   };
 
+  useEffect(() => {
+    if (!mounted.current) {
+        submitHandler();
+        mounted.current = true;
+    }
+}, [mounted]);
   
-
 
   return (
       <div className="search-filter-modal-area">

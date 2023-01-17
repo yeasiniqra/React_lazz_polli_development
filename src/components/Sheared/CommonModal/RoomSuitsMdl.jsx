@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 import RoomDetailsTemplate from "../../RoomDetails/RoomDetailsTemplate/RoomDetailsTemplate";
@@ -10,11 +11,20 @@ import SearchRoomFilterMdl from "../../RoomSearchElement/RoomSearchFilter/Search
 const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
   const { storeRoom } = useContext(cartContext);
   const { filters } = useContext(appContext);
+  const [isAvaible, setIsAvailble] = useState(false)
+  const navigate = useNavigate()
 
   const isToggleClass = () => {
     storeRoom({ ...suitsAndRoom, ...filters });
   };
 
+  const handleNavigate = () => {
+    navigate('/checkout')
+  }
+
+ const availbilityChangeHandler = (isAvaible) => {
+  setIsAvailble(isAvaible)
+ }
 
   const { Name } = suitsAndRoom;
   return (
@@ -32,7 +42,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
             </label>
           </div>
           <div className="modal-body-start">
-            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={suitsAndRoom.type} />
+            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={suitsAndRoom.type} setIsAvailble={setIsAvailble} />
 
             <div className="room-search-area">
               <div className="details-room-main-grid">
@@ -42,7 +52,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
                   htmlFor="cottage"
                   onClick={isToggleClass}
                 >
-                  <Link to="/checkout">Book Now</Link>
+                  <button  disabled={!isAvaible} onClick={handleNavigate}>Book Now</button>
                 </label>
               </div>
             </div>
