@@ -49,8 +49,8 @@ const CottagesSuits = ({ item }) => {
               }
               <div className="SuitSpecials-item">
                 
-                {item.Facalities.map((product) => (
-                  <>
+                {item.Facalities.map((product, index) => (
+                  <div key={index}>
                      {
                       product &&
                         <div className="getway-single-item suitSpecials-single-item">
@@ -58,7 +58,7 @@ const CottagesSuits = ({ item }) => {
                             <h4>{product.Name}</h4>
                         </div>
                      }
-                  </>
+                  </div>
                 ))}
               </div>
             </div>

@@ -18,6 +18,7 @@ const authContext = createContext({
      LastName : '',
      Phone : '',
      Gender : '', 
+     Email : '',
      Country : '', 
      City : '', 
      State : '', 

@@ -3,8 +3,7 @@ import Adinfo from './Adinfo';
 import Review from './Review';
 
 
-const RoomReview = () => {
-    // console.log(room)
+const RoomReview = ({room}) => {
     const ref = useRef(null);
     const [isActive, setisActive] = useState(false);
     const toggleHandler = () => {
@@ -40,7 +39,7 @@ const RoomReview = () => {
 
                 <div className="tabbed niiceeTabContent">
                     {!isActive && <Adinfo />}
-                    {isActive && <Review />}
+                    {isActive && <Review room={room} />}
                 </div>
             </div>
         </div> 

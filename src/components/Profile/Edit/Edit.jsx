@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { countries } from "../../../data/countries";
@@ -16,9 +17,9 @@ import Textarea from "../../Sheared/Textarea/Textarea";
 
 const Edit = () => {
     useTitle('Edit Profile')
-    // const { formValus, storeForms } = useContext(checkoutContext);
     const {profile} = useContext(authContext)
     const {Id} = profile
+    const mounted = useRef(false)
 
 
     function formatDate(date) {
@@ -48,98 +49,62 @@ const Edit = () => {
     //form validations handeler
     const fnameChangeHandler = (FirstName) => {
       setFname(FirstName);
-      // storeForms({ ...formValus, firstName: FirstName });
     };
     const lnameChangeHandler = (LastName) => {
       setLname(LastName);
-      // storeForms({ ...formValus, lastName: LastName });
     };
   
     const genderChangeHandler = (gender) => {
       setGender(gender);
-      // storeForms({ ...formValus, gender: gender });
     };
   
     const emailChangeHandler = (email) => {
       setEmail(email);
-      // storeForms({ ...formValus, email: email });
     };
   
     const phoneChangeHandler = (Phone) => {
       setPhone(Phone);
-      // storeForms({ ...formValus, Phone: Phone });
     };
   
     const countryChangeHandler = (country) => {
       setCountry(country);
-      // storeForms({ ...formValus, country: country });
     };
   
     const cityChangeHandler = (city) => {
       setCity(city);
-      // storeForms({ ...formValus, city: city });
     };
   
     const mstateChangeHandler = (state) => {
       setState(state);
-      // storeForms({ ...formValus, state: state });
     };
   
     const pcodeChangeHandler = (postalCode) => {
       setPostalCode(postalCode);
-      // storeForms({ ...formValus, postalCode: postalCode });
     };
   
     const faxChangeHandler = (fax) => {
       setFax(fax);
-      // storeForms({ ...formValus, fax: fax });
     };
   
     const addressChangeHandler = (address) => {
       setAddress(address);
-      // storeForms({ ...formValus, address: address });
     };
   
     const identityChangeHandler = (identity) => {
       setIdentity(identity);
-      // storeForms({ ...formValus, identity: identity });
     };
   
     const idnumChangeHandler = (idnum) => {
       setIdNum(idnum);
-      // storeForms({ ...formValus, idnum: idnum });
     };
   
     const expDateChangeHandler = (expDate) => {
       setExpDate(expDate);
-      // storeForms({ ...formValus, expiryDate: expDate });
     };
     const dobChangeHandler = (dob) => {
       setDob(dob);
-      // storeForms({ ...formValus, dateOfBirth: dob });
     };
   
-  
-    // useEffect(() => {
-    //   setFname(formValus.FirstName);
-    //   setLname(formValus.LastName);
-    //   setGender(formValus.gender);
-    //   setEmail(formValus.email);  
-    //   setPhone(formValus.Phone);
-    //   setCountry(formValus.country);
-    //   setCity(formValus.city);
-    //   setState(formValus.state);
-    //   setPostalCode(formValus.postalCode);
-    //   setFax(formValus.fax);
-    //   setAddress(formValus.address);
-    //   setIdentity(formValus.identity);
-    //   setIdNum(formValus.no);
-    //   setExpDate(formValus.expiryDate);
-    //   setDob(formValus.dateOfBirth);
- 
-     
-    // }, []);
-
 
     const getProfileInfo = useCallback(() => {
       getV2({url: GET_USER_PROFILE})
@@ -172,12 +137,12 @@ const Edit = () => {
       });
     }, []);
 
-
-    useEffect(() => {
-      getProfileInfo()
-  }, [getProfileInfo]);
-
-
+  useEffect(() => {
+    if (!mounted.current) {
+      getProfileInfo();
+      mounted.current = true;
+  }
+}, [mounted]);
 
     const postProfileInfo = useCallback((payload) => {
      
@@ -218,6 +183,7 @@ const Edit = () => {
         LastName : LastName,
         Phone : Phone,
         Gender : gender.id,
+        Email : email,
         Country : country.name,
         City : city,
         State : state,

@@ -13,7 +13,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case CONTEXT_KEYS.CART_STORE_ROOM: {
-      const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id);
+      const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
 
       const amount = action.quantity * action.room.type === 'ROOM' 
                     ? action.room.RoomPrice 
@@ -56,6 +56,7 @@ const reducer = (state, action) => {
       return newState;
     }
 
+    // const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
     case CONTEXT_KEYS.CART_REMOVE_ROOM: {
       const newRooms = [...state.rooms.filter((r) => action.id !== r.Id)];
 

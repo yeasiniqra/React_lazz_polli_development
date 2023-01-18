@@ -4927,3 +4927,20 @@ label.example-label.common-btn.cottage-pp-btn:hover a{
 .Toastify__toast-container{
   z-index: 9999999 !important;
 }
+
+.review-single-parent {
+    padding: 20px 0px;
+}
+.single-review {
+  border: 1px solid #ddd;
+  margin: 8px 0px;
+  padding: 8px;
+  border-radius: 5px;
+}
+.single-review > h2 {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+.single-review > p {
+  font-size: 14px;
+}

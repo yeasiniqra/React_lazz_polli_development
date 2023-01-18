@@ -38,6 +38,7 @@ const initialState = {
      LastName : '',
      Phone : '',
      Gender : '', 
+     Email : '',
      Country : '', 
      City : '', 
      State : '', 
@@ -180,10 +181,10 @@ const AuthContextProvider = ({ children }) => {
 
 
 
-  const storeProfile = (FirstName, LastName, Phone, Gender, Country, City, State, PostalCode, Fax, Address, IdentityType, IdentityNumber, IdentityExpireDate, DateOfBirth,Id) => {
+  const storeProfile = (FirstName, LastName, Phone, Gender, Email, Country, City, State, PostalCode, Fax, Address, IdentityType, IdentityNumber, IdentityExpireDate, DateOfBirth,Id) => {
     dispatch({
       type: STORE_USER_PROFILE_INFO,
-      profile: { FirstName, LastName, Phone, Gender, Country, City, State, PostalCode, Fax, Address, IdentityType, IdentityNumber, IdentityExpireDate, DateOfBirth, Id},
+      profile: { FirstName, LastName, Phone, Gender, Email, Country, City, State, PostalCode, Fax, Address, IdentityType, IdentityNumber, IdentityExpireDate, DateOfBirth, Id},
     });
   };
 
@@ -220,7 +221,7 @@ const AuthContextProvider = ({ children }) => {
           if (data.IsError) {
             logout();
           } else if (!data.IsError) {
-          storeProfile(data.Data.FirstName, data.Data.LastName, data.Data.Phone, data.Data.Gender, data.Data.Country, data.Data.City, data.Data.State, data.Data.PostalCode, data.Data.Fax, data.Data.Address, data.Data.IdentityType, data.Data.IdentityNumber, data.Data.IdentityExpireDate, data.Data.DateOfBirth, data.Data.Id );
+          storeProfile(data.Data.FirstName, data.Data.LastName, data.Data.Phone, data.Data.Gender, data.Data.Email, data.Data.Country, data.Data.City, data.Data.State, data.Data.PostalCode, data.Data.Fax, data.Data.Address, data.Data.IdentityType, data.Data.IdentityNumber, data.Data.IdentityExpireDate, data.Data.DateOfBirth, data.Data.Id );
           }
         })
         .catch((err) => console.log(err));

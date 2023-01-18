@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import commonBg from "../../../images/room.webp";
@@ -8,65 +8,73 @@ import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Suspense from "../../Sheared/Suspense/Suspense";
+import { toast } from "react-toastify";
+import { getV2 } from "../../../services/http-service-v2";
+import { GET_SEARCH_BOOKING_ROOM_ISAVAIBLE } from "../../../lib/endpoints";
+import { useRef } from "react";
 
 const today = new Date();
 
-const SearchRoomFilter = () => {
+const SearchRoomFilter = ({setIsAvailble}) => {
   const { filters, storeFilters } = useContext(appContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const mounted = useRef(false)
 
-  const [arrdate, setArrdate] = useState("");
-  const [depdate, setDepdate] = useState("");
   const [adults, setAdults] = useState({});
   const [children, setChildren] = useState({});
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date().setDate(today.getDate() + 1));
+  const [endDate, setEndDate] = useState(new Date(new Date().setDate(today.getDate() + 1)));
 
-  // const arrdateChangeHandler = (arrdate) => {
-  //   setArrdate(arrdate);
-  // };
-
+ 
   const depdateChangeHandler = (depdate) => {
-    setDepdate(depdate)
     storeFilters({...filters, departureDate : depdate})
     setEndDate(depdate)
+    submitHandler()
   };
 
 
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
-    setArrdate(time);
+    submitHandler()
   }
 
-  // const depdateBlurHandler = (dtime) => {
-  //   setDepdate(dtime)
-  //   storeFilters({...filters, departureDate : dtime})
-  //   setEndDate(dtime)
-  // }
-  
-  // const depdateBlurHandler = (dtime) => {
-  //   storeFilters({...filters, departureDate : dtime})
-  // }
 
   const adultsBlurHandler = (fadults) => {
     storeFilters({...filters, adultsCount : fadults.adults});
     setAdults(fadults);
+    submitHandler()
   }
 
 
   const childrenBlurHandler = (fchild) => {
     storeFilters({...filters, childrenCount : fchild.children})
     setChildren(fchild);
+    submitHandler()
   }
 
-
+  // Take,Page,Children,Adult,ArrivalTime,DepartureTime
   const submitHandler = () => {
-    const errors = [];
+    setIsLoading(true)
+    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, 0, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString())}).then((data) => {
+      if (!data.IsError) {
+          toast.warning(`Is Aviable`);
+          setIsAvailble(data.Data.Data)
+      } else {
+        toast.warning(`${data.Msg}`);
+      }
+     
+    }).catch(err => {
+      toast.warning(err?.toString());
+    }).finally(() => {
+      setIsLoading(false)
+    });
 
-    if (arrdate.length < 1) errors.push("Arrival Date");
-    if (depdate.length < 1) errors.push("Departure Date");
+
+
+    const errors = [];
     if (!!!adults.id) errors.push("Adults");
-    //  if(!!!children.id) errors.push('children')
 
     if (errors.length !== 0) {
       console.log(errors.join(", ") + " Are Required");
@@ -75,14 +83,21 @@ const SearchRoomFilter = () => {
     }
 
     console.log({
-      arrdate: arrdate,
-      depdate: depdate,
-      adults: adults,
-      children: children
+      arrdate: startDate,
+      depdate: endDate,
+      adults: adults.id,
+      children: children.id
     });
   };
 
   
+  useEffect(() => {
+    if (!mounted.current) {
+        submitHandler();
+        mounted.current = true;
+        storeFilters({...filters, arrivalDate: startDate,departureDate : endDate, adultsCount : adults.id});
+    }
+}, [mounted]);
 
 
   return (
@@ -182,6 +197,7 @@ const SearchRoomFilter = () => {
           </form>
         </div>
       </div>
+      {isLoading && <Suspense />}
     </section>
   );
 };

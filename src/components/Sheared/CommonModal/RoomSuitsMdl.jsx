@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 import RoomDetailsTemplate from "../../RoomDetails/RoomDetailsTemplate/RoomDetailsTemplate";
@@ -27,6 +27,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
  }
 
   const { Name } = suitsAndRoom;
+
   return (
     <div className="parent-modal">
       <input type="checkbox" id="cottage" />
@@ -43,7 +44,6 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
           </div>
           <div className="modal-body-start">
             <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={suitsAndRoom.type} setIsAvailble={setIsAvailble} />
-
             <div className="room-search-area">
               <div className="details-room-main-grid">
                 <RoomDetailsTemplate room={suitsAndRoom} />
@@ -56,6 +56,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
                 </label>
               </div>
             </div>
+            
           </div>
         </div>
       </div>

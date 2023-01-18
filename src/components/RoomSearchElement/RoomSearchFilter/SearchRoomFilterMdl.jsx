@@ -1,8 +1,6 @@
 import { useContext, useRef } from "react";
 import { useState } from "react";
 import appContext from "../../../store/app-context";
-// import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
-// import Input from "../../Sheared/Input/Input";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -19,9 +17,8 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
   const [isLoading, setIsLoading] = useState(false);
   const mounted = useRef(false);
  
-
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date().setDate(today.getDate() + 1));
+  const [endDate, setEndDate] = useState(new Date(new Date().setDate(today.getDate() + 1)));
 
 
   const depdateChangeHandler = (depdate) => {
@@ -30,14 +27,12 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
     submitHandler()
   };
 
-
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
     submitHandler()
   }
-
-
+  
 
   const submitHandler = () => {
       setIsLoading(true)
@@ -64,10 +59,14 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
 
   };
 
+
+  
+
   useEffect(() => {
     if (!mounted.current) {
         submitHandler();
         mounted.current = true;
+        storeFilters({...filters, arrivalDate: startDate,departureDate : endDate});
     }
 }, [mounted]);
   
@@ -75,10 +74,8 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
   return (
       <div className="search-filter-modal-area">
         <div className="hotel-booking-search">
-    
           <form name="hb-search-form" action="">
             <div className="book_table_inner">
-            
               <div className="book_table_item disable-input-append">
                 <span>Arrival Date</span>
                 <div className="input-append">
@@ -118,44 +115,6 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
                   </div>
                 </div>
               </div>
-              {/* <div className="book_table_item">
-                <AutoComplete
-                  dataset={[
-                    { adults: 1, id: 1 },
-                    { adults: 2, id: 2 },
-                    { adults: 3, id: 3 },
-                    { adults: 4, id: 4 },
-                    { adults: 5, id: 5 },
-                  ]}
-                  idField={"id"}
-                  nameField={"adults"}
-                  label={"Adults"}
-                  readyToLoad={true}
-                  value={adults}
-                  placeholder={"--Select--"}
-                  onChange={adultsBlurHandler}
-                  required
-                  
-                />
-              </div>
-              <div className="book_table_item">
-                <AutoComplete
-                  dataset={[
-                    { children: 1, id: 1 },
-                    { children: 2, id: 2 },
-                    { children: 3, id: 3 },
-                    { children: 4, id: 4 },
-                    { children: 5, id: 5 },
-                  ]}
-                  idField={"id"}
-                  nameField={"children"}
-                  label={"Children"}
-                  onChange={childrenBlurHandler}
-                  readyToLoad={true}
-                  value={children}
-                  placeholder={"--Select--"}
-                />
-              </div> */}
               <div className="book_table_item book_table_item_mobile">
                 {/* <button type="button">
                   Check

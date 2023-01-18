@@ -7,14 +7,11 @@ const appContext = createContext({
   storeFilters: ({
     arrivalDate,
     departureDate,
-    adultsCount,
-    childrenCount,
   }) => {},
   filters: {
     arrivalDate: humanizeDate(new Date()),
-    departureDate: humanizeDate(new Date().setDate(today.getDate() + 1)),
-    adultsCount: 1,
-    childrenCount: 1,
+    departureDate: humanizeDate(new Date(new Date().setDate(today.getDate() + 1))),
+
   },
 });
 

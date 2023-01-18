@@ -3,7 +3,7 @@ import { humanizeDate } from '../../../lib/utils';
 
 
 const CheckOutSummeryTemplate = ({room, index}) => {
-    console.log(room);
+    // console.log(room);
     return (
         <>
                 <h2>NO : {index + 1}</h2>

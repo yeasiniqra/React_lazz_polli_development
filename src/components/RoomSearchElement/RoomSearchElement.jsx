@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getroomSearchCard } from '../../services/data-service';
 import BookingSummary from './BookingSummary/BookingSummary';
 import FilterPrice from './FilterPrice/FilterPrice';
@@ -7,24 +7,32 @@ import SearchCard from './SearchCard/SearchCard';
 
 const RoomSearchElement = () => {
     const searchService = getroomSearchCard();
+    const [availble, setIsAvailble] = useState(null)
+    console.log(availble)
     return (
         <>
-          <SearchRoomFilter />
+          <SearchRoomFilter setIsAvailble={setIsAvailble} />
           <section className="room-search-area">
             <div className="container">
                 <div className="room-search-cart-main">
                     <div className="room-search-cart-left">
                         <div className="room-search-inner-content">
                             <FilterPrice />
-                            <div className="search-room-main-items-grid">
+                            {
+                                availble && 
+                                <div className="search-room-main-items-grid">
                                 {
-                                   searchService.map( (item, index) =>
+                                   availble.map( (item, index) =>
                                    <SearchCard 
                                    item={item} 
-                                   key={index} />
+                                   key={index} 
+                                   
+                                   />
                                    ) 
                                 }
                             </div>
+                            }
+                           
                          </div>
                     </div>
                     <div className="room-search-cart-right">

@@ -44,26 +44,26 @@ const SearchCard = ({ item }) => {
         </Link>
       </div>
       <div className="search-room-content">
-        <h4>{item.title}</h4>
+        <h4>{item.Name}</h4>
         <div className="super-king-flex">
           <div className="sp-left">
-            <p>{item.roomRateTitle}</p>
+            <p>Room Rates Exclusive of Ser. Chg. & VAT</p>
           </div>
           <div className="sp-right">
             <h4>
-              BDT <span>{item.RoomPrice}</span>
+              BDT {item.type === 'ROOM' ? item.RoomPrice : item.Price}
             </h4>
             <div className="card-adults">
-              <small> {item.adults} Adults</small>
-              <small> {item.child} Child</small>
-              <small> {item.room} Room</small>
+              <small> {item.AdultPerRoom} Adults</small>
+              <small> {item.ChildrenPerRoom} Child</small>
+              <small> {item.TotalRoom} Room</small>
             </div>
           </div>
         </div>
         <div className="common-btn book-search-btn">
           {!!!count && (
             <button onClick={isToggleClass} className="searchBtn">
-              {item.btnText}
+              Book Room
             </button>
           )}
           {!!count && (

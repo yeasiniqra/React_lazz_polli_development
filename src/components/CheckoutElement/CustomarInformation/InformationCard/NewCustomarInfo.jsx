@@ -12,21 +12,16 @@ import {  GET_USER_PROFILE, POST_ROOM_BOOKING, POST_UPDATE_PROFILE } from "../..
 import { getV2, postV2 } from "../../../../services/http-service-v2";
 import authContext from "../../../../store/auth-context";
 import cartContext from "../../../../store/cart-context";
+import { useRef } from "react";
 
 const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
   const {profile, isAuthenticated, isAuthenticating} = useContext(authContext)
 
   const {rooms, totalAmount} = useContext(cartContext)
-  const [isActiveSub, setActiveSub] = useState(false);
- 
-  // const {Name,arrivalDate,departureDate,amount,type,quantity} = rooms;
-
-
-  console.log(rooms)
-
   const {Id} = profile
   const [error, setError] = useState(null);
+  const mounted = useRef(false);
 
   function formatDate(date) {
     return date.toISOString().slice(0, 10);
@@ -49,7 +44,6 @@ const NewCustomarInfo = () => {
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
   // const [Id, setId] = useState('')
-
 
   //form validations handeler
   const fnameChangeHandler = (FirstName) => {
@@ -78,7 +72,6 @@ const NewCustomarInfo = () => {
 
   const countryChangeHandler = (country) => {
     setCountry(country);
-    // storeForms({ ...formValus, country: country });
   };
 
   const cityChangeHandler = (city) => {
@@ -130,7 +123,7 @@ const NewCustomarInfo = () => {
     getV2({url: GET_USER_PROFILE})
     .then(data => {
       if(!data.IsError){
-       console.log(data);
+      //  console.log(data);
        setFname(data.Data.FirstName);
        setLname(data.Data.LastName);
        setGender( { name: data.Data.Gender, id: data.Data.Gender });
@@ -148,7 +141,7 @@ const NewCustomarInfo = () => {
        setDob(data.Data.DateOfBirth);
        
       } else {
-        console.log(data);
+        // console.log(data);
        alert('Error')
       }
       
@@ -157,10 +150,12 @@ const NewCustomarInfo = () => {
     });
   }, []);
 
-
   useEffect(() => {
-    getProfileInfo()
-}, [getProfileInfo]);
+    if (!mounted.current) {
+      getProfileInfo();
+      mounted.current = true;
+  }
+}, [mounted]);
 
 
 
@@ -198,9 +193,7 @@ const NewCustomarInfo = () => {
 
   //checkout suymmery 
   const newTax = totalAmount * 0.15;
-  // console.log(typeof newTax)
   const grandTotal = totalAmount + newTax;
-
 
   //post booking 
   const bookingRequest = () => {
@@ -233,6 +226,7 @@ const NewCustomarInfo = () => {
       LastName : LastName,
       Phone : Phone,
       Gender : gender.id,
+      Email : email,
       Country : country.name,
       City : city,
       State : state,
@@ -254,33 +248,14 @@ const NewCustomarInfo = () => {
      
   };
 
-
-
-    useEffect(() => {
-      setFname(formValus.FirstName);
-      setLname(formValus.LastName);
-      setGender(formValus.gender);
-      setEmail(formValus.email);  
-      setPhone(formValus.Phone);
-      setCountry(formValus.country);
-      setCity(formValus.city);
-      setState(formValus.state);
-      setPostalCode(formValus.postalCode);
-      setFax(formValus.fax);
-      setAddress(formValus.address);
-      setIdentity(formValus.identity);
-      setIdNum(formValus.no);
-      setExpDate(formValus.expiryDate);
-      setDob(formValus.dateOfBirth);
-    }, []);
-
-
     useEffect(()=> {
       if (!isAuthenticating && isAuthenticated) {
         getProfileInfo();
-       // window.location.reload()
+        mounted.current = true;
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isAuthenticating, isAuthenticated,])
+
 
 
   return (

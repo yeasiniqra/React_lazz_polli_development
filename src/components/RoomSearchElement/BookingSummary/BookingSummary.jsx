@@ -9,13 +9,14 @@ const BookingSummary = () => {
     const removeClickHandler = (room) => {
         removeRoom(room)
     }
-console.log(totalAmount);
+// console.log(totalAmount);
     return (
             <>
             {
                 rooms.map((summeryItem, index) => <BookingSummaryTemplate
                     key={index}
                     summeryItem={summeryItem}
+                    totalAmount={totalAmount}
                     removeClickHandler={removeClickHandler}
                 />)
             }

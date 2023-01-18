@@ -1,10 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { POST_REVIEW } from "../../../../lib/endpoints";
+import { postV2 } from "../../../../services/http-service-v2";
+import Suspense from "../../../Sheared/Suspense/Suspense";
+import ReviewTemplate from "./ReviewTemplate";
 
-const Review = () => {
+const Review = ({room}) => {
+  const {Id} = room;
+  console.log(Id);
   //email
   const [clicked, setClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   //email state
   const [review, setReview] = useState("");
@@ -30,13 +38,34 @@ const Review = () => {
     } else setReviewIsValid(false);
   }, [review.length, reviewIsTouched, clicked]);
 
+
   const sendOnClickedHandler = (evt) => {
     setClicked(true);
+    setIsLoading(true)
     evt.preventDefault();
+    const payload = {
+      placeId: Id,
+      Text: review,
+    }
+
+    postV2({url: POST_REVIEW, payload})
+    .then(data => {
+      if(data.IsError){
+        toast.warning(data.Msg);
+      } else { 
+        toast.success("Message Sent");
+      }
+    }).catch(err => {
+      toast.warning(err?.toString());
+    }).finally(() => {
+      // Loader Close
+      setIsLoading(false)
+    })
     console.log(review)
   };
 
   return (
+    <>
     <div id="Tab5" className="tabcontent">
       <div className="room-detaits-main">
         <div className="ex-customar">
@@ -66,6 +95,11 @@ const Review = () => {
         </div>
       </div>
     </div>
+    <div className="review-single-parent">
+    <ReviewTemplate />
+    {isLoading && <Suspense />}
+    </div>
+    </>
   );
 };
 

@@ -2,25 +2,23 @@ import React from 'react';
 import { humanizeDate } from '../../../lib/utils';
 
 
-const BookingSummaryTemplate = ({summeryItem,removeClickHandler}) => {
+const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) => {
+    // summeryItem.quantity * totalAmount
     return (
         <>
             <div className="summery-main-grid">
                 <div className="smy-date">
                     <span> Dates : <small>{humanizeDate(summeryItem.arrivalDate)}</small> - <small>{humanizeDate(summeryItem.departureDate)}</small> </span>
                 </div>
-                <div className="smy-date">
-                    <span> Night : <small>{summeryItem.priceNight}</small></span>
-                </div>
                 <div className="super-flex-item">
                     <div className="spk-left">
-                        <p>{summeryItem.title}</p>
-                        <p> {summeryItem.adultsCount * summeryItem.quantity} Adults {summeryItem.childrenCount * summeryItem.quantity} Child {summeryItem.room * summeryItem.quantity} Room</p>
+                        <p>{summeryItem.Name}</p>
+                        <p> {summeryItem.AdultPerRoom * summeryItem.quantity} Adults {summeryItem.ChildrenPerRoom * summeryItem.quantity} Child {summeryItem.quantity} Room</p>
                         <button><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                     </div>
                     <div className="spk-right">
                         <span onClick={removeClickHandler.bind(null, summeryItem)}><i className="fa fa-times" aria-hidden="true"></i></span>
-                        <h5>BDT <span>{summeryItem.RoomPrice}</span></h5>
+                        <h5>BDT <span>{summeryItem.type === 'ROOM' ? summeryItem.RoomPrice : summeryItem.Price * summeryItem.quantity}</span></h5>
                     </div>
                 </div>
             </div>
