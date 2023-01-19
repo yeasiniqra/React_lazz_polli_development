@@ -30,34 +30,35 @@ const SearchRoomFilter = ({setIsAvailble}) => {
   const depdateChangeHandler = (depdate) => {
     storeFilters({...filters, departureDate : depdate})
     setEndDate(depdate)
-    submitHandler()
+    submitHandler(children.id, adults.id, new Date(startDate)?.toDateString(), new Date(depdate)?.toDateString());
   };
 
 
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
-    submitHandler()
+    submitHandler(children.id, adults.id, new Date(time)?.toDateString(), new Date(endDate)?.toDateString());
   }
 
 
   const adultsBlurHandler = (fadults) => {
     storeFilters({...filters, adultsCount : fadults.adults});
     setAdults(fadults);
-    submitHandler()
+    submitHandler(children.id, fadults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
   }
 
 
   const childrenBlurHandler = (fchild) => {
     storeFilters({...filters, childrenCount : fchild.children})
     setChildren(fchild);
-    submitHandler()
+    submitHandler(fchild.id, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
   }
 
+  // new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString()
   // Take,Page,Children,Adult,ArrivalTime,DepartureTime
-  const submitHandler = () => {
+  const submitHandler = (c,a,r, d) => {
     setIsLoading(true)
-    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, 0, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString())}).then((data) => {
+    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, c, a, d, r)}).then((data) => {
       if (!data.IsError) {
           toast.warning(`Is Aviable`);
           setIsAvailble(data.Data.Data)
@@ -73,14 +74,14 @@ const SearchRoomFilter = ({setIsAvailble}) => {
 
 
 
-    const errors = [];
-    if (!!!adults.id) errors.push("Adults");
+    // const errors = [];
+    // if (!!!adults.id) errors.push("Adults");
 
-    if (errors.length !== 0) {
-      console.log(errors.join(", ") + " Are Required");
-      alert(`${errors.join(", ")} Are Required`)
-      return false;
-    }
+    // if (errors.length !== 0) {
+    //   console.log(errors.join(", ") + " Are Required");
+    //   alert(`${errors.join(", ")} Are Required`)
+    //   return false;
+    // }
 
     console.log({
       arrdate: startDate,
@@ -93,9 +94,9 @@ const SearchRoomFilter = ({setIsAvailble}) => {
   
   useEffect(() => {
     if (!mounted.current) {
-        submitHandler();
+        submitHandler(children.id, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
         mounted.current = true;
-        storeFilters({...filters, arrivalDate: startDate,departureDate : endDate, adultsCount : adults.id});
+        storeFilters({...filters, arrivalDate: startDate,departureDate : endDate, adultsCount : adults.id, childrenCount : children.id});
     }
 }, [mounted]);
 
@@ -173,6 +174,7 @@ const SearchRoomFilter = ({setIsAvailble}) => {
               <div className="book_table_item">
                 <AutoComplete
                   dataset={[
+                    { children: 0, id: 0 },
                     { children: 1, id: 1 },
                     { children: 2, id: 2 },
                     { children: 3, id: 3 },

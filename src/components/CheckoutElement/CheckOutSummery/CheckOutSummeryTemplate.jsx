@@ -34,7 +34,7 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                     <div className="room-chargeq">
                         <div className="room-chargeq-single">
                             <small>Room Charges </small>
-                            <small>BDT {room.type === 'ROOM' ? room.RoomPrice : room.Price}</small>
+                            <small>BDT {room.amount}</small>
                         </div>  
                     </div>
                 </div>

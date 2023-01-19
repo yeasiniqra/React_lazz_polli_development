@@ -13,12 +13,16 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case CONTEXT_KEYS.CART_STORE_ROOM: {
-      const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
+      const roomFromStore = state.rooms.find(
+        (r) => r.Id === action.room.Id && action.room.Type === r.Type
+      );
 
-      const amount = action.quantity * action.room.type === 'ROOM' 
-                    ? action.room.RoomPrice 
-                    : action.room.Price;
-      
+      const amount =
+        action.quantity *
+        (action.room.Type === "ROOM"
+          ? action.room.RoomPrice
+          : action.room.Price);
+
       let newRooms = state.rooms;
 
       if (!roomFromStore)
@@ -28,22 +32,20 @@ const reducer = (state, action) => {
         ];
       else {
         newRooms = newRooms.map((r) => {
-          if (r.Id === action.room.Id) {
+          if (r.Id === action.room.Id && action.room.Type === r.Type) {
             return {
               ...r,
               amount,
               quantity: action.quantity,
             };
-          } 
+          }
 
           return r;
         });
       }
 
       let totalAmount = 0;
-      newRooms.forEach((r) => (totalAmount += (r.type === 'ROOM' 
-      ? r.RoomPrice 
-      : r.Price)));
+      newRooms.forEach((r) => (totalAmount += r.amount));
 
       const newState = {
         ...state,
@@ -58,21 +60,23 @@ const reducer = (state, action) => {
 
     // const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
     case CONTEXT_KEYS.CART_REMOVE_ROOM: {
-      const newRooms = [...state.rooms.filter((r) => action.id !== r.Id)];
+      const newRooms = [
+        ...state.rooms.filter(
+          (r) => !(r.Type === action.room.Type && action.room.Id === r.Id)
+        ),
+      ];
 
       let totalAmount = 0;
-      newRooms.forEach((r) => (totalAmount += (r.type === 'ROOM' 
-      ? r.RoomPrice 
-      : r.Price)));
+      newRooms.forEach((r) => (totalAmount += r.amount));
 
       const newState = {
         ...state,
         rooms: newRooms,
         totalAmount: totalAmount,
       };
-      
+
       localStorage.setItem(LOCAL_STORAGE_KEY.CART, JSON.stringify(newState));
-      
+
       return newState;
     }
 
@@ -86,6 +90,14 @@ const reducer = (state, action) => {
       return {
         ...action.cart,
       };
+
+    case CONTEXT_KEYS.CART_CLEAR: {
+      localStorage.removeItem(LOCAL_STORAGE_KEY.CART);
+      return {
+        ...state,
+        ...initialState
+      }
+    }
 
     default:
       return state;
@@ -116,13 +128,18 @@ const CartContextProvider = ({ children }) => {
   };
 
   const removeRoom = (room) => {
-    dispatch({ type: CONTEXT_KEYS.CART_REMOVE_ROOM, id: room.Id });
+    dispatch({ type: CONTEXT_KEYS.CART_REMOVE_ROOM, room });
   };
 
-  const getQuantity = (id) => {
-    const room = state.rooms.find((r) => r.Id === id);
+  // const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
+  const getQuantity = (id, type) => {
+    const room = state.rooms.find((r) => r.Id === id && r.Type === type);
 
     return room ? room.quantity : 0;
+  };
+
+  const clear = () => {
+    dispatch({ type: CONTEXT_KEYS.CART_CLEAR });
   };
 
   const context = {
@@ -132,6 +149,7 @@ const CartContextProvider = ({ children }) => {
     storeRoom,
     removeRoom,
     getQuantity,
+    clear,
   };
 
   return (

@@ -18,7 +18,7 @@ const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
   const {profile, isAuthenticated, isAuthenticating} = useContext(authContext)
 
-  const {rooms, totalAmount} = useContext(cartContext)
+  const {rooms, totalAmount, clear} = useContext(cartContext)
   const {Id} = profile
   const [error, setError] = useState(null);
   const mounted = useRef(false);
@@ -203,7 +203,7 @@ const NewCustomarInfo = () => {
         Payable : grandTotal,
         Places: rooms.map(r => ({ Id: r.Id,
           Quantity: r.quantity,
-          Type: r.type,
+          Type: r.Type,
           ArrivalDate : r.arrivalDate,
           DepartureDate : r.departureDate,
           Name : r.Name,
@@ -212,6 +212,7 @@ const NewCustomarInfo = () => {
     postV2({ url: POST_ROOM_BOOKING, payload }).then((data) => {
       if (!data.IsError) {
         console.log(data)
+        clear();
       } else {
         console.log(data);
         setError('inside err', data.Msg);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const OrderHistoryTemplate = ({book}) => {
-    console.log(book)
+    // console.log(book)
     const {Code, Discount, ItemCount, PayableAmount, Quantity, ReleaseDate, ReservationDate, Status} = book
 
     

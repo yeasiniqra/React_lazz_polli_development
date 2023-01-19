@@ -6,7 +6,8 @@ const cartContext = createContext({
     totalAmount: 0,
     storeRoom: (room, quantity) => {},
     removeRoom: (room) => {},
-    getQuantity: (id) => {}
+    getQuantity: (id, type) => {},
+    clear: () => {}
 });
 
 

@@ -18,7 +18,7 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                     </div>
                     <div className="spk-right">
                         <span onClick={removeClickHandler.bind(null, summeryItem)}><i className="fa fa-times" aria-hidden="true"></i></span>
-                        <h5>BDT <span>{summeryItem.type === 'ROOM' ? summeryItem.RoomPrice : summeryItem.Price * summeryItem.quantity}</span></h5>
+                        <h5>BDT <span>{summeryItem.amount}</span></h5>
                     </div>
                 </div>
             </div>

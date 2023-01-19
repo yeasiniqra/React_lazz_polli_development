@@ -25,6 +25,8 @@ import Invoice from './components/Profile/Invoice/Invoice';
 import Convention from './pages/Convention';
 import SwimmingPool from './pages/SwimmingPool';
 import SuitsAndRoomDetails from './components/SuitsAndRoomDetails/SuitsAndRoomDetails';
+import Success from './pages/Success';
+
 
 
 
@@ -65,6 +67,7 @@ function App() {
             <Route path="/checkout" element={ <CheckoutElement />} />
             <Route path="/package" element={ <FullPackage />} />
             <Route path="/suits" element={ <SuitsRoom />} />
+            <Route path="/success" element={ <Success />} />
             <Route path="/suits/:Id" element={ <SuitsAndRoomDetails />} />
             <Route path="/profile" element={ <Profile />} >
               <Route path="order" element={<OrderHistory />} />

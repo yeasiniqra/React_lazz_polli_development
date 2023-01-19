@@ -29,12 +29,14 @@ const SearchCard = ({ item }) => {
 
   useEffect(() => {
     if (!isInitiating) {
-      const quantity = getQuantity(item.Id);
+      const quantity = getQuantity(item.Id, item.Type);
       setCount(quantity);
     }
 
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitiating, rooms]);
+
+  const calPrice = item.Type === 'ROOM' ? item.RoomPrice : item.Price
 
   return (
     <div className="min-items-inner-single">
@@ -51,12 +53,12 @@ const SearchCard = ({ item }) => {
           </div>
           <div className="sp-right">
             <h4>
-              BDT {item.type === 'ROOM' ? item.RoomPrice : item.Price}
+              BDT {calPrice}
             </h4>
             <div className="card-adults">
               <small> {item.AdultPerRoom} Adults</small>
               <small> {item.ChildrenPerRoom} Child</small>
-              <small> {item.TotalRoom} Room</small>
+              <small> {item.TotalRoom - getQuantity(item.Id, item.Type)} Room</small>
             </div>
           </div>
         </div>
@@ -85,7 +87,7 @@ const SearchCard = ({ item }) => {
                     className="qty-inc-btn2"
                     title="Inc button"
                   >
-                    +
+                   <button disabled={count === item.Available}> +</button>
                   </span>
                 </div>
               </div>

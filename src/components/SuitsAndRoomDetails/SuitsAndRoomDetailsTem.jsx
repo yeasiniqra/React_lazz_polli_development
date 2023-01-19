@@ -2,8 +2,8 @@
 import React from 'react';
 
 const SuitsAndRoomDetailsTem = ({SuitsAndRoomData,setSuitsAndRoom}) => {
-    const detailsClickHandler = (type) => {
-        setSuitsAndRoom({...SuitsAndRoomData, type});
+    const detailsClickHandler = (Type) => {
+        setSuitsAndRoom({...SuitsAndRoomData, Type});
     }
     return (
         <>

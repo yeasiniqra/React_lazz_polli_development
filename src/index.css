@@ -4944,3 +4944,7 @@ label.example-label.common-btn.cottage-pp-btn:hover a{
 .single-review > p {
   font-size: 14px;
 }
+
+.payment-success-area {
+    padding: 50px 0px;
+}

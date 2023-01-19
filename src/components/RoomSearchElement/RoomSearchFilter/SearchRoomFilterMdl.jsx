@@ -38,10 +38,11 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
       setIsLoading(true)
       getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString(), 1, RoomId, Type) }).then((data) => {
         if (!data.IsError) {
-            toast.warning(`Is Aviable`);
             setIsAvailble(data.Data)
+            toast.warning(`Is Aviable`);
         } else {
           toast.warning(`${data.Msg}`);
+          toast.warning(`Is Not Aviable`);
         }
        
       }).catch(err => {

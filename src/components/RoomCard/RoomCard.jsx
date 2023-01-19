@@ -2,8 +2,8 @@
 import React from "react";
 
 const RoomCard = ({room, setRoomdetails}) => {
-  const detailsClickHandler = (type) => {
-    setRoomdetails({...room, type});
+  const detailsClickHandler = (Type) => {
+    setRoomdetails({...room, Type});
 }
 
   return (
