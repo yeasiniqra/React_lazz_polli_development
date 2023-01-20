@@ -19,10 +19,11 @@ export const GET_USER_PROFILE = 'AppUser/Profile';
 export const POST_UPDATE_PROFILE = 'AppUser/Profile';
 
 //Review
-export const POST_REVIEW = 'Review';
-export const GET_REVIEW = (PlaceId) => `Review?PlaceId=${PlaceId}`;
-export const POST_UPDATE_REVIEW = (ReviewID) => `Review/Edit/${ReviewID}`;
-export const GET_DELETE_REVIEW = (DeleteID) => `Review/Delete/${DeleteID}`;
+export const POST_REVIEW = 'HouseArea/Comment/PostComment';
+export const POST_UPDATE_REVIEW = (ReviewID) => `HouseArea/Comment/EditComment/${ReviewID}`;
+export const GET_DELETE_REVIEW = (DeleteID) => `HouseArea/Comment/DeleteComment/${DeleteID}`;
+export const GET_REVIEW = (HouseId,Take,Page) => `HouseArea/Comment/GetComments?HouseId=${HouseId}&Take=${Take}&Page=${Page}`;
+
 
 //get House
 export const GET_HOUSE = () => `HouseArea/House/GetHouses?Take=999&Page=1&takeReview=10`;

@@ -56,7 +56,7 @@ const SearchRoomFilter = ({setIsAvailble}) => {
 
   // new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString()
   // Take,Page,Children,Adult,ArrivalTime,DepartureTime
-  const submitHandler = (c,a,r, d) => {
+  const submitHandler = (c,a,d,r ) => {
     setIsLoading(true)
     getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, c, a, d, r)}).then((data) => {
       if (!data.IsError) {

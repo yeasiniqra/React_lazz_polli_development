@@ -24,19 +24,19 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
   const depdateChangeHandler = (depdate) => {
     storeFilters({...filters, departureDate : depdate})
     setEndDate(depdate)
-    submitHandler()
+    submitHandler(new Date(startDate)?.toDateString(), new Date(depdate)?.toDateString())
   };
 
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({...filters, arrivalDate: time});
-    submitHandler()
+    submitHandler(new Date(time)?.toDateString(), new Date(endDate)?.toDateString())
   }
   
 
-  const submitHandler = () => {
+  const submitHandler = (d,r) => {
       setIsLoading(true)
-      getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString(), 1, RoomId, Type) }).then((data) => {
+      getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(d, r, 1, RoomId, Type) }).then((data) => {
         if (!data.IsError) {
             setIsAvailble(data.Data)
             toast.warning(`Is Aviable`);
@@ -65,7 +65,7 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
 
   useEffect(() => {
     if (!mounted.current) {
-        submitHandler();
+        submitHandler(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
         mounted.current = true;
         storeFilters({...filters, arrivalDate: startDate,departureDate : endDate});
     }
