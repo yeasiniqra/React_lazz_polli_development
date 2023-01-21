@@ -11,12 +11,14 @@ import Loader from '../Loader/Loader';
 
 //Order/Success?OrderNo=0921043&Payment=1&Phone=015535013688&Id=2a15a434-bb8b-48b1-a2dd-c9652d0c5329&Transaction=CANCELLED
 
+// /Booking/Status?Code=0121005&Payment=1&Phone=yeasin%20A&Id=a3df8a7a-352e-451c-a6e8-afd0152f9f55&Transaction=SUCCESS&IsNew=0
+
 const SuccessStatus = () => {
     const { isAuthenticating, isAuthenticated } = useContext(authContext);
     const { search } = useLocation();
 
     const [params, setParams] = useState({
-        orderNo: null,
+        Code: null,
         payment: 0,
         transaction: null,
         phone: null,
@@ -26,14 +28,14 @@ const SuccessStatus = () => {
     
       useEffect(() => {
         const queryParams = new URLSearchParams(search);
-        const orderNo = queryParams.get('OrderNo');
+        const Code = queryParams.get('Code');
         const payment = +queryParams.get('Payment');
         const transaction = queryParams.get('Transaction');
         const phone = queryParams.get('Phone');
         const id = queryParams.get('Id');
         const isNew = +queryParams.get('IsNew');
     
-        setParams({ orderNo, payment, transaction, phone, id, isNew });
+        setParams({ Code, payment, transaction, phone, id, isNew });
       }, [search]);
 
     return (
@@ -59,7 +61,7 @@ const SuccessStatus = () => {
                         : 'FAILED (error 96)'}
                     </h2>
                     )}
-                    <h4>Order number is  <span className='order-number'>#{params.orderNo}</span></h4>
+                    <h4>Order number is  <span className='order-number'>#{params.Code}</span></h4>
                     <span>We'll call your number <small>{params.phone}</small> to reconfirm.</span>
 
                     {params.transaction === 'CANCELLED' && (

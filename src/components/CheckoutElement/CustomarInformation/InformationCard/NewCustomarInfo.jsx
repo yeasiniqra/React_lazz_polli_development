@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { countries } from "../../../../data/countries";
 import checkoutContext from "../../../../store/checkout-context";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
@@ -17,15 +17,20 @@ import { useRef } from "react";
 const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
   const {profile, isAuthenticated, isAuthenticating} = useContext(authContext)
-
   const {rooms, totalAmount, clear} = useContext(cartContext)
   const {Id} = profile
   const [error, setError] = useState(null);
   const mounted = useRef(false);
 
-  function formatDate(date) {
-    return date.toISOString().slice(0, 10);
-  }
+  const formatDate = (date) => {
+    const passedDate = new Date(date);
+    const year = passedDate.getFullYear();
+    let month = (1 + passedDate.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+    let day = passedDate.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    return `${year}-${month}-${day}`;
+ }
 
   //form validations State
   const [FirstName, setFname] = useState("");
@@ -43,7 +48,12 @@ const NewCustomarInfo = () => {
   const [dob, setDob] = useState("");
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
+  const [paymentPercent, setPaymentPercent] = useState('100%')
   // const [Id, setId] = useState('')
+
+  const handleClicekd = (percent) => {
+    setPaymentPercent(percent)
+  }
 
   //form validations handeler
   const fnameChangeHandler = (FirstName) => {
@@ -54,61 +64,49 @@ const NewCustomarInfo = () => {
     setLname(LastName);
     storeForms({ ...formValus, lastName: LastName });
   };
-
   const genderChangeHandler = (gender) => {
     setGender(gender);
     storeForms({ ...formValus, gender: gender });
   };
-
   const emailChangeHandler = (email) => {
     setEmail(email);
     storeForms({ ...formValus, email: email });
   };
-
   const phoneChangeHandler = (Phone) => {
     setPhone(Phone);
     storeForms({ ...formValus, Phone: Phone });
   };
-
   const countryChangeHandler = (country) => {
     setCountry(country);
   };
-
   const cityChangeHandler = (city) => {
     setCity(city);
     storeForms({ ...formValus, city: city });
   };
-
   const mstateChangeHandler = (state) => {
     setState(state);
     storeForms({ ...formValus, state: state });
   };
-
   const pcodeChangeHandler = (postalCode) => {
     setPostalCode(postalCode);
     storeForms({ ...formValus, postalCode: postalCode });
   };
-
   const faxChangeHandler = (fax) => {
     setFax(fax);
     storeForms({ ...formValus, fax: fax });
   };
-
   const addressChangeHandler = (address) => {
     setAddress(address);
     storeForms({ ...formValus, address: address });
   };
-
   const identityChangeHandler = (identity) => {
     setIdentity(identity);
     storeForms({ ...formValus, identity: identity });
   };
-
   const idnumChangeHandler = (idnum) => {
     setIdNum(idnum);
     storeForms({ ...formValus, idnum: idnum });
   };
-
   const expDateChangeHandler = (expDate) => {
     setExpDate(expDate);
     storeForms({ ...formValus, expiryDate: expDate });
@@ -139,12 +137,10 @@ const NewCustomarInfo = () => {
        setIdNum(data.Data.IdentityNumber);
        setExpDate(data.Data.IdentityExpireDate);
        setDob(data.Data.DateOfBirth);
-       
       } else {
         // console.log(data);
        alert('Error')
       }
-      
     }).catch(error => {
      
     });
@@ -156,7 +152,6 @@ const NewCustomarInfo = () => {
       mounted.current = true;
   }
 }, [mounted]);
-
 
 
   const postProfileInfo = useCallback((payload) => {
@@ -190,7 +185,6 @@ const NewCustomarInfo = () => {
     });
   }, []);
 
-
   //checkout suymmery 
   const newTax = totalAmount * 0.15;
   const grandTotal = totalAmount + newTax;
@@ -201,6 +195,8 @@ const NewCustomarInfo = () => {
         Tax : newTax,
         RoomCharge : totalAmount,
         Payable : grandTotal,
+        AdvancePaying: 0,
+        PayPercentage: paymentPercent,
         Places: rooms.map(r => ({ Id: r.Id,
           Quantity: r.quantity,
           Type: r.Type,
@@ -212,6 +208,7 @@ const NewCustomarInfo = () => {
     postV2({ url: POST_ROOM_BOOKING, payload }).then((data) => {
       if (!data.IsError) {
         console.log(data)
+        window.location.href = data.Data.PaymentURL;
         clear();
       } else {
         console.log(data);
@@ -246,7 +243,6 @@ const NewCustomarInfo = () => {
     postProfileInfo(payload).then(() => {
       bookingRequest()
     })
-     
   };
 
     useEffect(()=> {
@@ -256,8 +252,6 @@ const NewCustomarInfo = () => {
       }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isAuthenticating, isAuthenticated,])
-
-
 
   return (
     <>
@@ -433,7 +427,7 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"Expiry Date"}
                       onChange={expDateChangeHandler}
-                      value={expDate}
+                      value={formatDate(expDate)}
                       required
                       type={"date"}
                     />
@@ -446,7 +440,7 @@ const NewCustomarInfo = () => {
                     <Input
                       label={"Date of Birth"}
                       onChange={dobChangeHandler}
-                      value={dob}
+                      value={formatDate(dob)}
                       required
                       type={"date"}
                     />
@@ -457,10 +451,22 @@ const NewCustomarInfo = () => {
                 </div>
 
                   <div className="paymet-radio-btn">
-                      <input type="radio" id="html" name="payfull" value="HTML" />
-                      <label htmlFor="html">Pay Full Payment</label>
-                      <input type="radio" id="css" name="payfull" value="CSS" />
-                      <label htmlFor="css">Pay 30% Payment</label>
+                      <input 
+                         checked={paymentPercent === '100%'}
+                         type="radio"
+                         id="html" 
+                         name="payfull"
+                         value="HTML" 
+                        />
+                      <label onClick={handleClicekd.bind(null, '100%')} htmlFor="html">Pay Full Payment</label>
+                      <input 
+                         checked={paymentPercent === '30%'}
+                         type="radio" 
+                         id="css"
+                         name="payfull"
+                         value="CSS" 
+                       />
+                      <label onClick={handleClicekd.bind(null, '30%')} htmlFor="css">Pay 30% Payment</label>
                   </div> 
 
 

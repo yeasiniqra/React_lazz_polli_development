@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 import RoomDetailsTemplate from "../../RoomDetails/RoomDetailsTemplate/RoomDetailsTemplate";
@@ -23,7 +24,8 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
   }
 
  const availbilityChangeHandler = (isAvaible) => {
-  setIsAvailble(isAvaible)
+  toast.warning(`${setIsAvailble(isAvaible)}`);
+  
  }
 
   const { Name } = suitsAndRoom;

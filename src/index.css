@@ -2560,7 +2560,7 @@ h4.roomNight {
 
 .inner-card-flex {
   position: relative;
-  top: 7px;
+  top: 6px;
   left: -6px;
 }
 
@@ -4744,7 +4744,7 @@ table.table.table-bordered>tbody>tr.tr-border {
 } 
 
 .modal-inner.modal-inner-cottage {
-  margin-top: 1vw;
+  margin-top: 4vw;
   max-width: 1100px;
   min-width: 1100px;
   padding: 10px;
@@ -4963,4 +4963,39 @@ label.example-label.common-btn.cottage-pp-btn:hover a{
 }
 .payment-content > span {
   display: block;
+}
+
+.single-review > button {
+    border: none;
+    background: none;
+    font-size: 12px;
+    text-align: left;
+    padding: 0;
+    color: blue;
+    cursor: pointer;
+}
+
+button.book-btn {
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cottage-pp-btn > button {
+  border: 2px solid var(--secundery-color);
+  padding: 12px 50px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 5px;
+  background: var(--secundery-color);
+}
+.cottage-pp-btn button:disabled {
+  background-color: #dddd;
+  color: #ccc;
+  cursor: not-allowed;
+  border: 2px solid #c9b9b9;
 }

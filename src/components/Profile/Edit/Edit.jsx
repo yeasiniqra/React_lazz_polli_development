@@ -22,10 +22,17 @@ const Edit = () => {
     const mounted = useRef(false)
 
 
-    function formatDate(date) {
-      if(!date) return;
-      return new Date(date).toISOString().slice(0, 10).replaceAll('-', '/');
-    }
+    const formatDate = (date) => {
+      const passedDate = new Date(date);
+      const year = passedDate.getFullYear();
+      let month = (1 + passedDate.getMonth()).toString();
+      month = month.length > 1 ? month : '0' + month;
+      let day = passedDate.getDate().toString();
+      day = day.length > 1 ? day : '0' + day;
+      return `${year}-${month}-${day}`;
+   }
+  
+
 
     //form validations State
     const [FirstName, setFname] = useState("");
@@ -103,6 +110,7 @@ const Edit = () => {
     };
     const dobChangeHandler = (dob) => {
       setDob(dob);
+      console.log(dob);
     };
   
 
@@ -376,7 +384,7 @@ const Edit = () => {
                       <Input
                         label={"Expiry Date"}
                         onChange={expDateChangeHandler}
-                        value={expDate}
+                        value={formatDate(expDate)}
                         required
                         type={"date"}
                       />

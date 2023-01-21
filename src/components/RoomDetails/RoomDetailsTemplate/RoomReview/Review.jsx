@@ -157,7 +157,7 @@ const Review = ({room}) => {
     </div>
     <div className="review-single-parent">
       {
-        roomreview.map(reviews =>  <ReviewTemplate reviews={reviews} handleDelete={handleDelete} handleUpdate={handleUpdate} key={Id} />)
+        roomreview.map(reviews =>  <ReviewTemplate reviews={reviews} handleDelete={handleDelete} key={Id} />)
       }
    
     {isLoading && <Suspense />}

@@ -39,10 +39,13 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
       getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(d, r, 1, RoomId, Type) }).then((data) => {
         if (!data.IsError) {
             setIsAvailble(data.Data)
-            toast.warning(`Is Aviable`);
+            if (data.Data) {
+              toast.warning(`${data.Msg}`);
+            }else{
+              toast.warning(`Is Not Aviable`);
+            } 
         } else {
           toast.warning(`${data.Msg}`);
-          toast.warning(`Is Not Aviable`);
         }
        
       }).catch(err => {

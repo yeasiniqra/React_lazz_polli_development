@@ -56,9 +56,9 @@ const SearchCard = ({ item }) => {
               BDT {calPrice}
             </h4>
             <div className="card-adults">
-              <small> {item.AdultPerRoom} Adults</small>
-              <small> {item.ChildrenPerRoom} Child</small>
-              <small> {item.TotalRoom - getQuantity(item.Id, item.Type)} Room</small>
+              <small> {item.Type === 'ROOM' ? item.AdultPerRoom : ''} {item.Type === 'ROOM' ? 'Adults' : ''}</small>
+              <small> {item.Type === 'ROOM' ? item.ChildrenPerRoom : 'Full'} {item.Type === 'ROOM' ? 'Child' : ''} </small>
+              <small> {item.Type === 'ROOM' ? item.Available - getQuantity(item.Id, item.Type) : 1} {item.Type === 'ROOM' ? 'Room' : 'Cottage'}</small>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ const SearchCard = ({ item }) => {
                     className="qty-dec-btn2"
                     title="Dec button"
                   >
-                    -
+                   <button className="book-btn"> - </button>
                   </span>
                   <aside>
                     <small>{count}</small>
@@ -87,7 +87,7 @@ const SearchCard = ({ item }) => {
                     className="qty-inc-btn2"
                     title="Inc button"
                   >
-                   <button disabled={count === item.Available}> +</button>
+                   <button className="book-btn" disabled={count === item.Available}> +</button>
                   </span>
                 </div>
               </div>

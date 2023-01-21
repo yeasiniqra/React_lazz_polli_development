@@ -60,12 +60,15 @@ const SearchRoomFilter = ({setIsAvailble}) => {
     setIsLoading(true)
     getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, c, a, d, r)}).then((data) => {
       if (!data.IsError) {
-          toast.warning(`Is Aviable`);
           setIsAvailble(data.Data.Data)
+          if (data.Data) {
+            toast.warning(`${data.Msg}`);
+          }else{
+            toast.warning(`Is Not Aviable`);
+          } 
       } else {
         toast.warning(`${data.Msg}`);
       }
-     
     }).catch(err => {
       toast.warning(err?.toString());
     }).finally(() => {
