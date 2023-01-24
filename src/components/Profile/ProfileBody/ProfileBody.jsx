@@ -11,8 +11,8 @@ const ProfileBody = () => {
                 <Routes>
                     <Route index element={<OrderHistory /> } />
                     <Route path="/order" element={<OrderHistory />} />
+                    <Route path="order/:Code" element={<Invoice />} />
                     <Route path="/edit" element={<Edit />} />
-                    <Route path="/inv" element={<Invoice />} />
                 </Routes>
             </div>
         </>  

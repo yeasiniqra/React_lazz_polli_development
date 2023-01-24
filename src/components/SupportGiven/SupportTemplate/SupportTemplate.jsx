@@ -4,7 +4,7 @@ import CountUp, { useCountUp } from "react-countup";
 const SupportTemplate = () => {
     useCountUp({
         ref: "counter",
-        end: 2000,
+        end: 2684,
         enableScrollSpy: true,
         scrollSpyDelay: 1000
       });
@@ -23,21 +23,21 @@ const SupportTemplate = () => {
                 
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
-                            <h6 id="count2" className="display_4"><CountUp end={4000} enableScrollSpy /></h6>
+                            <h6 id="count2" className="display_4"><CountUp end={4661} enableScrollSpy /></h6>
                         </div>
                         <span>Celebrities</span>
                     </div>
                    
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
-                            <h6 id="count3" className="display_4"><CountUp end={3000} enableScrollSpy /></h6>
+                            <h6 id="count3" className="display_4"><CountUp end={3726} enableScrollSpy /></h6>
                         </div>
                         <span>Returns</span>
                     </div>
                     
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
-                            <h6 id="count4" className="display_4"><CountUp end={7000} enableScrollSpy /></h6>
+                            <h6 id="count4" className="display_4"><CountUp end={7153} enableScrollSpy /></h6>
                         </div>
                         <span>Happy people</span>
                     </div>

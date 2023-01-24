@@ -13,7 +13,16 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                 <div className="super-flex-item">
                     <div className="spk-left">
                         <p>{summeryItem.Name}</p>
-                        <p> {summeryItem.AdultPerRoom * summeryItem.quantity} Adults {summeryItem.ChildrenPerRoom * summeryItem.quantity} Child {summeryItem.quantity} Room</p>
+                        {/* {item.Type === 'ROOM' ? item.AdultPerRoom : ''} */}
+                        <p>
+                         {summeryItem.Type === 'ROOM' ? summeryItem.AdultPerRoom * summeryItem.quantity : ''}  
+                         {summeryItem.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
+                         {summeryItem.quantity} - 
+                         {summeryItem.Type === 'ROOM' ? 'Room -' : 'Cottage'} 
+                         {summeryItem.Type === 'ROOM' ? summeryItem.ChildrenPerRoom * summeryItem.quantity : ''} 
+                         {summeryItem.Type === 'ROOM' ? 'Child' : ''}  
+                        
+                         </p>
                         <button><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                     </div>
                     <div className="spk-right">

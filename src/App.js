@@ -69,10 +69,10 @@ function App() {
             <Route path="/suits" element={ <SuitsRoom />} />
             <Route path="/Booking/Status" element={ <Success />} />
             <Route path="/suits/:Id" element={ <SuitsAndRoomDetails />} />
-            <Route path="/profile" element={ <Profile />} >
+            <Route path="/profile/*" element={ <Profile />} >
               <Route path="order" element={<OrderHistory />} />
+              <Route path="order/:Code" element={<Invoice />} />
               <Route path="edit" element={<Edit />} />
-              <Route path="inv" element={<Invoice />} />
             </Route>
             <Route path="/*" element={<ErrorPage />} />
         </Routes>

@@ -36,6 +36,10 @@ export const GET_ROOM_BOOKING_ISAVAIBLE = (ArrivalTime, DepartureTime,RoomNumber
 export const POST_ROOM_BOOKING = `BookingArea/Booking/Book`
 export const GET_ROOM_BOOKING = (pageSize, page, status) => `BookingArea/Booking/GetBookings?Take=${pageSize}&page=${page}&Status=${status}`
 
+//get room booking Invoice
+export const GET_INVOICE = (Code) => `BookingArea/Booking/GetBooking/${Code}`
+
+
 //get room booking Search
 export const GET_SEARCH_BOOKING_ROOM_ISAVAIBLE = (Take,Page,Children,Adult,ArrivalTime,DepartureTime) => {
     return `HouseArea/House/Search?Take=${Take}&Page=${Page}&Children=${Children ?? null}&Adult=${Adult ?? null}&ArrivalTime=${ArrivalTime}&DepartureTime=${DepartureTime}`

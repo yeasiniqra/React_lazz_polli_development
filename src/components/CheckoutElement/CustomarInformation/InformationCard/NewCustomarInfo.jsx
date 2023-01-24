@@ -196,7 +196,7 @@ const NewCustomarInfo = () => {
         RoomCharge : totalAmount,
         Payable : grandTotal,
         AdvancePaying: 0,
-        PayPercentage: paymentPercent,
+        PayPercent : paymentPercent,
         Places: rooms.map(r => ({ Id: r.Id,
           Quantity: r.quantity,
           Type: r.Type,
@@ -454,11 +454,11 @@ const NewCustomarInfo = () => {
                       <input 
                          checked={paymentPercent === '100%'}
                          type="radio"
-                         id="html" 
+                         id="html"
                          name="payfull"
                          value="HTML" 
                         />
-                      <label onClick={handleClicekd.bind(null, '100%')} htmlFor="html">Pay Full Payment</label>
+                      <label className="percent" onClick={handleClicekd.bind(null, '100%')} htmlFor="html">Pay Full Payment</label>
                       <input 
                          checked={paymentPercent === '30%'}
                          type="radio" 

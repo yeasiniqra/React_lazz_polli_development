@@ -25,7 +25,14 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                 <div className="super-flex-item">
                     <div className="spk-left">
                         <p><span>Name : </span>{room.Name}</p>
-                        <p><span></span> {room.adultsCount * room.quantity} Adults {room.childrenCount * room.quantity} Child</p>
+                        <p>
+                            {room.Type === 'ROOM' ? room.adultsCount * room.quantity : ''} 
+                            {room.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
+                            {room.quantity} - 
+                            {room.Type === 'ROOM' ? 'Room -' : 'Cottage'} 
+                            {room.Type === 'ROOM' ? room.childrenCount * room.quantity : ''}
+                            {room.Type === 'ROOM' ? 'Child' : ''}
+                    </p>
                     </div>
                 </div>
                 <div className="special-conditions-check">

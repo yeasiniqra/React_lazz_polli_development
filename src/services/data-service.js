@@ -3,10 +3,10 @@ import bannerOne from '../images/slider/1.webp';
 import bannerTwo from '../images/slider/2.webp';
 import bannerThree from '../images/slider/3.webp';
 import bannerFour from '../images/slider/4.webp';
-import bannerFive from '../images/slider/5.webp';
+// import bannerFive from '../images/slider/5.webp';
 import bannerSix from '../images/slider/6.webp';
 import bannerEight from '../images/slider/8.webp';
-import bannerNine from '../images/slider/9.webp';
+// import bannerNine from '../images/slider/9.webp';
 import bannerTen from '../images/slider/10.webp';
 
 // Find Homme Room iamges
@@ -100,13 +100,13 @@ const APP_DATA = {
             link: '/searchroom'
         },
 
-        {
-            heading : "Lazz Polli Resort",
-            subHeading : "The most exotic resort in Bangladeshs",
-            btnText : "RESERVE NOW",
-            image: bannerFive,
-            link: '/searchroom'
-        },
+        // {
+        //     heading : "Lazz Polli Resort",
+        //     subHeading : "The most exotic resort in Bangladeshs",
+        //     btnText : "RESERVE NOW",
+        //     image: bannerFive,
+        //     link: '/searchroom'
+        // },
 
         {
             heading : "Lazz Polli Resort",
@@ -124,13 +124,13 @@ const APP_DATA = {
             link: '/searchroom'
         },
 
-        {
-            heading : "Lazz Polli Resort",
-            subHeading : "The most exotic resort in Bangladesh",
-            btnText : 'RESERVE NOW',
-            image : bannerNine,
-            link : '/searchroom'
-        },
+        // {
+        //     heading : "Lazz Polli Resort",
+        //     subHeading : "The most exotic resort in Bangladesh",
+        //     btnText : 'RESERVE NOW',
+        //     image : bannerNine,
+        //     link : '/searchroom'
+        // },
 
         {
             heading : "Lazz Polli Resort",

@@ -4245,6 +4245,10 @@ button.sign-out {
   color: #212121;
 }
 
+.order-history-body-parent{
+  cursor: pointer;
+}
+
 .order-history-body-parent .order-history-body:nth-child(2n) {
   background: #ddd;
 }
@@ -4999,3 +5003,12 @@ button.book-btn {
   cursor: not-allowed;
   border: 2px solid #c9b9b9;
 }
+
+.paymet-radio-btn > label {
+  padding: 0px 6px;
+}
+
+label.percent {
+  margin-right: 15px;
+}
+

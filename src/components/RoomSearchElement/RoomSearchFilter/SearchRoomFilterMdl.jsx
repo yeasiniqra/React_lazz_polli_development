@@ -40,7 +40,8 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
         if (!data.IsError) {
             setIsAvailble(data.Data)
             if (data.Data) {
-              toast.warning(`${data.Msg}`);
+              // toast.warning(`${data.Msg}`);
+              console.log(data.Msg)
             }else{
               toast.warning(`Is Not Aviable`);
             } 

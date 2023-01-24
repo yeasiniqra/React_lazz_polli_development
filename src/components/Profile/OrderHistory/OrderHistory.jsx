@@ -47,7 +47,7 @@ const OrderHistory = () => {
                 <span>Amount</span>
             </div>
             {
-                booked.map(book => <OrderHistoryTemplate book={book} key={book.Id
+                booked.map(book => <OrderHistoryTemplate book={book} key={book.Code
                 } /> )
             }
            </div> 

@@ -35,15 +35,6 @@ const ProfileNav = () => {
                     Edit Profile
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink
-                        to="/profile/inv"
-                        className={({ isActive }) => (isActive ? "link-active" : "link")}
-                    >
-                        <i className="fa fa-pencil-square-o new-p" aria-hidden="true"></i>
-                    invoice
-                    </NavLink>
-                </li>
                 <button onClick={handleLogin} className='sign-out'><i className="fa fa-sign-out" aria-hidden="true"></i> LogOut</button>
             </ul>
             </div>

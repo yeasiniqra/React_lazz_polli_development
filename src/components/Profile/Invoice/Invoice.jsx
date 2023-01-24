@@ -1,10 +1,50 @@
 import React from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../../images/logo-black.png";
+import { GET_INVOICE } from "../../../lib/endpoints";
+import { getV2 } from "../../../services/http-service-v2";
+import Suspense from "../../Sheared/Suspense/Suspense";
+import InvoiceTeamplate from "./InvoiceTeamplate";
 
 const Invoice = () => {
+  const [invoice, setInvoice] = useState([]);
+  const {Code} = useParams();
+  console.log(Code)
+
+  const mounted = useRef(false);
+  console.log(invoice);
+
+ 
+  const handleGetInvoice = () => {
+      getV2({ url: GET_INVOICE(Code) }).then((data) => {
+          if (!data.IsError) {
+            setInvoice(data.Data)
+          } else {
+            toast.warning(`${data.Msg}`);
+          }
+        }).catch(err => {
+          toast.warning(err?.toString());
+        }).finally(() => {
+        });
+  }
+
+  useEffect(() => {
+    if (!mounted.current) {
+      handleGetInvoice();
+        mounted.current = true;
+    }
+}, [Code,mounted]);
+
+
   const print = () => {
     window.open("/invoice.html", "_blank");
   };
+  
+
   return (
     <div id="page" className="order-invoice">
       <div className="order-invoice-ea">
@@ -23,23 +63,14 @@ const Invoice = () => {
               <table className="invoice-head">
                 <tbody>
                   <tr>
-                    {/* <td className="pull-right">
-                        <strong>Order ID</strong>
-                      </td> */}
-                    <td>OrderID #0144327586</td>
+                    <td>OrderID # {invoice.Code}</td>
                   </tr>
                   <tr>
-                    {/* <td className="pull-right">
-                        <strong>Name</strong>
-                      </td> */}
-                    <td>max well</td>
+                    <td>{invoice && invoice.FirstName}</td>
                   </tr>
 
                   <tr>
-                    {/* <td className="pull-right">
-                        <strong>Invoice Date</strong>
-                      </td> */}
-                    <td>07-11-2022</td>
+                    <td>{invoice.CreatedAt}</td>
                   </tr>
                 </tbody>
               </table>
@@ -47,7 +78,7 @@ const Invoice = () => {
           </div>
           <div className="invoice">
             <h2>Invoice</h2>
-            <button onClick={print}>Print</button>
+            <button onClick={() => window.print()}>Print</button>
           </div>
           <div className="custom-table-row">
             <div className="span12 well invoice-body">
@@ -55,7 +86,7 @@ const Invoice = () => {
                 <thead>
                   <tr>
                     <th>#sl</th>
-                    <th>Room Type</th>
+                    {/* <th>Room Type</th> */}
                     <th>Check In</th>
                     <th>Check Out</th>
                     <th>Pax Details</th>
@@ -63,37 +94,18 @@ const Invoice = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="tr-border">
-                    <td>01</td>
-                    <td>Super King</td>
-                    <td>07-11-2022</td>
-                    <td>07-11-2022</td>
-                    <td>1 Adults 1 Child</td>
-                    <td>58798</td>
-                  </tr>
-                  <tr className="tr-border">
-                    <td>02</td>
-                    <td>Super King 2</td>
-                    <td>07-11-2022</td>
-                    <td>07-11-2022</td>
-                    <td>1 Adults 1 Child</td>
-                    <td>58798</td>
-                  </tr>
-                  <tr className="tr-border">
-                    <td>03</td>
-                    <td>Super King 3</td>
-                    <td>07-11-2022</td>
-                    <td>07-11-2022</td>
-                    <td>1 Adults 1 Child</td>
-                    <td>58798</td>
-                  </tr>
-                </tbody>
+                {
+                invoice.BookedPlaces && 
+                invoice.BookedPlaces.map((item,index) => <InvoiceTeamplate item={item} key={index} index={index} />)
+                }
+
+               </tbody>
               </table>
             </div>
             <div className="sum-table-for-invoice">
               <table className="table table-bordered small-table-sum">
                 <tbody>
-                  <tr>
+                  {/* <tr>
                     <td>SubTotal</td>
                     <td className="SubTotal-tab">
                       <span>435435435</span>
@@ -110,13 +122,13 @@ const Invoice = () => {
                     <td className="SubTotal-tab">
                       <span>1312342</span>
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr className="grand-total">
                     <td>
                       <strong>Grand Total (Incl.Tax)</strong>
                     </td>
                     <td className="SubTotal-tab">
-                      <strong>&#2547; 1233334</strong>
+                      <strong>&#2547; {invoice.PayableAmount}</strong>
                     </td>
                   </tr>
                 </tbody>
