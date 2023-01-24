@@ -1,16 +1,17 @@
 import React from 'react';
+import { humanizeDate } from '../../../lib/utils';
 
 const InvoiceTeamplate = ({item, index}) => {
-    const {ReservationDate,ReleaseDate,Quantity,Price} = item
+    const {ReservationDate,ReleaseDate,Quantity,Price,Type, Name} = item
     return (
         <>
                 <tr className="tr-border">
                     <td>{index + 1}</td>
-                    {/* <td>Super King</td> */}
-                    <td>{ReservationDate}</td>
-                    <td>{ReleaseDate}</td>
+                    <td>{Type === 'ROOM' ? Name : Name }</td>
+                    <td>{humanizeDate(ReservationDate)}</td>
+                    <td>{humanizeDate(ReleaseDate)}</td>
                     <td>{Quantity}</td>
-                    <td>{Price}</td>
+                    <td>{Quantity * Price}</td>
                 </tr>
         </>
     );

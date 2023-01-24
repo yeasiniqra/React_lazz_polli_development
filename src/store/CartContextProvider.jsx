@@ -57,8 +57,6 @@ const reducer = (state, action) => {
 
       return newState;
     }
-
-    // const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
     case CONTEXT_KEYS.CART_REMOVE_ROOM: {
       const newRooms = [
         ...state.rooms.filter(

@@ -7,6 +7,7 @@ import { useTitle } from "../hooks/UseTitle";
 
 const Room = () => {
   useTitle('Room')
+ 
   return (
     <>
       <PageHeader imageURL={commonBg} title={'Rooms'} />

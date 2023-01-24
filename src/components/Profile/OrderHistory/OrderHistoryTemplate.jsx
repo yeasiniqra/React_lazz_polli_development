@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { humanizeDate } from '../../../lib/utils';
 
 const OrderHistoryTemplate = ({book}) => {
     const navigate = useNavigate();
     // console.log(book)
-    const {Code, Discount, ItemCount, PayableAmount, Quantity, ReleaseDate, ReservationDate, Status} = book
+    const {Code, PayableAmount, Quantity, ReleaseDate, ReservationDate, Status} = book
 
     const handleInvoice = () => {
         navigate(`${Code}`)
@@ -15,8 +16,8 @@ const OrderHistoryTemplate = ({book}) => {
         <div onClick={handleInvoice} className='order-history-body-parent'>
             <div className='order-history-body'>
                 <small>#{Code}</small>
-                <small>{ReservationDate}</small>
-                <small>{ReleaseDate}</small>
+                <small>{humanizeDate(ReservationDate)}</small>
+                <small>{humanizeDate(ReleaseDate)}</small>
                 <small>{Status}</small>
                 {/* <small>Superior King</small> */}
                 <small>{Quantity}</small>

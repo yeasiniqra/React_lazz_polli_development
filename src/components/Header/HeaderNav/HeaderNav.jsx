@@ -10,7 +10,7 @@ const HeaderNav = () => {
     const navigate = useNavigate();
 
     const profileHandler = () => {
-        navigate('/profile')
+        navigate('/profile/order')
     }
 
     const [isActive, setActive] = useState(false);

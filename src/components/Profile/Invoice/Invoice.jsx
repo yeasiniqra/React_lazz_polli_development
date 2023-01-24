@@ -6,18 +6,15 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../../images/logo-black.png";
 import { GET_INVOICE } from "../../../lib/endpoints";
+import { humanizeDate } from "../../../lib/utils";
 import { getV2 } from "../../../services/http-service-v2";
-import Suspense from "../../Sheared/Suspense/Suspense";
 import InvoiceTeamplate from "./InvoiceTeamplate";
 
 const Invoice = () => {
   const [invoice, setInvoice] = useState([]);
   const {Code} = useParams();
-  console.log(Code)
-
   const mounted = useRef(false);
   console.log(invoice);
-
  
   const handleGetInvoice = () => {
       getV2({ url: GET_INVOICE(Code) }).then((data) => {
@@ -37,12 +34,20 @@ const Invoice = () => {
       handleGetInvoice();
         mounted.current = true;
     }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [Code,mounted]);
 
+
+
+const newTax = invoice.Amount * 0.15;
 
   const print = () => {
     window.open("/invoice.html", "_blank");
   };
+
+  const printReceipt = () => {
+    window.print();
+    }
   
 
   return (
@@ -70,7 +75,7 @@ const Invoice = () => {
                   </tr>
 
                   <tr>
-                    <td>{invoice.CreatedAt}</td>
+                    <td>{humanizeDate(invoice.CreatedAt)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -78,7 +83,7 @@ const Invoice = () => {
           </div>
           <div className="invoice">
             <h2>Invoice</h2>
-            <button onClick={() => window.print()}>Print</button>
+            <button className="hide-on-print" onClick={printReceipt}>Print</button>
           </div>
           <div className="custom-table-row">
             <div className="span12 well invoice-body">
@@ -86,7 +91,7 @@ const Invoice = () => {
                 <thead>
                   <tr>
                     <th>#sl</th>
-                    {/* <th>Room Type</th> */}
+                    <th>Room / House</th>
                     <th>Check In</th>
                     <th>Check Out</th>
                     <th>Pax Details</th>
@@ -96,7 +101,11 @@ const Invoice = () => {
                 <tbody>
                 {
                 invoice.BookedPlaces && 
-                invoice.BookedPlaces.map((item,index) => <InvoiceTeamplate item={item} key={index} index={index} />)
+                invoice.BookedPlaces.map((item,index) => <InvoiceTeamplate
+                 item={item}
+                 key={index} 
+                 index={index}
+                 />)
                 }
 
                </tbody>
@@ -105,27 +114,27 @@ const Invoice = () => {
             <div className="sum-table-for-invoice">
               <table className="table table-bordered small-table-sum">
                 <tbody>
-                  {/* <tr>
+                  <tr>
                     <td>SubTotal</td>
                     <td className="SubTotal-tab">
-                      <span>435435435</span>
+                      <span>{invoice.Amount}</span>
                     </td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td>Paid Amount</td>
                     <td className="SubTotal-tab">
                       <span>3452345</span>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>Unpaid Amount</td>
-                    <td className="SubTotal-tab">
-                      <span>1312342</span>
-                    </td>
                   </tr> */}
+                  <tr>
+                    <td>Incl.Tax</td>
+                    <td className="SubTotal-tab">
+                      <span>{newTax}</span>
+                    </td>
+                  </tr>
                   <tr className="grand-total">
                     <td>
-                      <strong>Grand Total (Incl.Tax)</strong>
+                      <strong>Grand Total</strong>
                     </td>
                     <td className="SubTotal-tab">
                       <strong>&#2547; {invoice.PayableAmount}</strong>

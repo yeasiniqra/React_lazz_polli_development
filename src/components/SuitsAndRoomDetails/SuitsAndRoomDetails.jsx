@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCottageSuitesSingle, getHouse } from '../../services/data-service';
 import PageHeader from '../PageHeader/PageHeader';
 import commonBg from '../../images/room.webp';
 import SuitsAndRoomDetailsTem from './SuitsAndRoomDetailsTem';

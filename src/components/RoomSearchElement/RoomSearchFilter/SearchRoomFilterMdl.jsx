@@ -64,9 +64,6 @@ const SearchRoomFilterMdl = ({RoomId, Type, setIsAvailble}) => {
 
   };
 
-
-  
-
   useEffect(() => {
     if (!mounted.current) {
         submitHandler(new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());

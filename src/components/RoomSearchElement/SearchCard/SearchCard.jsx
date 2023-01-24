@@ -62,14 +62,17 @@ const SearchCard = ({ item }) => {
             </div>
           </div>
         </div>
-        <div className="common-btn book-search-btn">
+        {
+          item.Type === 'ROOM' ? 
+          <>
+          <div className="common-btn book-search-btn">
           {!!!count && (
             <button onClick={isToggleClass} className="searchBtn">
               Book Room
             </button>
           )}
           {!!count && (
-            <div className={`add-tocart-overlay show`}>
+            <button className={`add-tocart-overlay show`}>
               <div className="inner-card-flex">
                 <div className="qty-holder2">
                   <span
@@ -87,13 +90,23 @@ const SearchCard = ({ item }) => {
                     className="qty-inc-btn2"
                     title="Inc button"
                   >
-                   <button className="book-btn" disabled={count === item.Available}> +</button>
+                   <button className="book-btn" disabled={count === item.Available}> + </button>
                   </span>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
+             </button>
+            )}
+          </div>
+          </>
+           : 
+          <>
+            <button onClick={isToggleClass} className="searchBtn">
+              Book Cottage
+            </button>
+          </>
+        }
+
+
       </div>
       
     </div>

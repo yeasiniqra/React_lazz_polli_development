@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { GET_HOUSE, GET_ROOMS } from '../../../lib/endpoints';
-import { getResortRoom, setHouses } from '../../../services/data-service';
+import { GET_ROOMS } from '../../../lib/endpoints';
+import { setHouses } from '../../../services/data-service';
 import { getV2 } from '../../../services/http-service-v2';
 import RoomCard from '../../RoomCard/RoomCard';
 import RoomSuitsMdl from '../../Sheared/CommonModal/RoomSuitsMdl';
@@ -27,7 +27,7 @@ const RoomGrid = () => {
         }
       });
     }, []);
-  
+
     useEffect(() => {
       if (!mounted.current) {
         getHouses();
