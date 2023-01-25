@@ -13,7 +13,7 @@ const ProfileNav = () => {
         navigate('/home')
     }
     return (
-        <div className='profile-nav'>
+        <div className='profile-nav hide-on-print'>
             <ProfileInfo />
             <div className='profile-nav-inner'>
             <ul>

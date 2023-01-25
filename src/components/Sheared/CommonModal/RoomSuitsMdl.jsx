@@ -8,7 +8,7 @@ import cartContext from "../../../store/cart-context";
 import RoomDetailsTemplate from "../../RoomDetails/RoomDetailsTemplate/RoomDetailsTemplate";
 import SearchRoomFilterMdl from "../../RoomSearchElement/RoomSearchFilter/SearchRoomFilterMdl";
 
-const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
+const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
   const { storeRoom } = useContext(cartContext);
   const { filters } = useContext(appContext);
   const [isAvaible, setIsAvailble] = useState(false)
@@ -17,6 +17,10 @@ const RoomSuitsMdl = ({ suitsAndRoom, setSuitsAndRoom }) => {
   const isToggleClass = () => {
     storeRoom({ ...suitsAndRoom, ...filters });
   };
+
+  const handleClose = () => {
+    setRoomdetails();
+  }
 
   const handleNavigate = () => {
     navigate('/checkout')
@@ -40,7 +44,7 @@ console.log(availbilityChangeHandler);
               {Name} 
             </h2>
             <label htmlFor="cottage">
-              <i className="fa fa-times" aria-hidden="true"></i>
+              <i onClick={handleClose} className="fa fa-times" aria-hidden="true"></i>
             </label>
           </div>
           <div className="modal-body-start">

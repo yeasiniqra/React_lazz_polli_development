@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 
-
 const SearchCard = ({ item }) => {
-  const { storeRoom, getQuantity, isInitiating, rooms, removeRoom } =
-    useContext(cartContext);
+  const {
+    storeRoom,
+    getQuantity,
+    isInitiating,
+    rooms,
+    removeRoom,
+    isHouseAdded,
+    isRoomAdded
+  } = useContext(cartContext);
   const { filters } = useContext(appContext);
 
   const [count, setCount] = useState(0);
@@ -36,7 +42,7 @@ const SearchCard = ({ item }) => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitiating, rooms]);
 
-  const calPrice = item.Type === 'ROOM' ? item.RoomPrice : item.Price
+  const calPrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
 
   return (
     <div className="min-items-inner-single">
@@ -52,63 +58,82 @@ const SearchCard = ({ item }) => {
             <p>Room Rates Exclusive of Ser. Chg. & VAT</p>
           </div>
           <div className="sp-right">
-            <h4>
-              BDT {calPrice}
-            </h4>
+            <h4>BDT {calPrice}</h4>
             <div className="card-adults">
-              <small> {item.Type === 'ROOM' ? item.AdultPerRoom : ''} {item.Type === 'ROOM' ? 'Adults' : ''}</small>
-              <small> {item.Type === 'ROOM' ? item.ChildrenPerRoom : 'Full'} {item.Type === 'ROOM' ? 'Child' : ''} </small>
-              <small> {item.Type === 'ROOM' ? item.Available - getQuantity(item.Id, item.Type) : 1} {item.Type === 'ROOM' ? 'Room' : 'Cottage'}</small>
+              <small>
+                {" "}
+                {item.Type === "ROOM" ? item.AdultPerRoom : ""}{" "}
+                {item.Type === "ROOM" ? "Adults" : ""}
+              </small>
+              <small>
+                {" "}
+                {item.Type === "ROOM" ? item.ChildrenPerRoom : "Full"}{" "}
+                {item.Type === "ROOM" ? "Child" : ""}{" "}
+              </small>
+              <small>
+                {" "}
+                {item.Type === "ROOM"
+                  ? item.Available - getQuantity(item.Id, item.Type)
+                  : 1}{" "}
+                {item.Type === "ROOM" ? "Room" : "Cottage"}
+              </small>
             </div>
           </div>
         </div>
-        {
-          item.Type === 'ROOM' ? 
+
+        {item.Type === "ROOM" ? (
           <>
-          <div className="common-btn book-search-btn">
-          {!!!count && (
-            <button onClick={isToggleClass} className="searchBtn">
-              Book Room
-            </button>
-          )}
-          {!!count && (
-            <button className={`add-tocart-overlay show`}>
-              <div className="inner-card-flex">
-                <div className="qty-holder2">
-                  <span
-                    onClick={DecOnClickedHandler}
-                    className="qty-dec-btn2"
-                    title="Dec button"
-                  >
-                   <button className="book-btn"> - </button>
-                  </span>
-                  <aside>
-                    <small>{count}</small>
-                  </aside>
-                  <span
-                    onClick={IncOnClickedHandler}
-                    className="qty-inc-btn2"
-                    title="Inc button"
-                  >
-                   <button className="book-btn" disabled={count === item.Available}> + </button>
-                  </span>
+            <div className="common-btn book-search-btn">
+              {!!!count && (
+                <button onClick={isToggleClass} className="searchBtn" disabled={isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)}>
+                  Book Room
+                </button>
+              )}
+              {!!count && (
+                <div className={`add-tocart-overlay show`}>
+                  <div className="inner-card-flex">
+                    <div className="qty-holder2">
+                      <span
+                        onClick={DecOnClickedHandler}
+                        className="qty-dec-btn2"
+                        title="Dec button"
+                      >
+                        <button className="book-btn"> - </button>
+                      </span>
+                      <aside>
+                        <small>{count}</small>
+                      </aside>
+                      <span
+                        onClick={IncOnClickedHandler}
+                        className="qty-inc-btn2"
+                        title="Inc button"
+                      >
+                        <button
+                          className="book-btn"
+                          disabled={count === item.Available}
+                        >
+                          {" "}
+                          +{" "}
+                        </button>
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-             </button>
-            )}
-          </div>
+              )}
+            </div>
           </>
-           : 
+        ) : (
           <>
-            <button onClick={isToggleClass} className="searchBtn">
+            <button
+              onClick={isToggleClass}
+              className="searchBtn"
+              disabled={isRoomAdded(item.Id, filters.arrivalDate, filters.departureDate) && item.Type === "HOUSE"}
+            >
               Book Cottage
             </button>
           </>
-        }
-
-
+        )}
       </div>
-      
     </div>
   );
 };

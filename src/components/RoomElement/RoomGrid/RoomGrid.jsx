@@ -55,7 +55,7 @@ const RoomGrid = () => {
                             roomdetails && 
                             <RoomSuitsMdl
                             suitsAndRoom={roomdetails}
-                           
+                            setRoomdetails={setRoomdetails}
                             />
                         }
                 </div>

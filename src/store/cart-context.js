@@ -1,5 +1,6 @@
 import { createContext } from "react";
 
+
 const cartContext = createContext({
     rooms: [],
     isInitiating: true,
@@ -7,7 +8,9 @@ const cartContext = createContext({
     storeRoom: (room, quantity) => {},
     removeRoom: (room) => {},
     getQuantity: (id, type) => {},
-    clear: () => {}
+    clear: () => {},
+    isHouseAdded: (id) => false,
+    isRoomAdded: (id) => false
 });
 
 

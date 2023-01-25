@@ -8,6 +8,7 @@ import logo from "../../../images/logo-black.png";
 import { GET_INVOICE } from "../../../lib/endpoints";
 import { humanizeDate } from "../../../lib/utils";
 import { getV2 } from "../../../services/http-service-v2";
+import { printInvoice } from "../../../services/invoice-service";
 import InvoiceTeamplate from "./InvoiceTeamplate";
 
 const Invoice = () => {
@@ -42,8 +43,11 @@ const Invoice = () => {
 const newTax = invoice.Amount * 0.15;
 
   const print = () => {
-    window.open("/invoice.html", "_blank");
+    // window.open("/invoice.html", "_blank");
+    printInvoice(invoice)
   };
+
+
 
   const printReceipt = () => {
     window.print();
@@ -54,7 +58,7 @@ const newTax = invoice.Amount * 0.15;
     <div id="page" className="order-invoice">
       <div className="order-invoice-ea">
         <div className="page">
-          <div className="custom-row-top">
+          <div className="custom-row-top invoice-container">
             <div className="span4">
               <img src={logo} alt="lazz polli resort no-print" className="no-print" />
               <img src={logo} alt="resort lazz polli print" className="print" />
@@ -67,13 +71,13 @@ const newTax = invoice.Amount * 0.15;
             <div className="span4 well">
               <table className="invoice-head">
                 <tbody>
-                  <tr>
-                    <td>OrderID # {invoice.Code}</td>
-                  </tr>
+                  
                   <tr>
                     <td>{invoice && invoice.FirstName}</td>
                   </tr>
-
+                  <tr>
+                    <td>OrderID # {invoice.Code}</td>
+                  </tr>
                   <tr>
                     <td>{humanizeDate(invoice.CreatedAt)}</td>
                   </tr>
@@ -83,7 +87,7 @@ const newTax = invoice.Amount * 0.15;
           </div>
           <div className="invoice">
             <h2>Invoice</h2>
-            <button className="hide-on-print" onClick={printReceipt}>Print</button>
+            <button className="hide-on-print" onClick={print}>Print</button>
           </div>
           <div className="custom-table-row">
             <div className="span12 well invoice-body">
@@ -120,12 +124,6 @@ const newTax = invoice.Amount * 0.15;
                       <span>{invoice.Amount}</span>
                     </td>
                   </tr>
-                  {/* <tr>
-                    <td>Paid Amount</td>
-                    <td className="SubTotal-tab">
-                      <span>3452345</span>
-                    </td>
-                  </tr> */}
                   <tr>
                     <td>Incl.Tax</td>
                     <td className="SubTotal-tab">

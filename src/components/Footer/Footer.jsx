@@ -5,11 +5,11 @@ import FooterTop from './FooterTemplate/FooterTop';
 
 const Footer = () => {
     return (
-        <>
+        <div className='hide-on-print'>
             <FooterTop />
             <FooterMiddle />
             <BackTotop />
-        </>
+        </div>
     );
 };
 

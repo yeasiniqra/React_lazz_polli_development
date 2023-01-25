@@ -10,12 +10,12 @@ const Header = () => {
         })
     ),[]);
     return (
-        <>
+        <div className='hide-on-print'>
             <div className={`main-header-area ${scroll && 'fade-in'}`}>
                 <HeaderTop /> 
                 <HeaderNav />
             </div>
-        </>
+        </div>
     );
 };
 

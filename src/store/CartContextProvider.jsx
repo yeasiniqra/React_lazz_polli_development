@@ -93,8 +93,8 @@ const reducer = (state, action) => {
       localStorage.removeItem(LOCAL_STORAGE_KEY.CART);
       return {
         ...state,
-        ...initialState
-      }
+        ...initialState,
+      };
     }
 
     default:
@@ -140,6 +140,29 @@ const CartContextProvider = ({ children }) => {
     dispatch({ type: CONTEXT_KEYS.CART_CLEAR });
   };
 
+  const isRoomAdded = (id, checkIn, checkOut) => {
+    return (
+      state.rooms.find(
+        (r) =>
+          r.Id === id &&
+          checkIn === r.arrivalDate &&
+          checkOut === r.departureDate
+      ) !== undefined
+    );
+  };
+
+  const isHouseAdded = (id, checkIn, checkOut) => {
+    return (
+      state.rooms.find(
+        (r) =>
+          r.Id === id &&
+          r.Type === "HOUSE" &&
+          checkIn === r.arrivalDate &&
+          checkOut === r.departureDate
+      ) !== undefined
+    );
+  };
+
   const context = {
     rooms: state.rooms,
     isInitiating: state.isInitiating,
@@ -148,6 +171,8 @@ const CartContextProvider = ({ children }) => {
     removeRoom,
     getQuantity,
     clear,
+    isRoomAdded,
+    isHouseAdded,
   };
 
   return (
