@@ -11,7 +11,7 @@ import { useRef } from 'react';
 
 const SuitsAndRoomDetails = () => {
     const {Id} = useParams();
-    const [suitsAndRoom, setSuitsAndRoom] = useState(null)
+    const [suitsAndRoom, setRoomdetails] = useState(null)
     const [roomSingle, setRoomSingle] = useState([]);
     const mounted = useRef(false)
   
@@ -45,15 +45,14 @@ const SuitsAndRoomDetails = () => {
                     <div className='cottage-room-details-grid'>
                         {
                             roomSingle &&
-                            <SuitsAndRoomDetailsTem SuitsAndRoomData={roomSingle} setSuitsAndRoom={setSuitsAndRoom} />
+                            <SuitsAndRoomDetailsTem SuitsAndRoomData={roomSingle} setRoomdetails={setRoomdetails} />
                         }
                           
-
                         {
                             suitsAndRoom && 
                             <RoomSuitsMdl
                             suitsAndRoom={suitsAndRoom}
-                            setSuitsAndRoom={setSuitsAndRoom}
+                            setRoomdetails={setRoomdetails}
                             />
                         }
                        

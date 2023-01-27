@@ -2,11 +2,15 @@ import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
+import { POST_CONVENTION_BOOKING } from "../../../lib/endpoints";
+import { postV2 } from "../../../services/http-service-v2";
+import Suspense from "../Suspense/Suspense";
 
 const ConventionMdl = ({ conventions }) => {
-  console.log(conventions.title);
+  // console.log(conventions.title);
   // console.log(storeSignupData);
 
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [phone, setPhone] = useState("");
@@ -68,7 +72,6 @@ const ConventionMdl = ({ conventions }) => {
 
   const conventionHandler = (e) => {
     e.preventDefault();
-
     let isValid = true;
     if (phone.length === 0) {
       setPhoneError(true);
@@ -87,18 +90,36 @@ const ConventionMdl = ({ conventions }) => {
       isValid = false;
     }
 
-    console.log({
-      fname: fname,
-      adults: adults,
+    const payload = {
+      StartingAt: startDate,
+      EndingAt: endDate,
+      Name : fname,
       phone: phone,
-      startDate: startDate,
-      endDate: endDate,
+      Person : adults,
+      Duration : 1,
       remark: remark,
-    });
+    }
+
+    postV2({url: POST_CONVENTION_BOOKING, payload})
+    .then(data => {
+      if(data.IsError){
+        toast.warning(data.Msg);
+      } else {
+        toast.success("Message Sent");
+      }
+    }).catch(err => {
+      toast.warning(err?.toString());
+    }).finally(() => {
+      // Loader Close
+      setIsLoading(false)
+    })
+
 
     if (!isValid) return;
     toast.success(`Your submission has been received. Our agent will call
       your number to reconfirm.`);
+
+    console.log(payload);  
   };
 
   return (
@@ -229,6 +250,7 @@ const ConventionMdl = ({ conventions }) => {
         </form>
         </div>
       </div>
+      {isLoading && <Suspense />}
     </div>
   );
 };

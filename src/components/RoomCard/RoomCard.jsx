@@ -10,8 +10,7 @@ const RoomCard = ({room, setRoomdetails}) => {
     <>
       <div className="choose-room-single-item">
             <img src={room.Images} alt="lazz polli resort" />
-          
-          <div className="room-content-x">
+            <div className="room-content-x">
               <h2>Book Single Room From - {room.Name}</h2>
               <h3>
                 {room.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
@@ -22,8 +21,7 @@ const RoomCard = ({room, setRoomdetails}) => {
                 <a>View Details</a>
                 </label>
               </div>
-
-          </div>
+           </div>
       </div>
 
       <div className="choose-room-single-item">

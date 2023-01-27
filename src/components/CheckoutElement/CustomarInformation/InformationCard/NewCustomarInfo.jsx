@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { countries } from "../../../../data/countries";
 import checkoutContext from "../../../../store/checkout-context";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
@@ -13,6 +13,7 @@ import { getV2, postV2 } from "../../../../services/http-service-v2";
 import authContext from "../../../../store/auth-context";
 import cartContext from "../../../../store/cart-context";
 import { useRef } from "react";
+import { toast } from "react-toastify";
 
 const NewCustomarInfo = () => {
   const { formValus, storeForms } = useContext(checkoutContext);
@@ -151,6 +152,7 @@ const NewCustomarInfo = () => {
       getProfileInfo();
       mounted.current = true;
   }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [mounted]);
 
 
@@ -207,11 +209,13 @@ const NewCustomarInfo = () => {
     }
     postV2({ url: POST_ROOM_BOOKING, payload }).then((data) => {
       if (!data.IsError) {
-        console.log(data)
-        window.location.href = data.Data.PaymentURL;
+        if (data.Data.PaymentURL === "") {
+          toast.warning(`Invalid Information`);
+        }else{
+          window.location.href = data.Data.PaymentURL;
+        }
         clear();
       } else {
-        console.log(data);
         setError('inside err', data.Msg);
       }
     });

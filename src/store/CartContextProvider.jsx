@@ -129,7 +129,6 @@ const CartContextProvider = ({ children }) => {
     dispatch({ type: CONTEXT_KEYS.CART_REMOVE_ROOM, room });
   };
 
-  // const roomFromStore = state.rooms.find((r) => r.Id === action.room.Id && action.room.type === r.type);
   const getQuantity = (id, type) => {
     const room = state.rooms.find((r) => r.Id === id && r.Type === type);
 

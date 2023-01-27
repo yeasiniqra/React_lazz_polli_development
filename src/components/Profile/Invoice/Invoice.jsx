@@ -43,16 +43,10 @@ const Invoice = () => {
 const newTax = invoice.Amount * 0.15;
 
   const print = () => {
-    // window.open("/invoice.html", "_blank");
     printInvoice(invoice)
   };
 
 
-
-  const printReceipt = () => {
-    window.print();
-    }
-  
 
   return (
     <div id="page" className="order-invoice">
@@ -87,7 +81,7 @@ const newTax = invoice.Amount * 0.15;
           </div>
           <div className="invoice">
             <h2>Invoice</h2>
-            <button className="hide-on-print" onClick={print}>Print</button>
+            <button className="hide-on-print" onClick={print}>Print Invoice</button>
           </div>
           <div className="custom-table-row">
             <div className="span12 well invoice-body">

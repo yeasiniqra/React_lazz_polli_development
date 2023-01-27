@@ -1,7 +1,6 @@
 import { humanizeDate } from "../lib/utils";
 
 export const printInvoice = (data) => {
-    console.log(data);
     const printWindow = window.open('', 'PRINT', 'height=800,width=1200');
     const HTML = generateHTML(data);
     printWindow.document.write(HTML);
@@ -37,8 +36,8 @@ const generateHTML = (data) => {
           /* box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); */
         }
         page[size="A4"] {
-          height: 297mm;
-          width: 210mm;
+          height: 150mm;
+          width: 180mm;
         }
         @media print {
           body,
@@ -73,22 +72,52 @@ const generateHTML = (data) => {
           align-items: center;
           margin-bottom: 2rem;
         }
+        tbody.table-grid tr td {
+          font-weight: 700;
+          font-family: tahoma;
+      }
         .table-grid > tr {
           display: grid;
-          grid-template-columns: 92px 1fr;
+          // grid-template-columns: 92px 1fr;
           place-items: inherit;
         }
         .invoice__top img {
-          width: 200px;
+          width: 80px;
         }
         .invoice__top h2 {
           font-size: 1.6rem;
         }
         .general-info {
           padding: 0.25rem;
-          background: #f5f5f5;
           border-radius: 0.25rem;
         }
+        .invoice__address h2 {
+            font-weight: 800;
+            font-family: tahoma;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .invoice__address address {
+            font-family: tahoma;
+            font-weight: 400;
+        }
+        table#products thead tr th {
+          font-weight: 700 !important;
+          font-family: tahoma !important;
+      }
+      table.table.table-bordered.small-table-sum tbody tr td {
+        font-family: tahoma;
+        font-weight: 400;
+    }
+    table.table.table-bordered.small-table-sum tbody tr td strong {
+      font-weight: 700;
+      font-family: tahoma;
+  }
+      table#products tbody tr td {
+        font-family: tahoma;
+        font-weight: 400;
+    }
+
         .invoice__top table {
           width: 100%;
         }
@@ -161,11 +190,10 @@ const generateHTML = (data) => {
           <div class="invoice__top">
             <div>
               <img src="/logo-black.png" alt="logo" class="lazz polli invoice logo" />
-              <div>
+              <div class="invoice__address">
                 <h2>Lazz Polloi Resort</h2>
                 <address>
-                  Hemayetpur Saver,
-                  Dhaka
+                    Lazz Polli Convention, Hemayetpur Saver
                 </address>
               </div>
             </div>
