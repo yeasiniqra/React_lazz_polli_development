@@ -8,7 +8,6 @@ import Suspense from "../../Sheared/Suspense/Suspense";
 
 const ContactForm = () => {
     const [isLoading, setIsLoading] = useState(false);
-  
     const title = {
       title : 'How Can We Help?',
     }
@@ -133,10 +132,10 @@ const ContactForm = () => {
 
         postV2({url: POST_CONTACT, payload})
         .then(data => {
-          if(data.IsError){
-            toast.warning(data.Msg);
-          } else {
+          if(!data.IsError){
             toast.success("Message Sent");
+          } else {
+            toast.warning(data.Msg);
           }
         }).catch(err => {
           toast.warning(err?.toString());
@@ -144,9 +143,6 @@ const ContactForm = () => {
           // Loader Close
           setIsLoading(false)
         })
-
-        
-       
       }
   
 

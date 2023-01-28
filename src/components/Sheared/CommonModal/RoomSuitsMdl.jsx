@@ -28,9 +28,9 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
 
  const availbilityChangeHandler = (isAvaible) => {
   setIsAvailble(isAvaible)
-  
  }
-console.log(availbilityChangeHandler);
+
+  // console.log(availbilityChangeHandler);
   const { Name } = suitsAndRoom;
 
   return (

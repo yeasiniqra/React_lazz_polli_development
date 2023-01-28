@@ -24,7 +24,7 @@ const SocialGroup = () => {
               className="messenger nav-link"
               target="_blank"
               rel="noreferrer"
-              href="https://rrr.com"
+              href="https://m.me/lazzpolli"
             >
               <FaFacebookMessenger />
             </a>
@@ -34,13 +34,13 @@ const SocialGroup = () => {
               className="whatapp nav-link"
               target="_blank"
               rel="noreferrer"
-              href="https://rrr.com"
+              href="https://wa.me/8801886136659"
             >
               <FaWhatsapp />
             </a>
           </li>
           <li className="list-group-item">
-            <a className="phnCall nav-link" href="https://rrr.com">
+            <a className="phnCall nav-link" href="tel:8801521561151">
               <FaPhoneAlt />
             </a>
           </li>

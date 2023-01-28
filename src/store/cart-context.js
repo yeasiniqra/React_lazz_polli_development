@@ -1,6 +1,5 @@
 import { createContext } from "react";
 
-
 const cartContext = createContext({
     rooms: [],
     isInitiating: true,

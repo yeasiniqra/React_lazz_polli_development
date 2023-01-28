@@ -12,7 +12,7 @@ const Signup = () => {
   const { open, storeSignupData } = useContext(authContext);
 
   // console.log(storeSignupData);
-
+  const [isExist, setIsExist] = useState(false);
   const [error, setError] = useState(null);
   const [isValid, setIsvalid] = useState(false)
 
@@ -92,11 +92,12 @@ const Signup = () => {
       if (!data.IsError) {
         setIsvalid(data.Data)
         if (data.Data) {
-          alert("Phone Number is Exist")
+          setIsExist(true);
+        } else {
+          setIsExist(false);
         }
       } else {
-       
-      }
+       }
     });
   };
 
@@ -167,6 +168,7 @@ const Signup = () => {
               <i className="fa fa-user" aria-hidden="true"></i>
             </div>
             <small>{phoneError ? 'Phone number is empty' : ' '}</small>
+            <small>{isExist ? 'Phone Number Already Exist' : ' '}</small>
           </label>
         </div>
         <div className={styles.auth_dialouge__error}>
@@ -185,7 +187,7 @@ const Signup = () => {
             </p>
           </div>
 
-           <button className={styles.LogInBtn} onClick={signupHandler} type={'button'} >Sign Up</button>
+           <button disabled={isExist} className={styles.LogInBtn} onClick={signupHandler} type={'button'} >Sign Up</button>
         </div>
       </form>
     </>

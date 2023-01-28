@@ -227,41 +227,42 @@ const APP_DATA = {
 
     ],
 
-    BestService:[
-        {
-            serviceName : "Restauramt",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Spa Salon",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Swimming Pool",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Buffet Facility",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Conference Room",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Fitness Zone",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Game Room",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        },
-        {
-            serviceName : "Game Room",
-            serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-        }
+    // BestService:[
+    //     {
+    //         serviceName : "Restauramt",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Spa Salon",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Swimming Pool",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Buffet Facility",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Conference Room",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Fitness Zone",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Game Room",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     },
+    //     {
+    //         serviceName : "Game Room",
+    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
+    //     }
 
-    ],
+    // ],
+
     AboutStory:[
         {
             aboutImages:[
@@ -424,946 +425,902 @@ const APP_DATA = {
                 },
             ]
         },
-        // {
-        //     spaa: [
-        //         {
-        //             image : galleryOne,
-        //         },
-        //         {
-        //             image : galleryTwo,
-        //         },
-        //         {
-        //             image : galleryThree,
-        //         },
-        //         {
-        //             image : galleryFour,
-        //         },
-        //         {
-        //             image : galleryFive,
-        //         },
-        //         {
-        //             image : gallerySix,
-        //         },
-        //     ]
-        // },
-        // {
-        //     reviews: [
-        //         {
-        //             image : galleryOne,
-        //         },
-        //         {
-        //             image : galleryTwo,
-        //         },
-        //         {
-        //             image : galleryThree,
-        //         },
-        //         {
-        //             image : galleryFour,
-        //         },
-        //         {
-        //             image : galleryFive,
-        //         },
-        //         {
-        //             image : gallerySix,
-        //         },
-        //     ]
-        // },
-       
     ],
-    roomSearchCard:[
-        {
-            Id : 0,
-            image : raniyaFour,
-            title : 'Book Single Room From - Rania House',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            RoomPrice : 4500,
-            adults : 2,
-            child : 1,
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room',
-            quantity : 0
-        },
-        {
-            Id : 1,
-            image : raniyaFive,
-            title : 'Book Entire - Rania House',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            Price : 32000,
-            adults : 2,
-            child : 1,
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room',
-            quantity : 0
-        },
-        {
-            Id : 2,
-            image : dbldomFour,
-            title : 'Book Single Room From - Double Dom',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            RoomPrice : 4500,
-            adults : 2,
-            child : 1,
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room',
-            quantity : 0
-        },
-        {
-            Id : 3,
-            image : dbldomFive,
-            title : 'Book Entire - Double Dom',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            Price : 10000,
-            adults : 2,
-            child : 1,
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room',
-            quantity : 0
-        },
-        {
-            Id : 4,
-            image : mudFour,
-            title : 'Book Single Room From - Mud House',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            RoomPrice : 2000,
-            adults : 2,
-            child : 1,  
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room', 
-            quantity : 0
-        },
-        {
-            Id : 5,
-            image : mudFive,
-            title : 'Book Entire - Mud House',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            Price : 2000,
-            adults : 2,
-            child : 1,  
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room', 
-            quantity : 0
-        },
-        {
-            Id : 38,
-            image : ichamotiFour,
-            title : 'Book Single Room From - Ichamoti House',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            RoomPrice : 4500,
-            adults : 2,
-            child : 1,  
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room', 
-            quantity : 0
-        },
-        {
-            Id : 39,
-            image : ichamotiFive,
-            title : 'Book Entire - Ichamoti House',
-            roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
-            Price : 32000,
-            adults : 2,
-            child : 1,  
-            room : 1,
-            btnLink : '#',
-            btnText : 'Book Room', 
-            quantity : 0
-        }
+    // roomSearchCard:[
+    //     {
+    //         Id : 0,
+    //         image : raniyaFour,
+    //         title : 'Book Single Room From - Rania House',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         RoomPrice : 4500,
+    //         adults : 2,
+    //         child : 1,
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room',
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 1,
+    //         image : raniyaFive,
+    //         title : 'Book Entire - Rania House',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         Price : 32000,
+    //         adults : 2,
+    //         child : 1,
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room',
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 2,
+    //         image : dbldomFour,
+    //         title : 'Book Single Room From - Double Dom',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         RoomPrice : 4500,
+    //         adults : 2,
+    //         child : 1,
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room',
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 3,
+    //         image : dbldomFive,
+    //         title : 'Book Entire - Double Dom',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         Price : 10000,
+    //         adults : 2,
+    //         child : 1,
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room',
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 4,
+    //         image : mudFour,
+    //         title : 'Book Single Room From - Mud House',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         RoomPrice : 2000,
+    //         adults : 2,
+    //         child : 1,  
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room', 
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 5,
+    //         image : mudFive,
+    //         title : 'Book Entire - Mud House',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         Price : 2000,
+    //         adults : 2,
+    //         child : 1,  
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room', 
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 38,
+    //         image : ichamotiFour,
+    //         title : 'Book Single Room From - Ichamoti House',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         RoomPrice : 4500,
+    //         adults : 2,
+    //         child : 1,  
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room', 
+    //         quantity : 0
+    //     },
+    //     {
+    //         Id : 39,
+    //         image : ichamotiFive,
+    //         title : 'Book Entire - Ichamoti House',
+    //         roomRateTitle : 'Room Rates Exclusive of Ser. Chg. & VAT',
+    //         Price : 32000,
+    //         adults : 2,
+    //         child : 1,  
+    //         room : 1,
+    //         btnLink : '#',
+    //         btnText : 'Book Room', 
+    //         quantity : 0
+    //     }
 
 
-    ],
+    // ],
 
 
-    ResortRoom:[
-        {
-            Id: 0,
-            image : raniyaFour,
-            title : "Book Single Room From - Rania House",
-            amount : 4500,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : raniyaFour,
-                        },
-                        {
-                            image : raniyaFive,
-                        },
+    // ResortRoom:[
+    //     {
+    //         Id: 0,
+    //         image : raniyaFour,
+    //         title : "Book Single Room From - Rania House",
+    //         amount : 4500,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : raniyaFour,
+    //                     },
+    //                     {
+    //                         image : raniyaFive,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room description Rania House ',
-                    description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                    subTitle : 'Room Services'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Swimming Pool access included"},
-                        { serviceTitle : "Comfortable lounge"},
-                        { serviceTitle : "Outdoor Playground"},
-                        { serviceTitle : "Flat-screen TV with cable channels"},
-                        { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                        { serviceTitle : "Modern bathroom with shower"},
-                        { serviceTitle : "Free Wifi internet access"},
-                        { serviceTitle : "Excellent Room Service "},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "Ceiling Fan"},
-                        { serviceTitle : "Outdoor Sports"},
-                    ],
-                    additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 1,
-            image : raniyaFive,
-            title : "Book Entire - Rania House",
-            amount : 32000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : raniyaFour,
-                        },
-                        {
-                            image : raniyaFive,
-                        },
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room description Rania House ',
+    //                 description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                 subTitle : 'Room Services'
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : "Swimming Pool access included"},
+    //                     { serviceTitle : "Comfortable lounge"},
+    //                     { serviceTitle : "Outdoor Playground"},
+    //                     { serviceTitle : "Flat-screen TV with cable channels"},
+    //                     { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                     { serviceTitle : "Modern bathroom with shower"},
+    //                     { serviceTitle : "Free Wifi internet access"},
+    //                     { serviceTitle : "Excellent Room Service "},
+    //                     { serviceTitle : "fully AC"},
+    //                     { serviceTitle : "Ceiling Fan"},
+    //                     { serviceTitle : "Outdoor Sports"},
+    //                 ],
+    //                 additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 1,
+    //         image : raniyaFive,
+    //         title : "Book Entire - Rania House",
+    //         amount : 32000,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : raniyaFour,
+    //                     },
+    //                     {
+    //                         image : raniyaFive,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room description Rania House ',
-                    description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                    subTitle : 'Room Services'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Swimming Pool access included"},
-                        { serviceTitle : "Comfortable lounge"},
-                        { serviceTitle : "Outdoor Playground"},
-                        { serviceTitle : "Flat-screen TV with cable channels"},
-                        { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                        { serviceTitle : "Modern bathroom with shower"},
-                        { serviceTitle : "Free Wifi internet access"},
-                        { serviceTitle : "Excellent Room Service "},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "Ceiling Fan"},
-                        { serviceTitle : "Outdoor Sports"},
-                    ],
-                    additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 2,
-            image : dbldomFour,
-            title : "Book Single Room From - Double Dom",
-            amount : 4500,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : dbldomFive,
-                        },
-                        {
-                            image : dbldomFour,
-                        },
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room description Rania House ',
+    //                 description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                 subTitle : 'Room Services'
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : "Swimming Pool access included"},
+    //                     { serviceTitle : "Comfortable lounge"},
+    //                     { serviceTitle : "Outdoor Playground"},
+    //                     { serviceTitle : "Flat-screen TV with cable channels"},
+    //                     { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                     { serviceTitle : "Modern bathroom with shower"},
+    //                     { serviceTitle : "Free Wifi internet access"},
+    //                     { serviceTitle : "Excellent Room Service "},
+    //                     { serviceTitle : "fully AC"},
+    //                     { serviceTitle : "Ceiling Fan"},
+    //                     { serviceTitle : "Outdoor Sports"},
+    //                 ],
+    //                 additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 2,
+    //         image : dbldomFour,
+    //         title : "Book Single Room From - Double Dom",
+    //         amount : 4500,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : dbldomFive,
+    //                     },
+    //                     {
+    //                         image : dbldomFour,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room Description Double Dom',
-                    description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
-                    subTitle : 'Room Services'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Swimming Pool access included"},
-                        { serviceTitle : "Separate kitchen and dining room "},
-                        { serviceTitle : "Outdoor Playground"},
-                        { serviceTitle : "Flat-screen TV with cable channels"},
-                        { serviceTitle : "Fridge stocked with snacks and drinks"},
-                        { serviceTitle : "Modern bathroom with shower"},
-                        { serviceTitle : "Free Wifi internet access"},
-                        { serviceTitle : "Excellent Room Service "},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "Ceiling Fan"},
-                        { serviceTitle : "Outdoor Sports"},
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room Description Double Dom',
+    //                 description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+    //                 subTitle : 'Room Services'
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : "Swimming Pool access included"},
+    //                     { serviceTitle : "Separate kitchen and dining room "},
+    //                     { serviceTitle : "Outdoor Playground"},
+    //                     { serviceTitle : "Flat-screen TV with cable channels"},
+    //                     { serviceTitle : "Fridge stocked with snacks and drinks"},
+    //                     { serviceTitle : "Modern bathroom with shower"},
+    //                     { serviceTitle : "Free Wifi internet access"},
+    //                     { serviceTitle : "Excellent Room Service "},
+    //                     { serviceTitle : "fully AC"},
+    //                     { serviceTitle : "Ceiling Fan"},
+    //                     { serviceTitle : "Outdoor Sports"},
                         
-                    ],
-                    additional : ""
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 3,
-            image : dbldomFive,
-            title : "Book Entire - Double Dom",
-            amount : 10000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : dbldomFour,
-                        },
-                        {
-                            image : dbldomFive,
-                        },
+    //                 ],
+    //                 additional : ""
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 3,
+    //         image : dbldomFive,
+    //         title : "Book Entire - Double Dom",
+    //         amount : 10000,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : dbldomFour,
+    //                     },
+    //                     {
+    //                         image : dbldomFive,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room Description Double Dom',
-                    description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
-                    subTitle : 'Room Services'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Swimming Pool access included"},
-                        { serviceTitle : "Separate kitchen and dining room "},
-                        { serviceTitle : "Outdoor Playground"},
-                        { serviceTitle : "Flat-screen TV with cable channels"},
-                        { serviceTitle : "Fridge stocked with snacks and drinks"},
-                        { serviceTitle : "Modern bathroom with shower"},
-                        { serviceTitle : "Free Wifi internet access"},
-                        { serviceTitle : "Excellent Room Service "},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "Ceiling Fan"},
-                        { serviceTitle : "Outdoor Sports"},
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room Description Double Dom',
+    //                 description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+    //                 subTitle : 'Room Services'
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : "Swimming Pool access included"},
+    //                     { serviceTitle : "Separate kitchen and dining room "},
+    //                     { serviceTitle : "Outdoor Playground"},
+    //                     { serviceTitle : "Flat-screen TV with cable channels"},
+    //                     { serviceTitle : "Fridge stocked with snacks and drinks"},
+    //                     { serviceTitle : "Modern bathroom with shower"},
+    //                     { serviceTitle : "Free Wifi internet access"},
+    //                     { serviceTitle : "Excellent Room Service "},
+    //                     { serviceTitle : "fully AC"},
+    //                     { serviceTitle : "Ceiling Fan"},
+    //                     { serviceTitle : "Outdoor Sports"},
                         
-                    ],
-                    additional : ""
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 4,
-            image : mudFour,
-            title : "Book Single Room From - Mud House",
-            amount : 2000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : mudFive,
-                        },
-                        {
-                            image : mudFour,
-                        },
+    //                 ],
+    //                 additional : ""
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 4,
+    //         image : mudFour,
+    //         title : "Book Single Room From - Mud House",
+    //         amount : 2000,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : mudFive,
+    //                     },
+    //                     {
+    //                         image : mudFour,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room Description Mud House',
-                    description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
-                    subTitle : ''
-                },
-                {
-                    roomService : [
-                        { serviceTitle : ""},
-                    ],
-                    additional : ""
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 5,
-            image : mudFive,
-            title : "Book Entire - Mud House",
-            amount : 2000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : mudFive,
-                        },
-                        {
-                            image : mudFour,
-                        },
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room Description Mud House',
+    //                 description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
+    //                 subTitle : ''
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : ""},
+    //                 ],
+    //                 additional : ""
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 5,
+    //         image : mudFive,
+    //         title : "Book Entire - Mud House",
+    //         amount : 2000,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : mudFive,
+    //                     },
+    //                     {
+    //                         image : mudFour,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room Description Mud House',
-                    description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
-                    subTitle : ''
-                },
-                {
-                    roomService : [
-                        { serviceTitle : ""},
-                    ],
-                    additional : ""
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 55,
-            image : ichamotiFour,
-            title : "Book Single Room From - Ichamoti House",
-            amount : 4500,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : ichamotiFive,
-                        },
-                        {
-                            image : ichamotiFour,
-                        },
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room Description Mud House',
+    //                 description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
+    //                 subTitle : ''
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : ""},
+    //                 ],
+    //                 additional : ""
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 55,
+    //         image : ichamotiFour,
+    //         title : "Book Single Room From - Ichamoti House",
+    //         amount : 4500,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : ichamotiFive,
+    //                     },
+    //                     {
+    //                         image : ichamotiFour,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room description Ichamoti House ',
-                    description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                    subTitle : 'Room Services'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Swimming Pool access included"},
-                        { serviceTitle : "Comfortable lounge"},
-                        { serviceTitle : "Outdoor Playground"},
-                        { serviceTitle : "Flat-screen TV with cable channels"},
-                        { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                        { serviceTitle : "Modern bathroom with shower"},
-                        { serviceTitle : "Free Wifi internet access"},
-                        { serviceTitle : "Excellent Room Service "},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "Ceiling Fan"},
-                        { serviceTitle : "Outdoor Sports"},
-                    ],
-                    additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
-        {
-            Id: 56,
-            image : ichamotiFive,
-            title : "Book Entire - Ichamoti House",
-            amount : 32000,
-            dayNight : "Night",
-            btnText : "View details",
-            roomSingle : [
-                {
-                    images : [
-                        {
-                            image : ichamotiFour,
-                        },
-                        {
-                            image : ichamotiFive,
-                        },
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room description Ichamoti House ',
+    //                 description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                 subTitle : 'Room Services'
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : "Swimming Pool access included"},
+    //                     { serviceTitle : "Comfortable lounge"},
+    //                     { serviceTitle : "Outdoor Playground"},
+    //                     { serviceTitle : "Flat-screen TV with cable channels"},
+    //                     { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                     { serviceTitle : "Modern bathroom with shower"},
+    //                     { serviceTitle : "Free Wifi internet access"},
+    //                     { serviceTitle : "Excellent Room Service "},
+    //                     { serviceTitle : "fully AC"},
+    //                     { serviceTitle : "Ceiling Fan"},
+    //                     { serviceTitle : "Outdoor Sports"},
+    //                 ],
+    //                 additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         Id: 56,
+    //         image : ichamotiFive,
+    //         title : "Book Entire - Ichamoti House",
+    //         amount : 32000,
+    //         dayNight : "Night",
+    //         btnText : "View details",
+    //         roomSingle : [
+    //             {
+    //                 images : [
+    //                     {
+    //                         image : ichamotiFour,
+    //                     },
+    //                     {
+    //                         image : ichamotiFive,
+    //                     },
 
-                    ]
-                },
-                {
-                    title : 'Room description Ichamoti House ',
-                    description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                    subTitle : 'Room Services'
-                },
-                {
-                    roomService : [
-                        { serviceTitle : "Swimming Pool access included"},
-                        { serviceTitle : "Comfortable lounge"},
-                        { serviceTitle : "Outdoor Playground"},
-                        { serviceTitle : "Flat-screen TV with cable channels"},
-                        { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                        { serviceTitle : "Modern bathroom with shower"},
-                        { serviceTitle : "Free Wifi internet access"},
-                        { serviceTitle : "Excellent Room Service "},
-                        { serviceTitle : "fully AC"},
-                        { serviceTitle : "Ceiling Fan"},
-                        { serviceTitle : "Outdoor Sports"},
-                    ],
-                    additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
-                },
-                {
-                    infoTab : 'Additional Information',
-                    reviewTab : 'Reviews'
-                }
-            ]
-        },
+    //                 ]
+    //             },
+    //             {
+    //                 title : 'Room description Ichamoti House ',
+    //                 description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                 subTitle : 'Room Services'
+    //             },
+    //             {
+    //                 roomService : [
+    //                     { serviceTitle : "Swimming Pool access included"},
+    //                     { serviceTitle : "Comfortable lounge"},
+    //                     { serviceTitle : "Outdoor Playground"},
+    //                     { serviceTitle : "Flat-screen TV with cable channels"},
+    //                     { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                     { serviceTitle : "Modern bathroom with shower"},
+    //                     { serviceTitle : "Free Wifi internet access"},
+    //                     { serviceTitle : "Excellent Room Service "},
+    //                     { serviceTitle : "fully AC"},
+    //                     { serviceTitle : "Ceiling Fan"},
+    //                     { serviceTitle : "Outdoor Sports"},
+    //                 ],
+    //                 additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
+    //             },
+    //             {
+    //                 infoTab : 'Additional Information',
+    //                 reviewTab : 'Reviews'
+    //             }
+    //         ]
+    //     },
         
-    ],
+    // ],
 
 
-    CottageSuits : [
-        { 
-           Id : 11,
-           images : [
-            {image : raniyaOne},
-            {image : raniyaTwo},
-            {image : raniyaThree},
-           ],
-           title : 'Rania House',
-           desc : 'Welcome to our luxurious Rania House hotel rooms! Nestled in a picturesque setting, Rania House offers the perfect blend of comfort and style. Rania house features 9 of our most exclusive bedrooms, kitchen, dining room, and common living space. Additionally, Rania house features a large convention hall to host large corporate events. ',
-           cottagesTitle : 'Rania house specials:',
-           cottagesSpecials : [
-               {  title : 'All Bookings include swimming pool access'},       
-               {  title : 'Panoramic view of sunrise and sunset '},       
-               {  title : 'Breathtaking views of Lazz Polli’s greenery'}, 
-               {  title : '24 hour room service'},             
-           ],
-           link : '/room',
-           btnText : 'View Rania House',
-           CottageSuitsSingle : [
-              {
-                Id: 12,
-                image : raniyaFour,
-                title : "Book Single Room From - Rania House",
-                amount : 4500,
-                dayNight : "Night",
-                quantity : 0,
-                roomSingle : [
-                    {
-                        images : [
-                            {
-                                image : raniyaFour,
-                            },
-                            {
-                                image : raniyaFive,
-                            },
-                        ]
-                    },
-                    {
-                        title : 'Room description Rania House ',
-                        description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                        subTitle : 'Room Services'
-                    },
-                    {
-                        roomService : [
-                            { serviceTitle : "Swimming Pool access included"},
-                            { serviceTitle : "Comfortable lounge"},
-                            { serviceTitle : "Outdoor Playground"},
-                            { serviceTitle : "Flat-screen TV with cable channels"},
-                            { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                            { serviceTitle : "Modern bathroom with shower"},
-                            { serviceTitle : "Free Wifi internet access"},
-                            { serviceTitle : "Excellent Room Service "},
-                            { serviceTitle : "fully AC"},
-                            { serviceTitle : "Ceiling Fan"},
-                            { serviceTitle : "Outdoor Sports"},
-                        ],
-                        additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
-                    },
-                    {
-                        infoTab : 'Additional Information',
-                        reviewTab : 'Reviews'
-                    }
-                ]
-              },
-              {
-                Id: 13,
-                image : raniyaFive,
-                title : "Book Entire - Rania House",
-                amount : 32000,
-                dayNight : "Night",
-                quantity : 0,
-                roomSingle : [
-                    {
-                        images : [
-                            {
-                                image : raniyaFive,
-                            },
-                            {
-                                image : raniyaFour,
-                            },
-                        ]
-                    },
-                    {
-                        title : 'Room description Rania House ',
-                        description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                        subTitle : 'Room Services'
-                    },
-                    {
-                        roomService : [
-                            { serviceTitle : "Swimming Pool access included"},
-                            { serviceTitle : "Comfortable lounge"},
-                            { serviceTitle : "Outdoor Playground"},
-                            { serviceTitle : "Flat-screen TV with cable channels"},
-                            { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                            { serviceTitle : "Modern bathroom with shower"},
-                            { serviceTitle : "Free Wifi internet access"},
-                            { serviceTitle : "Excellent Room Service "},
-                            { serviceTitle : "fully AC"},
-                            { serviceTitle : "Ceiling Fan"},
-                            { serviceTitle : "Outdoor Sports"},
-                        ],
-                        additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
-                    },
-                    {
-                        infoTab : 'Additional Information',
-                        reviewTab : 'Reviews'
-                    }
-                ]
-              },
-           ]
+    // CottageSuits : [
+    //     { 
+    //        Id : 11,
+    //        images : [
+    //         {image : raniyaOne},
+    //         {image : raniyaTwo},
+    //         {image : raniyaThree},
+    //        ],
+    //        title : 'Rania House',
+    //        desc : 'Welcome to our luxurious Rania House hotel rooms! Nestled in a picturesque setting, Rania House offers the perfect blend of comfort and style. Rania house features 9 of our most exclusive bedrooms, kitchen, dining room, and common living space. Additionally, Rania house features a large convention hall to host large corporate events. ',
+    //        cottagesTitle : 'Rania house specials:',
+    //        cottagesSpecials : [
+    //            {  title : 'All Bookings include swimming pool access'},       
+    //            {  title : 'Panoramic view of sunrise and sunset '},       
+    //            {  title : 'Breathtaking views of Lazz Polli’s greenery'}, 
+    //            {  title : '24 hour room service'},             
+    //        ],
+    //        link : '/room',
+    //        btnText : 'View Rania House',
+    //        CottageSuitsSingle : [
+    //           {
+    //             Id: 12,
+    //             image : raniyaFour,
+    //             title : "Book Single Room From - Rania House",
+    //             amount : 4500,
+    //             dayNight : "Night",
+    //             quantity : 0,
+    //             roomSingle : [
+    //                 {
+    //                     images : [
+    //                         {
+    //                             image : raniyaFour,
+    //                         },
+    //                         {
+    //                             image : raniyaFive,
+    //                         },
+    //                     ]
+    //                 },
+    //                 {
+    //                     title : 'Room description Rania House ',
+    //                     description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                     subTitle : 'Room Services'
+    //                 },
+    //                 {
+    //                     roomService : [
+    //                         { serviceTitle : "Swimming Pool access included"},
+    //                         { serviceTitle : "Comfortable lounge"},
+    //                         { serviceTitle : "Outdoor Playground"},
+    //                         { serviceTitle : "Flat-screen TV with cable channels"},
+    //                         { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                         { serviceTitle : "Modern bathroom with shower"},
+    //                         { serviceTitle : "Free Wifi internet access"},
+    //                         { serviceTitle : "Excellent Room Service "},
+    //                         { serviceTitle : "fully AC"},
+    //                         { serviceTitle : "Ceiling Fan"},
+    //                         { serviceTitle : "Outdoor Sports"},
+    //                     ],
+    //                     additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
+    //                 },
+    //                 {
+    //                     infoTab : 'Additional Information',
+    //                     reviewTab : 'Reviews'
+    //                 }
+    //             ]
+    //           },
+    //           {
+    //             Id: 13,
+    //             image : raniyaFive,
+    //             title : "Book Entire - Rania House",
+    //             amount : 32000,
+    //             dayNight : "Night",
+    //             quantity : 0,
+    //             roomSingle : [
+    //                 {
+    //                     images : [
+    //                         {
+    //                             image : raniyaFive,
+    //                         },
+    //                         {
+    //                             image : raniyaFour,
+    //                         },
+    //                     ]
+    //                 },
+    //                 {
+    //                     title : 'Room description Rania House ',
+    //                     description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                     subTitle : 'Room Services'
+    //                 },
+    //                 {
+    //                     roomService : [
+    //                         { serviceTitle : "Swimming Pool access included"},
+    //                         { serviceTitle : "Comfortable lounge"},
+    //                         { serviceTitle : "Outdoor Playground"},
+    //                         { serviceTitle : "Flat-screen TV with cable channels"},
+    //                         { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                         { serviceTitle : "Modern bathroom with shower"},
+    //                         { serviceTitle : "Free Wifi internet access"},
+    //                         { serviceTitle : "Excellent Room Service "},
+    //                         { serviceTitle : "fully AC"},
+    //                         { serviceTitle : "Ceiling Fan"},
+    //                         { serviceTitle : "Outdoor Sports"},
+    //                     ],
+    //                     additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Rania House today and experience the ultimate in relaxation and luxury!"
+    //                 },
+    //                 {
+    //                     infoTab : 'Additional Information',
+    //                     reviewTab : 'Reviews'
+    //                 }
+    //             ]
+    //           },
+    //        ]
 
-        },
-        { 
-            Id : 14,
-            images : [
-                {image : dbldomOne},
-                {image : dbldomTwo},
-                {image : dbldomThree},
-               ],
-            title : 'Double Dom (Private Suite)',
-            desc : 'Welcome to the Double Dom private suite at Lazz Polli resort! Nestled in a secluded corner of the property, this spacious and elegantly appointed suite offers the ultimate in privacy and comfort.',
-            cottagesTitle : 'Double Dom Private Suite Specials:',
-            cottagesSpecials : [
-                {  title : '3 rooms with a king-size bed '},       
-                {  title : 'Cozy living area, and with stunning views '},       
-                {  title : 'Perfect retreat for small families or solo travelers seeking a relaxing and intimate getaway.'},              
-            ],
-            link : '/room',
-            btnText : 'View Double Dom',
-            CottageSuitsSingle : [
-                {
-                    Id: 15,
-                    image : dbldomFour,
-                    title : "Book Single Room From - Double Dom",
-                    amount : 4500,
-                    dayNight : "Night",
-                    quantity : 0,
-                    roomSingle : [
-                        {
-                            images : [
-                                {
-                                    image : dbldomFour,
-                                },
-                                {
-                                    image : dbldomFive,
-                                },
-                            ]
-                        },
-                        {
-                            title : 'Room Description Double Dom',
-                            description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
-                            subTitle : 'Room Services'
-                        },
-                        {
-                            roomService : [
-                                { serviceTitle : "Swimming Pool access included"},
-                                { serviceTitle : "Separate kitchen and dining room "},
-                                { serviceTitle : "Outdoor Playground"},
-                                { serviceTitle : "Flat-screen TV with cable channels"},
-                                { serviceTitle : "Fridge stocked with snacks and drinks"},
-                                { serviceTitle : "Modern bathroom with shower"},
-                                { serviceTitle : "Free Wifi internet access"},
-                                { serviceTitle : "Excellent Room Service "},
-                                { serviceTitle : "fully AC"},
-                                { serviceTitle : "Ceiling Fan"},
-                                { serviceTitle : "Outdoor Sports"},
+    //     },
+    //     { 
+    //         Id : 14,
+    //         images : [
+    //             {image : dbldomOne},
+    //             {image : dbldomTwo},
+    //             {image : dbldomThree},
+    //            ],
+    //         title : 'Double Dom (Private Suite)',
+    //         desc : 'Welcome to the Double Dom private suite at Lazz Polli resort! Nestled in a secluded corner of the property, this spacious and elegantly appointed suite offers the ultimate in privacy and comfort.',
+    //         cottagesTitle : 'Double Dom Private Suite Specials:',
+    //         cottagesSpecials : [
+    //             {  title : '3 rooms with a king-size bed '},       
+    //             {  title : 'Cozy living area, and with stunning views '},       
+    //             {  title : 'Perfect retreat for small families or solo travelers seeking a relaxing and intimate getaway.'},              
+    //         ],
+    //         link : '/room',
+    //         btnText : 'View Double Dom',
+    //         CottageSuitsSingle : [
+    //             {
+    //                 Id: 15,
+    //                 image : dbldomFour,
+    //                 title : "Book Single Room From - Double Dom",
+    //                 amount : 4500,
+    //                 dayNight : "Night",
+    //                 quantity : 0,
+    //                 roomSingle : [
+    //                     {
+    //                         images : [
+    //                             {
+    //                                 image : dbldomFour,
+    //                             },
+    //                             {
+    //                                 image : dbldomFive,
+    //                             },
+    //                         ]
+    //                     },
+    //                     {
+    //                         title : 'Room Description Double Dom',
+    //                         description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+    //                         subTitle : 'Room Services'
+    //                     },
+    //                     {
+    //                         roomService : [
+    //                             { serviceTitle : "Swimming Pool access included"},
+    //                             { serviceTitle : "Separate kitchen and dining room "},
+    //                             { serviceTitle : "Outdoor Playground"},
+    //                             { serviceTitle : "Flat-screen TV with cable channels"},
+    //                             { serviceTitle : "Fridge stocked with snacks and drinks"},
+    //                             { serviceTitle : "Modern bathroom with shower"},
+    //                             { serviceTitle : "Free Wifi internet access"},
+    //                             { serviceTitle : "Excellent Room Service "},
+    //                             { serviceTitle : "fully AC"},
+    //                             { serviceTitle : "Ceiling Fan"},
+    //                             { serviceTitle : "Outdoor Sports"},
                                 
-                            ],
-                            additional : ""
-                        },
-                        {
-                            infoTab : 'Additional Information',
-                            reviewTab : 'Reviews'
-                        }
-                    ]
-                  },
-                  {
-                    Id: 16,
-                    image : dbldomFive,
-                    title : "Book Entire - Double Dom",
-                    amount : 10000,
-                    dayNight : "Night",
-                    quantity : 0,
-                    roomSingle : [
-                        {
-                            images : [
-                                {
-                                    image : dbldomFive,
-                                },
-                                {
-                                    image : dbldomFour,
-                                },
-                            ]
-                        },
-                        {
-                            title : 'Room Description Double Dom',
-                            description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
-                            subTitle : 'Room Services'
-                        },
-                        {
-                            roomService : [
-                                { serviceTitle : "Swimming Pool access included"},
-                                { serviceTitle : "Separate kitchen and dining room "},
-                                { serviceTitle : "Outdoor Playground"},
-                                { serviceTitle : "Flat-screen TV with cable channels"},
-                                { serviceTitle : "Fridge stocked with snacks and drinks"},
-                                { serviceTitle : "Modern bathroom with shower"},
-                                { serviceTitle : "Free Wifi internet access"},
-                                { serviceTitle : "Excellent Room Service "},
-                                { serviceTitle : "fully AC"},
-                                { serviceTitle : "Ceiling Fan"},
-                                { serviceTitle : "Outdoor Sports"},
+    //                         ],
+    //                         additional : ""
+    //                     },
+    //                     {
+    //                         infoTab : 'Additional Information',
+    //                         reviewTab : 'Reviews'
+    //                     }
+    //                 ]
+    //               },
+    //               {
+    //                 Id: 16,
+    //                 image : dbldomFive,
+    //                 title : "Book Entire - Double Dom",
+    //                 amount : 10000,
+    //                 dayNight : "Night",
+    //                 quantity : 0,
+    //                 roomSingle : [
+    //                     {
+    //                         images : [
+    //                             {
+    //                                 image : dbldomFive,
+    //                             },
+    //                             {
+    //                                 image : dbldomFour,
+    //                             },
+    //                         ]
+    //                     },
+    //                     {
+    //                         title : 'Room Description Double Dom',
+    //                         description : "Double Dom includes a fully equipped kitchenette, perfect for preparing meals or enjoying a quiet night in. For those who prefer to dine out, Lazz Polli offers a variety of dining options, including a gourmet restaurant and a casual BBQ grill.In addition to the private suite, our resort offers a range of amenities for guests to enjoy, including a full-size swimming pool, playground, boat ride, and mini-zoo. Whether you're looking to relax and unwind or stay active and energized, Lazz Polli has something for everyone.We invite you to experience the luxury and comfort of our Double Dom and look forward to making your stay with us truly memorable.",
+    //                         subTitle : 'Room Services'
+    //                     },
+    //                     {
+    //                         roomService : [
+    //                             { serviceTitle : "Swimming Pool access included"},
+    //                             { serviceTitle : "Separate kitchen and dining room "},
+    //                             { serviceTitle : "Outdoor Playground"},
+    //                             { serviceTitle : "Flat-screen TV with cable channels"},
+    //                             { serviceTitle : "Fridge stocked with snacks and drinks"},
+    //                             { serviceTitle : "Modern bathroom with shower"},
+    //                             { serviceTitle : "Free Wifi internet access"},
+    //                             { serviceTitle : "Excellent Room Service "},
+    //                             { serviceTitle : "fully AC"},
+    //                             { serviceTitle : "Ceiling Fan"},
+    //                             { serviceTitle : "Outdoor Sports"},
                                 
-                            ],
-                            additional : ""
-                        },
-                        {
-                            infoTab : 'Additional Information',
-                            reviewTab : 'Reviews'
-                        }
-                    ]
-                  },
-              ]
-         },
-         { 
-            Id : 17,
-            images : [
-                {image : mudOne},
-                {image : mudTwo},
-                {image : mudThree},
-               ],
-            title : 'Mud House',
-            desc : 'Experience the charm and authenticity of a traditional mud house at our beautiful Lazz Polli. Nestled among the lush greenery of our property, our mud houses offer a unique and eco-friendly vacation experience.',
-            cottagesTitle : '',
-            cottagesSpecials : [
-                {  title : ''},                   
-            ],
-            link : '/room',
-            btnText : 'View Mud House',
-            CottageSuitsSingle : [
-                {
-                    Id: 18,
-                    image : mudFour,
-                    title : "Book Single Room From - Mud House",
-                    amount : 2000,
-                    dayNight : "Night",
-                    quantity : 0,
-                    roomSingle : [
-                        {
-                            images : [
-                                {
-                                    image : mudFour,
-                                },
-                                {
-                                    image : mudFive,
-                                },
-                            ]
-                        },
-                        {
-                            title : 'Room Description Mud House',
-                            description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
-                            subTitle : ''
-                        },
-                        {
-                            roomService : [
-                                { serviceTitle : ""},
-                            ],
-                            additional : ""
-                        },
-                        {
-                            infoTab : 'Additional Information',
-                            reviewTab : 'Reviews'
-                        }
-                    ]
+    //                         ],
+    //                         additional : ""
+    //                     },
+    //                     {
+    //                         infoTab : 'Additional Information',
+    //                         reviewTab : 'Reviews'
+    //                     }
+    //                 ]
+    //               },
+    //           ]
+    //      },
+    //      { 
+    //         Id : 17,
+    //         images : [
+    //             {image : mudOne},
+    //             {image : mudTwo},
+    //             {image : mudThree},
+    //            ],
+    //         title : 'Mud House',
+    //         desc : 'Experience the charm and authenticity of a traditional mud house at our beautiful Lazz Polli. Nestled among the lush greenery of our property, our mud houses offer a unique and eco-friendly vacation experience.',
+    //         cottagesTitle : '',
+    //         cottagesSpecials : [
+    //             {  title : ''},                   
+    //         ],
+    //         link : '/room',
+    //         btnText : 'View Mud House',
+    //         CottageSuitsSingle : [
+    //             {
+    //                 Id: 18,
+    //                 image : mudFour,
+    //                 title : "Book Single Room From - Mud House",
+    //                 amount : 2000,
+    //                 dayNight : "Night",
+    //                 quantity : 0,
+    //                 roomSingle : [
+    //                     {
+    //                         images : [
+    //                             {
+    //                                 image : mudFour,
+    //                             },
+    //                             {
+    //                                 image : mudFive,
+    //                             },
+    //                         ]
+    //                     },
+    //                     {
+    //                         title : 'Room Description Mud House',
+    //                         description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
+    //                         subTitle : ''
+    //                     },
+    //                     {
+    //                         roomService : [
+    //                             { serviceTitle : ""},
+    //                         ],
+    //                         additional : ""
+    //                     },
+    //                     {
+    //                         infoTab : 'Additional Information',
+    //                         reviewTab : 'Reviews'
+    //                     }
+    //                 ]
 
-                  },
-                  {
-                    Id: 19,
-                    image : mudFive,
-                    title : "Book Entire - Mud House",
-                    amount : 2000,
-                    dayNight : "Night",
-                    quantity : 0,
-                    roomSingle : [
-                        {
-                            images : [
-                                {
-                                    image : mudFive,
-                                },
-                                {
-                                    image : mudFour,
-                                },
+    //               },
+    //               {
+    //                 Id: 19,
+    //                 image : mudFive,
+    //                 title : "Book Entire - Mud House",
+    //                 amount : 2000,
+    //                 dayNight : "Night",
+    //                 quantity : 0,
+    //                 roomSingle : [
+    //                     {
+    //                         images : [
+    //                             {
+    //                                 image : mudFive,
+    //                             },
+    //                             {
+    //                                 image : mudFour,
+    //                             },
 
-                            ]
-                        },
-                        {
-                            title : 'Room Description Mud House',
-                            description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
-                            subTitle : ''
-                        },
-                        {
-                            roomService : [
-                                { serviceTitle : ""},
-                            ],
-                            additional : ""
-                        },
-                        {
-                            infoTab : 'Additional Information',
-                            reviewTab : 'Reviews'
-                        }
-                    ]
-                  },
-              ]
-         },
-         { 
-            Id : 20,
-            images : [
-             {image : ichamotiOne},
-             {image : ichamotiTwo},
-             {image : ichamotiThree},
-            ],
-            title : 'Ichamoti House',
-            desc : 'Welcome to our luxurious Ichamoti House hotel rooms! Nestled in a picturesque setting, Ichamoti House offers the perfect blend of comfort and style. Ichamoti house features 9 of our most exclusive bedrooms, kitchen, dining room, and common living space. Additionally, Ichamoti house features a large convention hall to host large corporate events. ',
-            cottagesTitle : 'Ichamoti house specials:',
-            cottagesSpecials : [
-                {  title : 'All Bookings include swimming pool access'},       
-                {  title : 'Panoramic view of sunrise and sunset '},       
-                {  title : 'Breathtaking views of Lazz Polli’s greenery'}, 
-                {  title : '24 hour room service'},             
-            ],
-            link : '/room',
-            btnText : 'View Ichamoti House',
-            CottageSuitsSingle : [
-               {
-                 Id: 21,
-                 image : ichamotiFour,
-                 title : "Book Single Room From - Ichamoti House",
-                 amount : 4500,
-                 dayNight : "Night",
-                 quantity : 0,
-                 roomSingle : [
-                     {
-                         images : [
-                             {
-                                 image : ichamotiFour,
-                             },
-                             {
-                                 image : ichamotiFive,
-                             },
-                         ]
-                     },
-                     {
-                         title : 'Room description Ichamoti House ',
-                         description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                         subTitle : 'Room Services'
-                     },
-                     {
-                         roomService : [
-                             { serviceTitle : "Swimming Pool access included"},
-                             { serviceTitle : "Comfortable lounge"},
-                             { serviceTitle : "Outdoor Playground"},
-                             { serviceTitle : "Flat-screen TV with cable channels"},
-                             { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                             { serviceTitle : "Modern bathroom with shower"},
-                             { serviceTitle : "Free Wifi internet access"},
-                             { serviceTitle : "Excellent Room Service "},
-                             { serviceTitle : "fully AC"},
-                             { serviceTitle : "Ceiling Fan"},
-                             { serviceTitle : "Outdoor Sports"},
-                         ],
-                         additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
-                     },
-                     {
-                         infoTab : 'Additional Information',
-                         reviewTab : 'Reviews'
-                     }
-                 ]
-               },
-               {
-                 Id: 22,
-                 image : ichamotiFive,
-                 title : "Book Entire - Ichamoti House",
-                 amount : 32000,
-                 dayNight : "Night",
-                 quantity : 0,
-                 roomSingle : [
-                     {
-                         images : [
-                             {
-                                 image : ichamotiFive,
-                             },
-                             {
-                                 image : ichamotiFour,
-                             },
-                         ]
-                     },
-                     {
-                         title : 'Room description Ichamoti House ',
-                         description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
-                         subTitle : 'Room Services'
-                     },
-                     {
-                         roomService : [
-                             { serviceTitle : "Swimming Pool access included"},
-                             { serviceTitle : "Comfortable lounge"},
-                             { serviceTitle : "Outdoor Playground"},
-                             { serviceTitle : "Flat-screen TV with cable channels"},
-                             { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
-                             { serviceTitle : "Modern bathroom with shower"},
-                             { serviceTitle : "Free Wifi internet access"},
-                             { serviceTitle : "Excellent Room Service "},
-                             { serviceTitle : "fully AC"},
-                             { serviceTitle : "Ceiling Fan"},
-                             { serviceTitle : "Outdoor Sports"},
-                         ],
-                         additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
-                     },
-                     {
-                         infoTab : 'Additional Information',
-                         reviewTab : 'Reviews'
-                     }
-                 ]
-               },
-            ]
+    //                         ]
+    //                     },
+    //                     {
+    //                         title : 'Room Description Mud House',
+    //                         description : "This cozy and rustic accommodation is built using natural materials, including clay, straw, and earth, and are designed to blend in seamlessly with the surrounding environment. Inside, you'll find all the comforts of home, including a spacious bedroom and a private bathroom.In addition to the mud houses, our resort offers a range of amenities for guests to enjoy, including a swimming pool and playground. For dining, our resort features a gourmet restaurant, as well as a casual BBQ grill.We invite you to experience the beauty and tranquility of our traditional Bengali mud houses and look forward to making your stay with us truly memorable.",
+    //                         subTitle : ''
+    //                     },
+    //                     {
+    //                         roomService : [
+    //                             { serviceTitle : ""},
+    //                         ],
+    //                         additional : ""
+    //                     },
+    //                     {
+    //                         infoTab : 'Additional Information',
+    //                         reviewTab : 'Reviews'
+    //                     }
+    //                 ]
+    //               },
+    //           ]
+    //      },
+    //      { 
+    //         Id : 20,
+    //         images : [
+    //          {image : ichamotiOne},
+    //          {image : ichamotiTwo},
+    //          {image : ichamotiThree},
+    //         ],
+    //         title : 'Ichamoti House',
+    //         desc : 'Welcome to our luxurious Ichamoti House hotel rooms! Nestled in a picturesque setting, Ichamoti House offers the perfect blend of comfort and style. Ichamoti house features 9 of our most exclusive bedrooms, kitchen, dining room, and common living space. Additionally, Ichamoti house features a large convention hall to host large corporate events. ',
+    //         cottagesTitle : 'Ichamoti house specials:',
+    //         cottagesSpecials : [
+    //             {  title : 'All Bookings include swimming pool access'},       
+    //             {  title : 'Panoramic view of sunrise and sunset '},       
+    //             {  title : 'Breathtaking views of Lazz Polli’s greenery'}, 
+    //             {  title : '24 hour room service'},             
+    //         ],
+    //         link : '/room',
+    //         btnText : 'View Ichamoti House',
+    //         CottageSuitsSingle : [
+    //            {
+    //              Id: 21,
+    //              image : ichamotiFour,
+    //              title : "Book Single Room From - Ichamoti House",
+    //              amount : 4500,
+    //              dayNight : "Night",
+    //              quantity : 0,
+    //              roomSingle : [
+    //                  {
+    //                      images : [
+    //                          {
+    //                              image : ichamotiFour,
+    //                          },
+    //                          {
+    //                              image : ichamotiFive,
+    //                          },
+    //                      ]
+    //                  },
+    //                  {
+    //                      title : 'Room description Ichamoti House ',
+    //                      description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                      subTitle : 'Room Services'
+    //                  },
+    //                  {
+    //                      roomService : [
+    //                          { serviceTitle : "Swimming Pool access included"},
+    //                          { serviceTitle : "Comfortable lounge"},
+    //                          { serviceTitle : "Outdoor Playground"},
+    //                          { serviceTitle : "Flat-screen TV with cable channels"},
+    //                          { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                          { serviceTitle : "Modern bathroom with shower"},
+    //                          { serviceTitle : "Free Wifi internet access"},
+    //                          { serviceTitle : "Excellent Room Service "},
+    //                          { serviceTitle : "fully AC"},
+    //                          { serviceTitle : "Ceiling Fan"},
+    //                          { serviceTitle : "Outdoor Sports"},
+    //                      ],
+    //                      additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
+    //                  },
+    //                  {
+    //                      infoTab : 'Additional Information',
+    //                      reviewTab : 'Reviews'
+    //                  }
+    //              ]
+    //            },
+    //            {
+    //              Id: 22,
+    //              image : ichamotiFive,
+    //              title : "Book Entire - Ichamoti House",
+    //              amount : 32000,
+    //              dayNight : "Night",
+    //              quantity : 0,
+    //              roomSingle : [
+    //                  {
+    //                      images : [
+    //                          {
+    //                              image : ichamotiFive,
+    //                          },
+    //                          {
+    //                              image : ichamotiFour,
+    //                          },
+    //                      ]
+    //                  },
+    //                  {
+    //                      title : 'Room description Ichamoti House ',
+    //                      description : "As soon as you step inside, you'll be greeted by the warm and inviting atmosphere of our spacious, air-conditioned rooms. With a comfortable king-sized bed, plush pillows, and soft linens, you'll have everything you need for a restful night's sleep.The rooms also feature a private balcony or patio, providing you with a peaceful retreat to enjoy the stunning natural surroundings. From here, you can sit back, relax, and take in the breathtaking views of Lazz Polli’s greenery. ",
+    //                      subTitle : 'Room Services'
+    //                  },
+    //                  {
+    //                      roomService : [
+    //                          { serviceTitle : "Swimming Pool access included"},
+    //                          { serviceTitle : "Comfortable lounge"},
+    //                          { serviceTitle : "Outdoor Playground"},
+    //                          { serviceTitle : "Flat-screen TV with cable channels"},
+    //                          { serviceTitle : "Mini-fridge stocked with snacks and drinks "},
+    //                          { serviceTitle : "Modern bathroom with shower"},
+    //                          { serviceTitle : "Free Wifi internet access"},
+    //                          { serviceTitle : "Excellent Room Service "},
+    //                          { serviceTitle : "fully AC"},
+    //                          { serviceTitle : "Ceiling Fan"},
+    //                          { serviceTitle : "Outdoor Sports"},
+    //                      ],
+    //                      additional : "Additionally, our friendly and attentive staff will be on hand to ensure that your stay is truly unforgettable.Book your stay at Ichamoti House today and experience the ultimate in relaxation and luxury!"
+    //                  },
+    //                  {
+    //                      infoTab : 'Additional Information',
+    //                      reviewTab : 'Reviews'
+    //                  }
+    //              ]
+    //            },
+    //         ]
  
-         },  
+    //      },  
 
-    ],
+    // ],
+
     FullPackage : [
         {
             Id: 1,
@@ -1409,9 +1366,9 @@ export const getGallery = () => {
 export const getAboutStory = () => {
     return APP_DATA.AboutStory.slice();
 }
-export const getroomSearchCard = () => {
-    return APP_DATA.roomSearchCard.slice();
-}
+// export const getroomSearchCard = () => {
+//     return APP_DATA.roomSearchCard.slice();
+// }
 export const getCottageSuites = () => {
     return APP_DATA.CottageSuits.slice()
 }

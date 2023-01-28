@@ -2686,6 +2686,12 @@ h4.roomNight {
   color: #000;
 }
 
+span.cl-night {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
 /**************************************/
 /************other page checkout css*************/
 /************************************/

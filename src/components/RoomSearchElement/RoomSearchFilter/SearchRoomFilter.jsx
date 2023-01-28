@@ -54,8 +54,7 @@ const SearchRoomFilter = ({setIsAvailble}) => {
     submitHandler(fchild.id, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
   }
 
-  // new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString()
-  // Take,Page,Children,Adult,ArrivalTime,DepartureTime
+
   const submitHandler = (c,a,d,r ) => {
     setIsLoading(true)
     getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, c, a, d, r)}).then((data) => {
@@ -91,7 +90,7 @@ const SearchRoomFilter = ({setIsAvailble}) => {
       arrdate: startDate,
       depdate: endDate,
       adults: adults.id,
-      children: children.id
+      children: children.id,
     });
   };
 
@@ -102,6 +101,7 @@ const SearchRoomFilter = ({setIsAvailble}) => {
         mounted.current = true;
         storeFilters({...filters, arrivalDate: startDate,departureDate : endDate, adultsCount : adults.id, childrenCount : children.id});
     }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [mounted]);
 
 

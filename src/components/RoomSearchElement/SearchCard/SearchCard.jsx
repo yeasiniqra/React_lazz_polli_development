@@ -42,7 +42,7 @@ const SearchCard = ({ item }) => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitiating, rooms]);
 
-  const calPrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
+  const calculatePrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
 
   return (
     <div className="min-items-inner-single">
@@ -58,7 +58,8 @@ const SearchCard = ({ item }) => {
             <p>Room Rates Exclusive of Ser. Chg. & VAT</p>
           </div>
           <div className="sp-right">
-            <h4>BDT {calPrice}</h4>
+            <h4>BDT {calculatePrice}</h4>
+            <span className="cl-night">Price for 1 Night</span>
             <div className="card-adults">
               <small>
                 {" "}

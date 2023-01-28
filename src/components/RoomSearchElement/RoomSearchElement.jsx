@@ -6,7 +6,7 @@ import SearchRoomFilter from './RoomSearchFilter/SearchRoomFilter';
 import SearchCard from './SearchCard/SearchCard';
 
 const RoomSearchElement = () => {
-    const searchService = getroomSearchCard();
+    // const searchService = getroomSearchCard();
     const [availble, setIsAvailble] = useState(null)
     console.log(availble)
     return (

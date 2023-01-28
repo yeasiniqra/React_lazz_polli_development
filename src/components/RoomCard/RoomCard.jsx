@@ -15,7 +15,6 @@ const RoomCard = ({room, setRoomdetails}) => {
               <h3>
                 {room.RoomPrice}&nbsp;<span>/ <sup>Night</sup></span>{" "}
               </h3>
-
               <div className="cottage-btn">
                 <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'ROOM')}> 
                 <a>View Details</a>
