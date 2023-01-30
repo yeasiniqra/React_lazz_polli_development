@@ -9,15 +9,18 @@ import { GET_INVOICE } from "../../../lib/endpoints";
 import { humanizeDate } from "../../../lib/utils";
 import { getV2 } from "../../../services/http-service-v2";
 import { printInvoice } from "../../../services/invoice-service";
+import Suspense from "../../Sheared/Suspense/Suspense";
 import InvoiceTeamplate from "./InvoiceTeamplate";
 
 const Invoice = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [invoice, setInvoice] = useState([]);
   const {Code} = useParams();
   const mounted = useRef(false);
   console.log(invoice);
  
   const handleGetInvoice = () => {
+    setIsLoading(true)
       getV2({ url: GET_INVOICE(Code) }).then((data) => {
           if (!data.IsError) {
             setInvoice(data.Data)
@@ -27,6 +30,7 @@ const Invoice = () => {
         }).catch(err => {
           toast.warning(err?.toString());
         }).finally(() => {
+          setIsLoading(false)
         });
   }
 
@@ -146,6 +150,7 @@ const newTax = invoice.Amount * 0.15;
           </div>
         </div>
       </div>
+      {isLoading && <Suspense />}
     </div>
   );
 };

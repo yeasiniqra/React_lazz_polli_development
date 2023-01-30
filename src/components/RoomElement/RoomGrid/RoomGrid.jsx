@@ -7,9 +7,11 @@ import { setHouses } from '../../../services/data-service';
 import { getV2 } from '../../../services/http-service-v2';
 import RoomCard from '../../RoomCard/RoomCard';
 import RoomSuitsMdl from '../../Sheared/CommonModal/RoomSuitsMdl';
+import Suspense from '../../Sheared/Suspense/Suspense';
 
 const RoomGrid = () => {
     const [roomdetails, setRoomdetails] = useState(null)
+    const [isLoading, setIsLoading] = useState(false);
     const title = {
         subTitle : 'choose room according to budget',
     }
@@ -18,10 +20,12 @@ const RoomGrid = () => {
     const mounted = useRef(false)
   
     const getHouses = useCallback(() => {
+      setIsLoading(true)
       getV2({ url: GET_ROOMS() }).then((data) => {
         if (!data.IsError) {
           setRoom(data.Data.Data);
           setHouses(data.Data.Data);
+          setIsLoading(false)
         } else {
           //   console.log(data);
         }
@@ -60,6 +64,7 @@ const RoomGrid = () => {
                         }
                 </div>
             </div>
+            {isLoading && <Suspense />}
        </section>
     );
 };

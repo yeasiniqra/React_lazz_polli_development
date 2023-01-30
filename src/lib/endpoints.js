@@ -50,7 +50,7 @@ export const POST_SWMMING_POOL_BOOKING = () => `BookingArea/Booking/Pool`
 
 
 // Lazz Polli
-export const POST_CONTACT = 'Contact';
+export const POST_CONTACT = 'ContactArea/Contact/Create';
 export const POST_RESUME = 'Resume';
 
 // export const GET_GALLERY = (category, pageSize, page) =>  {

@@ -1,16 +1,16 @@
 
 // Bse URL Service
-// export const CONFIG = {
-//     BASE_URL: 'https://test.boniksoftware.com',
-//     LOG_URL: 'https://test.boniksoftware.com',
-//     IMAGE_URL:'https://test.boniksoftware.com',
-// };
-
 export const CONFIG = {
-    BASE_URL: 'http://localhost:5000',
-    LOG_URL: 'http://localhost:5000',
-    IMAGE_URL:'http://localhost:5000',
+    BASE_URL: 'https://client.lazzpolli.com',
+    LOG_URL: 'https://client.lazzpolli.com',
+    IMAGE_URL:'https://client.lazzpolli.com',
 };
+
+// export const CONFIG = {
+//     BASE_URL: 'http://localhost:5000',
+//     LOG_URL: 'http://localhost:5000',
+//     IMAGE_URL:'http://localhost:5000',
+// };
 
 
 

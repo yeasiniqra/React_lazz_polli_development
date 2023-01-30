@@ -5,14 +5,17 @@ import { toast } from 'react-toastify';
 import { useTitle } from '../../../hooks/UseTitle';
 import { GET_ROOM_BOOKING } from '../../../lib/endpoints';
 import { getV2 } from '../../../services/http-service-v2';
+import Suspense from '../../Sheared/Suspense/Suspense';
 import OrderHistoryTemplate from './OrderHistoryTemplate';
 
 const OrderHistory = () => {
+    const [isLoading, setIsLoading] = useState(false);
     useTitle('Order History')
     const [booked, setBooked] = useState([]);
     const mounted = useRef(false);
    
     const handleGetBooking = () => {
+        setIsLoading(true)
         getV2({ url: GET_ROOM_BOOKING(10,1, "all") }).then((data) => {
             if (!data.IsError) {
                 setBooked(data.Data.Data)
@@ -22,7 +25,7 @@ const OrderHistory = () => {
           }).catch(err => {
             toast.warning(err?.toString());
           }).finally(() => {
-           
+            setIsLoading(false)
           });
     }
 
@@ -51,6 +54,7 @@ const OrderHistory = () => {
                 } /> )
             }
            </div> 
+           {isLoading && <Suspense />}
         </>
     );
 };

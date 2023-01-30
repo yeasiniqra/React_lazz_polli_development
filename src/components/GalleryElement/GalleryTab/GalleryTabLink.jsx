@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+import { useRef } from "react";
 import { useEffect } from "react";
 import { GALLERY_MENU_TAB_BUTTON_NAMES } from "../../../constants/magic-string";
 import { GALLERY_PAGE, GET_GALLERY, IMAGE_CATEGORY, PAGE_SIZE } from "../../../lib/galleryService";
+import { getV2 } from "../../../services/http-service-v2";
 // import { GET_GALLERY } from "../../../lib/endpoints";
 import Activities from "./Activities";
 import Pools from "./Pools";
@@ -11,6 +13,10 @@ import Spaa from "./Spaa";
 import Space from "./Space";
 
 const GalleryTabLink = () => {
+    const [roomreview, setRoomreview] = useState([])
+    const mounted = useRef(false)
+    console.log(roomreview);
+
     const [actionTab, setActionTab] = useState(
         GALLERY_MENU_TAB_BUTTON_NAMES.SPACES
       );
@@ -19,17 +25,27 @@ const GalleryTabLink = () => {
         setActionTab(tabName);
     };
 
-    const newUser = GET_GALLERY(IMAGE_CATEGORY.SPACES, PAGE_SIZE.PAGE_ONE, GALLERY_PAGE.ONE)
-    // console.log(newUser)
-
-    useEffect(() => {
-        const url = newUser
-        fetch(url)
-        .then(res => res.json())
+    const getRoomReview = useCallback(() => {
+        getV2({url: GET_GALLERY(IMAGE_CATEGORY.SPACES, PAGE_SIZE.PAGE_ONE, GALLERY_PAGE.ONE)})
         .then(data => {
-            console.log(data);
-        })
-    },[newUser])
+            console.log('inside gallery', data)
+          if(!data.IsError){
+            setRoomreview(data.Data.data);
+          } else {
+           alert('Error')
+          }
+          
+        }).catch(error => {
+         
+        });
+      }, []);
+    
+      useEffect(() => {
+        if (!mounted.current) {
+          getRoomReview();
+          mounted.current = true;
+      }
+    }, [mounted]);
 
       
     return (

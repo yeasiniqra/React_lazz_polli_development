@@ -16,12 +16,20 @@ import { useRef } from "react";
 import { toast } from "react-toastify";
 
 const NewCustomarInfo = () => {
-  const { formValus, storeForms } = useContext(checkoutContext);
-  const {profile, isAuthenticated, isAuthenticating} = useContext(authContext)
+  // const { formValus, storeForms } = useContext(checkoutContext);
+  const {profile, isAuthenticated, isAuthenticating, formValus, storeForms} = useContext(authContext)
   const {rooms, totalAmount, clear} = useContext(cartContext)
   const {Id} = profile
   const [error, setError] = useState(null);
   const mounted = useRef(false);
+ 
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
 
   const formatDate = (date) => {
     const passedDate = new Date(date);
@@ -476,12 +484,13 @@ const NewCustomarInfo = () => {
 
                   <div className="toggle-condition">
                     <p className="trams-condition">
-                      <label>
+                      <label onChange={handleCheckboxChange}>
                         <input
                           className="trams-checkbox"
                           type="checkbox"
                           name="tos"
-                          value="1"
+                          value="trams"
+                          checked={isChecked}
                         />
                         I agree with{" "}
                         <Link to="#" target="_blank">
@@ -495,6 +504,7 @@ const NewCustomarInfo = () => {
                     >
                       <button
                         type="button"
+                        disabled={!isChecked}
                       >
                         Submit
                       </button>

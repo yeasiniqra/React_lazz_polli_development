@@ -12,10 +12,12 @@ import authContext from "../../../store/auth-context";
 // import checkoutContext from "../../../store/checkout-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../Sheared/Input/Input";
+import Suspense from "../../Sheared/Suspense/Suspense";
 import Textarea from "../../Sheared/Textarea/Textarea";
 
 
 const Edit = () => {
+    const [isLoading, setIsLoading] = useState(false);
     useTitle('Edit Profile')
     const {profile} = useContext(authContext)
     const {Id} = profile
@@ -115,6 +117,7 @@ const Edit = () => {
   
 
     const getProfileInfo = useCallback(() => {
+      setIsLoading(true)
       getV2({url: GET_USER_PROFILE})
       .then(data => {
         if(!data.IsError){
@@ -142,6 +145,8 @@ const Edit = () => {
         
       }).catch(error => {
        
+      }).finally(()=> {
+        setIsLoading(false)
       });
     }, []);
 
@@ -422,7 +427,7 @@ const Edit = () => {
             </div>
           </div>
         </div>
-
+        {isLoading && <Suspense/>}
       </>
     );
 };

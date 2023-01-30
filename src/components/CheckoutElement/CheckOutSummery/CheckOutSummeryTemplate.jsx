@@ -26,15 +26,16 @@ const CheckOutSummeryTemplate = ({room, index}) => {
                     <div className="spk-left">
                         <p><span>Name : </span>{room.Name}</p>
                         <p>
-                            {room.Type === 'ROOM' ? room.adultsCount * room.quantity : ''} 
+                            {room.Type === 'ROOM' ? room.adultsCount * room.quantity || 0 : ''}
                             {room.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
                             {room.quantity} - 
                             {room.Type === 'ROOM' ? 'Room -' : 'Cottage'} 
-                            {room.Type === 'ROOM' ? room.childrenCount * room.quantity : ''}
+                            {room.Type === 'ROOM' ? room.childrenCount * room.quantity || 0 : ''}
                             {room.Type === 'ROOM' ? 'Child' : ''}
-                    </p>
+                        </p>
                     </div>
                 </div>
+             
                 <div className="special-conditions-check">
                     {/* <span className='tooltip'> Special conditions : <small className='tooltiptext'>Full prepayment is needed for booking under this rate</small> </span>
                     <small>Breakfast is included in the room rates</small> */}
