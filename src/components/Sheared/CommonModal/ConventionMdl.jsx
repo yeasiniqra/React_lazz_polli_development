@@ -1,14 +1,19 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
 import { POST_CONVENTION_BOOKING } from "../../../lib/endpoints";
 import { postV2 } from "../../../services/http-service-v2";
+import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
-const ConventionMdl = ({ conventions }) => {
+const ConventionMdl = ({ conventions, setConventions }) => {
   // console.log(conventions.title);
   // console.log(storeSignupData);
+
+  const {profile} = useContext(authContext)
+  const {FirstName,LastName,Phone} = profile
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -71,16 +76,10 @@ const ConventionMdl = ({ conventions }) => {
   };
 
   const conventionHandler = (e) => {
+    setIsLoading(true)
     e.preventDefault();
     let isValid = true;
-    if (phone.length === 0) {
-      setPhoneError(true);
-      isValid = false;
-    }
-    if (fname.length === 0) {
-      setFnameError(true);
-      isValid = false;
-    }
+
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
@@ -93,8 +92,8 @@ const ConventionMdl = ({ conventions }) => {
     const payload = {
       StartingAt: startDate,
       EndingAt: endDate,
-      Name : fname,
-      phone: phone,
+      Name : FirstName,
+      phone: Phone,
       Person : adults,
       Duration : 1,
       remark: remark,
@@ -105,21 +104,23 @@ const ConventionMdl = ({ conventions }) => {
       if(data.IsError){
         toast.warning(data.Msg);
       } else {
-        toast.success("Message Sent");
+        toast.success(`Your submission has been received. Our agent will call
+         your number to reconfirm.`);
+         
       }
     }).catch(err => {
       toast.warning(err?.toString());
     }).finally(() => {
       // Loader Close
-      setIsLoading(false)
+      setIsLoading(true)
+      setConventions(null) 
     })
 
 
     if (!isValid) return;
-    toast.success(`Your submission has been received. Our agent will call
-      your number to reconfirm.`);
-
-    console.log(payload);  
+   
+    console.log(payload);
+   
   };
 
   return (
@@ -146,6 +147,8 @@ const ConventionMdl = ({ conventions }) => {
                   timeInputLabel="Time:"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   showTimeInput
+                  minDate={new Date()}
+                  showDisabledMonthNavigation
                 />
                 <small>
                   {startDateError ? "startDateError is empty" : " "}
@@ -163,12 +166,13 @@ const ConventionMdl = ({ conventions }) => {
                   timeInputLabel="Time:"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   showTimeInput
+                  minDate={new Date()}
+                  showDisabledMonthNavigation
                 />
                 <small>{endDateError ? "endDateError is empty" : " "}</small>
               </label>
             </div>
           </div>
-
           <div className='dateFormate'>
             <div className='common-modal-label'>
               <label htmlFor="fname">
@@ -179,7 +183,8 @@ const ConventionMdl = ({ conventions }) => {
                   name="fname"
                   onChange={fnameChangeHandler}
                   onFocus={fnameFocusHandler}
-                  value={fname}
+                  value={FirstName}
+                  readOnly
                   placeholder={"Type Your First Name"}
                 />
                 <small>{fnameError ? "First Name is empty" : " "}</small>
@@ -195,7 +200,7 @@ const ConventionMdl = ({ conventions }) => {
                   name="phone"
                   onChange={phoneChangeHandler}
                   onFocus={phoneFocusHandler}
-                  value={phone}
+                  value={Phone}
                   placeholder={"Type Your Phon Number"}
                 />
                 <small>{phoneError ? "Phone number is empty" : " "}</small>
@@ -247,10 +252,11 @@ const ConventionMdl = ({ conventions }) => {
               Submit
             </button>
           </div>
+          {isLoading && <Suspense />}
         </form>
         </div>
       </div>
-      {isLoading && <Suspense />}
+     
     </div>
   );
 };

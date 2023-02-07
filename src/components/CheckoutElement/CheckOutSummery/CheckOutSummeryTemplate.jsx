@@ -2,13 +2,15 @@ import React from 'react';
 import { humanizeDate } from '../../../lib/utils';
 
 
-const CheckOutSummeryTemplate = ({room, index}) => {
+const CheckOutSummeryTemplate = ({room, index,removeClickHandler }) => {
     // console.log(room);
     return (
         <>
-                <h2>NO : {index + 1}</h2>
-           
-   
+                <div className='summery-flexc'>
+                   <h2>NO : {index + 1}</h2>
+                   <span onClick={removeClickHandler.bind(null, room)}><i className="fa fa-times" aria-hidden="true"></i></span>
+                </div>    
+               
                     <div className="smy-date">
                         <div className="check-in-out">
                             <h6>Check-In</h6>

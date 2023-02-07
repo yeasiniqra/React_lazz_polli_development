@@ -2335,6 +2335,10 @@ p.site ul.footer-links li a:before {
   display: none !important;
 }
 
+.modal-inner.swimmin-inner .react-datepicker__time-container{
+  display: block !important;
+}
+
 .react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {
   right: 0px !important;
 }
@@ -5048,3 +5052,48 @@ button:disabled {
 
 
 
+
+/* loader small css */
+.small-loder .loader {
+  position: fixed;
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.small-loder .spinner {
+  border: 4px solid var(--secundery-color);
+  border-top: 4px solid darkblue;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+  /* margin-top: 85px; */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.react-datepicker-time__caption {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.summery-flexc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.summery-flexc > span {
+  cursor: pointer;
+}

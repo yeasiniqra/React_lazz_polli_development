@@ -6,6 +6,7 @@ import { userCamelCase } from '../auth.util';
 import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
 import { REGISTER, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
+import { toast } from 'react-toastify';
 
 const VerifyNumber = () => {
   const {
@@ -16,6 +17,7 @@ const VerifyNumber = () => {
     storeSignupData,
   } = useContext(authContext);
 
+  
   const [error, setError] = useState(null);
   const [code, setCode] = useState('');
   const [codeError, setCodeError] = useState(false);
@@ -40,7 +42,8 @@ const VerifyNumber = () => {
     if (form === 'OTP') {
       register();
     }else{
-      login()
+      login();
+      toast.success('You are successfully logged in')
     }
     
   };
@@ -95,6 +98,8 @@ console.log(payload);
       .catch((err) => {
         console.log('inside err', err);
         setError(err.toString());
+      }).finally(() => {
+        // Loader Close
       });
   };
 
@@ -117,7 +122,9 @@ console.log(payload);
       
     }).catch(error => {
       setError(error.toString())
-    });
+    }).finally(() => {
+      // Loader Close
+    });;
   };
 
   const getCodeFromForResetPassword = () => {
@@ -149,7 +156,9 @@ console.log(payload);
         console.log(data);
         setError(data.Msg);
       }
-    });
+    }).finally(() => {
+      // Loader Close
+    });;
   };
 
   const resendClickHandler = () => {

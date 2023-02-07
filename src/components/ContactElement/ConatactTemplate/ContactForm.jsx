@@ -123,12 +123,13 @@ const ContactForm = () => {
         }
 
         const payload = {
-          name,
-          phoneNumber: phone,
-          email,
-          message,
+          Name : name,
+          PhoneNumber : phone,
+          Email : email,
+          Message : message,
           changeLog: ""
         }
+
 
         postV2({url: POST_CONTACT, payload})
         .then(data => {

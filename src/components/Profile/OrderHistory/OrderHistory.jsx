@@ -16,7 +16,7 @@ const OrderHistory = () => {
    
     const handleGetBooking = () => {
         setIsLoading(true)
-        getV2({ url: GET_ROOM_BOOKING(10,1, "all") }).then((data) => {
+        getV2({ url: GET_ROOM_BOOKING(15,1, "all") }).then((data) => {
             if (!data.IsError) {
                 setBooked(data.Data.Data)
             } else {

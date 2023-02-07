@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { CONFIG } from "../../../services/config-service";
+
+
+
 
 const CottagesSuits = ({ item }) => {
   const options = {
@@ -15,6 +19,9 @@ const CottagesSuits = ({ item }) => {
     fixedHeight: "auto",
   };
 
+  // item.Images.map((banner) => (
+  //  console.log(banner.ImagePath)
+  // ))
   
   return (
     <div className="cottagesuits-grid">
@@ -24,14 +31,14 @@ const CottagesSuits = ({ item }) => {
               {
                   item.Images.map((banner, index) => (
                   <SplideSlide key={index}>
-                      <img src={banner.image} alt="resort full pakage price in bangladesh" />
+                      <img src={`${CONFIG.IMAGE_URL}/${banner.ImagePath}`}  alt="resort full pakage price in bangladesh" />
                   </SplideSlide>
                   ))
               }
            </Splide>
           <div className="book-overly">
             <div className="common-btn">
-              <Link to={`${item.Id}`}>{item.btnText}</Link>
+            <Link to={`${item.Permalink}`}>{item.Name}</Link>
             </div>
           </div>
         </div>
@@ -43,10 +50,10 @@ const CottagesSuits = ({ item }) => {
             <h2>{item.Name}</h2>
             <p>{item.Description}</p>
             <div className="SuitSpecials">
-              {
+              {/* {
                 item.Name && 
                 <h3>{item.Name}</h3>
-              }
+              } */}
               <div className="SuitSpecials-item">
                 
                 {item.Facalities.map((product, index) => (

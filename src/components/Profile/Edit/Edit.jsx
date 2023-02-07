@@ -158,10 +158,11 @@ const Edit = () => {
 }, [mounted]);
 
     const postProfileInfo = useCallback((payload) => {
-     
+      setIsLoading(true)
       postV2({url: POST_UPDATE_PROFILE, payload})
       .then(data => {
         if(!data.IsError){
+          setIsLoading(false)
          console.log(data);
          setFname(data.Data.FirstName);
          setLname(data.Data.LastName);

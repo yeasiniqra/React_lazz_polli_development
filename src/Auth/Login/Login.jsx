@@ -1,6 +1,8 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
+import Suspense from '../../components/Sheared/Suspense/Suspense';
 import { GET_CUSTOMERIS_EXIST, GET_OTP, LOGIN } from '../../lib/endpoints';
 import { getV2, postV2 } from '../../services/http-service-v2';
 import authContext from '../../store/auth-context';
@@ -11,7 +13,7 @@ import { userCamelCase } from '../auth.util';
 const Login = () => {
   const { close, open, login: loginCtx, storeSignupData } = useContext(authContext);
 
-
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [phone, setPhone] = useState('');
   const [phoneError, setPhoneError] = useState(false);
@@ -27,8 +29,10 @@ const Login = () => {
   };
 
   const requestOTP = () => {
+    setIsLoading(true)
     if (phone.length === 0){
       setPhoneError(true);
+      setIsLoading(false)
       return;
     } 
     // check if user is registered
@@ -49,6 +53,7 @@ const Login = () => {
         } else {
           setIsExist(true)
           // alert("User is not registered, please sign up.")
+          setIsLoading(false)
         }
       } else {
         console.log(data);
@@ -150,8 +155,9 @@ const Login = () => {
         </div>
 
         <button className={styles.LogInBtn} label={'Login'} onClick={requestOTP} type={'button'} >Login</button>
-
+        {isLoading && <SmallLoder />}
       </form>
+     
     </>
   );
 };

@@ -18,6 +18,8 @@ const Invoice = () => {
   const {Code} = useParams();
   const mounted = useRef(false);
   console.log(invoice);
+
+  const { PayableAmount} = invoice
  
   const handleGetInvoice = () => {
     setIsLoading(true)
@@ -41,6 +43,7 @@ const Invoice = () => {
     }
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [Code,mounted]);
+
 
 
 
@@ -107,6 +110,7 @@ const newTax = invoice.Amount * 0.15;
                  item={item}
                  key={index} 
                  index={index}
+                 PayableAmount={PayableAmount}
                  />)
                 }
 
@@ -116,18 +120,26 @@ const newTax = invoice.Amount * 0.15;
             <div className="sum-table-for-invoice">
               <table className="table table-bordered small-table-sum">
                 <tbody>
-                  <tr>
-                    <td>SubTotal</td>
-                    <td className="SubTotal-tab">
-                      <span>{invoice.Amount}</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Incl.Tax</td>
-                    <td className="SubTotal-tab">
-                      <span>{newTax}</span>
-                    </td>
-                  </tr>
+                  {
+                    invoice.Amount ? 
+                    <>
+                      <tr>
+                        <td>SubTotal</td>
+                        <td className="SubTotal-tab">
+                          <span>{invoice.Amount}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Incl.Tax</td>
+                        <td className="SubTotal-tab">
+                          <span>{newTax}</span>
+                        </td>
+                      </tr>
+                    </>
+                    :
+                    <></>
+                  }
+
                   <tr className="grand-total">
                     <td>
                       <strong>Grand Total</strong>

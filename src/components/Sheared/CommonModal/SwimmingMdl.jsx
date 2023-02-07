@@ -1,19 +1,27 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
+import { POST_SWMMING_POOL_BOOKING } from "../../../lib/endpoints";
 import { humanizeTime } from "../../../lib/utils";
+import { postV2 } from "../../../services/http-service-v2";
+import authContext from "../../../store/auth-context";
+import Suspense from "../Suspense/Suspense";
 
-const SwimmingMdl = ({ swimmin }) => {
+const SwimmingMdl = ({ swimmin, setSwimmin }) => {
+  const {profile} = useContext(authContext)
+  const {FirstName,LastName,Phone} = profile
+
   // console.log(storeSignupData);
-
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [phone, setPhone] = useState("");
   const [fname, setFname] = useState("");
   const [adults, setAdults] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [remark, setRemark] = useState("");
   const [hours, setHours] = useState("");
   const [perhours, setPerhours] = useState(200);
@@ -25,6 +33,12 @@ const SwimmingMdl = ({ swimmin }) => {
   const [endDateError, setEndDateError] = useState(false);
   const [remarkError, setRemarkError] = useState(false);
   const [HoursError, setHoursError] = useState(false);
+  const [paymentPercent, setPaymentPercent] = useState('100%')
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClicekd = (percent) => {
+    setPaymentPercent(percent)
+  }
 
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
@@ -40,10 +54,27 @@ const SwimmingMdl = ({ swimmin }) => {
     setRemark(el.value);
   };
   const startDateChangeHandler = (date) => {
+    if (!date || (!date.getHours() && !date.getMinutes())) {
+      alert("You select date and now you need to select time");
+      return;
+    }
     setStartDate(date);
   };
+
+
+
   const endDateChangeHandler = (date) => {
+    if (!date || (!date.getHours() && !date.getMinutes())) {
+      alert("You select date and now you need to select time");
+      return;
+    }
     setEndDate(date);
+    // if (!date.getHours()) {
+    //   setEndDateError(true);
+    // } else {
+    //   setEndDateError(false);
+    //   setEndDate(date);
+    // }
   };
   const hoursChangeHandler = ({ target: el }) => {
     setHours(el.value);
@@ -67,12 +98,12 @@ const SwimmingMdl = ({ swimmin }) => {
   };
 
 
-  const starDateFocusHandler = () => {
-    setStartDateError(false);
-  };
-  const endDateFocusHandler = () => {
-    setEndDateError(false);
-  };
+  // const starDateFocusHandler = () => {
+  //   setStartDateError(false);
+  // };
+  // const endDateFocusHandler = () => {
+  //   setEndDateError(false);
+  // };
   const remarkFocusHandler = () => {
     setRemarkError(false);
   };
@@ -86,39 +117,50 @@ const SwimmingMdl = ({ swimmin }) => {
   
   const conventionHandler = (e) => {
     e.preventDefault();
-
+    setIsLoading(true)
     let isValid = true;
-    if (phone.length === 0) {
-      setPhoneError(true);
-      isValid = false;
-    }
-    if (fname.length === 0) {
-      setFnameError(true);
-      isValid = false;
-    }
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
     }
-    if (remark.length === 0) {
-      setRemarkError(true);
-      isValid = false;
+
+
+    //Note:  convert GMT to use toSTring()
+    const payload = {
+      StartingAt: startDate,
+      EndingAt: endDate,
+      Name : FirstName,
+      Phone: Phone,
+      Person : adults,
+      Duration : totalTime,
+      CostPerHour : perhours,
+      Amount : grandTotal,
+      remark: remark,
     }
 
-    console.log({
-      fname: fname,
-      adults: adults,
-      phone: phone,
-      startDate: startDate,
-      endDate: endDate,
-      remark: remark,
-      toTal : grandTotal
-    });
+    console.log(payload)
+    postV2({url: POST_SWMMING_POOL_BOOKING, payload})
+    .then(data => {
+      if(data.IsError){
+        toast.warning(data.Msg);
+      } else {
+        toast.success(`Your submission has been received. Our agent will call
+         your number to reconfirm.`);
+         window.location.href = data.Data.PaymentURL;
+      }
+    }).catch(err => {
+      toast.warning(err?.toString());
+    }).finally(() => {
+      setIsLoading(false)
+    })
 
     if (!isValid) return;
-    toast.success(`Your submission has been received. Our agent will call
-      your number to reconfirm.`);
+
+    console.log(payload)
+
   };
+
+
 
   return (
     <div className="parent-modal">
@@ -137,16 +179,21 @@ const SwimmingMdl = ({ swimmin }) => {
             <div className='common-modal-label'>
               <label htmlFor="date">
                 From
-                <DatePicker
-                  selected={startDate}
-                  onChange={startDateChangeHandler}
-                  onFocus={starDateFocusHandler}
-                  timeInputLabel="Time:"
-                  dateFormat="MM/dd/yyyy h:mm aa"
-                  showTimeInput
-                  required
-                />
-
+                  <DatePicker
+                    selected={startDate}
+                    onChange={startDateChangeHandler}
+                    // onFocus={starDateFocusHandler}
+                    onClickOutside={() => setIsOpen(false)}
+                    onFocus={() => setIsOpen(true)}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    timeCaption="time"
+                    dateFormat="MM/dd/yyyy h:mm aa"
+                    isOpen={isOpen}
+                    // placeholderText="00/00/2023 0:00"
+                    placeholderText="Select Date And Time"
+                  />
                 <small>
                   {startDateError ? "startDateError is empty" : " "}
                 </small>
@@ -159,10 +206,17 @@ const SwimmingMdl = ({ swimmin }) => {
                 <DatePicker
                   selected={endDate}
                   onChange={endDateChangeHandler}
-                  onFocus={endDateFocusHandler}
-                  timeInputLabel="Time:"
+                  // onFocus={endDateFocusHandler}
+                  onClickOutside={() => setIsOpen(false)}
+                  onFocus={() => setIsOpen(true)}
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={15}
+                  timeCaption="time"
                   dateFormat="MM/dd/yyyy h:mm aa"
-                  showTimeInput
+                  isOpen={isOpen}
+                  // placeholderText="00/00/2023 0:00"
+                  placeholderText="Select Date And Time"
                 />
                 <small>{endDateError ? "endDateError is empty" : " "}</small>
               </label>
@@ -179,7 +233,7 @@ const SwimmingMdl = ({ swimmin }) => {
                   name="fname"
                   onChange={fnameChangeHandler}
                   onFocus={fnameFocusHandler}
-                  value={fname}
+                  value={FirstName}
                   placeholder={"Type Your First Name"}
                 />
                 <small>{fnameError ? "First Name is empty" : " "}</small>
@@ -195,7 +249,7 @@ const SwimmingMdl = ({ swimmin }) => {
                   name="phone"
                   onChange={phoneChangeHandler}
                   onFocus={phoneFocusHandler}
-                  value={phone}
+                  value={Phone}
                   placeholder={"Type Your Phon Number"}
                 />
                 <small>{phoneError ? "Phone number is empty" : " "}</small>
@@ -283,9 +337,17 @@ const SwimmingMdl = ({ swimmin }) => {
           </div>
 
           <div className="paymet-radio-btn">
-              <input type="radio" id="swimming" name="swimming_pool" value="swimming" />
-              <label htmlFor="swimming">Online Payment</label>
+              <input 
+                type="radio" 
+                id="swimming" 
+                name="swimming_pool" 
+                value="swimming" 
+                defaultChecked={paymentPercent === '100%'}
+              />
+              <label onClick={handleClicekd.bind(null, '100%')} htmlFor="swimming">Online Payment</label>
           </div> 
+
+
 
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
@@ -299,9 +361,11 @@ const SwimmingMdl = ({ swimmin }) => {
               Submit
             </button>
           </div>
+          {isLoading && <Suspense />}
         </form>
         </div>
       </div>
+     
     </div>
   );
 };

@@ -12,6 +12,7 @@ export const printInvoice = (data) => {
  
 const generateHTML = (data) => {
     const newTax = data.Amount * 0.15;
+    const PayableAmount = data.PayableAmount
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -233,7 +234,7 @@ const generateHTML = (data) => {
                      <td class="right">${humanizeDate(items.ReservationDate)}</td>
                      <td class="center">${humanizeDate(items.ReleaseDate)}</td>
                      <td class="right">${items.Quantity}</td>
-                     <td class="right">${items.Quantity * items.Price}</td>
+                     <td class="right">${items.Type === "HALL" ? PayableAmount : items.Quantity * items.Price}</td>
                  </tr>`
                ).join('')}
               </tbody>
@@ -251,6 +252,7 @@ const generateHTML = (data) => {
                   <td>Incl.Tax</td>
                   <td id="coupon-discount">${newTax}</td>
                 </tr>
+                
                 <tr>
                   <td>
                     <strong>Grand Total</strong>

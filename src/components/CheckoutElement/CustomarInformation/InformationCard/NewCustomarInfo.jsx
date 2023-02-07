@@ -14,8 +14,10 @@ import authContext from "../../../../store/auth-context";
 import cartContext from "../../../../store/cart-context";
 import { useRef } from "react";
 import { toast } from "react-toastify";
+import Suspense from "../../../Sheared/Suspense/Suspense";
 
 const NewCustomarInfo = () => {
+  const [isLoading, setIsLoading] = useState(false);
   // const { formValus, storeForms } = useContext(checkoutContext);
   const {profile, isAuthenticated, isAuthenticating, formValus, storeForms} = useContext(authContext)
   const {rooms, totalAmount, clear} = useContext(cartContext)
@@ -52,7 +54,7 @@ const NewCustomarInfo = () => {
   const [fax, setFax] = useState("");
   const [address, setAddress] = useState("");
   const [idNum, setIdNum] = useState("");
-  const [country, setCountry] = useState({});
+  const [country, setCountry] = useState({name: 'Bangladesh', code: 'BD'});
   const [expDate, setExpDate] = useState("");
   const [dob, setDob] = useState("");
   const [identity, setIdentity] = useState({});
@@ -127,9 +129,11 @@ const NewCustomarInfo = () => {
 
 
   const getProfileInfo = useCallback(() => {
+    setIsLoading(true)
     getV2({url: GET_USER_PROFILE})
     .then(data => {
       if(!data.IsError){
+        setIsLoading(false)
       //  console.log(data);
        setFname(data.Data.FirstName);
        setLname(data.Data.LastName);
@@ -226,11 +230,14 @@ const NewCustomarInfo = () => {
       } else {
         setError('inside err', data.Msg);
       }
-    });
+    }).catch(err => {
+      toast.warning(err?.toString());
+    })
   };
 
 
   const submitHandler = () => {
+    setIsLoading(true)
     const payload = {
       FirstName : FirstName,
       LastName : LastName,
@@ -254,16 +261,29 @@ const NewCustomarInfo = () => {
     console.log(payload);
     postProfileInfo(payload).then(() => {
       bookingRequest()
+    }).finally(() => {
+      setIsLoading(false)
     })
   };
 
-    useEffect(()=> {
-      if (!isAuthenticating && isAuthenticated) {
+    // useEffect(()=> {
+    //   if (!isAuthenticating && isAuthenticated) {
+    //     getProfileInfo();
+    //     mounted.current = true;
+    //   }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // },[isAuthenticating, isAuthenticated,])
+
+    useEffect(() => {
+      if (!mounted.current && !isAuthenticating && isAuthenticated) {
         getProfileInfo();
         mounted.current = true;
       }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[isAuthenticating, isAuthenticated,])
+    }, [isAuthenticating, isAuthenticated]);
+    
+    useEffect(() => {
+      mounted.current = false;
+    }, [isAuthenticated]);
 
   return (
     <>
@@ -309,7 +329,7 @@ const NewCustomarInfo = () => {
                       readyToLoad={true}
                       value={gender}
                       placeholder={"--Select--"}
-                      required
+                      
                     />
                   </div>
                 </div>
@@ -333,7 +353,6 @@ const NewCustomarInfo = () => {
                       onChange={emailChangeHandler}
                       value={email}
                       placeholder={"Email"}
-                      required
                     />
                   </div>
 
@@ -360,7 +379,6 @@ const NewCustomarInfo = () => {
                       onChange={cityChangeHandler}
                       value={city}
                       placeholder={"City"}
-                      required
                     />
                   </div>
 
@@ -370,7 +388,6 @@ const NewCustomarInfo = () => {
                       onChange={mstateChangeHandler}
                       value={state}
                       placeholder={"State"}
-                      required
                     />
                   </div>
 
@@ -380,7 +397,6 @@ const NewCustomarInfo = () => {
                       onChange={pcodeChangeHandler}
                       value={postalCode}
                       placeholder={"Postal Code"}
-                      required
                     />
                   </div>
 
@@ -390,7 +406,6 @@ const NewCustomarInfo = () => {
                       onChange={faxChangeHandler}
                       value={fax}
                       placeholder={"Fax"}
-                      required
                     />
                   </div>
                 </div>
@@ -401,7 +416,6 @@ const NewCustomarInfo = () => {
                     onChange={addressChangeHandler}
                     value={address}
                     placeholder={"Address"}
-                    required
                   />
                 </div>
 
@@ -464,7 +478,7 @@ const NewCustomarInfo = () => {
 
                   <div className="paymet-radio-btn">
                       <input 
-                         checked={paymentPercent === '100%'}
+                         defaultChecked={paymentPercent === '100%'}
                          type="radio"
                          id="html"
                          name="payfull"
@@ -472,7 +486,7 @@ const NewCustomarInfo = () => {
                         />
                       <label className="percent" onClick={handleClicekd.bind(null, '100%')} htmlFor="html">Pay Full Payment</label>
                       <input 
-                         checked={paymentPercent === '30%'}
+                         defaultChecked={paymentPercent === '30%'}
                          type="radio" 
                          id="css"
                          name="payfull"
@@ -490,7 +504,7 @@ const NewCustomarInfo = () => {
                           type="checkbox"
                           name="tos"
                           value="trams"
-                          checked={isChecked}
+                          defaultChecked={isChecked}
                         />
                         I agree with{" "}
                         <Link to="#" target="_blank">
@@ -515,6 +529,7 @@ const NewCustomarInfo = () => {
             </form>
           </div>
         </div>
+        {isLoading && <Suspense />}
       </div>
     </>
   );

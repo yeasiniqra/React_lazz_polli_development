@@ -8,20 +8,24 @@ import RoomSuitsMdl from '../Sheared/CommonModal/RoomSuitsMdl';
 import { GET_SINGLE_HOUSES } from '../../lib/endpoints';
 import { getV2 } from '../../services/http-service-v2';
 import { useRef } from 'react';
+import Suspense from '../Sheared/Suspense/Suspense';
 
 const SuitsAndRoomDetails = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const {Id} = useParams();
     const [suitsAndRoom, setRoomdetails] = useState(null)
     const [roomSingle, setRoomSingle] = useState([]);
     const mounted = useRef(false)
   
     const getHousess = useCallback(() => {
+        setIsLoading(true)
       getV2({ url: GET_SINGLE_HOUSES(Id) }).then((data) => {
         if (!data.IsError) {
             if (data.Data === null) {
                 alert('')
             }
             setRoomSingle(data.Data);
+            setIsLoading(false)
         } else {
           //   console.log(data);
         }
@@ -59,6 +63,7 @@ const SuitsAndRoomDetails = () => {
                     </div> 
                 </div>
             </div>  
+            {isLoading && <Suspense />}
         </div>
     );
 };

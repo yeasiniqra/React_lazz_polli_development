@@ -4,10 +4,14 @@ import cartContext from '../../../store/cart-context';
 import CheckOutSummeryTemplate from './CheckOutSummeryTemplate';
 
 const CheckOutSummery = () => {
-    const {rooms,totalAmount} = useContext(cartContext)
+    const {rooms,removeRoom,totalAmount} = useContext(cartContext)
     // console.log(rooms);
     const title = {
         title : 'Your booking summary'
+    }
+
+    const removeClickHandler = (room) => {
+        removeRoom(room)
     }
 
     //checkout suymmery 
@@ -40,7 +44,12 @@ const CheckOutSummery = () => {
 
                     <div className='room-book-summery'>
                         {
-                            rooms.map((room, index) => <CheckOutSummeryTemplate index={index} key={room.Id} room={room} />)
+                            rooms.map((room, index) => <CheckOutSummeryTemplate
+                             index={index} 
+                             key={room.Id} 
+                             room={room} 
+                             removeClickHandler={removeClickHandler}
+                             />)
                         }
                     </div>
 

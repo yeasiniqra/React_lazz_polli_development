@@ -5,11 +5,13 @@ import { useContext } from 'react';
 import authContext from '../../store/auth-context';
 import { getV2, postV2 } from '../../services/http-service-v2';
 import { GET_CUSTOMERIS_EXIST, GET_OTP} from '../../lib/endpoints';
+import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
 
 
 
 const Signup = () => {
   const { open, storeSignupData } = useContext(authContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   // console.log(storeSignupData);
   const [isExist, setIsExist] = useState(false);
@@ -52,18 +54,21 @@ const Signup = () => {
 
   const signupHandler = (e) => {
     e.preventDefault();
-    
+    setIsLoading(true)
     let isValid = true;
     if (phone.length === 0) {
       setPhoneError(true);
+      setIsLoading(false)
       isValid = false;
     }
     if (fname.length === 0) {
       setFnameError(true)
+      setIsLoading(false)
       isValid = false
     }
     if (lname.length === 0) {
       setLnameError(true)
+      setIsLoading(false)
       isValid = false
     }
 
@@ -71,7 +76,7 @@ const Signup = () => {
 
     if (!isValid) return;
     requestOTP();
-
+   
   };
 
   const requestOTP = () => {
@@ -93,6 +98,7 @@ const Signup = () => {
         setIsvalid(data.Data)
         if (data.Data) {
           setIsExist(true);
+          setIsLoading(false)
         } else {
           setIsExist(false);
         }
@@ -189,6 +195,7 @@ const Signup = () => {
 
            <button disabled={isExist} className={styles.LogInBtn} onClick={signupHandler} type={'button'} >Sign Up</button>
         </div>
+        {isLoading && <SmallLoder />}
       </form>
     </>
   );

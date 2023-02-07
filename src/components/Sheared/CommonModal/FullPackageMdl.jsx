@@ -1,11 +1,19 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
+import { POST_FULL_RESORT_BOOKING } from "../../../lib/endpoints";
+import { postV2 } from "../../../services/http-service-v2";
+import authContext from "../../../store/auth-context";
+import Suspense from "../Suspense/Suspense";
 
-const FullPackageMdl = ({ fullpackage }) => {
-  console.log(fullpackage.title);
+const FullPackageMdl = ({ fullpackage, setPackage }) => {
+
   // console.log(storeSignupData);
+  const [isLoading, setIsLoading] = useState(false);
+  const {profile} = useContext(authContext)
+  const {FirstName,LastName,Phone} = profile
 
   const [error, setError] = useState(null);
 
@@ -67,17 +75,10 @@ const FullPackageMdl = ({ fullpackage }) => {
   };
 
   const conventionHandler = (e) => {
+    setIsLoading(true)
     e.preventDefault();
 
     let isValid = true;
-    if (phone.length === 0) {
-      setPhoneError(true);
-      isValid = false;
-    }
-    if (fname.length === 0) {
-      setFnameError(true);
-      isValid = false;
-    }
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
@@ -87,18 +88,33 @@ const FullPackageMdl = ({ fullpackage }) => {
       isValid = false;
     }
 
-    console.log({
-      fname: fname,
-      adults: adults,
-      phone: phone,
-      startDate: startDate,
-      endDate: endDate,
-      remark: remark,
-    });
+    const payload = {
+      FromTime: startDate,
+      ToTime: endDate,
+      Name : FirstName,
+      phone: Phone,
+      Person : adults,
+      Remarks: remark,
+    }
+
+    postV2({url: POST_FULL_RESORT_BOOKING, payload})
+    .then(data => {
+      if(data.IsError){
+        toast.warning(data.Msg);
+      } else {
+        toast.success(`Your submission has been received. Our agent will call
+         your number to reconfirm.`);
+      }
+    }).catch(err => {
+      toast.warning(err?.toString());
+    }).finally(() => {
+      // Loader Close
+      setIsLoading(true)
+      setPackage(null)
+    })
 
     if (!isValid) return;
-    toast.success(`Your submission has been received. Our agent will call
-      your number to reconfirm.`);
+    
   };
 
   return (
@@ -125,6 +141,8 @@ const FullPackageMdl = ({ fullpackage }) => {
                   timeInputLabel="Time:"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   showTimeInput
+                  minDate={new Date()}
+                  showDisabledMonthNavigation
                 />
                 <small>
                   {startDateError ? "startDateError is empty" : " "}
@@ -142,6 +160,8 @@ const FullPackageMdl = ({ fullpackage }) => {
                   timeInputLabel="Time:"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   showTimeInput
+                  minDate={new Date()}
+                  showDisabledMonthNavigation
                 />
                 <small>{endDateError ? "endDateError is empty" : " "}</small>
               </label>
@@ -158,7 +178,7 @@ const FullPackageMdl = ({ fullpackage }) => {
                   name="fname"
                   onChange={fnameChangeHandler}
                   onFocus={fnameFocusHandler}
-                  value={fname}
+                  value={FirstName}
                   placeholder={"Type Your First Name"}
                 />
                 <small>{fnameError ? "First Name is empty" : " "}</small>
@@ -174,7 +194,7 @@ const FullPackageMdl = ({ fullpackage }) => {
                   name="phone"
                   onChange={phoneChangeHandler}
                   onFocus={phoneFocusHandler}
-                  value={phone}
+                  value={Phone}
                   placeholder={"Type Your Phon Number"}
                 />
                 <small>{phoneError ? "Phone number is empty" : " "}</small>
@@ -197,7 +217,6 @@ const FullPackageMdl = ({ fullpackage }) => {
               <small>{adultsError ? "Person is empty" : " "}</small>
             </label>
           </div>
-
           <div className='common-modal-label'>
             <label htmlFor="remark">
               Remarks
@@ -226,9 +245,11 @@ const FullPackageMdl = ({ fullpackage }) => {
               Submit
             </button>
           </div>
+          {isLoading && <Suspense />}
         </form>
         </div>
       </div>
+     
     </div>
   );
 };

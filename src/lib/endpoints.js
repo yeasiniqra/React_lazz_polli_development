@@ -42,15 +42,16 @@ export const GET_SEARCH_BOOKING_ROOM_ISAVAIBLE = (Take,Page,Children,Adult,Arriv
 }
 
 //get room booking Invoice
-export const GET_INVOICE = (Code) => `BookingArea/Booking/GetBooking/${Code}`
+export const GET_INVOICE = (Code) => `BookingArea/Booking/GetBooking/${Code}`;
 
 //post Convention, Swimming Pool, booking
-export const POST_CONVENTION_BOOKING = () => `BookingArea/Booking/Convention`
-export const POST_SWMMING_POOL_BOOKING = () => `BookingArea/Booking/Pool`
+export const POST_CONVENTION_BOOKING = `BookingArea/Booking/convention`;
+export const POST_SWMMING_POOL_BOOKING = `BookingArea/Booking/SwimmingPool`;
+export const POST_FULL_RESORT_BOOKING = `BookingArea/Booking/FullResort`;
 
 
 // Lazz Polli
-export const POST_CONTACT = 'ContactArea/Contact/Create';
+export const POST_CONTACT = 'ContactArea/Contact/Add';
 export const POST_RESUME = 'Resume';
 
 // export const GET_GALLERY = (category, pageSize, page) =>  {
