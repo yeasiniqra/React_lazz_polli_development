@@ -24,19 +24,19 @@ const HeaderNav = () => {
         setActiveSub(!isActiveSub)
     }; 
 
-    const [isActiveSearch, setActiveSearch] = useState(false);
-    const toggleClassSearch = () => {
-        setActiveSearch(!isActiveSearch)
-    };
+    // const [isActiveSearch, setActiveSearch] = useState(false);
+    // const toggleClassSearch = () => {
+    //     setActiveSearch(!isActiveSearch)
+    // };
 
     const loginClickHandler = () => {
         open();
     }     
 
-    const searchHandler = (e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-    }
+    // const searchHandler = (e) => {
+    //     e.preventDefault()
+    //     console.log(e.target.value)
+    // }
 
     return (
         <>
@@ -146,9 +146,9 @@ const HeaderNav = () => {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="search-mobile">
+                                {/* <li className="search-mobile">
                                     <Link to="#"><i className="fa fa-search openBtn" onClick={toggleClassSearch}></i> </Link>
-                                </li>
+                                </li> */}
                                 
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
 
@@ -161,7 +161,7 @@ const HeaderNav = () => {
                                 }
                           
                               
-                                <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
+                                {/* <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
                                     <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
                                     <div className="overlay-content">
                                         <form>
@@ -169,7 +169,7 @@ const HeaderNav = () => {
                                             <button type="submit"><i className="fa fa-search"></i></button>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */}
                             </ul>
                         </div>
                     </div>
@@ -282,9 +282,9 @@ const HeaderNav = () => {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="search-mobile">
+                                {/* <li className="search-mobile">
                                    <Link onClick={toggleClassSearch} to="#"><i className="fa fa-search openBtn" ></i> </Link>
-                                </li>
+                                </li> */}
                               
 
                              

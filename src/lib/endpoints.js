@@ -52,7 +52,7 @@ export const POST_FULL_RESORT_BOOKING = `BookingArea/Booking/FullResort`;
 
 // Lazz Polli
 export const POST_CONTACT = 'ContactArea/Contact/Add';
-export const POST_RESUME = 'Resume';
+export const POST_RESUME = 'CareerArea/Resume/Post';
 
 // export const GET_GALLERY = (category, pageSize, page) =>  {
 //     return `Gallery?category=${category}&pageSize=${pageSize}&page=${page}`

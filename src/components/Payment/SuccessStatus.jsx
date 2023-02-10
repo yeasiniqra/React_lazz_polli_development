@@ -69,7 +69,7 @@ const SuccessStatus = () => {
                     )}
                    
                     <div className="succes-btn">
-                      <div class="common-btn">
+                      <div className="common-btn">
                         <Link to="/" tabindex="-1">Home</Link>
                         {isAuthenticated && (
                             <Link to="/profile" tabindex="-1">View ORder</Link>

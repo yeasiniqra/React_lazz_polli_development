@@ -178,7 +178,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
           <div className='dateFormate'>
             <div className='common-modal-label'>
               <label htmlFor="date">
-                From
+                From <small className="dateTimes">Date And Time</small>
                   <DatePicker
                     selected={startDate}
                     onChange={startDateChangeHandler}
@@ -191,8 +191,8 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
                     timeCaption="time"
                     dateFormat="MM/dd/yyyy h:mm aa"
                     isOpen={isOpen}
-                    // placeholderText="00/00/2023 0:00"
-                    placeholderText="Select Date And Time"
+                    placeholderText="00/00/2023 0:00"
+                    // placeholderText="Select Date And Time"
                   />
                 <small>
                   {startDateError ? "startDateError is empty" : " "}
@@ -202,7 +202,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
 
             <div className='common-modal-label'>
               <label htmlFor="date">
-                To
+              To <small className="dateTimes">Date And Time</small>
                 <DatePicker
                   selected={endDate}
                   onChange={endDateChangeHandler}
@@ -215,8 +215,8 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
                   timeCaption="time"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   isOpen={isOpen}
-                  // placeholderText="00/00/2023 0:00"
-                  placeholderText="Select Date And Time"
+                  placeholderText="00/00/2023 0:00"
+                  // placeholderText="Select Date And Time"
                 />
                 <small>{endDateError ? "endDateError is empty" : " "}</small>
               </label>

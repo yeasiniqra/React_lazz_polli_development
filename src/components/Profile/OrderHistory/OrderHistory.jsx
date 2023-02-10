@@ -13,12 +13,21 @@ const OrderHistory = () => {
     useTitle('Order History')
     const [booked, setBooked] = useState([]);
     const mounted = useRef(false);
+
+    
+    const [totalPage, setTotalPage] = useState(1);
+    const [page, setPage] = useState(1);
+    const [size, setSize] = useState(10);
+
    
     const handleGetBooking = () => {
         setIsLoading(true)
-        getV2({ url: GET_ROOM_BOOKING(15,1, "all") }).then((data) => {
+        getV2({ url: GET_ROOM_BOOKING(500,page, "all") }).then((data) => {
+
             if (!data.IsError) {
                 setBooked(data.Data.Data)
+                setTotalPage(Math.ceil( data.Data.Data.length/size));
+                setPage(1);
             } else {
               toast.warning(`${data.Msg}`);
             }
@@ -29,13 +38,24 @@ const OrderHistory = () => {
           });
     }
 
+
+
+
+   const getPageToRender = () => {
+        var initialPage = [];
+        for(let i=1; i<=totalPage; i++)
+        initialPage.push(<div className={page === i && 'actives'} onClick={()=>setPage(i)}><div className='single-pagination'>{i}</div></div>);
+
+        return initialPage;
+    }
+
     useEffect(() => {
         if (!mounted.current) {
             handleGetBooking();
             mounted.current = true;
         }
     }, [mounted]);
-
+    
 
     return (
         <>
@@ -50,10 +70,16 @@ const OrderHistory = () => {
                 <span>Amount</span>
             </div>
             {
-                booked.map(book => <OrderHistoryTemplate book={book} key={book.Code
+                booked
+                .slice((page-1) * size, page * size)
+                .map(book => <OrderHistoryTemplate book={book} key={book.Code
                 } /> )
             }
+           
            </div> 
+           <div className='paginator-parent'>
+               {getPageToRender()}
+           </div>
            {isLoading && <Suspense />}
         </>
     );

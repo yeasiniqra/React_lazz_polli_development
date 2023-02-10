@@ -4,9 +4,6 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { CONFIG } from "../../../services/config-service";
 
-
-
-
 const CottagesSuits = ({ item }) => {
   const options = {
     rewind: true,
@@ -19,23 +16,21 @@ const CottagesSuits = ({ item }) => {
     fixedHeight: "auto",
   };
 
-  // item.Images.map((banner) => (
-  //  console.log(banner.ImagePath)
-  // ))
+ 
   
   return (
     <div className="cottagesuits-grid">
       <div className="cottagesuits-single">
         <div className="cottagesuits-img">
-           <Splide options={options} aria-label="React Splide Example">
-              {
-                  item.Images.map((banner, index) => (
-                  <SplideSlide key={index}>
-                      <img src={`${CONFIG.IMAGE_URL}/${banner.ImagePath}`}  alt="resort full pakage price in bangladesh" />
-                  </SplideSlide>
-                  ))
-              }
-           </Splide>
+          <Splide options={options} aria-label="React Splide Example">
+            {
+              item.Images.filter(banner => banner.ImageFor === "House Slider").map((banner, index) => (
+                <SplideSlide key={index}>
+                  <img src={`${CONFIG.IMAGE_URL}/${banner.ImagePath}`} alt="resort full pakage price in bangladesh" />
+                </SplideSlide>
+              ))
+            }
+          </Splide>
           <div className="book-overly">
             <div className="common-btn">
             <Link to={`${item.Permalink}`}>{item.Name}</Link>
@@ -73,7 +68,6 @@ const CottagesSuits = ({ item }) => {
               <Link to={`${item.Permalink}`}>{item.Name}</Link>
             </div>
           </div>
-
           <div className="hover-ef-2"></div>
         </div>
       </div>

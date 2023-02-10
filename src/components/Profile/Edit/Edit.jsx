@@ -48,11 +48,12 @@ const Edit = () => {
     const [address, setAddress] = useState("");
     const [idNum, setIdNum] = useState("");
     const [country, setCountry] = useState({});
-    const [expDate, setExpDate] = useState("");
-    const [dob, setDob] = useState("");
+    const [expDate, setExpDate] = useState(null);
+    const [dob, setDob] = useState(null);
     const [identity, setIdentity] = useState({});
     const [gender, setGender] = useState({});
     // const [Id, setId] = useState('')
+
 
   
     //form validations handeler
@@ -260,7 +261,6 @@ const Edit = () => {
                         readyToLoad={true}
                         value={gender}
                         placeholder={"--Select--"}
-                        required
                       />
                     </div>
                   </div>
@@ -284,7 +284,6 @@ const Edit = () => {
                         onChange={emailChangeHandler}
                         value={email}
                         placeholder={"Email"}
-                        required
                       />
                     </div>
   
@@ -311,7 +310,6 @@ const Edit = () => {
                         onChange={cityChangeHandler}
                         value={city}
                         placeholder={"City"}
-                        required
                       />
                     </div>
   
@@ -321,7 +319,6 @@ const Edit = () => {
                         onChange={mstateChangeHandler}
                         value={state}
                         placeholder={"State"}
-                        required
                       />
                     </div>
   
@@ -331,7 +328,6 @@ const Edit = () => {
                         onChange={pcodeChangeHandler}
                         value={postalCode}
                         placeholder={"Postal Code"}
-                        required
                       />
                     </div>
   
@@ -341,7 +337,6 @@ const Edit = () => {
                         onChange={faxChangeHandler}
                         value={fax}
                         placeholder={"Fax"}
-                        required
                       />
                     </div>
                   </div>
@@ -352,7 +347,6 @@ const Edit = () => {
                       onChange={addressChangeHandler}
                       value={address}
                       placeholder={"Address"}
-                      required
                     />
                   </div>
   

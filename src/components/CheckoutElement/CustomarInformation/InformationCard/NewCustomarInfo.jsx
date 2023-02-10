@@ -19,7 +19,7 @@ import Suspense from "../../../Sheared/Suspense/Suspense";
 const NewCustomarInfo = () => {
   const [isLoading, setIsLoading] = useState(false);
   // const { formValus, storeForms } = useContext(checkoutContext);
-  const {profile, isAuthenticated, isAuthenticating, formValus, storeForms} = useContext(authContext)
+  const {profile, isAuthenticated, isAuthenticating } = useContext(authContext)
   const {rooms, totalAmount, clear} = useContext(cartContext)
   const {Id} = profile
   const [error, setError] = useState(null);
@@ -69,62 +69,62 @@ const NewCustomarInfo = () => {
   //form validations handeler
   const fnameChangeHandler = (FirstName) => {
     setFname(FirstName);
-    storeForms({ ...formValus, firstName: FirstName });
+    // storeForms({ ...formValus, firstName: FirstName });
   };
   const lnameChangeHandler = (LastName) => {
     setLname(LastName);
-    storeForms({ ...formValus, lastName: LastName });
+    // storeForms({ ...formValus, lastName: LastName });
   };
   const genderChangeHandler = (gender) => {
     setGender(gender);
-    storeForms({ ...formValus, gender: gender });
+    // storeForms({ ...formValus, gender: gender });
   };
   const emailChangeHandler = (email) => {
     setEmail(email);
-    storeForms({ ...formValus, email: email });
+    // storeForms({ ...formValus, email: email });
   };
   const phoneChangeHandler = (Phone) => {
     setPhone(Phone);
-    storeForms({ ...formValus, Phone: Phone });
+    // storeForms({ ...formValus, Phone: Phone });
   };
   const countryChangeHandler = (country) => {
     setCountry(country);
   };
   const cityChangeHandler = (city) => {
     setCity(city);
-    storeForms({ ...formValus, city: city });
+    // storeForms({ ...formValus, city: city });
   };
   const mstateChangeHandler = (state) => {
     setState(state);
-    storeForms({ ...formValus, state: state });
+    // storeForms({ ...formValus, state: state });
   };
   const pcodeChangeHandler = (postalCode) => {
     setPostalCode(postalCode);
-    storeForms({ ...formValus, postalCode: postalCode });
+    // storeForms({ ...formValus, postalCode: postalCode });
   };
   const faxChangeHandler = (fax) => {
     setFax(fax);
-    storeForms({ ...formValus, fax: fax });
+    // storeForms({ ...formValus, fax: fax });
   };
   const addressChangeHandler = (address) => {
     setAddress(address);
-    storeForms({ ...formValus, address: address });
+    // storeForms({ ...formValus, address: address });
   };
   const identityChangeHandler = (identity) => {
     setIdentity(identity);
-    storeForms({ ...formValus, identity: identity });
+    // storeForms({ ...formValus, identity: identity });
   };
   const idnumChangeHandler = (idnum) => {
     setIdNum(idnum);
-    storeForms({ ...formValus, idnum: idnum });
+    // storeForms({ ...formValus, idnum: idnum });
   };
   const expDateChangeHandler = (expDate) => {
     setExpDate(expDate);
-    storeForms({ ...formValus, expiryDate: expDate });
+    // storeForms({ ...formValus, expiryDate: expDate });
   };
   const dobChangeHandler = (dob) => {
     setDob(dob);
-    storeForms({ ...formValus, dateOfBirth: dob });
+    // storeForms({ ...formValus, dateOfBirth: dob });
   };
 
 

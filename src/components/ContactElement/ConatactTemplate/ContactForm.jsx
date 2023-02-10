@@ -130,7 +130,6 @@ const ContactForm = () => {
           changeLog: ""
         }
 
-
         postV2({url: POST_CONTACT, payload})
         .then(data => {
           if(!data.IsError){
@@ -144,12 +143,12 @@ const ContactForm = () => {
           // Loader Close
           setIsLoading(false)
         })
+       
       }
   
 
   return (
     <>
-      {!isLoading && (
       <div className="reqest-demo-left">
         <div className="contact-inner-gradient">
           <h3>{title.title}</h3>
@@ -238,7 +237,6 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      )}
       {isLoading && <Suspense />}
     </>
   );

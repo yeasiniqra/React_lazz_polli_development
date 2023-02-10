@@ -62,7 +62,7 @@ const SearchRoomFilter = ({setIsAvailble}) => {
           setIsAvailble(data.Data.Data)
           if (data.Data) {
             // toast.warning(`${data.Msg}`);
-            console.log(data.Data);
+            // console.log(data.Data);
           }else{
             toast.warning(`Is Not Aviable`);
           } 
@@ -76,22 +76,12 @@ const SearchRoomFilter = ({setIsAvailble}) => {
     });
 
 
-
-    // const errors = [];
-    // if (!!!adults.id) errors.push("Adults");
-
-    // if (errors.length !== 0) {
-    //   console.log(errors.join(", ") + " Are Required");
-    //   alert(`${errors.join(", ")} Are Required`)
-    //   return false;
-    // }
-
-    console.log({
-      arrdate: startDate,
-      depdate: endDate,
-      adults: adults.id,
-      children: children.id,
-    });
+    // console.log({
+    //   arrdate: startDate,
+    //   depdate: endDate,
+    //   adults: adults.id,
+    //   children: children.id,
+    // });
   };
 
   

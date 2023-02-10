@@ -17,7 +17,7 @@ const Invoice = () => {
   const [invoice, setInvoice] = useState([]);
   const {Code} = useParams();
   const mounted = useRef(false);
-  console.log(invoice);
+  // console.log(invoice);
 
   const { PayableAmount} = invoice
  

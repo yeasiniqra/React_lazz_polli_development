@@ -434,7 +434,7 @@ p {
   left: 0px;
   top: 0px;
   width: 100%;
-  z-index: 22;
+  z-index: 99;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -2268,7 +2268,7 @@ p.site ul.footer-links li a:before {
   clear: both;
   padding: 28px 40px 13px 32px;
   margin-top: -25px !important;
-  z-index: 20;
+  z-index: 9;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5082,7 +5082,6 @@ button:disabled {
   100% { transform: rotate(360deg); }
 }
 
-
 .react-datepicker-time__caption {
   font-size: 20px;
   font-weight: 700;
@@ -5096,4 +5095,34 @@ button:disabled {
 }
 .summery-flexc > span {
   cursor: pointer;
+}
+
+small.dateTimes {
+  font-size: 11px !important;
+  display: block;
+  color: #f39f9f !important;
+  font-weight: 400 !important;
+}
+
+
+.paginator-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.single-pagination {
+  padding: 5px;
+  border: 1px solid #ddd;
+  width: 20px;
+  text-align: center;
+  color: #000;
+  cursor: pointer;
+}
+
+.actives .single-pagination {
+  background: var(--secundery-color);
+  border: 1px solid var(--secundery-color);
+  color: #fff;
 }

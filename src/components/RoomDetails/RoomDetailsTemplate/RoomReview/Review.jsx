@@ -16,7 +16,6 @@ const Review = ({room}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [roomreview, setRoomreview] = useState([])
   const mounted = useRef(false)
-  console.log(roomreview);
 
   //email state
   const [review, setReview] = useState("");
@@ -104,25 +103,6 @@ const Review = ({room}) => {
     });
   }
 
-  // const handleUpdate = (id, updatedText) => {
-  //   const payload = {
-  //     Text: updatedText
-  //   }
-  //   postV2({url: POST_UPDATE_REVIEW(id), payload})
-  //     .then(data => {
-  //       if(!data.IsError){
-  //         getRoomReview();
-  //         toast.success("Review updated successfully");
-  //       } else { 
-  //         toast.warning(data.Msg);
-  //       }
-  //     }).catch(err => {
-  //       toast.warning(err?.toString());
-  //     });
-  // }
-  
-
-  
 
   return (
     <>
@@ -157,7 +137,7 @@ const Review = ({room}) => {
     </div>
     <div className="review-single-parent">
       {
-        roomreview.map(reviews =>  <ReviewTemplate reviews={reviews} handleDelete={handleDelete} key={Id} />)
+        roomreview.map((reviews, index) =>  <ReviewTemplate reviews={reviews} handleDelete={handleDelete} key={index} />)
       }
    
     {isLoading && <Suspense />}
@@ -168,78 +148,3 @@ const Review = ({room}) => {
 
 export default Review;
 
-
-
-// const Review = ({room}) => {
-//   const {Id} = room;
-//   const [roomreview, setRoomreview] = useState([]);
-//   const [review, setReview] = useState("");
-//   const [reviewId, setReviewId] = useState(null); // added this state to keep track of the review ID that is being updated
-//   const [isUpdating, setIsUpdating] = useState(false); // added this state to show a loading spinner when updating a review
-  
-//   useEffect(() => {
-//     getRoomReview();
-//   }, []);
-
-//   const getRoomReview = () => {
-//     getV2({url: GET_REVIEW(Id, 5, 1)})
-//     .then(data => {
-//       if (!data.IsError) {
-//         setRoomreview(data.Data.data);
-//       } else {
-//         alert('Error');
-//       }
-//     }).catch(error => {
-//       console.log(error);
-//     });
-//   }
-
-//   const handleEdit = (reviewId, reviewText) => {
-//     setReviewId(reviewId); // set the review ID that is being updated
-//     setReview(reviewText); // set the review text in the input field
-//   }
-
-//   const handleUpdate = (evt) => {
-//     evt.preventDefault();
-//     setIsUpdating(true); // show the loading spinner
-//     const payload = {
-//       ReviewId: reviewId,
-//       Text: review,
-//     }
-
-//     postV2({url: POST_UPDATE_REVIEW, payload})
-//     .then(data => {
-//       if (data.IsError) {
-//         toast.warning(data.Msg);
-//       } else { 
-//         getRoomReview(); // refresh the room reviews
-//         setReviewId(null); // reset the review ID
-//         setReview(''); // reset the review text
-//         toast.success('Review updated successfully');
-//       }
-//     }).catch(err => {
-//       toast.warning(err?.toString());
-//     }).finally(() => {
-//       setIsUpdating(false); // hide the loading spinner
-//     });
-//   }
-
-//   return (
-//     <div>
-//       <form>
-//         <input
-//           type="text"
-//           value={review}
-//           onChange={(e) => setReview(e.target.value)}
-//         />
-//         {isUpdating ? <div>Loading...</div> : <button onClick={handleUpdate}>Update Review</button>}
-//       </form>
-//       {roomreview.map((review) => (
-//         <div key={review.Id}>
-//           <p>{review.Text}</p>
-//           <button onClick={() => handleEdit(review.Id, review.Text)}>Edit</button>
-//         </div>
-//       ))}
-//     </div>
-//   )
-// }
