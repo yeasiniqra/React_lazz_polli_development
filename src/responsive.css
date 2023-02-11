@@ -43,6 +43,9 @@
 }
 
 @media all and (max-width: 991px) {
+    .profile-body {
+        padding-bottom: 70px;
+    }
     #toTop{
         display: none;
     }
@@ -466,6 +469,9 @@
 }
 
 @media all and (max-width: 767px) {
+    .tabbed.niiceeTabContent .paginator-parent {
+        bottom: -22px;
+    }
     .full-package-area {
         padding: 30px 0px;
     }

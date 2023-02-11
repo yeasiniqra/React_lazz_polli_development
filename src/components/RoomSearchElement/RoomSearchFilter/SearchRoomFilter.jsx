@@ -16,65 +16,84 @@ import { useRef } from "react";
 
 const today = new Date();
 
-const SearchRoomFilter = ({setIsAvailble}) => {
+const SearchRoomFilter = ({ setIsAvailble }) => {
   const { filters, storeFilters } = useContext(appContext);
   const [isLoading, setIsLoading] = useState(false);
-  const mounted = useRef(false)
+  const mounted = useRef(false);
 
   const [adults, setAdults] = useState({});
   const [children, setChildren] = useState({});
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date(new Date().setDate(today.getDate() + 1)));
+  const [endDate, setEndDate] = useState(
+    new Date(new Date().setDate(today.getDate() + 1))
+  );
 
- 
   const depdateChangeHandler = (depdate) => {
-    storeFilters({...filters, departureDate : depdate})
-    setEndDate(depdate)
-    submitHandler(children.id, adults.id, new Date(startDate)?.toDateString(), new Date(depdate)?.toDateString());
+    storeFilters({ ...filters, departureDate: depdate });
+    setEndDate(depdate);
+    submitHandler(
+      children.id,
+      adults.id,
+      new Date(startDate)?.toDateString(),
+      new Date(depdate)?.toDateString()
+    );
   };
-
 
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
-    storeFilters({...filters, arrivalDate: time});
-    submitHandler(children.id, adults.id, new Date(time)?.toDateString(), new Date(endDate)?.toDateString());
-  }
-
+    storeFilters({ ...filters, arrivalDate: time });
+    submitHandler(
+      children.id,
+      adults.id,
+      new Date(time)?.toDateString(),
+      new Date(endDate)?.toDateString()
+    );
+  };
 
   const adultsBlurHandler = (fadults) => {
-    storeFilters({...filters, adultsCount : fadults.adults});
+    storeFilters({ ...filters, adultsCount: fadults.adults });
     setAdults(fadults);
-    submitHandler(children.id, fadults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
-  }
-
+    submitHandler(
+      children.id,
+      fadults.id,
+      new Date(startDate)?.toDateString(),
+      new Date(endDate)?.toDateString()
+    );
+  };
 
   const childrenBlurHandler = (fchild) => {
-    storeFilters({...filters, childrenCount : fchild.children})
+    storeFilters({ ...filters, childrenCount: fchild.children });
     setChildren(fchild);
-    submitHandler(fchild.id, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
-  }
+    submitHandler(
+      fchild.id,
+      adults.id,
+      new Date(startDate)?.toDateString(),
+      new Date(endDate)?.toDateString()
+    );
+  };
 
-
-  const submitHandler = (c,a,d,r ) => {
-    setIsLoading(true)
-    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999,1, c, a, d, r)}).then((data) => {
-      if (!data.IsError) {
-          setIsAvailble(data.Data.Data)
+  const submitHandler = (c, a, d, r) => {
+    setIsLoading(true);
+    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999, 1, c, a, d, r) })
+      .then((data) => {
+        if (!data.IsError) {
+          setIsAvailble(data.Data.Data);
           if (data.Data) {
             // toast.warning(`${data.Msg}`);
             // console.log(data.Data);
-          }else{
+          } else {
             toast.warning(`Is Not Aviable`);
-          } 
-      } else {
-        toast.warning(`${data.Msg}`);
-      }
-    }).catch(err => {
-      toast.warning(err?.toString());
-    }).finally(() => {
-      setIsLoading(false)
-    });
-
+          }
+        } else {
+          toast.warning(`${data.Msg}`);
+        }
+      })
+      .catch((err) => {
+        toast.warning(err?.toString());
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
 
     // console.log({
     //   arrdate: startDate,
@@ -84,16 +103,25 @@ const SearchRoomFilter = ({setIsAvailble}) => {
     // });
   };
 
-  
   useEffect(() => {
     if (!mounted.current) {
-        submitHandler(children.id, adults.id, new Date(startDate)?.toDateString(), new Date(endDate)?.toDateString());
-        mounted.current = true;
-        storeFilters({...filters, arrivalDate: startDate,departureDate : endDate, adultsCount : adults.id, childrenCount : children.id});
+      submitHandler(
+        children.id,
+        adults.id,
+        new Date(startDate)?.toDateString(),
+        new Date(endDate)?.toDateString()
+      );
+      mounted.current = true;
+      storeFilters({
+        ...filters,
+        arrivalDate: startDate,
+        departureDate: endDate,
+        adultsCount: adults.id,
+        childrenCount: children.id,
+      });
     }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [mounted]);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted]);
 
   return (
     <section
@@ -102,26 +130,24 @@ const SearchRoomFilter = ({setIsAvailble}) => {
     >
       <div className="container">
         <div className="hotel-booking-search">
-    
           <form name="hb-search-form" action="">
             <div className="book_table_inner">
-            
               <div className="book_table_item disable-input-append">
                 <span>Arrival Date</span>
                 <div className="input-append">
-                 <DatePicker
+                  <DatePicker
                     selected={startDate}
                     onChange={arrivalBlurHandler}
                     minDate={new Date()}
                     showDisabledMonthNavigation
-                    placeholderText = "dd/mm/yyyy"
+                    placeholderText="dd/mm/yyyy"
                     monthsShown={2}
                     showTimeSelect
                     showYearDropdown
                   />
                   <div className="claender-btn">
                     <div className="add-on">
-                       <i className="fa fa-calendar" aria-hidden="true"></i>
+                      <i className="fa fa-calendar" aria-hidden="true"></i>
                     </div>
                   </div>
                 </div>
@@ -129,18 +155,18 @@ const SearchRoomFilter = ({setIsAvailble}) => {
               <div className="book_table_item disable-input-append">
                 <span>Departure Date</span>
                 <div className="input-append">
-                 <DatePicker
+                  <DatePicker
                     selected={endDate}
                     onChange={depdateChangeHandler}
                     showDisabledMonthNavigation
-                    placeholderText = "mm/dd/yyyy"
+                    placeholderText="mm/dd/yyyy"
                     monthsShown={2}
                     showTimeSelect
                     showYearDropdown
                   />
                   <div className="claender-btn">
                     <div className="add-on">
-                       <i className="fa fa-calendar" aria-hidden="true"></i>
+                      <i className="fa fa-calendar" aria-hidden="true"></i>
                     </div>
                   </div>
                 </div>
@@ -162,7 +188,6 @@ const SearchRoomFilter = ({setIsAvailble}) => {
                   placeholder={"--Select--"}
                   onChange={adultsBlurHandler}
                   required
-                  
                 />
               </div>
               <div className="book_table_item">

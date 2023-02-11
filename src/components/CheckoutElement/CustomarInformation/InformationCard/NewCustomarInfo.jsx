@@ -8,7 +8,11 @@ import checkoutContext from "../../../../store/checkout-context";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
-import {  GET_USER_PROFILE, POST_ROOM_BOOKING, POST_UPDATE_PROFILE } from "../../../../lib/endpoints";
+import { 
+  GET_USER_PROFILE,
+  POST_ROOM_BOOKING,
+  POST_UPDATE_PROFILE,
+} from "../../../../lib/endpoints";
 import { getV2, postV2 } from "../../../../services/http-service-v2";
 import authContext from "../../../../store/auth-context";
 import cartContext from "../../../../store/cart-context";
@@ -19,12 +23,12 @@ import Suspense from "../../../Sheared/Suspense/Suspense";
 const NewCustomarInfo = () => {
   const [isLoading, setIsLoading] = useState(false);
   // const { formValus, storeForms } = useContext(checkoutContext);
-  const {profile, isAuthenticated, isAuthenticating } = useContext(authContext)
-  const {rooms, totalAmount, clear} = useContext(cartContext)
-  const {Id} = profile
+  const { profile, isAuthenticated, isAuthenticating } =
+    useContext(authContext);
+  const { rooms, totalAmount, clear } = useContext(cartContext);
+  const { Id } = profile;
   const [error, setError] = useState(null);
   const mounted = useRef(false);
- 
 
   const [isChecked, setIsChecked] = useState(false);
 
@@ -32,16 +36,15 @@ const NewCustomarInfo = () => {
     setIsChecked(event.target.checked);
   };
 
-
   const formatDate = (date) => {
     const passedDate = new Date(date);
     const year = passedDate.getFullYear();
     let month = (1 + passedDate.getMonth()).toString();
-    month = month.length > 1 ? month : '0' + month;
+    month = month.length > 1 ? month : "0" + month;
     let day = passedDate.getDate().toString();
-    day = day.length > 1 ? day : '0' + day;
+    day = day.length > 1 ? day : "0" + day;
     return `${year}-${month}-${day}`;
- }
+  };
 
   //form validations State
   const [FirstName, setFname] = useState("");
@@ -54,17 +57,17 @@ const NewCustomarInfo = () => {
   const [fax, setFax] = useState("");
   const [address, setAddress] = useState("");
   const [idNum, setIdNum] = useState("");
-  const [country, setCountry] = useState({name: 'Bangladesh', code: 'BD'});
+  const [country, setCountry] = useState({ name: "Bangladesh", code: "BD" });
   const [expDate, setExpDate] = useState("");
   const [dob, setDob] = useState("");
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
-  const [paymentPercent, setPaymentPercent] = useState('100%')
+  const [paymentPercent, setPaymentPercent] = useState("100%");
   // const [Id, setId] = useState('')
 
   const handleClicekd = (percent) => {
-    setPaymentPercent(percent)
-  }
+    setPaymentPercent(percent);
+  };
 
   //form validations handeler
   const fnameChangeHandler = (FirstName) => {
@@ -127,163 +130,167 @@ const NewCustomarInfo = () => {
     // storeForms({ ...formValus, dateOfBirth: dob });
   };
 
-
   const getProfileInfo = useCallback(() => {
-    setIsLoading(true)
-    getV2({url: GET_USER_PROFILE})
-    .then(data => {
-      if(!data.IsError){
-        setIsLoading(false)
-      //  console.log(data);
-       setFname(data.Data.FirstName);
-       setLname(data.Data.LastName);
-       setGender( { name: data.Data.Gender, id: data.Data.Gender });
-       setEmail(data.Data.Email);  
-       setPhone(data.Data.Phone);
-       setCountry({name : data.Data.Country, code : data.Data.Country});
-       setCity(data.Data.City);
-       setState(data.Data.State);
-       setPostalCode(data.Data.PostalCode);
-       setFax(data.Data.Fax);
-       setAddress(data.Data.Address);
-       setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
-       setIdNum(data.Data.IdentityNumber);
-       setExpDate(data.Data.IdentityExpireDate);
-       setDob(data.Data.DateOfBirth);
-      } else {
-        // console.log(data);
-       alert('Error')
-      }
-    }).catch(error => {
-     
-    });
+    setIsLoading(true);
+    getV2({ url: GET_USER_PROFILE })
+      .then((data) => {
+        if (!data.IsError) {
+          setIsLoading(false);
+          //  console.log(data);
+          setFname(data.Data.FirstName);
+          setLname(data.Data.LastName);
+          setGender({ name: data.Data.Gender, id: data.Data.Gender });
+          setEmail(data.Data.Email);
+          setPhone(data.Data.Phone);
+          setCountry({ name: data.Data.Country, code: data.Data.Country });
+          setCity(data.Data.City);
+          setState(data.Data.State);
+          setPostalCode(data.Data.PostalCode);
+          setFax(data.Data.Fax);
+          setAddress(data.Data.Address);
+          setIdentity({
+            name: data.Data.IdentityType,
+            id: data.Data.IdentityType,
+          });
+          setIdNum(data.Data.IdentityNumber);
+          setExpDate(data.Data.IdentityExpireDate);
+          setDob(data.Data.DateOfBirth);
+        } else {
+          // console.log(data);
+          alert("Error");
+        }
+      })
+      .catch((error) => {});
   }, []);
 
   useEffect(() => {
     if (!mounted.current) {
       getProfileInfo();
       mounted.current = true;
-  }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [mounted]);
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted]);
 
   const postProfileInfo = useCallback((payload) => {
-   return postV2({url: POST_UPDATE_PROFILE, payload})
-    .then(data => {
-      if(!data.IsError){
-       console.log(data);
-       setFname(data.Data.FirstName);
-       setLname(data.Data.LastName);
-       setGender( { name: data.Data.Gender, id: data.Data.Gender });
-       setEmail(data.Data.Email);  
-       setPhone(data.Data.Phone);
-       setCountry({name : data.Data.Country, code : data.Data.Country});
-       setCity(data.Data.City);
-       setState(data.Data.State);
-       setPostalCode(data.Data.PostalCode);
-       setFax(data.Data.Fax);
-       setAddress(data.Data.Address);
-       setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
-       setIdNum(data.Data.IdentityNumber);
-       setExpDate(data.Data.IdentityExpireDate);
-       setDob(data.Data.DateOfBirth);
-       
-      } else {
-        console.log(data);
-       alert('Error')
-      }
-      
-    }).catch(error => {
-     
-    });
+    return postV2({ url: POST_UPDATE_PROFILE, payload })
+      .then((data) => {
+        if (!data.IsError) {
+          console.log(data);
+          setFname(data.Data.FirstName);
+          setLname(data.Data.LastName);
+          setGender({ name: data.Data.Gender, id: data.Data.Gender });
+          setEmail(data.Data.Email);
+          setPhone(data.Data.Phone);
+          setCountry({ name: data.Data.Country, code: data.Data.Country });
+          setCity(data.Data.City);
+          setState(data.Data.State);
+          setPostalCode(data.Data.PostalCode);
+          setFax(data.Data.Fax);
+          setAddress(data.Data.Address);
+          setIdentity({
+            name: data.Data.IdentityType,
+            id: data.Data.IdentityType,
+          });
+          setIdNum(data.Data.IdentityNumber);
+          setExpDate(data.Data.IdentityExpireDate);
+          setDob(data.Data.DateOfBirth);
+        } else {
+          console.log(data);
+          alert("Error");
+        }
+      })
+      .catch((error) => {});
   }, []);
 
-  //checkout suymmery 
+  //checkout suymmery
   const newTax = totalAmount * 0.15;
   const grandTotal = totalAmount + newTax;
 
-  //post booking 
+  //post booking
   const bookingRequest = () => {
     const payload = {
-        Tax : newTax,
-        RoomCharge : totalAmount,
-        Payable : grandTotal,
-        AdvancePaying: 0,
-        PayPercent : paymentPercent,
-        Places: rooms.map(r => ({ Id: r.Id,
-          Quantity: r.quantity,
-          Type: r.Type,
-          ArrivalDate : r.arrivalDate,
-          DepartureDate : r.departureDate,
-          Name : r.Name,
-        })),
-    }
-    postV2({ url: POST_ROOM_BOOKING, payload }).then((data) => {
-      if (!data.IsError) {
-        if (data.Data.PaymentURL === "") {
-          toast.warning(`Invalid Information`);
-        }else{
-          window.location.href = data.Data.PaymentURL;
+      Tax: newTax,
+      RoomCharge: totalAmount,
+      Payable: grandTotal,
+      AdvancePaying: 0,
+      PayPercent: paymentPercent,
+      Places: rooms.map((r) => ({
+        Id: r.Id,
+        Quantity: r.quantity,
+        Type: r.Type,
+        ArrivalDate: r.arrivalDate,
+        DepartureDate: r.departureDate,
+        Name: r.Name,
+      })),
+    };
+    postV2({ url: POST_ROOM_BOOKING, payload })
+      .then((data) => {
+        if (!data.IsError) {
+          if (data.Data.PaymentURL === "") {
+            toast.warning(`Invalid Information`);
+          } else {
+            window.location.href = data.Data.PaymentURL;
+          }
+          clear();
+        } else {
+          setError("inside err", data.Msg);
         }
-        clear();
-      } else {
-        setError('inside err', data.Msg);
-      }
-    }).catch(err => {
-      toast.warning(err?.toString());
-    })
+      })
+      .catch((err) => {
+        toast.warning(err?.toString());
+      });
   };
-
 
   const submitHandler = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     const payload = {
-      FirstName : FirstName,
-      LastName : LastName,
-      Phone : Phone,
-      Gender : gender.id,
-      Email : email,
-      Country : country.name,
-      City : city,
-      State : state,
-      PostalCode : postalCode,
-      Fax : fax,
-      Address : address,
-      IdentityType : identity.id,
-      IdentityNumber : idNum,
-      IdentityExpireDate : expDate,
-      DateOfBirth : dob,
-      Id : Id,
-      Remarks : 'hey',
-      ChangeLog : 'cng',
-    }
+      FirstName: FirstName,
+      LastName: LastName,
+      Phone: Phone,
+      Gender: gender.id,
+      Email: email,
+      Country: country.name,
+      City: city,
+      State: state,
+      PostalCode: postalCode,
+      Fax: fax,
+      Address: address,
+      IdentityType: identity.id,
+      IdentityNumber: idNum,
+      IdentityExpireDate: expDate,
+      DateOfBirth: dob,
+      Id: Id,
+      Remarks: "hey",
+      ChangeLog: "cng",
+    };
     console.log(payload);
-    postProfileInfo(payload).then(() => {
-      bookingRequest()
-    }).finally(() => {
-      setIsLoading(false)
-    })
+    postProfileInfo(payload)
+      .then(() => {
+        bookingRequest();
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
-    // useEffect(()=> {
-    //   if (!isAuthenticating && isAuthenticated) {
-    //     getProfileInfo();
-    //     mounted.current = true;
-    //   }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // },[isAuthenticating, isAuthenticated,])
+  // useEffect(()=> {
+  //   if (!isAuthenticating && isAuthenticated) {
+  //     getProfileInfo();
+  //     mounted.current = true;
+  //   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // },[isAuthenticating, isAuthenticated,])
 
-    useEffect(() => {
-      if (!mounted.current && !isAuthenticating && isAuthenticated) {
-        getProfileInfo();
-        mounted.current = true;
-      }
-    }, [isAuthenticating, isAuthenticated]);
-    
-    useEffect(() => {
-      mounted.current = false;
-    }, [isAuthenticated]);
+  useEffect(() => {
+    if (!mounted.current && !isAuthenticating && isAuthenticated) {
+      getProfileInfo();
+      mounted.current = true;
+    }
+  }, [isAuthenticating, isAuthenticated]);
+
+  useEffect(() => {
+    mounted.current = false;
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -329,7 +336,6 @@ const NewCustomarInfo = () => {
                       readyToLoad={true}
                       value={gender}
                       placeholder={"--Select--"}
-                      
                     />
                   </div>
                 </div>
@@ -476,55 +482,61 @@ const NewCustomarInfo = () => {
                   </div>
                 </div>
 
-                  <div className="paymet-radio-btn">
-                      <input 
-                         defaultChecked={paymentPercent === '100%'}
-                         type="radio"
-                         id="html"
-                         name="payfull"
-                         value="HTML" 
-                        />
-                      <label className="percent" onClick={handleClicekd.bind(null, '100%')} htmlFor="html">Pay Full Payment</label>
-                      <input 
-                         defaultChecked={paymentPercent === '30%'}
-                         type="radio" 
-                         id="css"
-                         name="payfull"
-                         value="CSS" 
-                       />
-                      <label onClick={handleClicekd.bind(null, '30%')} htmlFor="css">Pay 30% Payment</label>
-                  </div> 
+                <div className="paymet-radio-btn">
+                  <input
+                    defaultChecked={paymentPercent === "100%"}
+                    type="radio"
+                    id="html"
+                    name="payfull"
+                    value="HTML"
+                  />
+                  <label
+                    className="percent"
+                    onClick={handleClicekd.bind(null, "100%")}
+                    htmlFor="html"
+                  >
+                    Pay Full Payment
+                  </label>
+                  <input
+                    defaultChecked={paymentPercent === "30%"}
+                    type="radio"
+                    id="css"
+                    name="payfull"
+                    value="CSS"
+                  />
+                  <label
+                    onClick={handleClicekd.bind(null, "30%")}
+                    htmlFor="css"
+                  >
+                    Pay 30% Payment
+                  </label>
+                </div>
 
-
-                  <div className="toggle-condition">
-                    <p className="trams-condition">
-                      <label onChange={handleCheckboxChange}>
-                        <input
-                          className="trams-checkbox"
-                          type="checkbox"
-                          name="tos"
-                          value="trams"
-                          defaultChecked={isChecked}
-                        />
-                        I agree with{" "}
-                        <Link to="#" target="_blank">
-                          Terms and Conditions
-                        </Link>
-                      </label>
-                    </p>
-                    <div
-                      onClick={submitHandler}
-                      className="book_table_item dtl-btn"
-                    >
-                      <button
-                        type="button"
-                        disabled={!isChecked}
-                      >
-                        Submit
-                      </button>
-                    </div>
+                <div className="toggle-condition">
+                  <p className="trams-condition">
+                    <label onChange={handleCheckboxChange}>
+                      <input
+                        className="trams-checkbox"
+                        type="checkbox"
+                        name="tos"
+                        value="trams"
+                        defaultChecked={isChecked}
+                      />
+                      I agree with{" "}
+                      <Link to="#" target="_blank">
+                        Terms and Conditions
+                      </Link>
+                    </label>
+                  </p>
+                  <div
+                    onClick={submitHandler}
+                    className="book_table_item dtl-btn"
+                  >
+                    <button type="button" disabled={!isChecked}>
+                      Submit
+                    </button>
                   </div>
-
+                </div>
               </div>
             </form>
           </div>

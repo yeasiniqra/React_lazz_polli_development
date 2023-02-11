@@ -3,7 +3,23 @@ import { humanizeDate } from "../lib/utils";
 export const printInvoice = (data) => {
     const printWindow = window.open('', 'PRINT', 'height=800,width=1200');
     const HTML = generateHTML(data);
-    printWindow.document.write(HTML);
+    printWindow.document.write(`
+    <html>
+      <head>
+        <style>
+          @media print {
+            @page {
+              size: A4;  
+              margin: 0; 
+            }
+          }
+        </style>
+      </head>
+      <body onload="window.print();">
+        ${HTML}
+      </body>
+    </html>
+  `);
     printWindow.document.close(); // necessary for IE >= 10
     printWindow.focus();
 }
@@ -152,10 +168,10 @@ const generateHTML = (data) => {
         .invoice-mid table tr th {
           /* text-align: center; */
           font-weight: 500;
-          padding: 0.25rem 1rem;
+          padding: 0.25rem 0.5rem;
         }
         .invoice-mid table tr td {
-          padding: 0.25rem 1rem;
+          padding: 0.25rem 0.5rem;
         }
         .invoice__bottom {
           margin-bottom: 2rem;

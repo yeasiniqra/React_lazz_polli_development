@@ -134,6 +134,11 @@ const ContactForm = () => {
         .then(data => {
           if(!data.IsError){
             toast.success("Message Sent");
+            setName("");
+            setEmail("");
+            setPhone("");
+            setMessage("");
+            setClicked(false);
           } else {
             toast.warning(data.Msg);
           }

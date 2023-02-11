@@ -4185,6 +4185,7 @@ textarea:focus {
   margin: 15px 0px;
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
 }
 
 
@@ -4895,6 +4896,7 @@ button.common-modal-submit {
 
 .modal-inner.modal-inner-cottage .search-room-single-main-tab {
   margin-top: 6px;
+  position: relative;
 }
 
 .modal-inner.modal-inner-cottage .niiceeTabContent {
@@ -5038,6 +5040,10 @@ button:disabled {
 	.hide-on-print{
 		display: none;
 	}
+  @page {
+    size: A4;
+    margin: 0;
+  }
 }
 
 .invoice > button {
@@ -5110,6 +5116,14 @@ small.dateTimes {
   justify-content: center;
   align-items: center;
   padding: 20px 0px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.tabbed.niiceeTabContent .paginator-parent {
+  bottom: -35px;
 }
 
 .single-pagination {
@@ -5125,4 +5139,12 @@ small.dateTimes {
   background: var(--secundery-color);
   border: 1px solid var(--secundery-color);
   color: #fff;
+}
+
+.paginator-parent > button {
+  border: 1px solid var(--secundery-color);
+  background: transparent;
+  font-size: 15px;
+  padding: 6px;
+  cursor: pointer;
 }

@@ -14,19 +14,18 @@ const OrderHistory = () => {
     const [booked, setBooked] = useState([]);
     const mounted = useRef(false);
 
-    
+    // pagination function
     const [totalPage, setTotalPage] = useState(1);
     const [page, setPage] = useState(1);
-    const [size, setSize] = useState(10);
+    const [size, setSize] = useState(12);
 
    
     const handleGetBooking = () => {
         setIsLoading(true)
         getV2({ url: GET_ROOM_BOOKING(500,page, "all") }).then((data) => {
-
             if (!data.IsError) {
                 setBooked(data.Data.Data)
-                setTotalPage(Math.ceil( data.Data.Data.length/size));
+                setTotalPage(Math.ceil(data.Data.Data.length/size));
                 setPage(1);
             } else {
               toast.warning(`${data.Msg}`);
@@ -38,16 +37,23 @@ const OrderHistory = () => {
           });
     }
 
-
-
-
-   const getPageToRender = () => {
+    const getPageToRender = () => {
         var initialPage = [];
-        for(let i=1; i<=totalPage; i++)
-        initialPage.push(<div className={page === i && 'actives'} onClick={()=>setPage(i)}><div className='single-pagination'>{i}</div></div>);
-
+        for (let i = 1; i <= totalPage; i++) {
+          initialPage.push(
+            <div
+              key={i}
+              className={page === i ? "actives" : undefined}
+              onClick={() => setPage(i)}
+            >
+              <div className="single-pagination">{i}</div>
+            </div>
+          );
+        }
+      
         return initialPage;
-    }
+      };
+      
 
     useEffect(() => {
         if (!mounted.current) {
@@ -78,8 +84,11 @@ const OrderHistory = () => {
            
            </div> 
            <div className='paginator-parent'>
-               {getPageToRender()}
-           </div>
+                <button disabled={page === 1} onClick={() => setPage(page - 1)}>Pre</button>
+                {getPageToRender()}
+                <button disabled={page === totalPage} onClick={() => setPage(page + 1)}>Next</button>
+            </div>
+
            {isLoading && <Suspense />}
         </>
     );

@@ -22,6 +22,11 @@ const Review = ({room}) => {
   const [reviewIsTouched, setReviewIsTouched] = useState(false);
   const [reviewIsValid, setReviewIsValid] = useState(false);
 
+
+  const [totalPage, setTotalPage] = useState(1)
+  const [page, setPage] = useState(1)
+  const [size, setSize] = useState(3)
+
   //email functions
   const reviewOnChangeHandeler = ({ target }) => {
     setReview(target.value);
@@ -44,10 +49,14 @@ const Review = ({room}) => {
 
 
   const getRoomReview = useCallback(() => {
-    getV2({url: GET_REVIEW(Id,5,1)})
+    setIsLoading(true)
+    getV2({url: GET_REVIEW(Id,500,page)})
     .then(data => {
       if(!data.IsError){
         setRoomreview(data.Data.data);
+        setTotalPage(Math.ceil(data.Data.data.length/size))
+        setPage(1)
+        setIsLoading(false)
       } else {
        alert('Error')
       }
@@ -80,6 +89,8 @@ const Review = ({room}) => {
         toast.warning(data.Msg);
       } else { 
         getRoomReview();
+        setReview("")
+        setClicked(false);
       }
     }).catch(err => {
       toast.warning(err?.toString());
@@ -101,6 +112,22 @@ const Review = ({room}) => {
     }).catch(error => {
      
     });
+  }
+
+  const getReviewPageTorender = () => {
+    var initialPage = [];
+    for(let i = 1; i <= totalPage; i++){
+      initialPage.push(
+        <div
+        key={i}
+        className={page === i ? "actives" : undefined}
+        onClick={() => setPage(i)}
+      >
+        <div className="single-pagination">{i}</div>
+      </div>
+      )
+    }
+    return initialPage;
   }
 
 
@@ -137,11 +164,17 @@ const Review = ({room}) => {
     </div>
     <div className="review-single-parent">
       {
-        roomreview.map((reviews, index) =>  <ReviewTemplate reviews={reviews} handleDelete={handleDelete} key={index} />)
+        roomreview
+        .slice((page-1) * size, page * size)
+        .map((reviews, index) =>  <ReviewTemplate reviews={reviews} handleDelete={handleDelete} key={index} />)
       }
-   
     {isLoading && <Suspense />}
     </div>
+    <div className='paginator-parent'>
+      <button disabled={page === 1} onClick={() => setPage(page - 1)}>Pre</button>
+      {getReviewPageTorender()}
+      <button disabled={page === totalPage} onClick={() => setPage(page + 1)}>Next</button> 
+      </div>
     </>
   );
 };
