@@ -1,15 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { imageURL, IMAGE_CATEGORY } from "../../lib/galleryService";
 
 const RoomCard = ({room, setRoomdetails}) => {
   const detailsClickHandler = (Type) => {
     setRoomdetails({...room, Type});
 }
 
+const roomCoverImages = room?.Images?.filter((banner) => banner.ImageFor === "ROOM_COVER");
+const lastRoomCoverImage = roomCoverImages?.sort((a, b) => new Date(b.UploadDate) - new Date(a.UploadDate))[0];
+
+const houseCoverImages = room?.Images?.filter((banner) => banner.ImageFor === "HOUSE_COVER");
+const lasthouseCoverImage = houseCoverImages?.sort((a, b) => new Date(b.UploadDate) - new Date(a.UploadDate))[0];
+
   return (
     <>
       <div className="choose-room-single-item">
-            <img src={room.Images} alt="lazz polli resort" />
+           <img src={imageURL(IMAGE_CATEGORY.HOUSE, lastRoomCoverImage?.ImagePath)} alt="resort full package price in Bangladesh" />
             <div className="room-content-x">
               <h2>Book Single Room From - {room.Name}</h2>
               <h3>
@@ -24,7 +31,7 @@ const RoomCard = ({room, setRoomdetails}) => {
       </div>
 
       <div className="choose-room-single-item">
-            <img src={room.Images} alt="lazz polli resort" />
+         <img src={imageURL(IMAGE_CATEGORY.HOUSE, lasthouseCoverImage?.ImagePath)} alt="resort full package price in Bangladesh" />
           <div className="room-content-x">
               <h2>Book Entire - {room.Name}</h2>
               <h3>

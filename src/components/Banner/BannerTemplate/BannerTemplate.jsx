@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
+import { imageURL, IMAGE_CATEGORY } from "../../../lib/galleryService";
 
 const BannerTemplate = ({banner}) => {
+  const {ImagePath, AltText, URL, BtnText, SubHeading, Heading} = banner;
 
   return (
     <div className="slide custom-splide">
-      <img src={banner.image} alt="lazz polli resort" />
+      <img src={imageURL(IMAGE_CATEGORY.BANNER,ImagePath)} alt={AltText} />
       <div className="banner-content-overly">
         <div className="banner-content">
-          <h2>{banner.heading}</h2>
-          <p>{banner.subHeading}</p>
+          <h2>{Heading}</h2>
+          <p>{SubHeading}</p>
           <div className="common-btn">
-            <Link to={banner.link}  tabIndex="-1">
-              {banner.btnText}
+            <Link to={URL}  tabIndex="-1">
+              {BtnText}
             </Link>
           </div>
         </div>

@@ -18,7 +18,7 @@ const ContactAddress = () => {
           </li>
           <li>
             <i className="fa fa-envelope-o" aria-hidden="true"></i>
-            <a href="mailto:info@lazzpolli.com">info@lazzpolli.com</a>
+            <a href="mailto:lazzpolli1@gmail.com">lazzpolli1@gmail.com</a>
           </li>
         </ul>
       </div>

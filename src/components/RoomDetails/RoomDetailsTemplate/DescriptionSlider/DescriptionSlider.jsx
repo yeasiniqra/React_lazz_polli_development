@@ -4,6 +4,7 @@ import "@splidejs/react-splide/css";
 
 import GalleryPreview from "../../../Sheared/GalleryPreview/GalleryPreview";
 import { useState } from "react";
+import { imageURL, IMAGE_CATEGORY } from "../../../../lib/galleryService";
 
 const DescriptionSlider = ( {room} ) => {
       const options = {
@@ -18,16 +19,13 @@ const DescriptionSlider = ( {room} ) => {
         start  : 0
       };
     
-
       const [preview, setPreview] = useState({ show: false, images: {}, start: 0});
-
       const previewCloseHandler = () => {
         setPreview({ show: false, images: [], start: 0});
       };
     
       const checkClickHandler = (index) => {
-        const images = room.roomSingle[0].images.map(item => item.image);
-
+        const images = room.Images.map(item => item.ImagePath);
         setPreview({
           show: true,
           images,
@@ -44,10 +42,10 @@ const DescriptionSlider = ( {room} ) => {
                     <SplideSlide key={index}>
                         <img
                           className="gallery__Image"
-                          src={imagesSlide.Images}
+                          src={imageURL(IMAGE_CATEGORY.HOUSE, imagesSlide.ImagePath)}
                           alt="b1.png"
                           onClick={checkClickHandler.bind(null, index)}
-                          data-large={imagesSlide.image}
+                          data-large={imagesSlide.ImagePath}
                         />
                     </SplideSlide>
                     ))}
@@ -56,7 +54,7 @@ const DescriptionSlider = ( {room} ) => {
             <div className="dts-heading-content">
                 <h1>{room.Name}</h1>
                 <h4>
-                    {room.Type === 'ROOM' ? room.RoomPrice : room.Price} / <span></span>
+                    {room.Type === 'ROOM' ? room.RoomPrice : room.Price} / <span>Night</span>
                 </h4>
             </div>
        </div>

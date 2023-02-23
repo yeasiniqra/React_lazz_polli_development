@@ -1,10 +1,10 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import styles from './Gallery.module.css'
+import styles from './PreviewImage.module.css'
 import { imageURL, IMAGE_CATEGORY } from "../../../lib/galleryService";
 
-const GalleryPreview = ({ show, onClose, images = [], start }) => {
+const PreviewImage = ({ show, onClose, images = [], start }) => {
   const options = {
     rewind: true,
     type: "fade",
@@ -29,7 +29,7 @@ const GalleryPreview = ({ show, onClose, images = [], start }) => {
                         <SplideSlide key={index}>
                             <img
                                className="gallery__Image"
-                               src={imageURL(IMAGE_CATEGORY.HOUSE, image)}
+                               src={imageURL(IMAGE_CATEGORY.GALLERY, image)}
                                alt="b1.png"
                             />
                         </SplideSlide>
@@ -49,4 +49,4 @@ const GalleryPreview = ({ show, onClose, images = [], start }) => {
   );
 };
 
-export default GalleryPreview;
+export default PreviewImage;

@@ -2,18 +2,18 @@ import React, { useCallback, useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { GALLERY_MENU_TAB_BUTTON_NAMES } from "../../../constants/magic-string";
-import { GALLERY_PAGE, GET_GALLERY, IMAGE_CATEGORY, PAGE_SIZE } from "../../../lib/galleryService";
 import { getV2 } from "../../../services/http-service-v2";
-// import { GET_GALLERY } from "../../../lib/endpoints";
-import Activities from "./Activities";
-import Pools from "./Pools";
-import Restaurants from "./Restaurants";
-import Space from "./Space";
+import { GET_GALLERY } from "../../../lib/endpoints";
+import DubleDom from "./DubleDom";
+import MudHouse from "./MudHouse";
+import RaniyaHouse from "./RaniyaHouse";
+import Suspense from "../../Sheared/Suspense/Suspense";
+import IchamotiHouse from "./IchamotiHouse";
 
 const GalleryTabLink = () => {
-    const [roomreview, setRoomreview] = useState([])
+    const [galleryImage, setGalleryImage] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const mounted = useRef(false)
-    console.log(roomreview);
 
     const [actionTab, setActionTab] = useState(
         GALLERY_MENU_TAB_BUTTON_NAMES.SPACES
@@ -23,12 +23,13 @@ const GalleryTabLink = () => {
         setActionTab(tabName);
     };
 
-    const getRoomReview = useCallback(() => {
-        getV2({url: GET_GALLERY(IMAGE_CATEGORY.RANIYA_HOUSE, PAGE_SIZE.PAGE_ONE, GALLERY_PAGE.ONE)})
+    const getGalleryImages = useCallback(() => {
+        setIsLoading(true)
+        getV2({url: GET_GALLERY(40,1)})
         .then(data => {
-            console.log('inside gallery', data)
           if(!data.IsError){
-            setRoomreview(data.Data.data);
+            setGalleryImage(data.Data);
+            setIsLoading(false)
           } else {
            alert('Error')
           }
@@ -40,8 +41,8 @@ const GalleryTabLink = () => {
     
       useEffect(() => {
         if (!mounted.current) {
-          getRoomReview();
-          mounted.current = true;
+            getGalleryImages();
+            mounted.current = true;
       }
     }, [mounted]);
 
@@ -98,14 +99,26 @@ const GalleryTabLink = () => {
                  </nav>
 
                 <div className="niiceeTabContent">
-                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.SPACES && <Space />}
-                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.ACTIVITIES && <Activities />}
-                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.POOLS && <Pools />}
-                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.RESTAURANTS && <Restaurants />}
+                  {
+                    actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.SPACES && galleryImage && 
+                     <RaniyaHouse galleryImage={galleryImage} isLoading={isLoading} />
+                  }
+                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.ACTIVITIES && galleryImage &&
+                     <DubleDom galleryImage={galleryImage} isLoading={isLoading} />
+                  }
+
+                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.POOLS && galleryImage && 
+                    <MudHouse galleryImage={galleryImage} isLoading={isLoading} />
+                  }
+                  {actionTab === GALLERY_MENU_TAB_BUTTON_NAMES.RESTAURANTS && galleryImage && 
+                    <IchamotiHouse galleryImage={galleryImage} isLoading={isLoading} />
+                  }
                 </div>
+                {isLoading && <Suspense />}
             </div>    
         </>
     );
 };
 
 export default GalleryTabLink;
+

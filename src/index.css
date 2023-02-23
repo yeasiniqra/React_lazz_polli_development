@@ -1675,7 +1675,8 @@ section article {
 }
 
 .footer-bottom span a {
-  color: #fff;
+  text-decoration: underline;
+  color: #64c9fb;
 }
 
 .footer-menu>ul>li {
@@ -4699,6 +4700,8 @@ table.table.table-bordered>tbody>tr.tr-border {
 }
 
 
+
+
 .relax-spa-img-content .common-btn a {
   border: 2px solid #ffb606;
   border: 2px solid var(--secundery-color);
@@ -5148,3 +5151,4 @@ small.dateTimes {
   padding: 6px;
   cursor: pointer;
 }
+

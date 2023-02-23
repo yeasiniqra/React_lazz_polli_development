@@ -16,7 +16,7 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
   const { filters, storeFilters } = useContext(appContext);
   const [isLoading, setIsLoading] = useState(false);
   const mounted = useRef(false);
-
+  
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(
     new Date(new Date().setDate(today.getDate() + 1))
@@ -86,6 +86,8 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
     }
   }, [mounted]);
 
+  
+
   return (
     <div className="search-filter-modal-area">
       <div className="hotel-booking-search">
@@ -103,6 +105,7 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
                   monthsShown={2}
                   showTimeSelect
                   showYearDropdown
+                 
                 />
                 <div className="claender-btn">
                   <div className="add-on">

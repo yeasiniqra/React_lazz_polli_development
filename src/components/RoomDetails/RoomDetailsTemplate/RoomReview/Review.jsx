@@ -115,20 +115,67 @@ const Review = ({room}) => {
   }
 
   const getReviewPageTorender = () => {
-    var initialPage = [];
-    for(let i = 1; i <= totalPage; i++){
+    const initialPage = [];
+    const pageRange = 1; // number of pages to show before/after the current page
+  
+    // render first page
+    initialPage.push(
+      <div
+        key={1}
+        className={page === 1 ? "actives" : undefined}
+        onClick={() => setPage(1)}
+      >
+        <div className="single-pagination">{1}</div>
+      </div>
+    );
+  
+    // render ellipsis before current page
+    if (page - pageRange > 2) {
+      initialPage.push(
+        <div key="ellipsis-before" className="ellipsis">
+          <div className="single-pagination">...</div>
+        </div>
+      );
+    }
+  
+    // render page numbers around current page
+    for (let i = Math.max(2, page - pageRange); i <= Math.min(totalPage - 1, page + pageRange); i++) {
       initialPage.push(
         <div
-        key={i}
-        className={page === i ? "actives" : undefined}
-        onClick={() => setPage(i)}
-      >
-        <div className="single-pagination">{i}</div>
-      </div>
-      )
+          key={i}
+          className={page === i ? "actives" : undefined}
+          onClick={() => setPage(i)}
+        >
+          <div className="single-pagination">{i}</div>
+        </div>
+      );
     }
+  
+    // render ellipsis after current page
+    if (page + pageRange < totalPage - 1) {
+      initialPage.push(
+        <div key="ellipsis-after" className="ellipsis">
+          <div className="single-pagination">...</div>
+        </div>
+      );
+    }
+  
+    // render last page
+    if (totalPage > 1) {
+      initialPage.push(
+        <div
+          key={totalPage}
+          className={page === totalPage ? "actives" : undefined}
+          onClick={() => setPage(totalPage)}
+        >
+          <div className="single-pagination">{totalPage}</div>
+        </div>
+      );
+    }
+  
     return initialPage;
-  }
+  };
+  
 
 
   return (

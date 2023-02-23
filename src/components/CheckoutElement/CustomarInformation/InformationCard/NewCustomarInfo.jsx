@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { countries } from "../../../../data/countries";
-import checkoutContext from "../../../../store/checkout-context";
+// import checkoutContext from "../../../../store/checkout-context";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
@@ -542,6 +542,7 @@ const NewCustomarInfo = () => {
           </div>
         </div>
         {isLoading && <Suspense />}
+        {error && <p>inside err</p>}
       </div>
     </>
   );

@@ -54,7 +54,7 @@ export const POST_FULL_RESORT_BOOKING = `BookingArea/Booking/FullResort`;
 export const POST_CONTACT = 'ContactArea/Contact/Add';
 export const POST_RESUME = 'CareerArea/Resume/Post';
 
-// export const GET_GALLERY = (category, pageSize, page) =>  {
-//     return `Gallery?category=${category}&pageSize=${pageSize}&page=${page}`
-// }
+export const GET_GALLERY = (pageSize, page) =>  {
+    return `GalleryArea/Gallery/GetImages?category=new&pageSize=${pageSize}&page=${page}`
+}
 

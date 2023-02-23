@@ -124,7 +124,7 @@ const SearchCard = ({ item }) => {
             </div>
           </>
         ) : (
-          <>
+          <div className="common-btn book-search-btn">
             <button
               onClick={isToggleClass}
               className="searchBtn"
@@ -132,7 +132,7 @@ const SearchCard = ({ item }) => {
             >
               Book Cottage
             </button>
-          </>
+          </div>
         )}
       </div>
     </div>

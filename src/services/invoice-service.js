@@ -1,7 +1,7 @@
 import { humanizeDate } from "../lib/utils";
 
 export const printInvoice = (data) => {
-    const printWindow = window.open('', 'PRINT', 'height=800,width=1200');
+    const printWindow = window.open('', 'PRINT', 'height=800,width=1250');
     const HTML = generateHTML(data);
     printWindow.document.write(`
     <html>
@@ -53,8 +53,8 @@ const generateHTML = (data) => {
           /* box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); */
         }
         page[size="A4"] {
-          height: 150mm;
-          width: 180mm;
+          height: 303mm;
+          width: 216mm;
         }
         @media print {
           body,

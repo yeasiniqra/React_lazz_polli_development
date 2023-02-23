@@ -1,13 +1,15 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { getBanners } from "../../services/data-service";
+// import { getBanners } from "../../services/data-service";
 import BannerTemplate from "./BannerTemplate/BannerTemplate";
 import butterfly from '../../images/butterfly3.gif'
+import { getBanners2 } from "../../services/AppDataService";
 
 const Banner = () => {
-  const banners = getBanners();
-
+  // const banners = getBanners();
+  const newBanner = getBanners2();
+ 
   const options = {
     rewind: true,
     type: "fade",
@@ -26,7 +28,7 @@ const Banner = () => {
       </div>
       <Splide options={options} aria-label="React Splide Example">
         {
-            banners.map((banner, index) => (
+            newBanner.map((banner, index) => (
             <SplideSlide key={index}>
                 <BannerTemplate banner={banner}></BannerTemplate>
             </SplideSlide>
