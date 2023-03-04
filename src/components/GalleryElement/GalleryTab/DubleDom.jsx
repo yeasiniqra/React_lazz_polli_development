@@ -13,7 +13,7 @@ const DubleDom = ({galleryImage, isLoading}) => {
   
     
     const checkClickHandler = (index) => {
-        const images = galleryImage.map(item => item.ImagePath);
+        const images = galleryImage.filter((product) => product.Category === "Double Dom" ).map(item => item.ImagePath);
     
       setPreview({
         show: true,

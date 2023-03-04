@@ -9,6 +9,7 @@ import { postV2 } from "../../../services/http-service-v2";
 import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
+
 const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const {profile} = useContext(authContext)
   const {FirstName,LastName,Phone} = profile
@@ -76,6 +77,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     //   setEndDate(date);
     // }
   };
+
   const hoursChangeHandler = ({ target: el }) => {
     setHours(el.value);
     console.log(el.value)
@@ -104,6 +106,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   // const endDateFocusHandler = () => {
   //   setEndDateError(false);
   // };
+  
   const remarkFocusHandler = () => {
     setRemarkError(false);
   };
@@ -122,6 +125,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
+      return
     }
 
 

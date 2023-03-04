@@ -28,7 +28,7 @@ const PreviewImage = ({ show, onClose, images = [], start }) => {
                         {images.map((image, index) => (
                         <SplideSlide key={index}>
                             <img
-                               className="gallery__Image"
+                               className="gallery__Image__Preview"
                                src={imageURL(IMAGE_CATEGORY.GALLERY, image)}
                                alt="b1.png"
                             />
@@ -39,8 +39,8 @@ const PreviewImage = ({ show, onClose, images = [], start }) => {
            </div>
       </div>
       <button
-            className={`${styles["modal-close"]} ${styles["modal-exit"]}`}
-            onClick={onClose}
+          className={`${styles["modal-close"]} ${styles["modal-exit"]}`}
+          onClick={onClose}
           >
           ×
            

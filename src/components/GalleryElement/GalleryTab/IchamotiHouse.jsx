@@ -12,7 +12,7 @@ const IchamotiHouse = ({galleryImage, isLoading}) => {
     };
   
     const checkClickHandler = (index) => {
-      const images = galleryImage.map(item => item.ImagePath);
+      const images = galleryImage.filter((product) => product.Category === "Ichamoti House").map(item => item.ImagePath);
       console.log(index)
       setPreview({
         show: true,

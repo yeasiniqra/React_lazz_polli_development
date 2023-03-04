@@ -9,7 +9,7 @@ const cartContext = createContext({
     getQuantity: (id, type) => {},
     clear: () => {},
     isHouseAdded: (id) => false,
-    isRoomAdded: (id) => false
+    isRoomAdded: (id) => false,
 });
 
 

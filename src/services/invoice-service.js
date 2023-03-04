@@ -262,7 +262,7 @@ const generateHTML = (data) => {
               <tbody>
                 <tr>
                   <td>SubTotal</td>
-                  <td id="sub-total">${data.Amount}</td>
+                  <td id="sub-total">${data.Amount ? data.Amount : data.PayableAmount}</td>
                 </tr>
                 <tr>
                   <td>Incl.Tax</td>

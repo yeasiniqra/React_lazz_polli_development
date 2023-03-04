@@ -10,6 +10,6 @@ export const IMAGE_CATEGORY = {
 }
 
 
-export const imageURL = (category, imagePath) =>  {
-    return `${BASE_URL}/${category}/${imagePath}`;
+export const imageURL = (category,imagePath) =>  {
+    return `${BASE_URL}/files/images/${category}/${imagePath}`;
 }

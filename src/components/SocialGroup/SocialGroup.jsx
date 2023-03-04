@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import {
-  FaFacebookMessenger,
-  FaPhoneAlt,
-  FaWhatsapp,
-  FaCommentDots,
-} from "react-icons/fa";
+import messanger from '../../images/social/messenger.png';
+import whatsApp from '../../images/social/whatsapp.png';
+import telPhone from '../../images/social/telephone.png';
+import commentBox from '../../images/social/comments.png';
 import "./SocialGroup.css";
 
 const SocialGroup = () => {
@@ -26,7 +24,7 @@ const SocialGroup = () => {
               rel="noreferrer"
               href="https://m.me/lazzpolli"
             >
-              <FaFacebookMessenger />
+              <img src={messanger} alt="best resot in bangladesh" />
             </a>
           </li>
           <li className="list-group-item">
@@ -36,12 +34,12 @@ const SocialGroup = () => {
               rel="noreferrer"
               href="https://wa.me/8801886136659"
             >
-              <FaWhatsapp />
+              <img src={whatsApp} alt="resort in bangladesh" />
             </a>
           </li>
           <li className="list-group-item">
             <a className="phnCall nav-link" href="tel:8801521561151">
-              <FaPhoneAlt />
+              <img src={telPhone} alt="online booking system" />
             </a>
           </li>
         </ul>
@@ -49,7 +47,7 @@ const SocialGroup = () => {
         <ul onClick={toggleClass} className="chaticon list-group">
           <li className="list-group-item b-none">
             <span className="phnCall nav-link">
-              <FaCommentDots />
+              <img src={commentBox} alt="lazz polli resort" />
             </span>
           </li>
         </ul>

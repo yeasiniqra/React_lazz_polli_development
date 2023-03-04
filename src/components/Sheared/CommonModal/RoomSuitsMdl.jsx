@@ -14,6 +14,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
   const [isAvaible, setIsAvailble] = useState(false)
   const navigate = useNavigate()
 
+
   const isToggleClass = () => {
     storeRoom({ ...suitsAndRoom, ...filters });
   };
@@ -52,16 +53,17 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
             <div className="room-search-area">
               <div className="details-room-main-grid">
                 <RoomDetailsTemplate room={suitsAndRoom} />
-                <label
-                  className="example-label common-btn cottage-pp-btn"
-                  htmlFor="cottage"
-                  onClick={isToggleClass}
-                >
-                  <button  disabled={!isAvaible} onClick={handleNavigate}>Book Now</button>
-                </label>
+                  <label
+                    className="example-label common-btn cottage-pp-btn"
+                    htmlFor="cottage"
+                    onClick={isToggleClass}
+                  >
+                  {suitsAndRoom.Type === 'ROOM' ?
+                   (<button disabled={!isAvaible} onClick={handleNavigate}>Book Room</button>) : 
+                   (<button disabled={!isAvaible} onClick={handleNavigate}>Book House</button>) }
+                 </label>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

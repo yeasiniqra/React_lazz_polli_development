@@ -10,7 +10,7 @@ const MudHouse = ({galleryImage, isLoading}) => {
     };
   
     const checkClickHandler = (index) => {
-      const images = galleryImage.map(item => item.ImagePath);
+      const images = galleryImage.filter((product) => product.Category === "Mud House" ).map(item => item.ImagePath);
     
       setPreview({
         show: true,

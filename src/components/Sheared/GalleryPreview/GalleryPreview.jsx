@@ -28,7 +28,7 @@ const GalleryPreview = ({ show, onClose, images = [], start }) => {
                         {images.map((image, index) => (
                         <SplideSlide key={index}>
                             <img
-                               className="gallery__Image"
+                               className="gallery__Image__Preview"
                                src={imageURL(IMAGE_CATEGORY.HOUSE, image)}
                                alt="b1.png"
                             />

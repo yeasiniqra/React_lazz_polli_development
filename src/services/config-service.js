@@ -3,7 +3,7 @@
 export const CONFIG = {
     BASE_URL: 'https://client.lazzpolli.com',
     LOG_URL: 'https://client.lazzpolli.com',
-    IMAGE_URL:'https://client.lazzpolli.com/files/images',
+    IMAGE_URL:'https://client.lazzpolli.com',
 };
 
 

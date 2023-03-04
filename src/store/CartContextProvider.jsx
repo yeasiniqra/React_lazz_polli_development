@@ -162,6 +162,7 @@ const CartContextProvider = ({ children }) => {
     );
   };
 
+
   const context = {
     rooms: state.rooms,
     isInitiating: state.isInitiating,

@@ -49,8 +49,8 @@
 }
 
 .collapsible.list-group {
-	position: absolute;
-	bottom:5px;
+    position: absolute;
+    bottom: 16px;
 }
 
 .list-group {
@@ -140,6 +140,8 @@ a.phnCall.nav-link {
 ul.chaticon.list-group {
     box-shadow: 0 0 5px 0 #00000052;
 	transition: 0.4s;
+	border-radius: 5px;
+    overflow: hidden;
 }
 
 .list-group-item {
@@ -171,7 +173,12 @@ a.phnCall.nav-link svg {
 
 
 span.phnCall.nav-link {
-	font-size: 42px !important;
+    position: relative;
+    top: 7px;
+}
+
+span.phnCall.nav-link > img {
+    width: 52px;
 }
 
 span.phnCall.nav-link svg {
@@ -183,6 +190,6 @@ span.phnCall.nav-link svg {
 
 li.list-group-item.b-none {
     border: none;
-    background: #008FD5 !important;
+    /* background: #008FD5 !important; */
 	width: 67px;
 }

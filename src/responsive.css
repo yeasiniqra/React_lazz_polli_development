@@ -1,8 +1,12 @@
 /*========Responsive css========*/
 
 @media all and (min-width: 1440px) {
+    .slide.custom-splide > img {
+        height: 100%;
+    }
     .slide.custom-splide {
         max-height: 100%;
+        height: 100vh;
     }
     .banner-area .splide__list {
         height: inherit;
@@ -13,6 +17,7 @@
     }
 }
 
+
 @media all and (max-width: 1439px) {
     .container {
         max-width: 90%;
@@ -20,9 +25,27 @@
     figure.effect-layla h3 {
         font-size: 35px;
     }
+    .slide.custom-splide {
+        height: 97vh;
+    }
+    .banner-area {
+        height: 97vh;
+      }
+
 }
 
+@media all and (max-width: 1364px) {
+    .banner-area {
+        height: auto;
+    }
+    .slide.custom-splide {
+        height: auto;
+    }
+}
+
+
 @media all and (max-width: 1280px) {
+
     .book_table_item > button {
         padding: 0px 15px;
         font-size: 14px;
@@ -655,6 +678,11 @@
 }
 
 @media all and (max-width: 575px) {
+    .grid figure h2 span {
+        font-weight: 600;
+        font-size: 21px;
+    }
+
     li.book-now {
         left: 0px;
     }

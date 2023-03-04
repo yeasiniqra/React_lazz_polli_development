@@ -7,6 +7,7 @@ import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
 import { REGISTER, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
 import { toast } from 'react-toastify';
+import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
 
 const VerifyNumber = () => {
   const {
@@ -17,7 +18,7 @@ const VerifyNumber = () => {
     storeSignupData,
   } = useContext(authContext);
 
-  
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [code, setCode] = useState('');
   const [codeError, setCodeError] = useState(false);
@@ -31,8 +32,8 @@ const VerifyNumber = () => {
   };
 
   const sendHandler = (e) => {
+    setIsLoading(true)
     e.preventDefault();
-
     if (code.length === 0) {
       setCodeError(true);
       return;
@@ -44,6 +45,7 @@ const VerifyNumber = () => {
     }else{
       login();
       toast.success('You are successfully logged in')
+      setIsLoading(false)
     }
     
   };
@@ -214,6 +216,7 @@ console.log(payload);
           </button>
         </div>
       </form>
+      {isLoading && <SmallLoder />}
     </>
   );
 };
