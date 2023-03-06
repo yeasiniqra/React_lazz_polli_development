@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import Suspense from "../../Sheared/Suspense/Suspense";
 
 const FullPackageTemplate = ({item, setPackage}) => {
     const options = {
@@ -14,15 +15,25 @@ const FullPackageTemplate = ({item, setPackage}) => {
         fixedWidth: "100%",
         fixedHeight: "auto",
       };
+    const [loading, setLoading] = useState(true);
+
+    const handleImageLoad = () => {
+        setLoading(false);
+    };
 
     return (
         <div className="relax-spa-inner-grid convention-hall-area full-package-area">
         <div className="relax-spa-img-left">
+            {loading && (
+                <div className="loader">
+                    <Suspense />
+                </div>
+            )}
             <Splide options={options} aria-label="React Splide Example">
                 {
                     item.images.map((banner, index) => (
                     <SplideSlide key={index}>
-                        <img src={banner.image} alt="resort full pakage price in bangladesh" />
+                        <img src={banner.image} alt="resort full pakage price in bangladesh" onLoad={handleImageLoad} />
                     </SplideSlide>
                     ))
                 }

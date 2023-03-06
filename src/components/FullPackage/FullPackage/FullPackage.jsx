@@ -5,10 +5,12 @@ import { getFullpackage } from '../../../services/data-service';
 import FullPackageTemplate from '../FullPackageTemplate/FullPackageTemplate';
 import { useState } from 'react';
 import FullPackageMdl from '../../Sheared/CommonModal/FullPackageMdl';
+import useAuthGuard from '../../../hooks/useAuthGuard';
 
 const FullPackage = () => {
     const packages = getFullpackage();
     const [fullpackage, setPackage] = useState(null)
+    useAuthGuard();
 
     return (
         <>

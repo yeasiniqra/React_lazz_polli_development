@@ -4,6 +4,8 @@ import "@splidejs/react-splide/css";
 
 
 import React from 'react';
+import { useState } from "react";
+import Suspense from "../Sheared/Suspense/Suspense";
 const SwimmingPoolTemplate = ({pool, setSwimmin}) => {
     const options = {
         rewind: true,
@@ -15,14 +17,25 @@ const SwimmingPoolTemplate = ({pool, setSwimmin}) => {
         fixedWidth: "100%",
         fixedHeight: "auto",
       };
+      const [loading, setLoading] = useState(true);
+
+      const handleImageLoad = () => {
+          setLoading(false);
+      };  
+
     return (
         <div className="relax-spa-inner-grid convention-hall-area">
             <div className="relax-spa-img-left">
+             {loading && (
+                    <div className="loader">
+                        <Suspense />
+                    </div>
+                )}
                    <Splide options={options} aria-label="React Splide Example">
                         {
                             pool.images.map((banner, index) => (
                             <SplideSlide key={index}>
-                                <img src={banner.image} alt="resort full pakage price in bangladesh" />
+                                <img src={banner.image} alt="resort full pakage price in bangladesh" onLoad={handleImageLoad} />
                             </SplideSlide>
                             ))
                         }

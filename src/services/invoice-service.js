@@ -28,7 +28,8 @@ export const printInvoice = (data) => {
  
 const generateHTML = (data) => {
     const newTax = data.Amount * 0.15;
-    const PayableAmount = data.PayableAmount
+    const PayableAmount = data.PayableAmount;
+    
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -89,10 +90,10 @@ const generateHTML = (data) => {
           align-items: center;
           margin-bottom: 2rem;
         }
-        tbody.table-grid tr td {
-          font-weight: 700;
-          font-family: tahoma;
-      }
+          tbody.table-grid tr td {
+            font-weight: 700;
+            font-family: tahoma;
+        }
         .table-grid > tr {
           display: grid;
           // grid-template-columns: 92px 1fr;
@@ -121,19 +122,19 @@ const generateHTML = (data) => {
         table#products thead tr th {
           font-weight: 700 !important;
           font-family: tahoma !important;
-      }
-      table.table.table-bordered.small-table-sum tbody tr td {
-        font-family: tahoma;
-        font-weight: 400;
-    }
-    table.table.table-bordered.small-table-sum tbody tr td strong {
-      font-weight: 700;
-      font-family: tahoma;
-  }
-      table#products tbody tr td {
-        font-family: tahoma;
-        font-weight: 400;
-    }
+          }
+          table.table.table-bordered.small-table-sum tbody tr td {
+            font-family: tahoma;
+            font-weight: 400;
+        }
+        table.table.table-bordered.small-table-sum tbody tr td strong {
+            font-weight: 700;
+            font-family: tahoma;
+        }
+          table#products tbody tr td {
+            font-family: tahoma;
+            font-weight: 400;
+        }
 
         .invoice__top table {
           width: 100%;
@@ -250,7 +251,8 @@ const generateHTML = (data) => {
                      <td class="right">${humanizeDate(items.ReservationDate)}</td>
                      <td class="center">${humanizeDate(items.ReleaseDate)}</td>
                      <td class="right">${items.Quantity}</td>
-                     <td class="right">${items.Type === "HALL" ? PayableAmount : items.Quantity * items.Price}</td>
+                    //<td class="right">${items.Type === "HALL" ? PayableAmount : items.Quantity * items.Price}</td>
+                     <td>${items.Type === "POOL" ? (PayableAmount || (items.Type === "HALL" || items.Type === "PACKAGE" ? items.Quantity * items.Price : 0)) : items.Quantity * items.Price}</td>
                  </tr>`
                ).join('')}
               </tbody>
@@ -262,7 +264,7 @@ const generateHTML = (data) => {
               <tbody>
                 <tr>
                   <td>SubTotal</td>
-                  <td id="sub-total">${data.Amount ? data.Amount : data.PayableAmount}</td>
+                  <td id="sub-total">${data.Amount}</td>
                 </tr>
                 <tr>
                   <td>Incl.Tax</td>
