@@ -16,6 +16,8 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
   const { filters, storeFilters } = useContext(appContext);
   const [isLoading, setIsLoading] = useState(false);
   const mounted = useRef(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isCalendarOpenTwo, setIsCalendarOpenTwo] = useState(false);
   
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(
@@ -99,6 +101,10 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
                 <DatePicker
                   selected={startDate}
                   onChange={arrivalBlurHandler}
+                  onSelect={() => setIsCalendarOpen(false)}
+                  onFocus={() => setIsCalendarOpen(true)}
+                  onBlur={() => setTimeout(() => setIsCalendarOpen(false), 100)}
+                  open={isCalendarOpen}
                   minDate={new Date()}
                   showDisabledMonthNavigation
                   placeholderText="dd/mm/yyyy"
@@ -120,6 +126,10 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
                 <DatePicker
                   selected={endDate}
                   onChange={depdateChangeHandler}
+                  onSelect={() => setIsCalendarOpenTwo(false)}
+                  onFocus={() => setIsCalendarOpenTwo(true)}
+                  onBlur={() => setTimeout(() => setIsCalendarOpenTwo(false), 100)}
+                  open={isCalendarOpenTwo}
                   showDisabledMonthNavigation
                   placeholderText="mm/dd/yyyy"
                   monthsShown={2}

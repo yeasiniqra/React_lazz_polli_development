@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import Header from './components/Header/Header';
 import About from './pages/About';
 import { useEffect } from 'react';
-import { weatherInit } from './lib/weather';
 import Footer from './components/Footer/Footer';
 import Room from './pages/Room';
 import RoomDetails from './components/RoomDetails/RoomDetails';
@@ -26,19 +25,10 @@ import Convention from './pages/Convention';
 import SwimmingPool from './pages/SwimmingPool';
 import SuitsAndRoomDetails from './components/SuitsAndRoomDetails/SuitsAndRoomDetails';
 import Success from './pages/Success';
-
-
-
-
 // import { HideInspect } from './lib/Hide';
 
 function App() {
   const location = useLocation();
-
-  useEffect(()=>{
-    weatherInit(document, "script", "weatherwidget-io-js");
-  }, []);
-
   // useEffect(() => {
   //   HideInspect() 
   // },[])

@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import authContext from '../store/auth-context';
 import styles from './Auth.module.css';
 import Login from './Login/Login';
@@ -10,7 +11,8 @@ import VerifyNumber from './VerifyNumber/VerifyNumber';
 
 
 const Auth = () => {
-  const { form, close } = useContext(authContext);
+  const { form, close, isAuthenticated } = useContext(authContext);
+  const history = useNavigate();
 
   const authEl = document.querySelector('#auth');
 
@@ -53,6 +55,16 @@ const Auth = () => {
       break;
   }
 
+ 
+
+  
+  const handleClose = () => {
+    close();
+    if (!isAuthenticated) {
+      history('/');
+    }
+  };
+
   return (
     <>
       {createPortal(
@@ -60,7 +72,7 @@ const Auth = () => {
           <div className={styles.auth_dialouge}>
             <div className={styles.auth_dialouge__header}>
               <h4 className='text-white'>{title}</h4>
-              <i className='fa fa-times' onClick={close}></i>
+              <i className='fa fa-times' onClick={handleClose}></i>
             </div>
             <div className={styles.auth_dialouge__body}>{formComponent}</div>
           </div>

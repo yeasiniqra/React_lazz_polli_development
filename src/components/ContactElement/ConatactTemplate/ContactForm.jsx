@@ -133,12 +133,12 @@ const ContactForm = () => {
         postV2({url: POST_CONTACT, payload})
         .then(data => {
           if(!data.IsError){
+            setClicked(false);
             toast.success("Message Sent");
             setName("");
             setEmail("");
             setPhone("");
             setMessage("");
-            setClicked(false);
           } else {
             toast.warning(data.Msg);
           }

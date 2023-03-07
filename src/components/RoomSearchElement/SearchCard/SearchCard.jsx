@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { imageURL, IMAGE_CATEGORY } from "../../../lib/galleryService";
 import appContext from "../../../store/app-context";
 import cartContext from "../../../store/cart-context";
 
@@ -44,11 +45,32 @@ const SearchCard = ({ item }) => {
 
   const calculatePrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
 
+    // Check if the item has a house cover image or a room cover image
+    const houseCoverImage = item.Images.find(
+      (image) => image.ImageFor === "HOUSE_COVER"
+    );
+    const roomCoverImage = item.Images.find(
+      (image) => image.ImageFor === "ROOM_COVER"
+    );
+
   return (
     <div className="min-items-inner-single">
       <div className="search-room-img">
-        <Link to="#">
-          <img src={item.image} alt="react lazz polli" />
+      <Link to="#">
+          {item.Type === "HOUSE" && houseCoverImage && (
+            // eslint-disable-next-line jsx-a11y/img-redundant-alt
+            <img
+              src={imageURL(IMAGE_CATEGORY.HOUSE, houseCoverImage.ImagePath)}
+              alt="house cover image"
+            />
+          )}
+          {item.Type === "ROOM" && roomCoverImage && (
+            // eslint-disable-next-line jsx-a11y/img-redundant-alt
+            <img
+              src={imageURL(IMAGE_CATEGORY.HOUSE, roomCoverImage.ImagePath)}
+              alt="room cover image"
+            />
+          )}
         </Link>
       </div>
       <div className="search-room-content">

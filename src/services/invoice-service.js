@@ -244,17 +244,16 @@ const generateHTML = (data) => {
                 </tr>
               </thead>
               <tbody>
-              ${data.BookedPlaces.map((items, i) => 
-                ` <tr>
-                     <td class="center">${i + 1}</td>
-                     <td>${items.Name}</td>
-                     <td class="right">${humanizeDate(items.ReservationDate)}</td>
-                     <td class="center">${humanizeDate(items.ReleaseDate)}</td>
-                     <td class="right">${items.Quantity}</td>
-                    //<td class="right">${items.Type === "HALL" ? PayableAmount : items.Quantity * items.Price}</td>
-                     <td>${items.Type === "POOL" ? (PayableAmount || (items.Type === "HALL" || items.Type === "PACKAGE" ? items.Quantity * items.Price : 0)) : items.Quantity * items.Price}</td>
-                 </tr>`
-               ).join('')}
+                ${data.BookedPlaces.map((items, i) => 
+                  `<tr>
+                      <td class="center">${i + 1}</td>
+                      <td>${items.Name}</td>
+                      <td class="right">${humanizeDate(items.ReservationDate)}</td>
+                      <td class="center">${humanizeDate(items.ReleaseDate)}</td>
+                      <td class="right">${items.Quantity}</td>
+                      <td class="right">${items.Type === "HALL" ? PayableAmount : items.Quantity * items.Price}</td>
+                  </tr>`
+                ).join('')}
               </tbody>
             </table>
           </div>
@@ -262,15 +261,18 @@ const generateHTML = (data) => {
           <div class="invoice__bottom">
             <table class="table table-bordered small-table-sum">
               <tbody>
-                <tr>
-                  <td>SubTotal</td>
-                  <td id="sub-total">${data.Amount}</td>
-                </tr>
-                <tr>
-                  <td>Incl.Tax</td>
-                  <td id="coupon-discount">${newTax}</td>
-                </tr>
-                
+               ${data.Amount ?
+                  `<tr>
+                    <td>SubTotal</td>
+                    <td id="sub-total">${data.Amount}</td>
+                  </tr>
+                  <tr>
+                    <td>Incl.Tax</td>
+                    <td id="coupon-discount">${newTax}</td>
+                  </tr>`
+                  :
+                  ''
+                }
                 <tr>
                   <td>
                     <strong>Grand Total</strong>
