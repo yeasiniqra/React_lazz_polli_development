@@ -1,6 +1,6 @@
 .sticky-call-to-action-btn {
 	position: fixed;
-	bottom: 42px;
+	bottom: 55px;
 	right: 20px;
 	display: -webkit-flex;
 	display: -moz-box;
@@ -150,7 +150,7 @@ ul.chaticon.list-group {
     margin-bottom: -1px;
     background-color: #eaeaea;
     border: 1px solid #ddd;
-    width: 65px;
+    width: 61px;
     text-align: center;
 	padding: 0px;
 	/* box-shadow: 0px -14px 15px -2px rgb(0 0 0 / 10%); */
@@ -178,7 +178,7 @@ span.phnCall.nav-link {
 }
 
 span.phnCall.nav-link > img {
-    width: 52px;
+    width: 50px;
 }
 
 span.phnCall.nav-link svg {
@@ -191,5 +191,5 @@ span.phnCall.nav-link svg {
 li.list-group-item.b-none {
     border: none;
     /* background: #008FD5 !important; */
-	width: 67px;
+	width: 63px;
 }

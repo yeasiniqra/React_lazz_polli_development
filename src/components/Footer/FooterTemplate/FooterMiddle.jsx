@@ -42,7 +42,7 @@ const FooterMiddle = () => {
               
                 <div className="footer-bottom">
                     <p>&copy; 2023. Lazz Polli Resort. All rights reserved.</p>
-                    <span>Site Developed by - <a target="_blank" href='https://iqrasys.com' rel="noopener noreferrer">Iqrasys Solutions Ltd.</a></span>
+                    <span>Site Developed by - <a target="_blank" href='https://iqrasys.com' rel="dofollow">Iqrasys Solutions Ltd.</a></span>
                 </div>
             </div>
             <SocialGroup />

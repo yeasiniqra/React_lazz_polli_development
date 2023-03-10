@@ -1871,7 +1871,7 @@ p.site ul.footer-links li a:before {
 #toTop {
   display: block;
   position: fixed;
-  bottom: 105px;
+  bottom: 5px;
   right: 35px;
   font-size: 45px;
   width: 45px;
@@ -5027,12 +5027,15 @@ label.percent {
   margin-right: 15px;
 }
 
-button:disabled {
+
+button:disabled,
+.common-btn fieldset:disabled {
   background-color: #dddd;
-  color: #ccc;
+  color: #4e4e4e;
   cursor: not-allowed;
   border: 2px solid #c9b9b9;
 }
+
 
 
 @media print{
@@ -5177,4 +5180,17 @@ small.dateTimes {
 	top: 0;
 	left: 0;
 	/* z-index: 999; */
+}
+
+
+.common-btn > fieldset {
+  border: 2px solid var(--secundery-color);
+  display: inline-block;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.4s;
+  border-radius: 5px;
+  background: var(--secundery-color);
 }

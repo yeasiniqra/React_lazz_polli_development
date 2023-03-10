@@ -108,8 +108,8 @@ const SearchCard = ({ item }) => {
           <>
             <div className="common-btn book-search-btn">
               {!!!count && (
-                <button onClick={isToggleClass} className="searchBtn" disabled={isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)}>
-                  Book Room
+                <button onClick={isToggleClass} className="searchBtn" disabled={(isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)}>
+                  {((isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)) ? "Not Available" : "Book Room"}
                 </button>
               )}
               {!!count && (
