@@ -14,25 +14,21 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
   const [isAvaible, setIsAvailble] = useState(false)
   const navigate = useNavigate()
 
-
   const isToggleClass = () => {
     storeRoom({ ...suitsAndRoom, ...filters });
   };
-
   const handleClose = () => {
     setRoomdetails();
   }
-
   const handleNavigate = () => {
     navigate('/checkout')
   }
+  const availbilityChangeHandler = (isAvaible) => {
+    setIsAvailble(isAvaible)
+  }
 
- const availbilityChangeHandler = (isAvaible) => {
-  setIsAvailble(isAvaible)
- }
-
-  // console.log(availbilityChangeHandler);
   const { Name } = suitsAndRoom;
+  const newType = suitsAndRoom.Type === 'ROOM' ? "ROOM" : "HOUSE"
 
   return (
     <div className="parent-modal">
@@ -49,7 +45,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
             </label>
           </div>
           <div className="modal-body-start">
-            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={suitsAndRoom.type} setIsAvailble={setIsAvailble} />
+            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={newType} setIsAvailble={setIsAvailble} />
             <div className="room-search-area">
               <div className="details-room-main-grid">
                 <RoomDetailsTemplate room={suitsAndRoom} />

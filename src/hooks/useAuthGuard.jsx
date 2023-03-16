@@ -3,7 +3,6 @@ import authContext from '../store/auth-context';
 
 const useAuthGuard = (fallbackPath = '/') => {
   const { isAuthenticating, isAuthenticated, open } = useContext(authContext);
-
   useEffect(() => {
     if (!isAuthenticating && !isAuthenticated) {
       open('LOGIN', fallbackPath)

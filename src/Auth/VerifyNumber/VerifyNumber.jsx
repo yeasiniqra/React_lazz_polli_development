@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { userCamelCase } from '../auth.util';
 import authContext from '../../store/auth-context';
 import { postV2 } from '../../services/http-service-v2';
-import { REGISTER, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB, VERIFY_OTP } from '../../lib/endpoints';
+import { REGISTER, GET_OTP, LOGIN, UPDATE_PASSWORD, UPDATE_PASSWORD_WEB } from '../../lib/endpoints';
 import { toast } from 'react-toastify';
 import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
 
@@ -26,11 +26,9 @@ const VerifyNumber = () => {
   const codeChangeHandler = ({ target: el }) => {
     setCode(el.value);
   };
-
   const codeFocusHandler = () => {
     setCodeError(false);
   };
-
   const sendHandler = (e) => {
     setIsLoading(true)
     e.preventDefault();
@@ -38,8 +36,6 @@ const VerifyNumber = () => {
       setCodeError(true);
       return;
     }
-
-    console.log(code)
     if (form === 'OTP') {
       register();
     }else{
@@ -47,7 +43,6 @@ const VerifyNumber = () => {
       toast.success('You are successfully logged in')
       setIsLoading(false)
     }
-    
   };
 
   
@@ -76,9 +71,6 @@ const VerifyNumber = () => {
       });
   };
 
-
-
-
   const register = () => {
     const payload = {
       "PhoneNumber": signupData.phoneNumber,
@@ -87,7 +79,6 @@ const VerifyNumber = () => {
       "MessageId": signupData.messageId,
       "OTP": code
     };
-console.log(payload);
     postV2({ url: REGISTER, payload })
       .then((data) => {
         if (!data.IsError) {
@@ -101,7 +92,6 @@ console.log(payload);
         console.log('inside err', err);
         setError(err.toString());
       }).finally(() => {
-        // Loader Close
       });
   };
 
@@ -125,7 +115,6 @@ console.log(payload);
     }).catch(error => {
       setError(error.toString())
     }).finally(() => {
-      // Loader Close
     });;
   };
 
@@ -159,7 +148,6 @@ console.log(payload);
         setError(data.Msg);
       }
     }).finally(() => {
-      // Loader Close
     });;
   };
 
@@ -170,7 +158,6 @@ console.log(payload);
       getCodeFromForResetPassword();
     }
   };
-
 
   return (
     <>

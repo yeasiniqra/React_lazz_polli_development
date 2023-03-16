@@ -5,6 +5,7 @@ import "@splidejs/react-splide/css";
 import Suspense from "../../Sheared/Suspense/Suspense";
 
 const FullPackageTemplate = ({item, setPackage}) => {
+    const [loading, setLoading] = useState(true);
     const options = {
         rewind: true,
         type: "fade",
@@ -15,38 +16,36 @@ const FullPackageTemplate = ({item, setPackage}) => {
         fixedWidth: "100%",
         fixedHeight: "auto",
       };
-    const [loading, setLoading] = useState(true);
-
     const handleImageLoad = () => {
         setLoading(false);
     };
 
     return (
         <div className="relax-spa-inner-grid convention-hall-area full-package-area">
-        <div className="relax-spa-img-left">
-            {loading && (
-                <div className="loader">
-                    <Suspense />
-                </div>
-            )}
-            <Splide options={options} aria-label="React Splide Example">
-                {
-                    item.images.map((banner, index) => (
-                    <SplideSlide key={index}>
-                        <img src={banner.image} alt="resort full pakage price in bangladesh" onLoad={handleImageLoad} />
-                    </SplideSlide>
-                    ))
-                }
-            </Splide>
+            <div className="relax-spa-img-left">
+                {loading && (
+                    <div className="loader">
+                        <Suspense />
+                    </div>
+                )}
+                <Splide options={options} aria-label="React Splide Example">
+                    {
+                        item.images.map((banner, index) => (
+                        <SplideSlide key={index}>
+                            <img src={banner.image} alt="resort full pakage price in bangladesh" onLoad={handleImageLoad} />
+                        </SplideSlide>
+                        ))
+                    }
+                </Splide>
+            </div>
+            <div className="relax-spa-img-content">
+                <h1>{item.title}</h1>
+                <p dangerouslySetInnerHTML={{__html: item.description}}></p>
+                <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setPackage(item)}> 
+                <a>Book Now</a>
+                </label>
+            </div>
         </div>
-        <div className="relax-spa-img-content">
-            <h1>{item.title}</h1>
-            <p dangerouslySetInnerHTML={{__html: item.description}}></p>
-            <label className="example-label common-btn" htmlFor="swimmin" onClick={() => setPackage(item)}> 
-             <a>Book Now</a>
-            </label>
-        </div>
-    </div>
     );
 };
 

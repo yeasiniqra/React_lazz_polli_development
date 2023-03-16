@@ -2,7 +2,6 @@ import { createContext } from "react";
 import { humanizeDate } from "../lib/utils";
 
 const today = new Date()
-
 const appContext = createContext({
   storeFilters: ({
     arrivalDate,

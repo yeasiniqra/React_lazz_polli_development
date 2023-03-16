@@ -3,7 +3,6 @@ import { humanizeDate } from '../../../lib/utils';
 
 
 const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) => {
-    // summeryItem.quantity * totalAmount
     return (
         <>
             <div className="summery-main-grid">
@@ -13,7 +12,6 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                 <div className="super-flex-item">
                     <div className="spk-left">
                         <p>{summeryItem.Name}</p>
-                        {/* {item.Type === 'ROOM' ? item.AdultPerRoom : ''} */}
                         <p>
                          {summeryItem.Type === 'ROOM' ? summeryItem.AdultPerRoom * summeryItem.quantity : ''}  
                          {summeryItem.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
@@ -31,7 +29,6 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                     </div>
                 </div>
             </div>
-
         </>
     );
 };

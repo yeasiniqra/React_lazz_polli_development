@@ -24,8 +24,6 @@ export const printInvoice = (data) => {
     printWindow.focus();
 }
 
-
- 
 const generateHTML = (data) => {
     const newTax = data.Amount * 0.15;
     const PayableAmount = data.PayableAmount;

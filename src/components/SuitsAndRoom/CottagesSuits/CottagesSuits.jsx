@@ -41,10 +41,6 @@ const CottagesSuits = ({ item }) => {
                         <h2>{item.Name}</h2>
                         <p>{item.Description}</p>
                         <div className="SuitSpecials">
-                            {/* {
-                item.Name && 
-                <h3>{item.Name}</h3>
-              } */}
                             <div className="SuitSpecials-item">
                                 {item.Facalities.map((product, index) => (
                                     <div key={index}>

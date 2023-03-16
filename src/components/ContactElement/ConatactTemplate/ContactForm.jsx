@@ -5,7 +5,6 @@ import { POST_CONTACT } from "../../../lib/endpoints";
 import { postV2 } from "../../../services/http-service-v2";
 import Suspense from "../../Sheared/Suspense/Suspense";
 
-
 const ContactForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const title = {
@@ -14,20 +13,16 @@ const ContactForm = () => {
 
     //set button state
     const [clicked, setClicked] = useState(false);
-
     //set name state
     const [name, setName] = useState("");
     const [nameIsTouched, setNameIsTouched] = useState(false);
     const [nameIsValid, setNameIsValid] = useState(false);
-
     //set Email state
     const [email, setEmail] = useState("");
-
     //set phone state
     const [phone, setPhone] = useState("");
     const [phoneIsTouched, setPhoneIsTouched] = useState(false);
     const [phoneIsValid, setPhoneIsValid] = useState(false);
-
     //message State
     const [message, setMessage] = useState("");
     const [messageIsTouched, setMessageIsTouched] = useState(false);
@@ -40,7 +35,6 @@ const ContactForm = () => {
     const nameTouchedHandler = () => {
         setNameIsTouched(true);
     };
-
     //email functions
     const emailOnChangeHandler = ({ target }) => {
         setEmail(target.value);
@@ -96,7 +90,6 @@ const ContactForm = () => {
       ]);
 
       const sendOnClickedHandler = (evt) => {
-        // Loader Open
         setIsLoading(true)
         setClicked(true);
         evt.preventDefault();
@@ -145,11 +138,9 @@ const ContactForm = () => {
         }).catch(err => {
           toast.warning(err?.toString());
         }).finally(() => {
-          // Loader Close
           setIsLoading(false)
         })
-       
-      }
+    }
   
 
   return (

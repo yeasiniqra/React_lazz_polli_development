@@ -8,7 +8,6 @@ import "./SocialGroup.css";
 
 const SocialGroup = () => {
   const [toggle, setToggle] = useState();
-
   const toggleClass = () => {
     setToggle(!toggle);
   };
@@ -43,7 +42,6 @@ const SocialGroup = () => {
             </a>
           </li>
         </ul>
-
         <ul onClick={toggleClass} className="chaticon list-group">
           <li className="list-group-item b-none">
             <span className="phnCall nav-link">
@@ -51,7 +49,6 @@ const SocialGroup = () => {
             </span>
           </li>
         </ul>
-        
       </div>
     </>
   );

@@ -43,7 +43,6 @@ const GalleryPreview = ({ show, onClose, images = [], start }) => {
             onClick={onClose}
           >
           ×
-           
       </button>
     </div>
   );

@@ -11,11 +11,9 @@
 	flex-direction: column;
     z-index: 99999;
 }
-
 .social-media-links {
 	flex-wrap: wrap;
 }
-
 .sticky-call-to-action-btn.hiddened {
 	overflow: visible;
 	-webkit-transition-duration: .2s;
@@ -23,12 +21,8 @@
 	-webkit-transition-timing-function: linear;
 	transition-timing-function: linear;
 }
-
-
 .sticky-call-to-action-btn .collapsible {
 	background: #eaeaea;
-	/* -webkit-box-shadow: 0 0 6px 1px #aaac;
-	box-shadow: 0 0 6px 1px #aaac; */
 	border-top-left-radius: 35px;
 	border-top-right-radius: 35px;
 	padding-bottom: 40px;
@@ -40,19 +34,15 @@
 	border-radius: 8px;
 	overflow: hidden;
 }
-
 .sticky-call-to-action-btn .collapsible.show{
     opacity: 1;
     visibility: visible;
-    transition: 0.3s;
-    
+    transition: 0.3s;  
 }
-
 .collapsible.list-group {
     position: absolute;
     bottom: 16px;
 }
-
 .list-group {
 	display: -ms-flexbox;
 	display: flex;
@@ -62,21 +52,16 @@
 	margin-bottom: 0;
 	border-radius: .25rem;
 }
-
 .chaticon .nav-link, .sticky-call-to-action-btn ul li .nav-link {
 	font-size: 34px;
 	border-radius: 100%;
 	padding: 0;
-	/* min-width: 50px;
-	min-height: 50px;
-	line-height: 53px; */
 	width: 48px;
     height: 48px;
     line-height: 48px;
 	cursor: pointer;
 	text-align: center;
 }
-
 
 a.whatapp.nav-link {
     background: #2FB944;
@@ -86,7 +71,6 @@ a.whatapp.nav-link {
     margin: 10px 7px;
     font-size: 30px !important;
 }
-
 a.messenger.nav-link {
 	background: #1674EA;
     display: block;
@@ -95,7 +79,6 @@ a.messenger.nav-link {
     margin: 10px 7px;
     font-size: 30px !important;
 }
-
 a.phnCall.nav-link  {
 	background: #F76B1E;
     display: block;
@@ -104,46 +87,37 @@ a.phnCall.nav-link  {
 	margin: 10px 7px;
     font-size: 30px !important;
 }
-
 .nav-link {
 	transition: 0.4s;
 }
 
 .chaticon .nav-link, .sticky-call-to-action-btn ul li .nav-link:hover{
-    /* opacity: 0.9; */
 	transition: 0.4s;
 	transform: scale(1.1);
 }
-
 span.phnCall.nav-link svg{
 	transition: 0.4s;
 }
-
 span.phnCall.nav-link:hover svg{
 	opacity: 0.9;
 	transition: 0.4s;
 	transform: scale(1.1);
 }
-
-
 a.phnCall.nav-link {
     font-size: 25px !important;
 }
-
 .social-media-links ul li a {
 	color: #fff;
 	font-size: 18px;
 	text-align: center;
 	line-height: 40px;
 }
-
 ul.chaticon.list-group {
     box-shadow: 0 0 5px 0 #00000052;
 	transition: 0.4s;
 	border-radius: 5px;
     overflow: hidden;
 }
-
 .list-group-item {
     position: relative;
     display: block;
@@ -153,43 +127,33 @@ ul.chaticon.list-group {
     width: 61px;
     text-align: center;
 	padding: 0px;
-	/* box-shadow: 0px -14px 15px -2px rgb(0 0 0 / 10%); */
 }
-
 a.messenger.nav-link svg {
     fill: #fff;
 	height: 48px;
 }
-
 a.whatapp.nav-link svg {
     fill: #fff;
 	height: 48px;
 }
-
 a.phnCall.nav-link svg {
     fill: #fff;
 	height: 48px;
 }
-
-
 span.phnCall.nav-link {
     position: relative;
     top: 7px;
 }
-
 span.phnCall.nav-link > img {
     width: 50px;
 }
-
 span.phnCall.nav-link svg {
     fill: #fff;
     position: relative;
     top: 5px;
     width: 62px;
 }
-
 li.list-group-item.b-none {
     border: none;
-    /* background: #008FD5 !important; */
 	width: 63px;
 }

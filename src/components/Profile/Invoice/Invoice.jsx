@@ -17,12 +17,10 @@ const Invoice = () => {
   const [invoice, setInvoice] = useState([]);
   const {Code} = useParams();
   const mounted = useRef(false);
-  // console.log(invoice);
-
   const { PayableAmount} = invoice
- 
+
   const handleGetInvoice = () => {
-    setIsLoading(true)
+      setIsLoading(true)
       getV2({ url: GET_INVOICE(Code) }).then((data) => {
           if (!data.IsError) {
             setInvoice(data.Data)
@@ -34,26 +32,20 @@ const Invoice = () => {
         }).finally(() => {
           setIsLoading(false)
         });
-  }
-
-  useEffect(() => {
-    if (!mounted.current) {
-      handleGetInvoice();
-        mounted.current = true;
     }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [Code,mounted]);
 
+    useEffect(() => {
+      if (!mounted.current) {
+        handleGetInvoice();
+          mounted.current = true;
+      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Code,mounted]);
 
-
-
-const newTax = invoice.Amount * 0.15;
-
+  const newTax = invoice.Amount * 0.15;
   const print = () => {
     printInvoice(invoice)
   };
-
-
 
   return (
     <div id="page" className="order-invoice">
@@ -72,7 +64,6 @@ const newTax = invoice.Amount * 0.15;
             <div className="span4 well">
               <table className="invoice-head">
                 <tbody>
-                  
                   <tr>
                     <td>{invoice && invoice.FirstName}</td>
                   </tr>
@@ -113,7 +104,6 @@ const newTax = invoice.Amount * 0.15;
                  PayableAmount={PayableAmount}
                  />)
                 }
-
                </tbody>
               </table>
             </div>
@@ -139,7 +129,6 @@ const newTax = invoice.Amount * 0.15;
                     :
                     <></>
                   }
-
                   <tr className="grand-total">
                     <td>
                       <strong>Grand Total</strong>

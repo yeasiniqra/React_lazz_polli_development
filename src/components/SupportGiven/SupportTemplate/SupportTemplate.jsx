@@ -13,28 +13,24 @@ const SupportTemplate = () => {
         <section className="support-given-area" id="scrollanime">
             <div className="container">
                 <div className="support-given-main-flex pt-20">
-                
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
                             <h6 id="count1" className="display_4"><span id="counter" /></h6>
                         </div>
                         <span>Customers</span>
                     </div>
-                
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
                             <h6 id="count2" className="display_4"><CountUp end={4661} enableScrollSpy /></h6>
                         </div>
                         <span>Celebrities</span>
                     </div>
-                   
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
                             <h6 id="count3" className="display_4"><CountUp end={3726} enableScrollSpy /></h6>
                         </div>
                         <span>Returns</span>
-                    </div>
-                    
+                    </div>  
                     <div className="support-given-single-item">
                         <div className="support-gif-icon">
                             <h6 id="count4" className="display_4"><CountUp end={7153} enableScrollSpy /></h6>

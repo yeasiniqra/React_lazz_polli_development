@@ -9,21 +9,16 @@ import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
 const FullPackageMdl = ({ fullpackage, setPackage }) => {
-
-  // console.log(storeSignupData);
   const [isLoading, setIsLoading] = useState(false);
   const {profile} = useContext(authContext)
   const {FirstName,LastName,Phone} = profile
-
   const [error, setError] = useState(null);
-
   const [phone, setPhone] = useState("");
   const [fname, setFname] = useState("");
   const [adults, setAdults] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [remark, setRemark] = useState("");
-
   const [phoneError, setPhoneError] = useState(false);
   const [fnameError, setFnameError] = useState(false);
   const [adultsError, setAdultsError] = useState(false);
@@ -34,36 +29,30 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
   };
-
   const fnameChangeHandler = ({ target: el }) => {
     setFname(el.value);
   };
-
   const adultsChangeHandler = ({ target: el }) => {
     setAdults(el.value);
   };
   const remarkChangeHandler = ({ target: el }) => {
     setRemark(el.value);
   };
-
   const startDateChangeHandler = (date) => {
     setStartDate(date);
   };
   const endDateChangeHandler = (date) => {
     setEndDate(date);
   };
-
   const phoneFocusHandler = () => {
     setPhoneError(false);
   };
   const fnameFocusHandler = () => {
     setFnameError(false);
   };
-
   const adultsFocusHandler = () => {
     setAdultsError(false);
   };
-
   const starDateFocusHandler = () => {
     setStartDateError(false);
   };
@@ -77,7 +66,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
   const conventionHandler = (e) => {
     setIsLoading(true)
     e.preventDefault();
-
     let isValid = true;
     if (adults.length === 0) {
       setAdultsError(true);
@@ -87,7 +75,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
       setRemarkError(true);
       isValid = false;
     }
-
     const payload = {
       FromTime: startDate,
       ToTime: endDate,
@@ -96,7 +83,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
       Person : adults,
       Remarks: remark,
     }
-
     postV2({url: POST_FULL_RESORT_BOOKING, payload})
     .then(data => {
       if(data.IsError){
@@ -108,13 +94,10 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
     }).catch(err => {
       toast.warning(err?.toString());
     }).finally(() => {
-      // Loader Close
       setIsLoading(true)
       setPackage(null)
     })
-
-    if (!isValid) return;
-    
+    if (!isValid) return; 
   };
 
   return (
@@ -149,7 +132,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
                 </small>
               </label>
             </div>
-
             <div className='common-modal-label'>
               <label htmlFor="date">
                 To
@@ -167,7 +149,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
               </label>
             </div>
           </div>
-
           <div className='dateFormate'>
             <div className='common-modal-label'>
               <label htmlFor="fname">
@@ -184,7 +165,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
                 <small>{fnameError ? "First Name is empty" : " "}</small>
               </label>
             </div>
-
             <div className='common-modal-label'>
               <label htmlFor="phone">
                 Phone Number
@@ -201,7 +181,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
               </label>
             </div>
           </div>
-
           <div className='common-modal-label'>
             <label htmlFor="adults">
               Person
@@ -232,7 +211,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
               <small>{remarkError ? "Remark is empty" : " "}</small>
             </label>
           </div>
-
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
           </div>
@@ -249,7 +227,6 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
         </form>
         </div>
       </div>
-     
     </div>
   );
 };

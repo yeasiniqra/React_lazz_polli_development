@@ -8,22 +8,21 @@ const RestaurantDine = () => {
   const getDine = getResortDine();
 
   return (
-    <div>
-      <PageHeader imageURL={commonBg} title={"Our Restaurant Dine"} />
-      <section className="room-search-area our-restaurant-area">
-        <div className="container">
-          <div className="details-room-main-grid">
-            <div className="our-restaurant-room-main-grid-inner">
-              {getDine.map((dine, index) => (
-                <RestaurantDineTemplate dine={dine} key={index} />
-              ))}
+        <div>
+          <PageHeader imageURL={commonBg} title={"Our Restaurant Dine"} />
+          <section className="room-search-area our-restaurant-area">
+            <div className="container">
+              <div className="details-room-main-grid">
+                <div className="our-restaurant-room-main-grid-inner">
+                  {getDine.map((dine, index) => (
+                    <RestaurantDineTemplate dine={dine} key={index} />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
-     
-    </div>
-  );
-};
+      );
+    };
 
 export default RestaurantDine;

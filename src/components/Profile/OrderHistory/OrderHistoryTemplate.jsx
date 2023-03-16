@@ -4,7 +4,6 @@ import { humanizeDate } from '../../../lib/utils';
 
 const OrderHistoryTemplate = ({book}) => {
     const navigate = useNavigate();
-    // console.log(book)
     const {Code, PayableAmount, Quantity, ReleaseDate, ReservationDate, Status} = book
 
     const handleInvoice = () => {
@@ -12,7 +11,6 @@ const OrderHistoryTemplate = ({book}) => {
     }
     
     return (
-
         <div onClick={handleInvoice} className='order-history-body-parent'>
             <div className='order-history-body'>
                 <small>#{Code}</small>

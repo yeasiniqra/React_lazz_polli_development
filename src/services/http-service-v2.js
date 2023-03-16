@@ -11,7 +11,6 @@ export const postV2 = ({ url, payload }) => {
   if (token) {
     headers[AUTH.AUTH_TOKEN_NAME] = token;
   }
-
   return fetch(`${CONFIG.BASE_URL}/${url}`, {
     method: "POST",
     headers: {
@@ -25,7 +24,6 @@ export const postV2 = ({ url, payload }) => {
       const message = httpErrorHandler(response);
       throw new Error(message);
     }
-
     let responseJSON;
     try {
       responseJSON = response.json();
@@ -45,7 +43,6 @@ export const getV2 = ({ url }) => {
   if (token) {
     headers[AUTH.AUTH_TOKEN_NAME] = token;
   }
-
   return fetch(`${CONFIG.BASE_URL}/${url}`, {
     method: "GET",
     headers: {
@@ -104,7 +101,6 @@ const file = ({ url, payload }) => {
       method: "POST",
       headers: {
         'Access-Control-Allow-Origin': "*",
-        'content-type': 'multipart/form-data', 
       },
       body: payload,
     }).then((response) => {
@@ -124,8 +120,6 @@ const file = ({ url, payload }) => {
       return responseJSON;
     });
 };
-
-
 
 export const post = ({ url, payload }) => {
   return fetch(`${CONFIG.BASE_URL}/${url}`, {

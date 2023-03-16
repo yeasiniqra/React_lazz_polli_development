@@ -2,37 +2,27 @@
   margin-bottom: 24px;
   position: relative;
 }
-
 .form_control label {
   margin: 0;
   font-weight: 500;
   width: 100%;
   color: var(--text);
 }
-
 .form_control__label {
   display: flex;
   white-space: nowrap;
   align-items: center;
   gap: 4px;
 }
-
 .form_control__label__option {
   color: rgb(170, 170, 170);
   font-size: 12px;
 }
-
 .form_control input {
   border-radius: 4px;
   padding: 4px 8px;
   font-weight: 500;
 }
-
-.form_control input:focus {
-  
-}
-
-
 .form_control small {
   position: absolute;
   top: 100%;
@@ -41,40 +31,17 @@
   font-weight: 500;
 }
 
-
-/* .select {
-  position: relative;
-}
-
-.select label {
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-  display: block;
-} */
-
 .input-box {
   position: relative;
 }
-/* 
-.input-box input {
-  width: 100%;
-  font-size: 1.25rem;
-  padding: 0.5rem;
-  border: 1px solid rgb(197, 197, 197);
-  border-radius: 0.125rem;
-} */
-
 .input-box input:hover {
   border: 1px solid rgba(165, 165, 165, 0.616);
 }
-
 .input-box input:focus {
   border: 1px solid rgb(165, 165, 165);
   padding: 4px 8px;
   outline: none;
 }
-
 .icon {
   position: absolute;
   right: calc(0.5rem);
@@ -83,7 +50,6 @@
   cursor: pointer;
   color: #923131;
 }
-
 .options {
   position: absolute;
   width: 100%;
@@ -95,19 +61,15 @@
   z-index: 10;
   overflow-x: hidden;
 }
-
 .options.off-focus {
   display: none;
 }
-
 .options.on-focus {
   display: block;
 }
-
 .options ul {
   list-style-type: none;
 }
-
 .options ul li {
   padding: 0.5rem;
   font-size: 1rem;
@@ -116,19 +78,9 @@
   max-width: 100%;
   cursor: pointer;
 }
-
 .options ul li:hover {
   background: rgba(0, 0, 0, 0.04);
 }
-/* 
-.error {
-  font-size: 14px;
-  color: red;
-  position: absolute;
-} */
-
-
-
 @media all and (max-width: 991px) {
   .form_control {
     margin-bottom: 0px; 

@@ -39,7 +39,6 @@ const reducer = (state, action) => {
               quantity: action.quantity,
             };
           }
-
           return r;
         });
       }
@@ -162,7 +161,6 @@ const CartContextProvider = ({ children }) => {
     );
   };
 
-
   const context = {
     rooms: state.rooms,
     isInitiating: state.isInitiating,
@@ -174,7 +172,6 @@ const CartContextProvider = ({ children }) => {
     isRoomAdded,
     isHouseAdded,
   };
-
   return (
     <cartContext.Provider value={context}>{children}</cartContext.Provider>
   );

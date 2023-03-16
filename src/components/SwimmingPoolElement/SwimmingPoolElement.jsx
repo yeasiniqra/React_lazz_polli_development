@@ -4,7 +4,6 @@ import commonBg from "../../images/room.webp";
 import SwimmingPoolTemplate from './SwimmingPoolTemplate';
 import { getSwimmingPool } from '../../services/data-service';
 import { useState } from 'react';
-// import SwimmingModal from '../Sheared/CommonModal/SwimmingModal';
 import SwimmingMdl from '../Sheared/CommonModal/SwimmingMdl';
 
 const SwimmingPoolElement = () => {
@@ -27,12 +26,10 @@ const SwimmingPoolElement = () => {
                            setSwimmin={setSwimmin}
                            swimmin={swimmin}
                          />
-                       }
-                       
-                    </div>
+                       }                       
+                   </div>
                 </div>
             </section>    
-
         </>
     );
 };

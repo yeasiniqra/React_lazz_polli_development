@@ -42,8 +42,7 @@ const PreviewImage = ({ show, onClose, images = [], start }) => {
           className={`${styles["modal-close"]} ${styles["modal-exit"]}`}
           onClick={onClose}
           >
-          ×
-           
+          ×          
       </button>
     </div>
   );

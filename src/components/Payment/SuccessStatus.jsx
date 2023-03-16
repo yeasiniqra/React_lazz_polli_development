@@ -34,7 +34,6 @@ const SuccessStatus = () => {
         const phone = queryParams.get('Phone');
         const id = queryParams.get('Id');
         const isNew = +queryParams.get('IsNew');
-    
         setParams({ Code, payment, transaction, phone, id, isNew });
       }, [search]);
 

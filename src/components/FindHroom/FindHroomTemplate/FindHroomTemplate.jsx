@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { imageURL, IMAGE_CATEGORY } from '../../../lib/galleryService';
 
-
-
 const FindHroomTemplate = ({menuIamge}) => {
-
     return (
       <>
         <section className="booking-room-area">
@@ -94,7 +91,6 @@ const FindHroomTemplate = ({menuIamge}) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

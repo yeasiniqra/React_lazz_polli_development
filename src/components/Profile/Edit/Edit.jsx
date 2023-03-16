@@ -4,17 +4,14 @@ import { useRef } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { countries } from "../../../data/countries";
-
 import { useTitle } from "../../../hooks/UseTitle";
 import { GET_USER_PROFILE, POST_UPDATE_PROFILE } from "../../../lib/endpoints";
 import { getV2, postV2 } from "../../../services/http-service-v2";
 import authContext from "../../../store/auth-context";
-// import checkoutContext from "../../../store/checkout-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../Sheared/Input/Input";
 import Suspense from "../../Sheared/Suspense/Suspense";
 import Textarea from "../../Sheared/Textarea/Textarea";
-
 
 const Edit = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +19,6 @@ const Edit = () => {
     const {profile} = useContext(authContext)
     const {Id} = profile
     const mounted = useRef(false)
-
 
     const formatDate = (date) => {
       const passedDate = new Date(date);
@@ -33,9 +29,6 @@ const Edit = () => {
       day = day.length > 1 ? day : '0' + day;
       return `${year}-${month}-${day}`;
    }
-  
-
-
     //form validations State
     const [FirstName, setFname] = useState("");
     const [LastName, setLname] = useState("");
@@ -52,10 +45,7 @@ const Edit = () => {
     const [dob, setDob] = useState(null);
     const [identity, setIdentity] = useState({});
     const [gender, setGender] = useState({});
-    // const [Id, setId] = useState('')
 
-
-  
     //form validations handeler
     const fnameChangeHandler = (FirstName) => {
       setFname(FirstName);
@@ -63,51 +53,39 @@ const Edit = () => {
     const lnameChangeHandler = (LastName) => {
       setLname(LastName);
     };
-  
     const genderChangeHandler = (gender) => {
       setGender(gender);
     };
-  
     const emailChangeHandler = (email) => {
       setEmail(email);
     };
-  
     const phoneChangeHandler = (Phone) => {
       setPhone(Phone);
     };
-  
     const countryChangeHandler = (country) => {
       setCountry(country);
     };
-  
     const cityChangeHandler = (city) => {
       setCity(city);
     };
-  
     const mstateChangeHandler = (state) => {
       setState(state);
     };
-  
     const pcodeChangeHandler = (postalCode) => {
       setPostalCode(postalCode);
     };
-  
     const faxChangeHandler = (fax) => {
       setFax(fax);
     };
-  
     const addressChangeHandler = (address) => {
       setAddress(address);
     };
-  
     const identityChangeHandler = (identity) => {
       setIdentity(identity);
     };
-  
     const idnumChangeHandler = (idnum) => {
       setIdNum(idnum);
     };
-  
     const expDateChangeHandler = (expDate) => {
       setExpDate(expDate);
     };
@@ -116,7 +94,6 @@ const Edit = () => {
       console.log(dob);
     };
   
-
     const getProfileInfo = useCallback(() => {
       setIsLoading(true)
       getV2({url: GET_USER_PROFILE})
@@ -138,14 +115,11 @@ const Edit = () => {
          setIdNum(data.Data.IdentityNumber);
          setExpDate(data.Data.IdentityExpireDate);
          setDob(data.Data.DateOfBirth);
-         
         } else {
           console.log(data);
          alert('Error')
         }
-        
       }).catch(error => {
-       
       }).finally(()=> {
         setIsLoading(false)
       });
@@ -153,10 +127,10 @@ const Edit = () => {
 
   useEffect(() => {
     if (!mounted.current) {
-      getProfileInfo();
-      mounted.current = true;
-  }
-}, [mounted]);
+        getProfileInfo();
+        mounted.current = true;
+    }
+  }, [mounted]);
 
     const postProfileInfo = useCallback((payload) => {
       setIsLoading(true)
@@ -180,17 +154,13 @@ const Edit = () => {
          setIdNum(data.Data.IdentityNumber);
          setExpDate(data.Data.IdentityExpireDate);
          setDob(data.Data.DateOfBirth);
-         
         } else {
           console.log(data);
          alert('Error')
         }
-        
       }).catch(error => {
-       
       });
     }, []);
-
 
     const submitHandler = () => {
       const payload = {
@@ -214,7 +184,6 @@ const Edit = () => {
         ChangeLog : 'cng',
       }
        postProfileInfo(payload)
-       
     };
   
     return (
@@ -235,7 +204,6 @@ const Edit = () => {
                         required
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <Input
                         label={"Last Name"}
@@ -245,7 +213,6 @@ const Edit = () => {
                         required
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <AutoComplete
                         dataset={[
@@ -264,9 +231,7 @@ const Edit = () => {
                       />
                     </div>
                   </div>
-  
                   <div className="warining"></div>
-  
                   <div className="customar-dts-from-inner-flex">
                     <div className="custom-input-resort">
                       <Input
@@ -286,7 +251,6 @@ const Edit = () => {
                         placeholder={"Email"}
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <AutoComplete
                         dataset={countries}
@@ -302,7 +266,6 @@ const Edit = () => {
                       />
                     </div>
                   </div>
-  
                   <div className="customar-dts-from-inner-flex customar-dts-from-inner-flex2">
                     <div className="custom-input-resort">
                       <Input
@@ -312,7 +275,6 @@ const Edit = () => {
                         placeholder={"City"}
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <Input
                         label={"State"}
@@ -321,7 +283,6 @@ const Edit = () => {
                         placeholder={"State"}
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <Input
                         label={"Postal Code"}
@@ -330,7 +291,6 @@ const Edit = () => {
                         placeholder={"Postal Code"}
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <Input
                         label={"Fax"}
@@ -340,7 +300,6 @@ const Edit = () => {
                       />
                     </div>
                   </div>
-  
                   <div className="custom-input-resort extera-adrs">
                     <Textarea
                       label={"Address"}
@@ -349,7 +308,6 @@ const Edit = () => {
                       placeholder={"Address"}
                     />
                   </div>
-  
                   <div className="customar-dts-from-inner-flex customar-dts-from-inner-flex2">
                     <div className="custom-input-resort">
                       <AutoComplete
@@ -369,7 +327,6 @@ const Edit = () => {
                         required
                       />
                     </div>
-  
                     <div className="custom-input-resort">
                       <Input
                         label={"No"}
@@ -379,7 +336,6 @@ const Edit = () => {
                         required
                       />
                     </div>
-  
                     <div className="custom-input-resort input-append ">
                       <Input
                         label={"Expiry Date"}
@@ -392,7 +348,6 @@ const Edit = () => {
                         <i className="fa fa-calendar" aria-hidden="true"></i>
                       </button>
                     </div>
-  
                     <div className="custom-input-resort input-append ">
                       <Input
                         label={"Date of Birth"}
@@ -406,17 +361,16 @@ const Edit = () => {
                       </button>
                     </div>
                   </div>
-                      <div
-                        onClick={submitHandler}
-                        className="book_table_item dtl-btn"
-                      >
-                        <button
-                          type="button"
-                        >
-                          Update
-                        </button>
-                      </div>
-           
+                  <div
+                    onClick={submitHandler}
+                    className="book_table_item dtl-btn"
+                  >
+                    <button
+                      type="button"
+                    >
+                      Update
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

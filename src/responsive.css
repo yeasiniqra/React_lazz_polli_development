@@ -362,7 +362,7 @@
     }
     figure.effect-layla p {
         width: 69%;
-        margin-top: -58px;
+        margin-top: -35px;
     }
     .logo > a > img {
         width: 70px;
@@ -485,7 +485,21 @@
         transform: translateX(-50%);
     }
     figure.effect-layla h2 {
-        font-size: 32px;
+        font-size: 21px;
+    }
+    .footer-menu>ul>li {
+        flex: 0 0 42%;
+    }
+
+    .hotel-checkout-main .room-search-cart-right {
+        order: -1;
+    }
+    .room-search-cart-right {
+        position: inherit;
+        top: inherit;
+    }
+    .current-oppertunity-empty-content img {
+        max-width: 160px;
     }
 
 
@@ -1195,6 +1209,15 @@
 
 
 @media all and (max-width: 413px) {
+    .custom-inputs {
+        max-width: 90%;
+    }
+    .toggle-condition {
+        margin-top: 15px;
+    }
+    li.book-now.mobile-desk.nav-login > a {
+        font-size: 13px;
+    }
     .modal-header > label > i {
         top: 3px;
         right: 5px;
@@ -1276,8 +1299,15 @@
 }
 
 @media all and (max-width: 374px) {
+    .custom-inputs {
+        max-width: 75%;
+    }
     .react-datepicker {
         width: 85%;
+    }
+    .modal-inner {
+        max-width: 80%;
+        min-width: 80%;
     }
 
     .overly-content-inner>h2 {

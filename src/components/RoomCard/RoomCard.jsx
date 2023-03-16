@@ -7,11 +7,10 @@ const RoomCard = ({room, setRoomdetails}) => {
     setRoomdetails({...room, Type});
 }
 
-const roomCoverImages = room?.Images?.filter((banner) => banner.ImageFor === "ROOM_COVER");
-const lastRoomCoverImage = roomCoverImages?.sort((a, b) => new Date(b.UploadDate) - new Date(a.UploadDate))[0];
-
-const houseCoverImages = room?.Images?.filter((banner) => banner.ImageFor === "HOUSE_COVER");
-const lasthouseCoverImage = houseCoverImages?.sort((a, b) => new Date(b.UploadDate) - new Date(a.UploadDate))[0];
+  const roomCoverImages = room?.Images?.filter((banner) => banner.ImageFor === "ROOM_COVER");
+  const lastRoomCoverImage = roomCoverImages?.sort((a, b) => new Date(b.UploadDate) - new Date(a.UploadDate))[0];
+  const houseCoverImages = room?.Images?.filter((banner) => banner.ImageFor === "HOUSE_COVER");
+  const lasthouseCoverImage = houseCoverImages?.sort((a, b) => new Date(b.UploadDate) - new Date(a.UploadDate))[0];
 
   return (
     <>
@@ -24,10 +23,9 @@ const lasthouseCoverImage = houseCoverImages?.sort((a, b) => new Date(b.UploadDa
               </h3>
               <div className="cottage-btn">
                 <label className="example-label common-btn" htmlFor="cottage" onClick={detailsClickHandler.bind(null, 'ROOM')}> 
-                <fieldset onClick={detailsClickHandler.bind(null, "ROOM")} disabled={(room.Permalink === "double-dom" && room.RoomPrice) || (room.Permalink === "mud-house" && room.RoomPrice)}>
-                {((room.Permalink === "double-dom" && room.RoomPrice) || (room.Permalink === "mud-house" && room.RoomPrice)) ? "Not Available" : "View Details"}
-              </fieldset>
-
+                    <fieldset onClick={detailsClickHandler.bind(null, "ROOM")} disabled={(room.Permalink === "double-dom" && room.RoomPrice) || (room.Permalink === "mud-house" && room.RoomPrice)}>
+                    {((room.Permalink === "double-dom" && room.RoomPrice) || (room.Permalink === "mud-house" && room.RoomPrice)) ? "Not Available" : "View Details"}
+                    </fieldset>
                 </label>
               </div>
            </div>

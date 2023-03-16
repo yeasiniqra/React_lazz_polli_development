@@ -5,14 +5,14 @@ import ContactForm from './ContactForm';
 const ConatactTemplate = () => {
     return (
         <>
-        <section className="request-demo-area section-padding contact-us-area">
-            <div className="container">
-                <div className="reqest-demo-main-flex">
-                    <ContactAddress />
-                    <ContactForm />
+            <section className="request-demo-area section-padding contact-us-area">
+                <div className="container">
+                    <div className="reqest-demo-main-flex">
+                        <ContactAddress />
+                        <ContactForm />
+                    </div>
                 </div>
-            </div>
-        </section> 
+            </section> 
         </>
     );
 };

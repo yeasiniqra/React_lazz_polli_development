@@ -7,36 +7,22 @@ import authContext from '../../../store/auth-context';
 
 const HeaderNav = () => {
     const { open, user } = useContext(authContext);
+    const [isActive, setActive] = useState(false);
+    const [isActiveSub, setActiveSub] = useState(false);
     const navigate = useNavigate();
 
     const profileHandler = () => {
         navigate('/profile/order')
     }
-
-    const [isActive, setActive] = useState(false);
-
     const toggleClass = (e) => {
         setActive(!isActive)
     };
-
-    const [isActiveSub, setActiveSub] = useState(false);
     const toggleClassSub = () => {
         setActiveSub(!isActiveSub)
     }; 
-
-    // const [isActiveSearch, setActiveSearch] = useState(false);
-    // const toggleClassSearch = () => {
-    //     setActiveSearch(!isActiveSearch)
-    // };
-
     const loginClickHandler = () => {
         open();
     }     
-
-    // const searchHandler = (e) => {
-    //     e.preventDefault()
-    //     console.log(e.target.value)
-    // }
 
     return (
         <>
@@ -46,14 +32,12 @@ const HeaderNav = () => {
                         <div className="logo">
                             <Link to="/home"><img src={logo} alt="logo" /></Link>
                         </div>
-
                         <div className='normal-mobile-view'>
                             <button className="nav_icon mobile-desk" onClick={toggleClass}>
                                 <i className="fa fa-bars"></i>
                             </button>
                             <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
                         </div>
-
                         <div id="mySidepanel" className={`main-menu sidepanel ${isActive && 'showMenu'}`}   >
                             <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>
                             <ul>
@@ -146,12 +130,8 @@ const HeaderNav = () => {
                                         </li>
                                     </ul>
                                 </li>
-                                {/* <li className="search-mobile">
-                                    <Link to="#"><i className="fa fa-search openBtn" onClick={toggleClassSearch}></i> </Link>
-                                </li> */}
                                 
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
-
                                 {
                                     user && user.id ? 
                                     <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
@@ -159,17 +139,6 @@ const HeaderNav = () => {
                                     <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
                                     
                                 }
-                          
-                              
-                                {/* <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
-                                    <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
-                                    <div className="overlay-content">
-                                        <form>
-                                            <input onChange={(e) => searchHandler(e)} type="text" placeholder="Search Here..." name="search" />
-                                            <button type="submit"><i className="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div> */}
                             </ul>
                         </div>
                     </div>
@@ -182,14 +151,12 @@ const HeaderNav = () => {
                         <div className="logo">
                             <Link to="/home"><img src={logoBlack} alt="logo" /></Link>
                         </div>
-
                         <div className='normal-mobile-view'>
                             <button className="nav_icon mobile-desk" onClick={toggleClass}>
                                 <i className="fa fa-bars"></i>
                             </button>
                             <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
                         </div>
-
                         <div id="mySidepanel2" className={`main-menu sidepanel ${isActive && 'showMenu'}`}>
                            <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>
                            <ul>
@@ -282,14 +249,7 @@ const HeaderNav = () => {
                                         </li>
                                     </ul>
                                 </li>
-                                {/* <li className="search-mobile">
-                                   <Link onClick={toggleClassSearch} to="#"><i className="fa fa-search openBtn" ></i> </Link>
-                                </li> */}
-                              
-
-                             
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
-                             
                                 {
                                      user && user.id ? 
                                     <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
@@ -297,23 +257,11 @@ const HeaderNav = () => {
                                     <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
                                     
                                 }
-
-                              
-                                {/* <div id="myOverlay" className={`overlaySearch ${isActiveSearch && 'showMenuSearch'}`}>
-                                <span className="closebtn" onClick={toggleClassSearch} title="Close Overlay">×</span>
-                                    <div className="overlay-content">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search Here..." name="search" />
-                                            <button type="submit"><i className="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div> */}
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-       
         </>
     );
 };

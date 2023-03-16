@@ -17,12 +17,10 @@ const Description = ({room}) => {
                             )}
                         </ul>
                     </div>
-                    {/* <p>{room.roomSingle[2].additional}</p> */}
                 </div>
                 <RoomReview room={room} />
             </div>
         </div>
-    
     );
 };
 

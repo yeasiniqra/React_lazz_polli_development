@@ -1,7 +1,6 @@
 import { useContext, useRef } from "react";
 import { useState } from "react";
 import appContext from "../../../store/app-context";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { getV2 } from "../../../services/http-service-v2";
@@ -18,7 +17,6 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
   const mounted = useRef(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isCalendarOpenTwo, setIsCalendarOpenTwo] = useState(false);
-  
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(
     new Date(new Date().setDate(today.getDate() + 1))
@@ -32,7 +30,6 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
       new Date(depdate)?.toDateString()
     );
   };
-
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
     storeFilters({ ...filters, arrivalDate: time });
@@ -49,10 +46,9 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
         if (!data.IsError) {
           setIsAvailble(data.Data);
           if (data.Data) {
-            // toast.warning(`${data.Msg}`);
             console.log(data.Msg);
           } else {
-            toast.warning(`Is Not Aviable`);
+            toast.warning(`Is Not Available`);
           }
         } else {
           toast.warning(`${data.Msg}`);
@@ -65,12 +61,12 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
         setIsLoading(false);
       });
 
-    const errors = [];
-    if (errors.length !== 0) {
-      console.log(errors.join(", ") + " Are Required");
-      alert(`${errors.join(", ")} Are Required`);
-      return false;
-    }
+     const errors = [];
+      if (errors.length !== 0) {
+        console.log(errors.join(", ") + " Are Required");
+        alert(`${errors.join(", ")} Are Required`);
+        return false;
+      }
   };
 
   useEffect(() => {

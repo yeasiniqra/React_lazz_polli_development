@@ -2,7 +2,6 @@ import React from "react";
 import { imageURL, IMAGE_CATEGORY } from "../../../../lib/galleryService";
 
 const IchamotiHouseTemplate = ({product,index,checkClickHandler,isLoading}) => {
-    // console.log("icamoti", index)
     return (
         <div className="gallery-single-item">
             <img onClick={checkClickHandler.bind(null,index)} src={imageURL(IMAGE_CATEGORY.GALLERY,product.ImagePath)} alt="bangladesh resturent" />

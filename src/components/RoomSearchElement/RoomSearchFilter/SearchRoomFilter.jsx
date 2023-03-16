@@ -4,8 +4,6 @@ import { useState } from "react";
 import commonBg from "../../../images/room.webp";
 import appContext from "../../../store/app-context";
 import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
-// import Input from "../../Sheared/Input/Input";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Suspense from "../../Sheared/Suspense/Suspense";
@@ -14,16 +12,13 @@ import { getV2 } from "../../../services/http-service-v2";
 import { GET_SEARCH_BOOKING_ROOM_ISAVAIBLE } from "../../../lib/endpoints";
 import { useRef } from "react";
 
-
 const today = new Date();
-
 const SearchRoomFilter = ({ setIsAvailble }) => {
   const { filters, storeFilters } = useContext(appContext);
   const [isLoading, setIsLoading] = useState(false);
   const mounted = useRef(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isCalendarOpenTwo, setIsCalendarOpenTwo] = useState(false);
-
   const [adults, setAdults] = useState({});
   const [children, setChildren] = useState({});
   const [startDate, setStartDate] = useState(new Date());
@@ -82,7 +77,6 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
         if (!data.IsError) {
           setIsAvailble(data.Data.Data);
           if (data.Data) {
-            // toast.warning(`${data.Msg}`);
             // console.log(data.Data);
           } else {
             toast.warning(`Is Not Aviable`);
@@ -97,13 +91,6 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
       .finally(() => {
         setIsLoading(false);
       });
-
-    // console.log({
-    //   arrdate: startDate,
-    //   depdate: endDate,
-    //   adults: adults.id,
-    //   children: children.id,
-    // });
   };
 
   useEffect(() => {

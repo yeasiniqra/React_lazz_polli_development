@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { countries } from "../../../../data/countries";
-// import checkoutContext from "../../../../store/checkout-context";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
@@ -22,14 +21,12 @@ import Suspense from "../../../Sheared/Suspense/Suspense";
 
 const NewCustomarInfo = () => {
   const [isLoading, setIsLoading] = useState(false);
-  // const { formValus, storeForms } = useContext(checkoutContext);
   const { profile, isAuthenticated, isAuthenticating } =
     useContext(authContext);
   const { rooms, totalAmount, clear } = useContext(cartContext);
   const { Id } = profile;
   const [error, setError] = useState(null);
   const mounted = useRef(false);
-
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (event) => {
@@ -63,7 +60,7 @@ const NewCustomarInfo = () => {
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
   const [paymentPercent, setPaymentPercent] = useState("100%");
-  // const [Id, setId] = useState('')
+
 
   const handleClicekd = (percent) => {
     setPaymentPercent(percent);
@@ -72,62 +69,48 @@ const NewCustomarInfo = () => {
   //form validations handeler
   const fnameChangeHandler = (FirstName) => {
     setFname(FirstName);
-    // storeForms({ ...formValus, firstName: FirstName });
   };
   const lnameChangeHandler = (LastName) => {
     setLname(LastName);
-    // storeForms({ ...formValus, lastName: LastName });
   };
   const genderChangeHandler = (gender) => {
     setGender(gender);
-    // storeForms({ ...formValus, gender: gender });
   };
   const emailChangeHandler = (email) => {
     setEmail(email);
-    // storeForms({ ...formValus, email: email });
   };
   const phoneChangeHandler = (Phone) => {
     setPhone(Phone);
-    // storeForms({ ...formValus, Phone: Phone });
   };
   const countryChangeHandler = (country) => {
     setCountry(country);
   };
   const cityChangeHandler = (city) => {
     setCity(city);
-    // storeForms({ ...formValus, city: city });
   };
   const mstateChangeHandler = (state) => {
     setState(state);
-    // storeForms({ ...formValus, state: state });
   };
   const pcodeChangeHandler = (postalCode) => {
     setPostalCode(postalCode);
-    // storeForms({ ...formValus, postalCode: postalCode });
   };
   const faxChangeHandler = (fax) => {
     setFax(fax);
-    // storeForms({ ...formValus, fax: fax });
   };
   const addressChangeHandler = (address) => {
     setAddress(address);
-    // storeForms({ ...formValus, address: address });
   };
   const identityChangeHandler = (identity) => {
     setIdentity(identity);
-    // storeForms({ ...formValus, identity: identity });
   };
   const idnumChangeHandler = (idnum) => {
     setIdNum(idnum);
-    // storeForms({ ...formValus, idnum: idnum });
   };
   const expDateChangeHandler = (expDate) => {
     setExpDate(expDate);
-    // storeForms({ ...formValus, expiryDate: expDate });
   };
   const dobChangeHandler = (dob) => {
     setDob(dob);
-    // storeForms({ ...formValus, dateOfBirth: dob });
   };
 
   const getProfileInfo = useCallback(() => {
@@ -136,7 +119,6 @@ const NewCustomarInfo = () => {
       .then((data) => {
         if (!data.IsError) {
           setIsLoading(false);
-          //  console.log(data);
           setFname(data.Data.FirstName);
           setLname(data.Data.LastName);
           setGender({ name: data.Data.Gender, id: data.Data.Gender });
@@ -156,7 +138,6 @@ const NewCustomarInfo = () => {
           setExpDate(data.Data.IdentityExpireDate);
           setDob(data.Data.DateOfBirth);
         } else {
-          // console.log(data);
           alert("Error");
         }
       })
@@ -208,6 +189,7 @@ const NewCustomarInfo = () => {
 
   //post booking
   const bookingRequest = () => {
+    // const paymentAmount = paymentPercent === "100%" ? grandTotal : grandTotal * 0.3;
     const payload = {
       Tax: newTax,
       RoomCharge: totalAmount,
@@ -310,7 +292,6 @@ const NewCustomarInfo = () => {
                       required
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <Input
                       label={"Last Name"}
@@ -320,7 +301,6 @@ const NewCustomarInfo = () => {
                       required
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <AutoComplete
                       dataset={[
@@ -339,9 +319,7 @@ const NewCustomarInfo = () => {
                     />
                   </div>
                 </div>
-
                 <div className="warining"></div>
-
                 <div className="customar-dts-from-inner-flex">
                   <div className="custom-input-resort">
                     <Input
@@ -361,7 +339,6 @@ const NewCustomarInfo = () => {
                       placeholder={"Email"}
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <AutoComplete
                       dataset={countries}
@@ -377,7 +354,6 @@ const NewCustomarInfo = () => {
                     />
                   </div>
                 </div>
-
                 <div className="customar-dts-from-inner-flex customar-dts-from-inner-flex2">
                   <div className="custom-input-resort">
                     <Input
@@ -387,7 +363,6 @@ const NewCustomarInfo = () => {
                       placeholder={"City"}
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <Input
                       label={"State"}
@@ -396,7 +371,6 @@ const NewCustomarInfo = () => {
                       placeholder={"State"}
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <Input
                       label={"Postal Code"}
@@ -405,7 +379,6 @@ const NewCustomarInfo = () => {
                       placeholder={"Postal Code"}
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <Input
                       label={"Fax"}
@@ -415,7 +388,6 @@ const NewCustomarInfo = () => {
                     />
                   </div>
                 </div>
-
                 <div className="custom-input-resort extera-adrs">
                   <Textarea
                     label={"Address"}
@@ -424,7 +396,6 @@ const NewCustomarInfo = () => {
                     placeholder={"Address"}
                   />
                 </div>
-
                 <div className="customar-dts-from-inner-flex customar-dts-from-inner-flex2">
                   <div className="custom-input-resort">
                     <AutoComplete
@@ -444,7 +415,6 @@ const NewCustomarInfo = () => {
                       required
                     />
                   </div>
-
                   <div className="custom-input-resort">
                     <Input
                       label={"No"}
@@ -454,7 +424,6 @@ const NewCustomarInfo = () => {
                       required
                     />
                   </div>
-
                   <div className="custom-input-resort input-append ">
                     <Input
                       label={"Expiry Date"}
@@ -467,7 +436,6 @@ const NewCustomarInfo = () => {
                       <i className="fa fa-calendar" aria-hidden="true"></i>
                     </button>
                   </div>
-
                   <div className="custom-input-resort input-append ">
                     <Input
                       label={"Date of Birth"}
@@ -481,7 +449,6 @@ const NewCustomarInfo = () => {
                     </button>
                   </div>
                 </div>
-
                 <div className="paymet-radio-btn">
                   <input
                     defaultChecked={paymentPercent === "100%"}
@@ -511,7 +478,6 @@ const NewCustomarInfo = () => {
                     Pay 30% Payment
                   </label>
                 </div>
-
                 <div className="toggle-condition">
                   <p className="trams-condition">
                     <label onChange={handleCheckboxChange}>

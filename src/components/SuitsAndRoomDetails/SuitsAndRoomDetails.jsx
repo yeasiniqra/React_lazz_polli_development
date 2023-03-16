@@ -27,7 +27,6 @@ const SuitsAndRoomDetails = () => {
                 setRoomSingle(data.Data);
                 setIsLoading(false);
             } else {
-                //   console.log(data);
             }
         });
     }, [Id]);
@@ -39,8 +38,6 @@ const SuitsAndRoomDetails = () => {
         }
     }, [getHousess]);
 
-    // console.log(roomSingle)
-
     return (
         <div>
             <PageHeader imageURL={commonBg} title={"Cottage & Room Details"} />
@@ -49,7 +46,6 @@ const SuitsAndRoomDetails = () => {
                     <div className="cottage-room-details-grid">
                         {roomSingle && 
                         <SuitsAndRoomDetailsTem SuitsAndRoomData={roomSingle} setRoomdetails={setRoomdetails} />}
-
                         {suitsAndRoom && 
                         <RoomSuitsMdl suitsAndRoom={suitsAndRoom} setRoomdetails={setRoomdetails} />}
                     </div>

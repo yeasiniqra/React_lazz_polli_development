@@ -14,9 +14,9 @@ import {
   STORE_REGISTRATION_DATA,
   STORE_USER_PROFILE_INFO,
 } from "../constants";
-import { GET_USER_INFO, GET_USER_PROFILE } from "../lib/endpoints";
+import {  GET_USER_PROFILE } from "../lib/endpoints";
 import authService from "../services/auth-service";
-import { getV2, postV2 } from "../services/http-service-v2";
+import { getV2 } from "../services/http-service-v2";
 import authContext from "./auth-context";
 
 const initialState = {

@@ -56,7 +56,7 @@ const FooterTop = () => {
                     </div>
                 </div>
             </div>
-    );
-};
+        );
+    };
 
 export default FooterTop;

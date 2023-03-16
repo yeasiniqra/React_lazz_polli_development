@@ -12,13 +12,12 @@ import Suspense from '../../Sheared/Suspense/Suspense';
 const RoomGrid = () => {
     const [roomdetails, setRoomdetails] = useState(null)
     const [isLoading, setIsLoading] = useState(false);
+    const [room, setRoom] = useState([]);
+    const mounted = useRef(false)
     const title = {
         subTitle : 'choose room according to budget',
     }
 
-    const [room, setRoom] = useState([]);
-    const mounted = useRef(false)
-  
     const getHouses = useCallback(() => {
       setIsLoading(true)
       getV2({ url: GET_ROOMS() }).then((data) => {
@@ -27,7 +26,6 @@ const RoomGrid = () => {
           setHouses(data.Data.Data);
           setIsLoading(false)
         } else {
-          //   console.log(data);
         }
       });
     }, []);
@@ -39,8 +37,6 @@ const RoomGrid = () => {
       }
     }, [getHouses]);
 
-
-
     return (
         <section className="room-search-area">
             <div className="container">
@@ -50,7 +46,6 @@ const RoomGrid = () => {
                     </h1>
                     <small>{title.subTitle}</small>
                 </div>
-
                 <div className="choose-room-main-grid">
                     {room.map((room) => (
                     <RoomCard room={room} key={room.Id} setRoomdetails={setRoomdetails} />

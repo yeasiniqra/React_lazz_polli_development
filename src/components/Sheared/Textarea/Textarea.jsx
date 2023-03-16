@@ -12,7 +12,6 @@ const Textarea = forwardRef(
       if (target.value.length > 0) {
         setIsDirty(true);
       }
-
       onChange && onChange(target.value);
     };
 
@@ -20,7 +19,6 @@ const Textarea = forwardRef(
       if (required && target.value.length === 0 && isDirty) {
         setError(`${label} is required`);
       }
-
       onBlur && onBlur(target.value);
     };
 

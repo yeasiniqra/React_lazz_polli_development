@@ -20,7 +20,6 @@ const Input = ({
     if (target.value.length > 0) {
       setIsDirty(true);
     }
-
     onChange(target.value);
   };
 
@@ -28,16 +27,14 @@ const Input = ({
     if (required && target.value.length === 0 && isDirty) {
       setError(`${label} is required`);
     }
-
     validators.forEach((item) => {
       if (!item.validator(target.value)) {
         setError(item.message);
       }
     });
-
     onBlur && onBlur(target.value);
   };
-
+  
   const focusHandler = ({ target }) => {
     setError(null);
   };

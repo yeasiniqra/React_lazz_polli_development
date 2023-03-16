@@ -8,8 +8,6 @@ const RoomDetails = () => {
     const {Id} = useParams();
     const roomData = getRoom(+Id);
     console.log(roomData);
-    
-    
     return (
         <>
             <PageHeader imageURL={commonBg} title={'Room Details'} />

@@ -4,19 +4,17 @@ import MudHouseTemplate from './Template/MudHouseTemplate';
 
 const MudHouse = ({galleryImage, isLoading}) => {
     const [preview, setPreview] = useState({ show: false, images: {}, start: 0});
-
     const previewCloseHandler = () => {
       setPreview({ show: false, images: [], start: 0});
     };
   
     const checkClickHandler = (index) => {
-      const images = galleryImage.filter((product) => product.Category === "Mud House" ).map(item => item.ImagePath);
-    
-      setPreview({
-        show: true,
-        images,
-        start: index
-      });
+        const images = galleryImage.filter((product) => product.Category === "Mud House" ).map(item => item.ImagePath);
+        setPreview({
+          show: true,
+          images,
+          start: index
+        });
     };
     return (
         <>

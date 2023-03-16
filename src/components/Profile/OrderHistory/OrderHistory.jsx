@@ -14,13 +14,11 @@ const OrderHistory = () => {
     const [booked, setBooked] = useState([]);
     const mounted = useRef(false);
 
-
     // pagination function
     const [totalPage, setTotalPage] = useState(1);
     const [page, setPage] = useState(1);
     const [size, setSize] = useState(12);
 
-   
     const handleGetBooking = () => {
         setIsLoading(true)
         getV2({ url: GET_ROOM_BOOKING(500,page, "all") }).then((data) => {
@@ -38,28 +36,10 @@ const OrderHistory = () => {
           });
     }
 
-    // const getPageToRender = () => {
-    //     var initialPage = [];
-    //     for (let i = 1; i <= totalPage; i++) {
-    //       initialPage.push(
-    //         <div
-    //           key={i}
-    //           className={page === i ? "actives" : undefined}
-    //           onClick={() => setPage(i)}
-    //         >
-    //           <div className="single-pagination">{i}</div>
-    //         </div>
-    //       );
-    //     }
-      
-    //     return initialPage;
-    //   };
-
     const getPageToRender = () => {
       const initialPage = [];
-      const pageRange = 1; // number of pages to show before/after the current page
-    
-      // render first page
+      const pageRange = 1; 
+
       initialPage.push(
         <div
           key={1}
@@ -70,7 +50,6 @@ const OrderHistory = () => {
         </div>
       );
     
-      // render ellipsis before current page
       if (page - pageRange > 2) {
         initialPage.push(
           <div key="ellipsis-before" className="ellipsis">
@@ -79,7 +58,6 @@ const OrderHistory = () => {
         );
       }
     
-      // render page numbers around current page
       for (let i = Math.max(2, page - pageRange); i <= Math.min(totalPage - 1, page + pageRange); i++) {
         initialPage.push(
           <div
@@ -92,7 +70,6 @@ const OrderHistory = () => {
         );
       }
     
-      // render ellipsis after current page
       if (page + pageRange < totalPage - 1) {
         initialPage.push(
           <div key="ellipsis-after" className="ellipsis">
@@ -101,7 +78,6 @@ const OrderHistory = () => {
         );
       }
     
-      // render last page
       if (totalPage > 1) {
         initialPage.push(
           <div
@@ -113,13 +89,9 @@ const OrderHistory = () => {
           </div>
         );
       }
-    
       return initialPage;
     };
-    
-    
-      
-
+   
     useEffect(() => {
         if (!mounted.current) {
             handleGetBooking();
@@ -127,7 +99,6 @@ const OrderHistory = () => {
         }
     }, [mounted]);
     
-
     return (
         <>
         <div className='order-history'>
@@ -146,14 +117,12 @@ const OrderHistory = () => {
                 .map(book => <OrderHistoryTemplate book={book} key={book.Code
                 } /> )
             }
-           
            </div> 
            <div className='paginator-parent'>
                 <button disabled={page === 1} onClick={() => setPage(page - 1)}>Pre</button>
                 {getPageToRender()}
                 <button disabled={page === totalPage} onClick={() => setPage(page + 1)}>Next</button>
             </div>
-
            {isLoading && <Suspense />}
         </>
     );

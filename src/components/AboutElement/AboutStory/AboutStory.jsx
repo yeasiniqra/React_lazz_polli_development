@@ -26,7 +26,7 @@ const AboutStory = () => {
                             {
                                 aboutStory[0].aboutImages.map((item, index) =>
                                     <AboutStoryTemplate item={item} key={index} />
-                                    )
+                                )
                             }
                         </div>
                     </div>

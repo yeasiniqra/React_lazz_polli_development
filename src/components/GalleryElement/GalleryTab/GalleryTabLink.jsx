@@ -17,8 +17,7 @@ const GalleryTabLink = () => {
 
     const [actionTab, setActionTab] = useState(
         GALLERY_MENU_TAB_BUTTON_NAMES.SPACES
-      );
-
+    );
     const tabChangeHandler = (tabName) => {
         setActionTab(tabName);
     };
@@ -33,18 +32,16 @@ const GalleryTabLink = () => {
           } else {
            alert('Error')
           }
-          
         }).catch(error => {
-         
         });
       }, []);
     
       useEffect(() => {
-        if (!mounted.current) {
-            getGalleryImages();
-            mounted.current = true;
-      }
-    }, [mounted]);
+          if (!mounted.current) {
+              getGalleryImages();
+              mounted.current = true;
+        }
+      }, [mounted]);
 
       
     return (

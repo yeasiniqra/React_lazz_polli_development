@@ -2,32 +2,25 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
-import Suspense from '../../components/Sheared/Suspense/Suspense';
-import { GET_CUSTOMERIS_EXIST, GET_OTP, LOGIN } from '../../lib/endpoints';
-import { getV2, postV2 } from '../../services/http-service-v2';
+import { GET_CUSTOMERIS_EXIST, GET_OTP } from '../../lib/endpoints';
+import { getV2 } from '../../services/http-service-v2';
 import authContext from '../../store/auth-context';
 import styles from '../Auth.module.css';
-import { userCamelCase } from '../auth.util';
-
 
 const Login = () => {
-  const { close, open, login: loginCtx, storeSignupData } = useContext(authContext);
-
+  const {  open, login: loginCtx, storeSignupData } = useContext(authContext);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [phone, setPhone] = useState('');
   const [phoneError, setPhoneError] = useState(false);
   const [isExist, setIsExist] = useState(false);
 
-
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
   };
-
   const phoneFocusHandler = () => {
     setPhoneError(false);
   };
-
   const requestOTP = () => {
     setIsLoading(true)
     if (phone.length === 0){
@@ -52,7 +45,6 @@ const Login = () => {
           });
         } else {
           setIsExist(true)
-          // alert("User is not registered, please sign up.")
           setIsLoading(false)
         }
       } else {
@@ -61,63 +53,9 @@ const Login = () => {
       }
     });
   };
-  
-
-
-// ======================= start its old code 
-
-  // const loginHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log(phone);
-  //   if (phone.length === 0){
-  //     setPhoneError(true);
-  //     return;
-  //   } 
-  //   login();
-  //   requestOTP();
-  // };
-
-  // const login = () => {
-  //   const payload = {
-  //     UserName : phone,
-  //     Password : ''
-  //   }
-
-  //   postV2({url: LOGIN, payload})
-  //   .then(data => {
-  //     if(!data.IsError){
-  //       const user = userCamelCase(data.Data);
-  //       loginCtx(user);
-  //       close();
-  //     } else {
-  //       console.log(data);
-  //       setError(data.Msg);
-  //     }
-      
-  //   }).catch(error => {
-  //     setError(error.toString())
-  //   });
-  // };
-
-  // const requestOTP = () => {
-  //   getV2({ url: GET_OTP(phone) }).then((data) => {
-  //     if (!data.IsError) {
-  //       storeSignupData({ phoneNumber: phone, messageId : data.Id, otp : ''});
-  //       console.log(data)
-  //       open('OTP_LOGIN');
-  //     } else {
-  //       console.log(data);
-  //       setError('inside err', data.Msg);
-  //     }
-  //   });
-  // };
-
-  // ======================= End its old code 
-
   const singupClickHandler = () => {
     open('SIGNUP'); 
   }
-
 
   return (
     <>

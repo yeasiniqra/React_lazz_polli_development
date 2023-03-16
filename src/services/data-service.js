@@ -1,48 +1,9 @@
-// banner slider iamges
-// import bannerOne from '../images/slider/1.webp';
-// import bannerTwo from '../images/slider/2.webp';
-// import bannerThree from '../images/slider/3.webp';
-// import bannerFour from '../images/slider/4.webp';
-// import bannerSix from '../images/slider/6.webp';
-// import bannerEight from '../images/slider/8.webp';
-// import bannerTen from '../images/slider/10.webp';
 
 // Find Homme Room iamges
-// import findOne from '../images/relax/roomandsweets.webp';
 import findTwo from '../images/relax/dine.webp';
-// import findThree from '../images/relax/swimming-pool.webp';
-// import findFour from '../images/relax/convention.webp';
-// import findFive from '../images/relax/fullpackage.webp';
-
-// Suites and cottage iamges
-// import raniyaOne from '../images/raniya/rs1.webp';
-// import raniyaTwo from '../images/raniya/rs2.webp';
-// import raniyaThree from '../images/raniya/rs3.webp';
-// import raniyaFour from '../images/raniya/era1.webp';
-// import raniyaFive from '../images/raniya/era2.webp';
-
-// import dbldomOne from '../images/dbldom/dd1.webp';
-// import dbldomTwo from '../images/dbldom/dd2.webp';
-// import dbldomThree from '../images/dbldom/dd3.webp';
-// import dbldomFour from '../images/dbldom/sdd1.webp';
-// import dbldomFive from '../images/dbldom/edd2.webp';
-
-// import mudOne from '../images/mud/m1.webp';
-// import mudTwo from '../images/mud/m2.webp';
-// import mudThree from '../images/mud/m3.webp';
-// import mudFour from '../images/mud/s1.webp';
-// import mudFive from '../images/mud/s2.webp';
-
-// import ichamotiOne from '../images/ichamoti/i1.webp';
-// import ichamotiTwo from '../images/ichamoti/i2.webp';
-// import ichamotiThree from '../images/ichamoti/i3.webp';
-// import ichamotiFour from '../images/ichamoti/s1.webp';
-// import ichamotiFive from '../images/ichamoti/s2.webp';
-
 
 // swimming and cottage and full package iamges
 import swimmingOne from '../images/swimming/s1.webp';
-import swimmingTwo from '../images/swimming/s1.webp';
 import swimmingThree from '../images/swimming/s3.webp';
 import swimmingFour from '../images/swimming/s4.webp';
 
@@ -55,156 +16,13 @@ import packageOne from '../images/package/p1.webp';
 import packageTwo from '../images/package/p2.webp';
 import packageThree from '../images/package/p3.webp';
 
-
 //About Story  images
 import aboutStoryOne from '../images/about/about1-01.webp';
 import aboutStoryTwo from '../images/about/about2-01.webp';
 import aboutStoryFive from '../images/about/about3-01.webp';
 import aboutStoryFour from '../images/about/about4-01.webp';
 
-
-
 const APP_DATA = {
-    // banners: [
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladeshs",
-    //         btnText : "RESERVE NOW",
-    //         image: bannerOne,
-    //         link: '/searchroom',
-    //     },
-
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladeshs",
-    //         btnText : "RESERVE NOW",
-    //         image: bannerTwo,
-    //         link: '/searchroom',
-    //     },
-
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladeshs",
-    //         btnText : "RESERVE NOW",
-    //         image: bannerThree,
-    //         link: '/searchroom'
-    //     },
-
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladeshs",
-    //         btnText : "RESERVE NOW",
-    //         image: bannerFour,
-    //         link: '/searchroom'
-    //     },
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladeshs",
-    //         btnText : "RESERVE NOW",
-    //         image: bannerSix,
-    //         link: '/searchroom'
-    //     },
-
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladeshs",
-    //         btnText : "RESERVE NOW",
-    //         image: bannerEight,
-    //         link: '/searchroom'
-    //     },
-    //     {
-    //         heading : "Lazz Polli Resort",
-    //         subHeading : "The most exotic resort in Bangladesh",
-    //         btnText : 'RESERVE NOW',
-    //         image : bannerTen,
-    //         link : '/searchroom'
-    //     },
-    // ],
-
-    // FindHroom:[ 
-    //     {
-    //         image : findOne,
-    //         topHeading: "Rooms & Suites",
-    //         topBtn : "View More",
-    //         btmHeading: "Rooms & Suites",
-    //         description : "Accommodation in the resort consists of premium deluxe bedrooms and amenities.",
-    //         bottomBtn : "View More",
-    //         link: '/suits'
-    //     },
-    //     {
-    //         image : findTwo,
-    //         topHeading: "Dine",
-    //         topBtn : "View More",
-    //         btmHeading: "Dine",
-    //         description : "Dine at our open-concept restaurant to enjoy delicious bengali cuisine.",
-    //         bottomBtn : "View More",
-    //         link: '/dine'
-    //     },
-    //     {
-    //         image : findThree,
-    //         topHeading : "swimming pool",
-    //         topBtn : "View More",
-    //         btmHeading : "swimming pool",
-    //         description : "Take a dive in our 70 feet swimming pool open call year round.",
-    //         link : '/swimmingpool'
-    //     },
-    //     {
-    //         image : findFour,
-    //         topHeading: "Convention Hall",
-    //         topBtn : "View More",
-    //         btmHeading : "Convention Hall",
-    //         description : "Host seminars and large corporate mettings at our spacious auditorium.",
-    //         bottomBtn : "View More",
-    //         link: '/convention'
-    //     },
-    //     {
-    //         image : findFive,
-    //         topHeading : "Full Package",
-    //         topBtn : "View More",
-    //         btmHeading : "Full Package",
-    //         description : "Book the entire resort to your self.",
-    //         bottomBtn : "View More",
-    //         link : '/package'
-    //     },
-
-    // ],
-
-    // BestService:[
-    //     {
-    //         serviceName : "Restauramt",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Spa Salon",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Swimming Pool",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Buffet Facility",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Conference Room",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Fitness Zone",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Game Room",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     },
-    //     {
-    //         serviceName : "Game Room",
-    //         serviceDesc : "Sigh sang nay sex high yet door game. She dissimilar was favourable unreservednay ex pression contrasted saw.",
-    //     }
-
-    // ],
-
     AboutStory:[
         {
             aboutImages:[
@@ -248,7 +66,6 @@ const APP_DATA = {
             Id : 1,
             images : [
                 {image : swimmingOne},
-                {image : swimmingTwo},
                 {image : swimmingThree},
                 {image : swimmingFour},
                ],
@@ -272,105 +89,6 @@ const APP_DATA = {
         },
 
     ],
-
-    // Gallery:[
-    //     {
-    //         space: [
-    //             {
-    //                 image : raniyaOne,
-    //                 Id : 0
-    //             },
-    //             {
-    //                 image : raniyaTwo,
-    //                 Id : 1
-    //             },
-    //             {
-    //                 image : raniyaThree,
-    //                 Id : 2
-    //             },
-    //             {
-    //                 image : raniyaFour,
-    //                 Id : 3
-    //             },
-    //             {
-    //                 image : raniyaFive,
-    //                 Id : 4
-    //             },
-    //             {
-    //                 image : raniyaThree,
-    //                 Id : 5
-    //             },
-    //         ]
-    //     },
-    //     {
-    //         activities: [
-    //             {
-    //                 image : dbldomOne,
-    //             },
-    //             {
-    //                 image : dbldomTwo,
-    //             },
-    //             {
-    //                 image : dbldomThree,
-    //             },
-    //             {
-    //                 image : dbldomFour,
-    //             },
-    //             {
-    //                 image : dbldomFive,
-    //             },
-    //             {
-    //                 image : dbldomThree,
-    //             },
-    //         ]
-    //     },
-    //     {
-    //         pools: [
-    //             {
-    //                 image : mudOne,
-    //             },
-    //             {
-    //                 image : mudTwo,
-    //             },
-    //             {
-    //                 image : mudThree,
-    //             },
-    //             {
-    //                 image : mudFour,
-    //             },
-    //             {
-    //                 image : mudFive,
-    //             },
-    //             {
-    //                 image : mudThree,
-    //             },
-    //         ]
-    //     },
-    //     {
-    //         restaurants: [
-    //             {
-    //                 image : ichamotiOne,
-    //             },
-    //             {
-    //                 image : ichamotiTwo,
-    //             },
-    //             {
-    //                 image : ichamotiThree,
-    //             },
-    //             {
-    //                 image : ichamotiFour,
-    //             },
-    //             {
-    //                 image : ichamotiFive,
-    //             },
-    //             {
-    //                 image : ichamotiThree,
-    //             },
-    //         ]
-    //     },
-    // ],
-   
-
     FullPackage : [
         {
             Id: 1,
@@ -383,15 +101,8 @@ const APP_DATA = {
             description : "<p>We offer the option to book an entire resort for a truly luxurious and private vacation experience. Imagine having an entire paradise to yourself, with all the amenities and services at your fingertips.</p><p>Lazz Polli Resort is perfect for family reunions, corporate retreats, destination weddings, and any other special occasion. With a wide range of activities and facilities, there is something for everyone to enjoy. </p><p>Our friendly and professional staff will be on hand to help you plan every aspect of your stay, from organizing activities and excursions to making dining reservations. And with a variety of room types and sizes to choose from, we can accommodate groups of all sizes.</p><P>So why wait? Start planning your dream vacation today and book an entire resort with us. You won't be disappointed! For further details regarding booking the entire resort, please contact us here. </p>",   
         },
     ]
-
 };
 
-// export const getBanners = () => {
-//     return APP_DATA.banners.slice();
-// }
-// export const getFindHroom = () => {
-//     return APP_DATA.FindHroom.slice();
-// }
 export const getBestService = () => {
     return APP_DATA.BestService.slice();
 }
@@ -410,9 +121,7 @@ export const getSwimmingPool = () => {
 export const getConvention = () => {
     return APP_DATA.Convention.slice();
 }
-// export const getGallery = () => {
-//     return APP_DATA.Gallery.slice();
-// }
+
 export const getAboutStory = () => {
     return APP_DATA.AboutStory.slice();
 }
@@ -433,7 +142,6 @@ let _houses = [];
 export const setHouses = (houses) => {
     _houses = houses;
 }
-
 export const getHouse = (link) => {
     return _houses.find(h => h.Permalink === link);
 }

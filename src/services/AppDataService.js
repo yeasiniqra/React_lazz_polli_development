@@ -5,7 +5,6 @@ export const productTypes = {
   featured: 1,
 };
 
-
 export const getAppData = () => {
   return APP_DATA;
 };
@@ -16,7 +15,7 @@ export const getBanners2 = () => {
       ImagePath : a.ImagePath, 
       AltText : a.AltText, 
       Rank : a.Rank, 
-      URL : a.URL, 
+      URL : a.URL,  
       Viewport : a.Viewport,
       Heading : a.Heading,
       SubHeading : a.SubHeading,

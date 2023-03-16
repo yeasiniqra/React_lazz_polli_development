@@ -7,7 +7,6 @@ import { useState } from 'react';
 import ConventionMdl from '../Sheared/CommonModal/ConventionMdl';
 
 const ConventionElement = () => {
-
     const convention = getConvention();
     const [conventions, setConventions] = useState(null)
     return (

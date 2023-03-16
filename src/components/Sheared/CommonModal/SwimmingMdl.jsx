@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
-import { POST_SWMMING_POOL_BOOKING } from "../../../lib/endpoints";
+import { GET_FPC_BOOK_NOT_AVAIBLE, POST_SWMMING_POOL_BOOKING } from "../../../lib/endpoints";
 import { humanizeTime } from "../../../lib/utils";
-import { postV2 } from "../../../services/http-service-v2";
+import { getV2, postV2 } from "../../../services/http-service-v2";
 import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
@@ -13,11 +13,8 @@ import Suspense from "../Suspense/Suspense";
 const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const {profile} = useContext(authContext)
   const {FirstName,LastName,Phone} = profile
-
-  // console.log(storeSignupData);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const [phone, setPhone] = useState("");
   const [fname, setFname] = useState("");
   const [adults, setAdults] = useState("");
@@ -26,7 +23,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const [remark, setRemark] = useState("");
   const [hours, setHours] = useState("");
   const [perhours, setPerhours] = useState(200);
-
   const [phoneError, setPhoneError] = useState(false);
   const [fnameError, setFnameError] = useState(false);
   const [adultsError, setAdultsError] = useState(false);
@@ -36,11 +32,12 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const [HoursError, setHoursError] = useState(false);
   const [paymentPercent, setPaymentPercent] = useState('100%')
   const [isOpen, setIsOpen] = useState(false);
+  const [isAvaible, setIsAvailble] = useState(false)
+  const mounted = useRef(false);
 
   const handleClicekd = (percent) => {
     setPaymentPercent(percent)
   }
-
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
   };
@@ -60,9 +57,8 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
       return;
     }
     setStartDate(date);
+    submitHandler();
   };
-
-
 
   const endDateChangeHandler = (date) => {
     if (!date || (!date.getHours() && !date.getMinutes())) {
@@ -70,6 +66,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
       return;
     }
     setEndDate(date);
+    submitHandler();
     // if (!date.getHours()) {
     //   setEndDateError(true);
     // } else {
@@ -86,8 +83,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     setPerhours(el.value);
     console.log(el.value)
   };
-
-
   const phoneFocusHandler = () => {
     setPhoneError(false);
   };
@@ -99,14 +94,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     setAdultsError(false);
   };
 
-
-  // const starDateFocusHandler = () => {
-  //   setStartDateError(false);
-  // };
-  // const endDateFocusHandler = () => {
-  //   setEndDateError(false);
-  // };
-  
   const remarkFocusHandler = () => {
     setRemarkError(false);
   };
@@ -117,7 +104,30 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const totalTime = (humanizeTime(endDate) - humanizeTime(startDate)).toFixed(2)
   const grandTotal = (adults * totalTime * perhours).toFixed(2);
 
-  
+  const submitHandler = () => {
+    setIsLoading(true);
+    getV2({ url: GET_FPC_BOOK_NOT_AVAIBLE("POOL", startDate, endDate) })
+      .then((data) => {
+        if (!data.IsError) {
+          setIsAvailble(data);
+          if (data) {
+            // toast.warning(`${data.Msg}`);
+          } else {
+            toast.warning(`Is Not Available`);
+          }
+        } else {
+          toast.warning(`${data.Msg}`);
+        }
+      })
+      .catch((err) => {
+        toast.warning(err?.toString());
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
+  };
+
   const conventionHandler = (e) => {
     e.preventDefault();
     setIsLoading(true)
@@ -127,8 +137,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
       isValid = false;
       return
     }
-
-
     //Note:  convert GMT to use toSTring()
     const payload = {
       StartingAt: startDate,
@@ -142,7 +150,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
       remark: remark,
     }
 
-    console.log(payload)
     postV2({url: POST_SWMMING_POOL_BOOKING, payload})
     .then(data => {
       if(data.IsError){
@@ -157,13 +164,15 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     }).finally(() => {
       setIsLoading(false)
     })
-
     if (!isValid) return;
-
-    console.log(payload)
-
   };
 
+  useEffect(() => {
+    if (!mounted.current) {
+      submitHandler();
+      mounted.current = true;
+    }
+  }, [mounted]);
 
 
   return (
@@ -351,8 +360,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
               <label onClick={handleClicekd.bind(null, '100%')} htmlFor="swimming">Online Payment</label>
           </div> 
 
-
-
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
           </div>
@@ -361,6 +368,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
               className='common-modal-submit'
               onClick={conventionHandler}
               type={"button"}
+              disabled={!isAvaible}
             >
               Submit
             </button>
@@ -369,7 +377,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
         </form>
         </div>
       </div>
-     
     </div>
   );
 };

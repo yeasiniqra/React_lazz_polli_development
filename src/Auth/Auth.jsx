@@ -55,9 +55,6 @@ const Auth = () => {
       break;
   }
 
- 
-
-  
   const handleClose = () => {
     close();
     if (!isAuthenticated) {

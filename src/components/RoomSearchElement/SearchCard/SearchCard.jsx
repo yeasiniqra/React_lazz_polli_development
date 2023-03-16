@@ -17,9 +17,7 @@ const SearchCard = ({ item }) => {
     isRoomAdded
   } = useContext(cartContext);
   const { filters } = useContext(appContext);
-
   const [count, setCount] = useState(0);
-
   const IncOnClickedHandler = () => {
     storeRoom({ ...item, ...filters }, count + 1);
     setCount((prevState) => ++prevState);
@@ -44,7 +42,6 @@ const SearchCard = ({ item }) => {
   }, [isInitiating, rooms]);
 
   const calculatePrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
-
     // Check if the item has a house cover image or a room cover image
     const houseCoverImage = item.Images.find(
       (image) => image.ImageFor === "HOUSE_COVER"
@@ -56,7 +53,7 @@ const SearchCard = ({ item }) => {
   return (
     <div className="min-items-inner-single">
       <div className="search-room-img">
-      <Link to="#">
+        <Link to="#">
           {item.Type === "HOUSE" && houseCoverImage && (
             // eslint-disable-next-line jsx-a11y/img-redundant-alt
             <img

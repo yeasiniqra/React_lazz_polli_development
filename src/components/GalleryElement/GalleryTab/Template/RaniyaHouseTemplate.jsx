@@ -4,7 +4,6 @@ import Suspense from "../../../Sheared/Suspense/Suspense";
 
 
 const RaniyaHouseTemplate = ({product, checkClickHandler, index, isLoading}) => {
-    //  console.log('inside gallery ss', product)
     return (
         <div className="gallery-single-item">
             <img onClick={checkClickHandler.bind(null, index)} src={imageURL(IMAGE_CATEGORY.GALLERY,product.ImagePath)} alt="lazz polli resort space" />

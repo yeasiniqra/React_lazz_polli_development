@@ -9,7 +9,6 @@ export const IMAGE_CATEGORY = {
     GALLERY : 'gallerys'
 }
 
-
 export const imageURL = (category,imagePath) =>  {
     return `${BASE_URL}/files/images/${category}/${imagePath}`;
 }

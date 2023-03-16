@@ -3,22 +3,19 @@ import PreviewImage from '../../Sheared/PreviewImage/PreviewImage';
 import IchamotiHouseTemplate from './Template/IchamotiHouseTemplate';
 
 const IchamotiHouse = ({galleryImage, isLoading}) => {
- 
-
     const [preview, setPreview] = useState({ show: false, images: {}, start: 0});
-
     const previewCloseHandler = () => {
       setPreview({ show: false, images: [], start: 0});
     };
   
     const checkClickHandler = (index) => {
-      const images = galleryImage.filter((product) => product.Category === "Ichamoti House").map(item => item.ImagePath);
-      console.log(index)
-      setPreview({
-        show: true,
-        images,
-        start: index
-      });
+        const images = galleryImage.filter((product) => product.Category === "Ichamoti House").map(item => item.ImagePath);
+        console.log(index)
+        setPreview({
+          show: true,
+          images,
+          start: index
+        });
     };
 
     return (

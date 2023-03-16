@@ -3,23 +3,18 @@ import PreviewImage from '../../Sheared/PreviewImage/PreviewImage';
 import DubleDomTemplate from './Template/DubleDomTemplate';
 
 const DubleDom = ({galleryImage, isLoading}) => {
-
-
     const [preview, setPreview] = useState({ show: false, images: {}, start: 0});
-
     const previewCloseHandler = () => {
       setPreview({ show: false, images: [], start: 0});
     };
   
-    
     const checkClickHandler = (index) => {
         const images = galleryImage.filter((product) => product.Category === "Double Dom" ).map(item => item.ImagePath);
-    
-      setPreview({
-        show: true,
-        images,
-        start: index
-      });
+        setPreview({
+            show: true,
+            images,
+            start: index
+        });
     };
 
     return (

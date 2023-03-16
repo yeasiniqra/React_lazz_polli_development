@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { getroomSearchCard } from '../../services/data-service';
 import BookingSummary from './BookingSummary/BookingSummary';
 import FilterPrice from './FilterPrice/FilterPrice';
 import SearchRoomFilter from './RoomSearchFilter/SearchRoomFilter';
 import SearchCard from './SearchCard/SearchCard';
 
 const RoomSearchElement = () => {
-    // const searchService = getroomSearchCard();
     const [availble, setIsAvailble] = useState(null)
     console.log(availble)
     return (
@@ -21,18 +19,15 @@ const RoomSearchElement = () => {
                             {
                                 availble && 
                                 <div className="search-room-main-items-grid">
-                                {
-                                   availble.map( (item, index) =>
-                                   <SearchCard 
-                                   item={item} 
-                                   key={index} 
-                                   
-                                   />
-                                   ) 
-                                }
-                            </div>
+                                    {
+                                    availble.map( (item, index) =>
+                                    <SearchCard 
+                                    item={item} 
+                                    key={index} 
+                                    />) 
+                                    }
+                                </div>
                             }
-                           
                          </div>
                     </div>
                     <div className="room-search-cart-right">
@@ -43,7 +38,7 @@ const RoomSearchElement = () => {
                     </div>        
                 </div>
             </div>
-         </section>
+          </section>
         </>
     );
 };

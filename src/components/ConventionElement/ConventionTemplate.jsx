@@ -5,6 +5,7 @@ import "@splidejs/react-splide/css";
 import Suspense from '../Sheared/Suspense/Suspense';
 
 const ConventionTemplate = ({convention, setConventions}) => {
+    const [loading, setLoading] = useState(true);
     const options = {
         rewind: true,
         type: "slide",
@@ -14,10 +15,7 @@ const ConventionTemplate = ({convention, setConventions}) => {
         pauseOnHover: false,
         fixedWidth: "100%",
         fixedHeight: "auto",
-      };
-
-      const [loading, setLoading] = useState(true);
-
+      };    
       const handleImageLoad = () => {
           setLoading(false);
       };  
@@ -31,15 +29,15 @@ const ConventionTemplate = ({convention, setConventions}) => {
                         <Suspense />
                     </div>
                 )}
-                    <Splide options={options} aria-label="React Splide Example">
-                        {
-                            convention.images.map((banner, index) => (
-                            <SplideSlide key={index}>
-                                <img src={banner.image} alt="resort full pakage price in bangladesh" onLoad={handleImageLoad} />
-                            </SplideSlide>
-                            ))
-                        }
-                    </Splide>
+                <Splide options={options} aria-label="React Splide Example">
+                    {
+                        convention.images.map((banner, index) => (
+                        <SplideSlide key={index}>
+                            <img src={banner.image} alt="resort full pakage price in bangladesh" onLoad={handleImageLoad} />
+                        </SplideSlide>
+                        ))
+                    }
+                </Splide>
                 </div>
                 <div className="relax-spa-img-content">
                     <h1>{convention.title}</h1>

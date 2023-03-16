@@ -5,20 +5,15 @@ import CheckOutSummeryTemplate from './CheckOutSummeryTemplate';
 
 const CheckOutSummery = () => {
     const {rooms,removeRoom,totalAmount} = useContext(cartContext)
-    // console.log(rooms);
     const title = {
         title : 'Your booking summary'
     }
-
     const removeClickHandler = (room) => {
         removeRoom(room)
     }
-
     //checkout suymmery 
     const newTax = totalAmount * 0.15;
-    // console.log(typeof newTax)
     const grandTotal = totalAmount + newTax;
-
 
     return (
         <div className="room-search-cart-right">
@@ -41,7 +36,6 @@ const CheckOutSummery = () => {
                             </ul>
                         </div>
                     </div>
-
                     <div className='room-book-summery'>
                         {
                             rooms.map((room, index) => <CheckOutSummeryTemplate
@@ -52,7 +46,6 @@ const CheckOutSummery = () => {
                              />)
                         }
                     </div>
-
                     <div className="total-rom-service">
                         <div className="room-chargeq-single">
                             <small>Total Charges</small>

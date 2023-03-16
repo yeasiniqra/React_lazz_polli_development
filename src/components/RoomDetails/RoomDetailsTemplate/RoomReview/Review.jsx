@@ -16,12 +16,10 @@ const Review = ({room}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [roomreview, setRoomreview] = useState([])
   const mounted = useRef(false)
-
   //email state
   const [review, setReview] = useState("");
   const [reviewIsTouched, setReviewIsTouched] = useState(false);
   const [reviewIsValid, setReviewIsValid] = useState(false);
-
 
   const [totalPage, setTotalPage] = useState(1)
   const [page, setPage] = useState(1)
@@ -46,8 +44,6 @@ const Review = ({room}) => {
     } else setReviewIsValid(false);
   }, [review.length, reviewIsTouched, clicked]);
 
-
-
   const getRoomReview = useCallback(() => {
     setIsLoading(true)
     getV2({url: GET_REVIEW(Id,500,page)})
@@ -60,19 +56,16 @@ const Review = ({room}) => {
       } else {
        alert('Error')
       }
-      
     }).catch(error => {
-     
     });
   }, []);
 
   useEffect(() => {
-    if (!mounted.current) {
-      getRoomReview();
-      mounted.current = true;
-  }
-}, [mounted]);
-
+      if (!mounted.current) {
+        getRoomReview();
+        mounted.current = true;
+    }
+  }, [mounted]);
 
   const sendOnClickedHandler = (evt) => {
     setClicked(true);
@@ -100,7 +93,6 @@ const Review = ({room}) => {
     console.log(review)
   };
 
-
   const handleDelete = (Id) => {
     getV2({url: GET_DELETE_REVIEW(Id)})
     .then(data => {
@@ -110,15 +102,13 @@ const Review = ({room}) => {
        alert('Error')
       }
     }).catch(error => {
-     
     });
   }
 
   const getReviewPageTorender = () => {
     const initialPage = [];
-    const pageRange = 1; // number of pages to show before/after the current page
-  
-    // render first page
+    const pageRange = 1; 
+
     initialPage.push(
       <div
         key={1}
@@ -129,7 +119,6 @@ const Review = ({room}) => {
       </div>
     );
   
-    // render ellipsis before current page
     if (page - pageRange > 2) {
       initialPage.push(
         <div key="ellipsis-before" className="ellipsis">
@@ -138,7 +127,6 @@ const Review = ({room}) => {
       );
     }
   
-    // render page numbers around current page
     for (let i = Math.max(2, page - pageRange); i <= Math.min(totalPage - 1, page + pageRange); i++) {
       initialPage.push(
         <div
@@ -151,7 +139,6 @@ const Review = ({room}) => {
       );
     }
   
-    // render ellipsis after current page
     if (page + pageRange < totalPage - 1) {
       initialPage.push(
         <div key="ellipsis-after" className="ellipsis">
@@ -160,7 +147,6 @@ const Review = ({room}) => {
       );
     }
   
-    // render last page
     if (totalPage > 1) {
       initialPage.push(
         <div
@@ -172,12 +158,9 @@ const Review = ({room}) => {
         </div>
       );
     }
-  
     return initialPage;
   };
   
-
-
   return (
     <>
     <div id="Tab5" className="tabcontent">

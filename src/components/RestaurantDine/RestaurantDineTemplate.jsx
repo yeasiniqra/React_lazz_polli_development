@@ -7,7 +7,6 @@ import Suspense from '../Sheared/Suspense/Suspense';
 
 const RestaurantDineTemplate = ({dine}) => {
     const [loading, setLoading] = useState(true);
-
     const handleImageLoad = () => {
         setLoading(false);
     };
@@ -22,15 +21,14 @@ const RestaurantDineTemplate = ({dine}) => {
         fixedHeight: "auto",
       };
 
-
     return (
             <div className="relax-spa-inner-grid convention-hall-area">
                 <div className="relax-spa-img-left">
-                {loading && (
-                    <div className="loader">
-                        <Suspense /> 
-                    </div>
-                )}
+                    {loading && (
+                        <div className="loader">
+                            <Suspense /> 
+                        </div>
+                    )}
                     <Splide options={options} aria-label="React Splide Example">
                         {
                             dine.images.map((banner, index) => (
@@ -46,7 +44,7 @@ const RestaurantDineTemplate = ({dine}) => {
                     <p dangerouslySetInnerHTML={{__html: dine.description}}></p>
                 </div>
             </div>
-    );
-};
+        );
+    };
 
 export default RestaurantDineTemplate;

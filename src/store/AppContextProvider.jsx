@@ -20,7 +20,6 @@ const reducer = (state, action) => {
             filters: {...action.filters}
         }
     }
-    
     default:
       return state;
   }
@@ -28,11 +27,9 @@ const reducer = (state, action) => {
 
 const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   const storeFilters = (filters) => {
     dispatch({type: 'UPDATE_SEARCH_FILTER', filters});
   }
-
   const context = {
     storeFilters,
     filters: state.filters,

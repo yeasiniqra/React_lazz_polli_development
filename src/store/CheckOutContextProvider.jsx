@@ -43,7 +43,6 @@ const CheckOutContextProvider = ({children}) => {
     const storeForms = (formValus) => {
       dispatch({type : 'UPDATE_FORM_VALUS', formValus})
     }
-
     const context = {
       storeForms,
       formValus : state.formValus

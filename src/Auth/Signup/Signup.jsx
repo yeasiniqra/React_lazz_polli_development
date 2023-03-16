@@ -3,17 +3,14 @@ import { useState } from 'react';
 import styles from '../Auth.module.css';
 import { useContext } from 'react';
 import authContext from '../../store/auth-context';
-import { getV2, postV2 } from '../../services/http-service-v2';
+import { getV2 } from '../../services/http-service-v2';
 import { GET_CUSTOMERIS_EXIST, GET_OTP} from '../../lib/endpoints';
 import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
-
-
 
 const Signup = () => {
   const { open, storeSignupData } = useContext(authContext);
   const [isLoading, setIsLoading] = useState(false);
 
-  // console.log(storeSignupData);
   const [isExist, setIsExist] = useState(false);
   const [error, setError] = useState(null);
   const [isValid, setIsvalid] = useState(false)
@@ -26,28 +23,21 @@ const Signup = () => {
   const [fnameError, setFnameError] = useState(false);
   const [lnameError, setLnameError] = useState(false);
 
-
-
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
   };
-
   const fnameChangeHandler = ({ target: el }) => {
     setFname(el.value);
   };
-
   const lnameChangeHandler = ({ target: el }) => {
     setLname(el.value);
   };
-
   const phoneFocusHandler = () => {
     setPhoneError(false);
   };
-
   const fnameFocusHandler = () => {
     setFnameError(false);
   };
-
   const lnameFocusHandler = () => {
     setLnameError(false);
   };
@@ -72,11 +62,8 @@ const Signup = () => {
       isValid = false
     }
 
-    console.log(fname,lname,phone)
-
     if (!isValid) return;
     requestOTP();
-   
   };
 
   const requestOTP = () => {
@@ -110,11 +97,9 @@ const Signup = () => {
   const loginClickHandler = () => {
     open('LOGIN');
   };
-
   const phoneOnBluer = ({ target: el }) => {
     customertIsExist(el.value)
   }
-
 
   return (
     <>

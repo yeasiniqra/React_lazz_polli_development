@@ -22,7 +22,6 @@ const BannerTemplate = ({ banner }) => {
   const handleImageLoad = () => {
     setLoading(false);
   };
-
   const handleImageError = () => {
     setLoading(false);
     setError(true);

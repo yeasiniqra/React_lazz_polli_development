@@ -1,70 +1,62 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
-import { POST_CONVENTION_BOOKING } from "../../../lib/endpoints";
-import { postV2 } from "../../../services/http-service-v2";
+import { GET_FPC_BOOK_NOT_AVAIBLE, POST_CONVENTION_BOOKING } from "../../../lib/endpoints";
+import { getV2, postV2 } from "../../../services/http-service-v2";
 import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
 const ConventionMdl = ({ conventions, setConventions }) => {
-  // console.log(conventions.title);
-  // console.log(storeSignupData);
-
   const {profile} = useContext(authContext)
   const {FirstName,LastName,Phone} = profile
-
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const [phone, setPhone] = useState("");
   const [fname, setFname] = useState("");
   const [adults, setAdults] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [remark, setRemark] = useState("");
-
   const [phoneError, setPhoneError] = useState(false);
   const [fnameError, setFnameError] = useState(false);
   const [adultsError, setAdultsError] = useState(false);
   const [startDateError, setStartDateError] = useState(false);
   const [endDateError, setEndDateError] = useState(false);
   const [remarkError, setRemarkError] = useState(false);
+  const [isAvaible, setIsAvailble] = useState(false)
+  const mounted = useRef(false);
 
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
   };
-
   const fnameChangeHandler = ({ target: el }) => {
     setFname(el.value);
   };
-
   const adultsChangeHandler = ({ target: el }) => {
     setAdults(el.value);
   };
   const remarkChangeHandler = ({ target: el }) => {
     setRemark(el.value);
   };
-
   const startDateChangeHandler = (date) => {
     setStartDate(date);
+    submitHandler()
   };
   const endDateChangeHandler = (date) => {
     setEndDate(date);
+    submitHandler()
   };
-
   const phoneFocusHandler = () => {
     setPhoneError(false);
   };
   const fnameFocusHandler = () => {
     setFnameError(false);
   };
-
   const adultsFocusHandler = () => {
     setAdultsError(false);
   };
-
   const starDateFocusHandler = () => {
     setStartDateError(false);
   };
@@ -73,6 +65,31 @@ const ConventionMdl = ({ conventions, setConventions }) => {
   };
   const remarkFocusHandler = () => {
     setRemarkError(false);
+  };
+
+
+  const submitHandler = () => {
+    setIsLoading(true);
+    getV2({ url: GET_FPC_BOOK_NOT_AVAIBLE("HALL", startDate, endDate) })
+      .then((data) => {
+        if (!data.IsError) {
+          setIsAvailble(data);
+          if (data) {
+            console.log(data.Msg);
+          } else {
+            toast.warning(`Is Not Available`);
+          }
+        } else {
+          toast.warning(`${data.Msg}`);
+        }
+      })
+      .catch((err) => {
+        toast.warning(err?.toString());
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
   };
 
   const conventionHandler = (e) => {
@@ -106,22 +123,22 @@ const ConventionMdl = ({ conventions, setConventions }) => {
       } else {
         toast.success(`Your submission has been received. Our agent will call
          your number to reconfirm.`);
-         
       }
     }).catch(err => {
       toast.warning(err?.toString());
     }).finally(() => {
-      // Loader Close
       setIsLoading(true)
       setConventions(null) 
     })
-
-
     if (!isValid) return;
-   
-    console.log(payload);
-   
   };
+
+  useEffect(() => {
+    if (!mounted.current) {
+      submitHandler();
+      mounted.current = true;
+    }
+  }, [mounted]);
 
   return (
     <div className="parent-modal">
@@ -144,9 +161,7 @@ const ConventionMdl = ({ conventions, setConventions }) => {
                   selected={startDate}
                   onChange={startDateChangeHandler}
                   onFocus={starDateFocusHandler}
-                  timeInputLabel="Time:"
-                  dateFormat="MM/dd/yyyy h:mm aa"
-                  showTimeInput
+                  dateFormat="MM/dd/yyyy"
                   minDate={new Date()}
                   showDisabledMonthNavigation
                 />
@@ -155,7 +170,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
                 </small>
               </label>
             </div>
-
             <div className='common-modal-label'>
               <label htmlFor="date">
                 To
@@ -163,9 +177,7 @@ const ConventionMdl = ({ conventions, setConventions }) => {
                   selected={endDate}
                   onChange={endDateChangeHandler}
                   onFocus={endDateFocusHandler}
-                  timeInputLabel="Time:"
-                  dateFormat="MM/dd/yyyy h:mm aa"
-                  showTimeInput
+                  dateFormat="MM/dd/yyyy"
                   minDate={new Date()}
                   showDisabledMonthNavigation
                 />
@@ -190,7 +202,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
                 <small>{fnameError ? "First Name is empty" : " "}</small>
               </label>
             </div>
-
             <div className='common-modal-label'>
               <label htmlFor="phone">
                 Phone Number
@@ -207,7 +218,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
               </label>
             </div>
           </div>
-
           <div className='common-modal-label'>
             <label htmlFor="adults">
               Person
@@ -223,7 +233,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
               <small>{adultsError ? "Person is empty" : " "}</small>
             </label>
           </div>
-
           <div className='common-modal-label'>
             <label htmlFor="remark">
               Remarks
@@ -239,7 +248,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
               <small>{remarkError ? "Remark is empty" : " "}</small>
             </label>
           </div>
-
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
           </div>
@@ -248,6 +256,7 @@ const ConventionMdl = ({ conventions, setConventions }) => {
               className='common-modal-submit'
               onClick={conventionHandler}
               type={"button"}
+              disabled={!isAvaible}
             >
               Submit
             </button>
@@ -256,7 +265,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
         </form>
         </div>
       </div>
-     
     </div>
   );
 };

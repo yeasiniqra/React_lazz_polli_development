@@ -7,7 +7,6 @@ import { GET_HOUSE } from "../../../lib/endpoints";
 import { setHouses } from "../../../services/data-service";
 import { getV2 } from "../../../services/http-service-v2";
 import Suspense from "../../Sheared/Suspense/Suspense";
-
 import CottagesSuits from "./CottagesSuits";
 
 const CottagesSuitsTemplate = () => {
@@ -23,7 +22,6 @@ const CottagesSuitsTemplate = () => {
                 setHouses(data.Data.Data);
                 setIsLoading(false);
             } else {
-                //   console.log(data);
             }
         });
     }, []);

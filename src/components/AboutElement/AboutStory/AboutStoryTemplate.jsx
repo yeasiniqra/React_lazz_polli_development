@@ -4,7 +4,6 @@ import Suspense from '../../Sheared/Suspense/Suspense';
 
 const AboutStoryTemplate = ({item}) => {
     const [loading, setLoading] = useState(true);
-
     const handleImageLoad = () => {
         setLoading(false);
     };

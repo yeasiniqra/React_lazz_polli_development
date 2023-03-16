@@ -43,7 +43,6 @@ const RoomReview = ({room}) => {
                 </div>
             </div>
         </div> 
-    
     );
 };
 
