@@ -107,9 +107,10 @@ const OrderHistory = () => {
                 <span>Check In</span>
                 <span>Check Out</span>
                 <span>Status</span>
-                {/* <span>Room Type</span> */}
                 <span>Pax Details</span>
                 <span>Amount</span>
+                <span>Due</span>
+                <span>Paid</span>
             </div>
             {
                 booked

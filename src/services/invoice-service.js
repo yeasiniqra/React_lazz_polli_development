@@ -238,7 +238,9 @@ const generateHTML = (data) => {
                   <th class="right">Check In</th>
                   <th class="center">Check Out</th>
                   <th class="right">Pax Details</th>
-                  <th class="right">Amount(Tk)</th>
+                  <th class="right">Amount</th>
+                  <th class="right">Due</th>
+                  <th class="right">Paid</th>
                 </tr>
               </thead>
               <tbody>

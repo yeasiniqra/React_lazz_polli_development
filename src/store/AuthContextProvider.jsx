@@ -43,13 +43,13 @@ const initialState = {
      City : '', 
      State : '', 
      PostalCode : '',
-    Fax : '',
-    Address : '', 
-    IdentityType : '', 
-    IdentityNumber : '', 
-    IdentityExpireDate : '',
-    DateOfBirth : '',
-    Id : ''
+      Fax : '',
+      Address : '', 
+      IdentityType : '', 
+      IdentityNumber : '', 
+      IdentityExpireDate : '',
+      DateOfBirth : '',
+      Id : ''
   },
 };
 

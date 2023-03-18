@@ -12,6 +12,8 @@ const InvoiceTeamplate = ({item, index, PayableAmount}) => {
                 <td>{humanizeDate(ReleaseDate)}</td>
                 <td>{Quantity}</td>
                 <td>{Type === "HALL" ? PayableAmount : Quantity * Price}</td>
+                <td>0</td>
+                <td>0</td>
                 {/* <td>{Type === "POOL" ? (PayableAmount || (Type === "HALL" || Type === "PACKAGE" ? Quantity * Price : 0)) : Quantity * Price}</td> */}
             </tr>
         </>

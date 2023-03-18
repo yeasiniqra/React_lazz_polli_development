@@ -92,6 +92,8 @@ const Invoice = () => {
                     <th>Check Out</th>
                     <th>Pax Details</th>
                     <th>Amount</th>
+                    <th>Due</th>
+                    <th>Paid</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -123,6 +125,12 @@ const Invoice = () => {
                         <td>Incl.Tax</td>
                         <td className="SubTotal-tab">
                           <span>{newTax}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Due</td>
+                        <td className="SubTotal-tab">
+                          <span>0</span>
                         </td>
                       </tr>
                     </>

@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
-import { GET_FPC_BOOK_NOT_AVAIBLE, POST_CONVENTION_BOOKING } from "../../../lib/endpoints";
-import { getV2, postV2 } from "../../../services/http-service-v2";
+import { POST_CONVENTION_BOOKING } from "../../../lib/endpoints";
+import {  postV2 } from "../../../services/http-service-v2";
 import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
@@ -25,8 +25,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
   const [startDateError, setStartDateError] = useState(false);
   const [endDateError, setEndDateError] = useState(false);
   const [remarkError, setRemarkError] = useState(false);
-  const [isAvaible, setIsAvailble] = useState(false)
-  const mounted = useRef(false);
 
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
@@ -42,11 +40,9 @@ const ConventionMdl = ({ conventions, setConventions }) => {
   };
   const startDateChangeHandler = (date) => {
     setStartDate(date);
-    submitHandler()
   };
   const endDateChangeHandler = (date) => {
     setEndDate(date);
-    submitHandler()
   };
   const phoneFocusHandler = () => {
     setPhoneError(false);
@@ -67,30 +63,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
     setRemarkError(false);
   };
 
-
-  const submitHandler = () => {
-    setIsLoading(true);
-    getV2({ url: GET_FPC_BOOK_NOT_AVAIBLE("HALL", startDate, endDate) })
-      .then((data) => {
-        if (!data.IsError) {
-          setIsAvailble(data);
-          if (data) {
-            console.log(data.Msg);
-          } else {
-            toast.warning(`Is Not Available`);
-          }
-        } else {
-          toast.warning(`${data.Msg}`);
-        }
-      })
-      .catch((err) => {
-        toast.warning(err?.toString());
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-
-  };
 
   const conventionHandler = (e) => {
     setIsLoading(true)
@@ -133,12 +105,7 @@ const ConventionMdl = ({ conventions, setConventions }) => {
     if (!isValid) return;
   };
 
-  useEffect(() => {
-    if (!mounted.current) {
-      submitHandler();
-      mounted.current = true;
-    }
-  }, [mounted]);
+
 
   return (
     <div className="parent-modal">
@@ -256,7 +223,6 @@ const ConventionMdl = ({ conventions, setConventions }) => {
               className='common-modal-submit'
               onClick={conventionHandler}
               type={"button"}
-              disabled={!isAvaible}
             >
               Submit
             </button>

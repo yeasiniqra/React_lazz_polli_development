@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
-import { GET_FPC_BOOK_NOT_AVAIBLE, POST_SWMMING_POOL_BOOKING } from "../../../lib/endpoints";
+import { POST_SWMMING_POOL_BOOKING } from "../../../lib/endpoints";
 import { humanizeTime } from "../../../lib/utils";
-import { getV2, postV2 } from "../../../services/http-service-v2";
+import { postV2 } from "../../../services/http-service-v2";
 import authContext from "../../../store/auth-context";
 import Suspense from "../Suspense/Suspense";
 
@@ -32,8 +32,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const [HoursError, setHoursError] = useState(false);
   const [paymentPercent, setPaymentPercent] = useState('100%')
   const [isOpen, setIsOpen] = useState(false);
-  const [isAvaible, setIsAvailble] = useState(false)
-  const mounted = useRef(false);
+
 
   const handleClicekd = (percent) => {
     setPaymentPercent(percent)
@@ -52,21 +51,19 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     setRemark(el.value);
   };
   const startDateChangeHandler = (date) => {
-    if (!date || (!date.getHours() && !date.getMinutes())) {
-      alert("You select date and now you need to select time");
-      return;
-    }
+    // if (!date || (!date.getHours() && !date.getMinutes())) {
+    //   alert("You select date and now you need to select time");
+    //   return;
+    // }
     setStartDate(date);
-    submitHandler();
   };
 
   const endDateChangeHandler = (date) => {
-    if (!date || (!date.getHours() && !date.getMinutes())) {
-      alert("You select date and now you need to select time");
-      return;
-    }
+    // if (!date || (!date.getHours() && !date.getMinutes())) {
+    //   alert("You select date and now you need to select time");
+    //   return;
+    // }
     setEndDate(date);
-    submitHandler();
     // if (!date.getHours()) {
     //   setEndDateError(true);
     // } else {
@@ -104,29 +101,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
   const totalTime = (humanizeTime(endDate) - humanizeTime(startDate)).toFixed(2)
   const grandTotal = (adults * totalTime * perhours).toFixed(2);
 
-  const submitHandler = () => {
-    setIsLoading(true);
-    getV2({ url: GET_FPC_BOOK_NOT_AVAIBLE("POOL", startDate, endDate) })
-      .then((data) => {
-        if (!data.IsError) {
-          setIsAvailble(data);
-          if (data) {
-            // toast.warning(`${data.Msg}`);
-          } else {
-            toast.warning(`Is Not Available`);
-          }
-        } else {
-          toast.warning(`${data.Msg}`);
-        }
-      })
-      .catch((err) => {
-        toast.warning(err?.toString());
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
 
-  };
 
   const conventionHandler = (e) => {
     e.preventDefault();
@@ -166,13 +141,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     })
     if (!isValid) return;
   };
-
-  useEffect(() => {
-    if (!mounted.current) {
-      submitHandler();
-      mounted.current = true;
-    }
-  }, [mounted]);
 
 
   return (
@@ -368,7 +336,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
               className='common-modal-submit'
               onClick={conventionHandler}
               type={"button"}
-              disabled={!isAvaible}
             >
               Submit
             </button>

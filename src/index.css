@@ -4237,7 +4237,7 @@ button.sign-out {
   font-weight: 700;
   text-transform: capitalize;
   color: #212121;
-  flex: 0 0 14%;
+  flex: 0 0 13%;
 }
 
 .order-history-body {
@@ -4250,7 +4250,7 @@ button.sign-out {
 }
 
 .order-history-body small {
-  flex: 0 0 14%;
+  flex: 0 0 13%;
   font-weight: 500;
   font-size: 14px;
   color: #212121;
