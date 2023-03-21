@@ -223,7 +223,42 @@ const NewCustomarInfo = () => {
       });
   };
 
+
+  const checkField = (fieldName) => {
+    if (!fieldName) {
+      return true;
+    }
+    return false;
+  };
+  
+
   const submitHandler = () => {
+    let emptyFields = [];
+    if (checkField(LastName)) {
+      emptyFields.push('Last Name');
+    }
+    if (checkField(FirstName)) {
+      emptyFields.push('First Name');
+    }
+    if (checkField(identity.id)) {
+      emptyFields.push('Identity');
+    }
+    if (checkField(idNum)) {
+      emptyFields.push('Id Number');
+    }
+    if (checkField(expDate)) {
+      emptyFields.push('Expiry Date');
+    }
+    if (checkField(dob)) {
+      emptyFields.push('Date of Birth');
+    }
+
+    if (emptyFields.length > 0) {
+      const errorMessage = `${emptyFields.join(', ')} ${emptyFields.length > 1 ? 'are' : 'is'} required.`;
+      toast.warning(errorMessage);
+      return;
+    }
+
     setIsLoading(true);
     const payload = {
       FirstName: FirstName,
@@ -245,7 +280,6 @@ const NewCustomarInfo = () => {
       Remarks: "hey",
       ChangeLog: "cng",
     };
-    console.log(payload);
     postProfileInfo(payload)
       .then(() => {
         bookingRequest();
@@ -254,6 +288,12 @@ const NewCustomarInfo = () => {
         setIsLoading(false);
       });
   };
+
+
+
+
+
+
 
   // useEffect(()=> {
   //   if (!isAuthenticating && isAuthenticated) {
@@ -301,6 +341,7 @@ const NewCustomarInfo = () => {
                       required
                     />
                   </div>
+
                   <div className="custom-input-resort">
                     <AutoComplete
                       dataset={[
@@ -349,7 +390,6 @@ const NewCustomarInfo = () => {
                       previewText={"Select Identity Type"}
                       readyToLoad={true}
                       placeholder={"--Select--"}
-                      required
                       value={country}
                     />
                   </div>
@@ -489,7 +529,7 @@ const NewCustomarInfo = () => {
                         defaultChecked={isChecked}
                       />
                       I agree with{" "}
-                      <Link to="#" target="_blank">
+                      <Link to="/termsconditions" target="_blank">
                         Terms and Conditions
                       </Link>
                     </label>
@@ -508,7 +548,7 @@ const NewCustomarInfo = () => {
           </div>
         </div>
         {isLoading && <Suspense />}
-        {error && <p>inside err</p>}
+        {/* {error && <p>inside err</p>} */}
       </div>
     </>
   );

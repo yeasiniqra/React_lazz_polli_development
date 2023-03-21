@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactAddress = () => {
   const title = {
-    title : 'Lazz Polli Convention, Hemayetpur Saver'
+    title : 'Lazzpolli,  Rajfulbaria, Darbarsharif, Savar PS, Dhaka -1340, Bangladesh'
   }
   return (
     <>

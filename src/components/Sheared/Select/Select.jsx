@@ -81,12 +81,12 @@ const Select = ({
   const labelJSX = required ? (
     <span className={classes.form_control__label}>
       {label}{' '}
-      <span className={classes.form_control__label__option}>(Required)</span>
+      <span className={classes.form_control__label__option}>*</span>
     </span>
   ) : (
     <span className={classes.form_control__label}>
       {label}{' '}
-      <span className={classes.form_control__label__option}>(Optional)</span>
+      <span className={classes.form_control__label__option}></span>
     </span>
   );
 

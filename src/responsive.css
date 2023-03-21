@@ -631,9 +631,9 @@
         flex: 0 0 54%;
     }
 
-    .footer-marque {
+    /* .footer-marque {
         top: 25px;
-    }
+    } */
     .footer-area::after {
         bottom: 75px;
     }
@@ -692,6 +692,10 @@
 }
 
 @media all and (max-width: 575px) {
+    .privacy-policy {
+        padding-top: 95px;
+        padding-bottom: 30px;
+    }
     .grid figure h2 span {
         font-weight: 600;
         font-size: 21px;

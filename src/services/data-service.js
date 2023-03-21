@@ -22,6 +22,13 @@ import aboutStoryTwo from '../images/about/about2-01.webp';
 import aboutStoryFive from '../images/about/about3-01.webp';
 import aboutStoryFour from '../images/about/about4-01.webp';
 
+//About ownr  images
+import onwr1 from '../images/Ownr/1.jpg';
+import onwr2 from '../images/Ownr/2.jpg';
+import onwr3 from '../images/Ownr/3.jpg';
+import onwr4 from '../images/Ownr/4.jpg';
+
+
 const APP_DATA = {
     AboutStory:[
         {
@@ -47,6 +54,28 @@ const APP_DATA = {
                 },
                
             ]
+        }
+    ],
+    ResortDirector: [
+        {
+            image : onwr1,
+            dirTitle : "Md. Lutfor Rahman",
+            dirSubTitle : "MANAGING DIRECTOR"
+        },
+        {
+            image : onwr2,
+            dirTitle : "Syeda Mahfuza Rahman",
+            dirSubTitle : "CHAIRMAN"
+        },
+        {
+            image : onwr3,
+            dirTitle : "Shakib Rahman",
+            dirSubTitle : "Director, Business Operation"
+        },
+        {
+            image : onwr4,
+            dirTitle : "Sumona Rahman",
+            dirSubTitle : "Director, Admin & Business Strategy"
         }
     ],
     ResortDine:[
@@ -114,6 +143,9 @@ export const getRoom = (id) => {
 }
 export const getResortDine = () => { 
     return APP_DATA.ResortDine.slice();
+}
+export const getResortDirector = () => {
+    return APP_DATA.ResortDirector.slice();
 }
 export const getSwimmingPool = () => {
     return APP_DATA.SwimmingPool.slice();

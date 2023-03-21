@@ -26,6 +26,17 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
     new Date(new Date().setDate(today.getDate() + 1))
   );
 
+  const arrivalBlurHandler = (time, x) => {
+    setStartDate(time);
+    storeFilters({ ...filters, arrivalDate: time });
+    // submitHandler(
+    //   children.id,
+    //   adults.id,
+    //   new Date(time)?.toDateString(),
+    //   new Date(endDate)?.toDateString()
+    // );
+  };
+
   const depdateChangeHandler = (depdate) => {
     storeFilters({ ...filters, departureDate: depdate });
     setEndDate(depdate);
@@ -37,16 +48,7 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
     );
   };
 
-  const arrivalBlurHandler = (time, x) => {
-    setStartDate(time);
-    storeFilters({ ...filters, arrivalDate: time });
-    submitHandler(
-      children.id,
-      adults.id,
-      new Date(time)?.toDateString(),
-      new Date(endDate)?.toDateString()
-    );
-  };
+
 
   const adultsBlurHandler = (fadults) => {
     storeFilters({ ...filters, adultsCount: fadults.adults });
@@ -70,22 +72,23 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
     );
   };
 
-  const submitHandler = (c, a, d, r) => {
+  const submitHandler = (c, a, ArrivalTime, DepartureTime) => {
     setIsLoading(true);
-    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999, 1, c, a, d, r) })
+    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999, 1, c, a, ArrivalTime, DepartureTime) })
       .then((data) => {
         if (!data.IsError) {
           setIsAvailble(data.Data.Data);
           if (data.Data) {
             // console.log(data.Data);
           } else {
-            toast.warning(`Is Not Aviable`);
+            toast.warning(`the data  you have selected is not Available.Please Change the start and end date.`);
           }
         } else {
           toast.warning(`${data.Msg}`);
         }
       })
       .catch((err) => {
+        // toast.warning(`Incorrect Date Range!! Please Change the start and end date.`);
         toast.warning(err?.toString());
       })
       .finally(() => {

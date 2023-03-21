@@ -23,7 +23,7 @@ root.render(
             <CheckOutContextProvider>
               <ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={false}
                 theme="light"
               />
               <App />

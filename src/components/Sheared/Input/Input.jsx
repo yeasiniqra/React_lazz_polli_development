@@ -42,12 +42,12 @@ const Input = ({
   const labelJSX = required ? (
     <span className={styles.form_control__label}>
       {label}{' '}
-      <span className={styles.form_control__label__option}>(Required)</span>
+      <span className={styles.form_control__label__option}>*</span>
     </span>
   ) : (
     <span className={styles.form_control__label}>
       {label}{' '}
-      <span className={styles.form_control__label__option}>(Optional)</span>
+      <span className={styles.form_control__label__option}></span>
     </span>
   );
 
@@ -69,7 +69,7 @@ const Input = ({
           onBlur={blurHandler}
           placeholder={placeholder}
         />
-        <small className='warining'>{error && isDirty ? error : ' '}</small>
+        {/* <small className='warining'>{error && isDirty ? error : ' '}</small> */}
       </label>
     </div>
   );

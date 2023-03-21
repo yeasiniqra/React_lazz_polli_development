@@ -24,7 +24,7 @@ const CheckOutSummery = () => {
                         <span>Lazz Polli Resort</span>
                     </div>
                     <div className="address-check-out">
-                        <p>Lazz Polli Convention, Hemayetpur Saver, Bangladesh.</p>
+                        <p>Lazz Polli Resort, Hemayetpur Saver, Bangladesh.</p>
                         <div className="header-top-left">
                             <ul className="d-flex al-center">
                                 <li>
@@ -57,7 +57,7 @@ const CheckOutSummery = () => {
                         </div>
                     </div>
                     <div className="total-amount">
-                        <span>Pay Now</span>
+                        <span>Total Amount</span>
                         <h5>BDT <span>{grandTotal}</span></h5>
                     </div>
                 </div>

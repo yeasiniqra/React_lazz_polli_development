@@ -3,7 +3,7 @@ import Clock from '../Clock/Clock';
 
 const FooterTop = () => {
     const footerHeadingTag = {
-        topHeading : 'Lazz Polli Convention, Hemayetpur Saver',
+        topHeading : 'Lazz Polli Resort - Hemayetpur,Saver, Dhaka',
         bottomHeading : 'Local Time',
     }
     

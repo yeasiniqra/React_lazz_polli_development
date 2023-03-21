@@ -56,7 +56,7 @@ const Invoice = () => {
               <img src={logo} alt="lazz polli resort no-print" className="no-print" />
               <img src={logo} alt="resort lazz polli print" className="print" />
               <address>
-                <h2>Lazz Polli Convention</h2>
+                <h2>Lazz Polli Resort</h2>
                 Hemayetpur Saver, Dhaka
                 <br />
               </address>

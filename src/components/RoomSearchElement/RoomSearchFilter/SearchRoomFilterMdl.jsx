@@ -22,6 +22,16 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
     new Date(new Date().setDate(today.getDate() + 1))
   );
 
+
+  const arrivalBlurHandler = (time, x) => {
+    setStartDate(time);
+    storeFilters({ ...filters, arrivalDate: time });
+    // submitHandler(
+    //   new Date(time)?.toDateString(),
+    //   new Date(endDate)?.toDateString()
+    // );
+  };
+  
   const depdateChangeHandler = (depdate) => {
     storeFilters({ ...filters, departureDate: depdate });
     setEndDate(depdate);
@@ -30,32 +40,25 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
       new Date(depdate)?.toDateString()
     );
   };
-  const arrivalBlurHandler = (time, x) => {
-    setStartDate(time);
-    storeFilters({ ...filters, arrivalDate: time });
-    submitHandler(
-      new Date(time)?.toDateString(),
-      new Date(endDate)?.toDateString()
-    );
-  };
 
-  const submitHandler = (d, r) => {
+
+  const submitHandler = (ArrivalTime, DepartureTime) => {
     setIsLoading(true);
-    getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(d, r, 1, RoomId, Type) })
+    getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(ArrivalTime, DepartureTime, 1, RoomId, Type) })
       .then((data) => {
         if (!data.IsError) {
           setIsAvailble(data.Data);
           if (data.Data) {
             console.log(data.Msg);
           } else {
-            toast.warning(`Is Not Available`);
+            toast.warning(`the date  you have selected is not Available.Please Change the start and end date.`);
           }
         } else {
           toast.warning(`${data.Msg}`);
         }
       })
       .catch((err) => {
-        toast.warning(err?.toString());
+        toast.warning(`Incorrect Date Range!! Please Change the start and end date.`);
       })
       .finally(() => {
         setIsLoading(false);
@@ -140,7 +143,7 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
               </div>
             </div>
             <div className="book_table_item book_table_item_mobile">
-              {/* <button type="button">
+              {/* <button onClick={submitHandler} type="button">
                   Check
                 </button> */}
             </div>

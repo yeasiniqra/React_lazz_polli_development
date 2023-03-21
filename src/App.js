@@ -25,6 +25,9 @@ import Convention from './pages/Convention';
 import SwimmingPool from './pages/SwimmingPool';
 import SuitsAndRoomDetails from './components/SuitsAndRoomDetails/SuitsAndRoomDetails';
 import Success from './pages/Success';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
+
 // import { HideInspect } from './lib/Hide';
 
 function App() {
@@ -33,9 +36,16 @@ function App() {
   //   HideInspect() 
   // },[])
 
+
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (location.pathname === "/checkout") {
+      window.scrollTo({ top: 300, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, [location]);
+  
 
   return (
     <div className="App">
@@ -57,6 +67,8 @@ function App() {
             <Route path="/package" element={ <FullPackage />} />
             <Route path="/suits" element={ <SuitsRoom />} />
             <Route path="/Booking/Status" element={ <Success />} />
+            <Route path="/privacypolicy" element={ <PrivacyPolicy />} />
+            <Route path="/termsconditions" element={ <TermsConditions />} />
             <Route path="/suits/:Id" element={ <SuitsAndRoomDetails />} />
             <Route path="/profile/*" element={ <Profile />} >
               <Route path="order" element={<OrderHistory />} />

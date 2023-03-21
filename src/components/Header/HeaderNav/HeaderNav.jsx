@@ -134,9 +134,15 @@ const HeaderNav = () => {
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
                                 {
                                     user && user.id ? 
-                                    <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
+                                    <><button onClick={() => {
+                                        profileHandler();
+                                        toggleClass();
+                                      }} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
                                     :
-                                    <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
+                                    <><button onClick={() => {
+                                        loginClickHandler();
+                                        toggleClass();
+                                      }} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
                                     
                                 }
                             </ul>
@@ -252,9 +258,15 @@ const HeaderNav = () => {
                                 <li className="book-now login-mobile-hide"><Link to="/searchroom">Book Now</Link></li>
                                 {
                                      user && user.id ? 
-                                    <><button onClick={profileHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
+                                    <><button onClick={() => {
+                                        profileHandler();
+                                        toggleClass();
+                                      }} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Profile</button></>
                                     :
-                                    <><button onClick={loginClickHandler} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
+                                    <><button onClick={() => {
+                                        loginClickHandler();
+                                        toggleClass();
+                                      }} className='nav-login nav-login-mobile'><i className="fa fa-user-circle-o" aria-hidden="true"></i>Login</button></>
                                     
                                 }
                             </ul>

@@ -434,7 +434,7 @@ p {
 }
 
 .header-top-left>ul>li {
-  margin-right: 20px;
+  margin: 0px 10px;
 }
 
 .header-top-left>ul>li>a,
@@ -1621,7 +1621,6 @@ section article {
   background: #fff;
   position: relative;
   height: 44px;
-  top: 50px;
 }
 
 .footer-marque marquee h2 {
@@ -1670,7 +1669,7 @@ section article {
 
 .footer-bottom span a {
   text-decoration: underline;
-  color: #64c9fb;
+  color: #f3c24d;
 }
 
 .footer-menu>ul>li {
@@ -1679,7 +1678,7 @@ section article {
   padding-right: 15px;
   padding-left: 5px;
   padding-bottom: 6px;
-  flex: 0 0 20%;
+  flex: 0 0 21%;
 }
 
 ul.footer-links li a::before {
@@ -1841,7 +1840,7 @@ p.site ul.footer-links li a:before {
 .footer-top-content>p {
   color: #fff;
   font-size: 13px;
-  text-align: left;
+  text-align: center;
 }
 
 #current-time {
@@ -1871,7 +1870,7 @@ p.site ul.footer-links li a:before {
   display: block;
   position: fixed;
   bottom: 5px;
-  right: 35px;
+  right: 30px;
   font-size: 45px;
   width: 45px;
   height: 45px;
@@ -3042,7 +3041,7 @@ select {
 }
 
 .custom-input-resort.input-append button {
-  top: 20px;
+  top: 24px;
 }
 
 .room-detaits-main p {
@@ -3102,6 +3101,7 @@ select {
   margin-bottom: 25px;
   border-bottom: 2px solid var(--green-color);
   padding-bottom: 10px;
+  text-transform: inherit;
 }
 
 .dts_banner_slide .splide__arrow {
@@ -3276,10 +3276,6 @@ select {
 
 .service-single-item h3 {
   margin-bottom: 5px;
-}
-
-.our-resort-staff-area.our-service-area {
-  padding-top: 50px;
 }
 
 .abt-page-area .support-given-single-item span {
@@ -5184,3 +5180,123 @@ small.dateTimes {
   border-radius: 5px;
   background: var(--secundery-color);
 }
+
+.payment-method > h2 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.payment-method {
+  margin-bottom: 10px;
+}
+
+.staff-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding-top: 30px;
+}
+.staff-single-item {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stf-content {
+  text-align: center;
+  padding: 25px;
+}
+
+.stf-content > h4 {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.privacy-policy {
+  padding-top: 140px;
+  padding-bottom: 40px;
+}
+.privacy-main > h2 {
+  padding-bottom: 15px;
+}
+
+.privacy-main > ul li i {
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+.privacy-main > ul li {
+  padding: 5px 0px;
+}
+.privacy-main span {
+  font-weight: 500;
+  padding: 15px 0px;
+  display: block;
+}
+
+p.pt-15 {
+  padding-top: 20px;
+}
+
+.tin-number {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 15px;
+}
+.tin-number > h5 {
+  font-weight: 400;
+  padding-right: 5px;
+  font-size: 13px;
+}
+.tin-number > p {
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/* .Toastify {
+	position: fixed;
+	top: 7vw;
+	left: 0;
+	z-index: 999;
+	background: rgba(0,0,0,.3);
+	width: 100%;
+	height: 100%;
+} */
+
+.Toastify__toast-container--top-center {
+	top: 6vw !important;
+	background: rgba(0,0,0,.3);
+	width: 100% !important;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.Toastify__close-button--light {
+	opacity: 1 !important;
+}
+
+.Toastify__toast {
+  width: 375px;
+  height: 160px;
+  top: 20px;
+}
+
+.Toastify__toast-body > div:last-child {
+  font-size: 16px;
+  color: red;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+}
+
+.Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter svg path {
+  fill: red;
+}
+.Toastify__toast-theme--light {
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+}
+

@@ -11,7 +11,8 @@
     align-items: flex-start;
 }
 .auth_dialouge{
-    margin-top: 10vw;
+    /* margin-top: 10vw; */
+    margin-top: 5vw;
     width: 50%;
     max-width: 380px;
     min-width: 320px;
