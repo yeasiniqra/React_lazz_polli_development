@@ -692,6 +692,9 @@
 }
 
 @media all and (max-width: 575px) {
+    .Toastify__toast {
+        width: 90%;
+    }
     .privacy-policy {
         padding-top: 95px;
         padding-bottom: 30px;

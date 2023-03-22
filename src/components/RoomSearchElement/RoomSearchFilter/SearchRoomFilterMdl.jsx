@@ -51,14 +51,14 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
           if (data.Data) {
             console.log(data.Msg);
           } else {
-            toast.warning(`the date  you have selected is not Available.Please Change the start and end date.`);
+            toast.warning(`the date  you have selected is not Available. Please Change the Arrival Date and Departure Date.`);
           }
         } else {
           toast.warning(`${data.Msg}`);
         }
       })
       .catch((err) => {
-        toast.warning(`Incorrect Date Range!! Please Change the start and end date.`);
+        toast.warning(`Incorrect Date Range!! Please Change the Arrival Date and Departure Date.`);
       })
       .finally(() => {
         setIsLoading(false);

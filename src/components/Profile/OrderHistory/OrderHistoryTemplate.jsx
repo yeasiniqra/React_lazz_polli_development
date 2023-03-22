@@ -5,7 +5,8 @@ import { humanizeDate } from '../../../lib/utils';
 const OrderHistoryTemplate = ({book}) => {
     // const navigate = useNavigate();
     const {Code, PayableAmount, Quantity, ReleaseDate, ReservationDate, Status, Paid} = book
-    const dueAmount = PayableAmount - Paid
+    const paidRound = Math.round(Paid)
+    const dueAmount = Math.round(PayableAmount - Paid)
 
     //Note : onClick evt add future if client need this- only need onClick div 
     // const handleInvoice = () => {
@@ -23,7 +24,7 @@ const OrderHistoryTemplate = ({book}) => {
                 <small>{Quantity}</small>
                 <small>{PayableAmount} tk</small>
                 <small>{dueAmount} tk</small>
-                <small>{Paid} tk</small>
+                <small>{paidRound} tk</small>
             </div>
        </div>
     );

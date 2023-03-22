@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { useContext } from "react";
 import { useState } from "react";
+// import { toast } from "react-toastify";
 import { countries } from "../../../data/countries";
 import { useTitle } from "../../../hooks/UseTitle";
 import { GET_USER_PROFILE, POST_UPDATE_PROFILE } from "../../../lib/endpoints";
@@ -159,6 +160,7 @@ const Edit = () => {
          alert('Error')
         }
       }).catch(error => {
+       console.log(error)
       });
     }, []);
 
@@ -184,6 +186,7 @@ const Edit = () => {
         ChangeLog : 'cng',
       }
        postProfileInfo(payload)
+      //  toast.success(`Profile updated successfully 😊`);
     };
   
     return (

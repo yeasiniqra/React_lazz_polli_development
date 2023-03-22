@@ -219,7 +219,7 @@ const NewCustomarInfo = () => {
         }
       })
       .catch((err) => {
-        toast.warning(err?.toString());
+        toast.warning("Incorrect Date Range");
       });
   };
 

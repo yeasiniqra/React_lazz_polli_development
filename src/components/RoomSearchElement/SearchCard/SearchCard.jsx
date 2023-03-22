@@ -32,6 +32,8 @@ const SearchCard = ({ item }) => {
     storeRoom({ ...item, ...filters });
   };
 
+  const nameType = item.Type === "HOUSE" ? `Entire - ${item.Name}` : `Single Room From - ${item.Name}`
+
   useEffect(() => {
     if (!isInitiating) {
       const quantity = getQuantity(item.Id, item.Type);
@@ -71,7 +73,7 @@ const SearchCard = ({ item }) => {
         </Link>
       </div>
       <div className="search-room-content">
-        <h4>{item.Name}</h4>
+        <h4>{nameType}</h4>
         <div className="super-king-flex">
           <div className="sp-left">
             <p>Room Rates Exclusive of Ser. Chg. & VAT</p>
@@ -95,7 +97,7 @@ const SearchCard = ({ item }) => {
                 {item.Type === "ROOM"
                   ? item.Available - getQuantity(item.Id, item.Type)
                   : 1}{" "}
-                {item.Type === "ROOM" ? "Room" : "Cottage"}
+                {item.Type === "ROOM" ? "Room" : "House"}
               </small>
             </div>
           </div>
@@ -106,7 +108,7 @@ const SearchCard = ({ item }) => {
             <div className="common-btn book-search-btn">
               {!!!count && (
                 <button onClick={isToggleClass} className="searchBtn" disabled={(isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)}>
-                  {((isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)) ? "Not Available" : "Book Room"}
+                  {((isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)) ? "Not Available" : "Book Single Room"}
                 </button>
               )}
               {!!count && (
@@ -149,7 +151,7 @@ const SearchCard = ({ item }) => {
               className="searchBtn"
               disabled={isRoomAdded(item.Id, filters.arrivalDate, filters.departureDate) && item.Type === "HOUSE"}
             >
-              Book Cottage
+              Book Entire House
             </button>
           </div>
         )}

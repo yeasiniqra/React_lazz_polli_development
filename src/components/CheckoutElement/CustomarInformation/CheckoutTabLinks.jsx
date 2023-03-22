@@ -24,7 +24,7 @@ const CheckoutTabLinks = () => {
                     CHECKOUT_MENU_TAB_BUTTON_NAMES.NEW_CUSTOMER
                     )}
                     >
-                    New Customer
+                    Guest Information
                 </button>
             </nav>
             <div className="niiceeTabContent">

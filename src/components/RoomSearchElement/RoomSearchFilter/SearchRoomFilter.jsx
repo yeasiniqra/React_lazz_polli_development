@@ -49,7 +49,6 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
   };
 
 
-
   const adultsBlurHandler = (fadults) => {
     storeFilters({ ...filters, adultsCount: fadults.adults });
     setAdults(fadults);
@@ -77,24 +76,27 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
     getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999, 1, c, a, ArrivalTime, DepartureTime) })
       .then((data) => {
         if (!data.IsError) {
-          setIsAvailble(data.Data.Data);
           if (data.Data) {
-            // console.log(data.Data);
+            setIsAvailble(data.Data.Data);
           } else {
-            toast.warning(`the data  you have selected is not Available.Please Change the start and end date.`);
+            setIsAvailble([]);
+            toast.warning(`the date you have selected is not Available. Please Change the Arrival Date and Departure Date.`);
           }
         } else {
+          setIsAvailble([]);
           toast.warning(`${data.Msg}`);
         }
       })
       .catch((err) => {
-        // toast.warning(`Incorrect Date Range!! Please Change the start and end date.`);
-        toast.warning(err?.toString());
+        setIsAvailble([]);
+        toast.warning(`Incorrect Date Range!! Please Change the Arrival Date and Departure Date.`);
+        // toast.warning(err?.toString());
       })
       .finally(() => {
         setIsLoading(false);
       });
   };
+
 
   useEffect(() => {
     if (!mounted.current) {
@@ -188,7 +190,6 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
                   value={adults}
                   placeholder={"--Select--"}
                   onChange={adultsBlurHandler}
-                  required
                 />
               </div>
               <div className="book_table_item">

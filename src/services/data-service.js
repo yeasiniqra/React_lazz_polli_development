@@ -21,6 +21,8 @@ import aboutStoryOne from '../images/about/about1-01.webp';
 import aboutStoryTwo from '../images/about/about2-01.webp';
 import aboutStoryFive from '../images/about/about3-01.webp';
 import aboutStoryFour from '../images/about/about4-01.webp';
+import aboutStoryFivex from '../images/about/about5-01.webp';
+import aboutStorySix from '../images/about/about6-01.webp';
 
 //About ownr  images
 import onwr1 from '../images/Ownr/1.jpg';
@@ -40,17 +42,23 @@ const APP_DATA = {
                     image : aboutStoryTwo,
                 },
                 {
-                    image : aboutStoryFive,
+                    image : aboutStorySix,
                 },
                 {
                     image : aboutStoryFour,
+                },
+                {
+                    image : aboutStoryFivex,
+                },
+                {
+                    image : aboutStoryFive,
                 },
             ]
         },
         {
             resortAbout: [
                 {
-                    resortAboutDesc : "Lazz Pharma has successfully leveraged its leadership position in offline and online pharmacy business in Bangladesh and it's convenient store locations to capture a significant share of the market in front store merchandise, including over-the-counter medications, online medicine, health and beauty aids, cosmetics and fragrances, seasonal products and everyday household essentials. Lazz Pharma is the first ever model Pharmacy and best online medicine shop in Bangladesh.As industry leaders, we recognize the importance of the pharmacy services we provide and believe that we must be at the forefront when it comes to the introduction of new services and the expansion of the scope of practice for pharmacists. The business has been serving the nation with genuine medicine product and excellent customer care for more than 45 years. Lazz Pharma has become the best offline and online medicine store with 65 branches at present and more to come on board, Lazz Pharma intends to serve the country throughout and currently also engaged in the sale and service of assisted-living devices, medical equipment, home-care products and durable mobility equipment to institutional and retail customers."
+                    resortAboutDesc : "<p>Welcome to Lazz Polli, an oasis of serenity and luxury located in Hemayetpur, Dhaka, Bangladesh. Our resort is the perfect getaway for anyone looking to escape the hustle and bustle of the city and indulge in nature's finest offerings.</p><p>Founded in 2006 by Syeda Mahfuza Rahman and Mohammed Lutfor Rahman, the founding owners of Lazz Pharma, one of Bangladesh's most reputable pharmacies, Lazz Polli was created with the intention of providing a peaceful retreat for nature enthusiasts. The founders' passion for organic vegetation led to the cultivation of lush gardens and greenery that surround the resort, creating a tranquil ambiance that soothes the soul.</p><p>Over time, Lazz Polli has evolved into a top-rated resort that offers a range of amenities and services to cater to all our guests' needs. We host big events, conferences, weddings, and night-ins, ensuring that every guest has an unforgettable experience. Our luxurious rooms and suites are designed to provide maximum comfort, with modern amenities such as air conditioning, free Wi-Fi, and flat-screen TVs.</p><p>Our resort also boasts an exquisite restaurant that serves a wide range of dishes prepared using locally sourced ingredients. Whether you're in the mood for traditional Bangladeshi cuisine or international flavors, our chefs will prepare the perfect meal for you.</p><p>Lazz Polli is the closest resort from Dhaka City (only 16 Kilometres from Dhanmondi), making it the perfect weekend getaway for anyone looking to relax and recharge. With our peaceful surroundings and top-quality amenities, our guests can unwind and forget about the stresses of everyday life</p><p>At Lazz Polli, we pride ourselves on providing exceptional service and creating unforgettable experiences for our guests. Whether you're planning a family vacation, a romantic getaway, or a corporate retreat, we have everything you need to make your stay with us unforgettable. Come and experience the beauty of Lazz Polli for yourself!</p>"
                 },
                
             ]

@@ -2,9 +2,9 @@ import React from 'react';
 
 const AboutDescTemplate = ({about}) => {
     return (
-        <>
-            <p>{about.resortAboutDesc}</p>
-        </>
+        <div className='single-dsc'>
+            <p dangerouslySetInnerHTML={{__html: about.resortAboutDesc}}></p>
+        </div>
     );
 };
 
