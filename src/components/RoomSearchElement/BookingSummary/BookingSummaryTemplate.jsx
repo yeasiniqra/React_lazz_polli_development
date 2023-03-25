@@ -16,7 +16,7 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                          {summeryItem.Type === 'ROOM' ? summeryItem.AdultPerRoom * summeryItem.quantity : ''}  
                          {summeryItem.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
                          {summeryItem.quantity} - 
-                         {summeryItem.Type === 'ROOM' ? 'Room -' : 'Cottage'} 
+                         {summeryItem.Type === 'ROOM' ? 'Room -' : 'House'} 
                          {summeryItem.Type === 'ROOM' ? summeryItem.ChildrenPerRoom * summeryItem.quantity : ''} 
                          {summeryItem.Type === 'ROOM' ? 'Child' : ''}  
                         

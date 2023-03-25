@@ -219,7 +219,7 @@ const NewCustomarInfo = () => {
         }
       })
       .catch((err) => {
-        toast.warning("Incorrect Date Range");
+        toast.warning("Incorrect Date Range OR Invalid Amount");
       });
   };
 
@@ -493,6 +493,7 @@ const NewCustomarInfo = () => {
                   <input
                     defaultChecked={paymentPercent === "100%"}
                     type="radio"
+                    onClick={handleClicekd.bind(null, "100%")}
                     id="html"
                     name="payfull"
                     value="HTML"
@@ -507,6 +508,7 @@ const NewCustomarInfo = () => {
                   <input
                     defaultChecked={paymentPercent === "30%"}
                     type="radio"
+                    onClick={handleClicekd.bind(null, "30%")}
                     id="css"
                     name="payfull"
                     value="CSS"

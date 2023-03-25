@@ -39,8 +39,8 @@ function App() {
 
 
   useEffect(() => {
-    if (location.pathname === "/checkout") {
-      window.scrollTo({ top: 300, behavior: "smooth" });
+    if (location.pathname === "/checkout" || location.pathname === "/convention" || location.pathname === "/swimmingpool" || location.pathname === "/package" || location.pathname === "/dine") {
+      window.scrollTo({ top: 320, behavior: "smooth" });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

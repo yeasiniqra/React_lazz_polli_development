@@ -127,7 +127,7 @@ const ContactForm = () => {
         .then(data => {
           if(!data.IsError){
             setClicked(false);
-            toast.success("Message Sent");
+            toast.success("message sent successfully 😊", {className: "login-popup-x"});
             setName("");
             setEmail("");
             setPhone("");

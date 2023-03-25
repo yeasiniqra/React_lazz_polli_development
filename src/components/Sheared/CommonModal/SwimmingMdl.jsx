@@ -131,7 +131,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
         toast.warning(data.Msg);
       } else {
         toast.success(`Your submission has been received. Our agent will call
-         your number to reconfirm.`);
+         your number to reconfirm.`, {className: "login-popup-x"});
          window.location.href = data.Data.PaymentURL;
       }
     }).catch(err => {

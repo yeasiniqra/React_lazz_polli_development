@@ -501,6 +501,9 @@
     .current-oppertunity-empty-content img {
         max-width: 160px;
     }
+    .relax-spa-img-left img {
+        height: auto;
+    }
 
 
 }

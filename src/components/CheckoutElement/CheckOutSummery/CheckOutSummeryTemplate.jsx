@@ -27,7 +27,7 @@ const CheckOutSummeryTemplate = ({room, index,removeClickHandler }) => {
                         {room.Type === 'ROOM' ? room.adultsCount * room.quantity || 0 : ''}
                         {room.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
                         {room.quantity} - 
-                        {room.Type === 'ROOM' ? 'Room -' : 'Cottage'} 
+                        {room.Type === 'ROOM' ? 'Room -' : 'House'} 
                         {room.Type === 'ROOM' ? room.childrenCount * room.quantity || 0 : ''}
                         {room.Type === 'ROOM' ? 'Child' : ''}
                     </p>

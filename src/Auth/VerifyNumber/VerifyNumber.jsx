@@ -40,7 +40,7 @@ const VerifyNumber = () => {
       register();
     }else{
       login();
-      toast.success('You are successfully logged in')
+      toast.success('You are successfully logged in 😊', {className: "login-popup",  autoClose: 1000})
       setIsLoading(false)
     }
   };

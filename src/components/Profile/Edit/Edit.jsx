@@ -264,7 +264,6 @@ const Edit = () => {
                         previewText={"Select Identity Type"}
                         readyToLoad={true}
                         placeholder={"--Select--"}
-                        required
                         value={country}
                       />
                     </div>

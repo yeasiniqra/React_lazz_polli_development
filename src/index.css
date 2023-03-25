@@ -3196,10 +3196,9 @@ select {
 }
 
 .ab-img-flex {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  flex: 0 0 49%;
   margin-bottom: -4px;
+  border: 3px solid #fff;
 }
 
 .about-inner-img {
@@ -3412,6 +3411,12 @@ select {
 
 .relax-spa-img-left img {
   transition-duration: 1s;
+  height: 400px;
+  object-fit: cover;
+}
+
+.Toastify--animate-icon {
+  animation-duration: 0.9s !important;
 }
 
 .relax-spa-img-left:hover img {
@@ -4876,7 +4881,7 @@ button.common-modal-submit {
 }
 
 .relax-spa-inner-grid.convention-hall-area .relax-spa-img-left {
-  max-width: 900px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 40px;
@@ -5215,7 +5220,7 @@ small.dateTimes {
 }
 
 .privacy-policy {
-  padding-top: 140px;
+  padding-top: 40px;
   padding-bottom: 40px;
 }
 .privacy-main > h2 {
@@ -5282,15 +5287,19 @@ p.pt-15 {
 
 .Toastify__toast {
   width: 375px;
-  height: 160px;
+  height: 150px;
   top: 20px;
 }
 
 .Toastify__toast-body > div:last-child {
   font-size: 16px;
-  color: red;
+  color: #000;
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  padding-top: 10px;
 }
 
 .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter svg path {
@@ -5299,6 +5308,23 @@ p.pt-15 {
 .Toastify__toast-theme--light {
   box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
 }
+
+
+
+.Toastify__toast-icon {
+  width: 26px !important;
+  position: relative;
+  left: 10px;
+}
+
+.filter-popup .Toastify__toast-icon {
+  left: 0px !important;
+}
+.Toastify__close-button > svg {
+  height: 22px;
+  width: 16px;
+}
+
 
 
 .room-search-inner-content .warning {
@@ -5310,3 +5336,70 @@ p.pt-15 {
 .footer-bottom > span {
   padding-right: 12px;
 }
+
+.login-popup {
+	height: 80px;
+}
+.login-popup .Toastify__toast-body > div:last-child,
+.filter-popup .Toastify__toast-body > div:last-child {
+	color: #000;
+}
+.login-popup .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter svg path,
+.login-popup-x .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter svg path {
+	fill: #07BC0C;
+}
+
+.Toastify__toast-body {
+  flex-direction: column;
+}
+
+.login-popup .Toastify__toast-body {
+  flex-direction: inherit;
+}
+
+.login-popup .Toastify__toast-icon {
+	top: 5px;
+}
+
+.Toastify__zoom-enter {
+  -webkit-animation: tastanimation 2s linear 0.5s alternate 1;
+  animation: tastanimation 2s linear 0.5s alternate 1;
+}
+
+
+@-webkit-keyframes tastanimation {
+  0% {
+      opacity: 0;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+  }
+  50% {
+      opacity: 0;
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+  }
+}
+
+@keyframes tastanimation {
+  0% {
+      opacity: 0;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+  }
+  50% {
+      opacity: 0;
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+  }
+}
+
