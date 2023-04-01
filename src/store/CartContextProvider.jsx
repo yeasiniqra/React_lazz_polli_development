@@ -17,18 +17,26 @@ const reducer = (state, action) => {
         (r) => r.Id === action.room.Id && action.room.Type === r.Type
       );
 
+      const arrivalDate1 = new Date(action.room.arrivalDate);
+      const departureDate2 = new Date(action.room.departureDate);
+  
+      const diffTime = Math.abs(departureDate2 - arrivalDate1);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
       const amount =
         action.quantity *
         (action.room.Type === "ROOM"
           ? action.room.RoomPrice
           : action.room.Price);
 
+      const newAmount = action.room.Night ? amount : (amount * diffDays);
+
       let newRooms = state.rooms;
 
       if (!roomFromStore)
         newRooms = [
           ...newRooms,
-          { ...action.room, quantity: 1, amount: amount },
+          { ...action.room, quantity: 1, amount: newAmount },
         ];
       else {
         newRooms = newRooms.map((r) => {

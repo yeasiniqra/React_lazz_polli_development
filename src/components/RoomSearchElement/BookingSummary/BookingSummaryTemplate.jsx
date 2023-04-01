@@ -3,6 +3,13 @@ import { humanizeDate } from '../../../lib/utils';
 
 
 const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) => {
+
+    const arrivalDate1 = new Date(summeryItem.arrivalDate);
+    const departureDate2 = new Date(summeryItem.departureDate);
+
+    const diffTime = Math.abs(departureDate2 - arrivalDate1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
     return (
         <>
             <div className="summery-main-grid">
@@ -11,6 +18,7 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                 </div>
                 <div className="super-flex-item">
                     <div className="spk-left">
+                        <h6>For {diffDays} Night</h6>
                         <p>{summeryItem.Name}</p>
                         <p>
                          {summeryItem.Type === 'ROOM' ? summeryItem.AdultPerRoom * summeryItem.quantity : ''}  

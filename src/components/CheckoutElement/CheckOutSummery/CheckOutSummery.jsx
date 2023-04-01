@@ -4,7 +4,7 @@ import cartContext from '../../../store/cart-context';
 import CheckOutSummeryTemplate from './CheckOutSummeryTemplate';
 
 const CheckOutSummery = () => {
-    const {rooms,removeRoom,totalAmount} = useContext(cartContext)
+    const {rooms,removeRoom,totalAmount} = useContext(cartContext);
     const title = {
         title : 'Your booking summary'
     }

@@ -28,11 +28,11 @@ const SearchCard = ({ item }) => {
     setCount((prevState) => --prevState);
   };
 
-  const isToggleClass = () => {
+  const addToCart = () => {
     storeRoom({ ...item, ...filters });
   };
 
-  const nameType = item.Type === "HOUSE" ? `Entire - ${item.Name}` : `Single Room From - ${item.Name}`
+  const typeWiseName = item.Type === "HOUSE" ? `Entire - ${item.Name}` : `Single Room From - ${item.Name}`
 
   useEffect(() => {
     if (!isInitiating) {
@@ -43,7 +43,7 @@ const SearchCard = ({ item }) => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitiating, rooms]);
 
-  const calculatePrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
+    const calculatePrice = item.Type === "ROOM" ? item.RoomPrice : item.Price;
     // Check if the item has a house cover image or a room cover image
     const houseCoverImage = item.Images.find(
       (image) => image.ImageFor === "HOUSE_COVER"
@@ -73,14 +73,14 @@ const SearchCard = ({ item }) => {
         </Link>
       </div>
       <div className="search-room-content">
-        <h4>{nameType}</h4>
+        <h4>{typeWiseName}</h4>
         <div className="super-king-flex">
           <div className="sp-left">
             <p>Room Rates Exclusive of Ser. Chg. & VAT</p>
           </div>
           <div className="sp-right">
             <h4>BDT {calculatePrice}</h4>
-            <span className="cl-night">Price for 1 Night</span>
+            <span className="cl-night">Price for {item.Night} Night</span>
             <div className="card-adults">
               <small>
                 {" "}
@@ -107,7 +107,7 @@ const SearchCard = ({ item }) => {
           <>
             <div className="common-btn book-search-btn">
               {!!!count && (
-                <button onClick={isToggleClass} className="searchBtn" disabled={(isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)}>
+                <button onClick={addToCart} className="searchBtn" disabled={(isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice) || (item.Available < 0 )}>
                   {((isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)) ? "Not Available" : "Book Single Room"}
                 </button>
               )}
@@ -147,7 +147,7 @@ const SearchCard = ({ item }) => {
         ) : (
           <div className="common-btn book-search-btn">
             <button
-              onClick={isToggleClass}
+              onClick={addToCart}
               className="searchBtn"
               disabled={isRoomAdded(item.Id, filters.arrivalDate, filters.departureDate) && item.Type === "HOUSE"}
             >

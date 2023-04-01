@@ -2,7 +2,12 @@ import React from 'react';
 import { humanizeDate } from '../../../lib/utils';
 
 
-const CheckOutSummeryTemplate = ({room, index,removeClickHandler }) => {
+const CheckOutSummeryTemplate = ({room, index,removeClickHandler, setDataCount }) => {
+    const arrivalDate1 = new Date(room.arrivalDate);
+    const departureDate2 = new Date(room.departureDate);
+
+    const diffTime = Math.abs(departureDate2 - arrivalDate1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return (
         <>
             <div className='summery-flexc'>
@@ -22,6 +27,7 @@ const CheckOutSummeryTemplate = ({room, index,removeClickHandler }) => {
             </div>
             <div className="super-flex-item">
                 <div className="spk-left">
+                    <h6>For {diffDays} Night</h6>
                     <p><span>Name : </span>{room.Name}</p>
                     <p>
                         {room.Type === 'ROOM' ? room.adultsCount * room.quantity || 0 : ''}

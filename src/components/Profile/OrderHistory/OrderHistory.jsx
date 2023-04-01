@@ -19,6 +19,7 @@ const OrderHistory = () => {
     const [page, setPage] = useState(1);
     const [size, setSize] = useState(12);
 
+    //get data from api for order histoey
     const handleGetBooking = () => {
         setIsLoading(true)
         getV2({ url: GET_ROOM_BOOKING(500,page, "all") }).then((data) => {
@@ -30,12 +31,18 @@ const OrderHistory = () => {
               toast.warning(`${data.Msg}`);
             }
           }).catch(err => {
-            toast.warning(err?.toString());
+            if (err === 401) {
+              toast.warning(`Your Session Expired Please Logout and again Login!`);
+            }else{
+              toast.warning(err?.toString());
+            }
+            // toast.warning("Your Session Expired Please Logout and again Login!");
           }).finally(() => {
             setIsLoading(false)
           });
     }
 
+    // pagenation function implement Here for paginate data ui
     const getPageToRender = () => {
       const initialPage = [];
       const pageRange = 1; 
@@ -106,6 +113,7 @@ const OrderHistory = () => {
                 <span>Order Id</span>
                 <span>Check In</span>
                 <span>Check Out</span>
+                <span>Night</span>
                 <span>Status</span>
                 <span>Pax Details</span>
                 <span>Amount</span>

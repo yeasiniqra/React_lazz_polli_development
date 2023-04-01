@@ -20,7 +20,7 @@ const BookingSummary = () => {
                     />)
                 }
                 <div className='summery-grand-total'>
-                <div className="total-amount">
+                   <div className="total-amount">
                         <span>Total</span>
                         <h5>BDT <span>{totalAmount}</span></h5>
                     </div>

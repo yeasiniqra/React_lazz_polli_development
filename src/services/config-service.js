@@ -10,7 +10,7 @@ export const CONFIG = {
     BASE_URL: 'https://www.lazzpolli.com',
     LOG_URL: 'https://www.lazzpolli.com',
     IMAGE_URL:'https://www.lazzpolli.com',
-};
+}; 
 
 const init = () => {
     // const globalConfig = {...window.config}

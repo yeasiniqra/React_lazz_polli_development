@@ -27,7 +27,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
     setIsAvailble(isAvaible)
   }
 
-  const { Name } = suitsAndRoom;
+  const typeWiseName = suitsAndRoom.Type === "HOUSE" ? `Entire - ${suitsAndRoom.Name}` : `Single Room From - ${suitsAndRoom.Name}`
   const newType = suitsAndRoom.Type === 'ROOM' ? "ROOM" : "HOUSE"
 
   return (
@@ -38,7 +38,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
         <div className="modal-inner modal-inner-cottage">
           <div className="modal-header">
             <h2>
-              {Name} 
+              {typeWiseName} 
             </h2>
             <label htmlFor="cottage">
               <i onClick={handleClose} className="fa fa-times" aria-hidden="true"></i>

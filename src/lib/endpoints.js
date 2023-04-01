@@ -12,6 +12,7 @@ export const LOGIN = 'ManagedArea/Account/Login';
 export const GET_OTP = (phone, isForLogin = true) => `Message/OTP/${phone}?activityId=${window.Activity || '4271cd21-3fa3-44ba-afd2-c06676cdd4d5'}&otpFor=${isForLogin ? 'LOGIN' : 'REGISTRATION'}`; // REGISTRATION | LOGIN
 export const GET_CUSTOMERIS_EXIST = "AppUser/isExist?phoneNumber=";
 
+
 //Profile
 // export const GET_USER = 'AppUser';
 export const GET_USER_PROFILE = 'AppUser/Profile';

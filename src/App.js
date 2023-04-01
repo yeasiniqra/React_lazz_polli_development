@@ -39,7 +39,7 @@ function App() {
 
 
   useEffect(() => {
-    if (location.pathname === "/checkout" || location.pathname === "/convention" || location.pathname === "/swimmingpool" || location.pathname === "/package" || location.pathname === "/dine") {
+    if (location.pathname === "/checkout" || location.pathname === "/convention" || location.pathname === "/swimmingpool" || location.pathname === "/package" || location.pathname === "/dine" || location.pathname === "/Booking/Status") {
       window.scrollTo({ top: 320, behavior: "smooth" });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });

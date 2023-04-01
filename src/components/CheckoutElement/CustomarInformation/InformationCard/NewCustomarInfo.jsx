@@ -219,7 +219,8 @@ const NewCustomarInfo = () => {
         }
       })
       .catch((err) => {
-        toast.warning("Incorrect Date Range OR Invalid Amount");
+        // toast.warning("Invalid Amount");
+        toast.warning("An error occurred while processing your request.", err);
       });
   };
 
@@ -288,11 +289,6 @@ const NewCustomarInfo = () => {
         setIsLoading(false);
       });
   };
-
-
-
-
-
 
 
   // useEffect(()=> {

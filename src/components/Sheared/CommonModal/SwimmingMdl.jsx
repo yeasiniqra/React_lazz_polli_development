@@ -74,11 +74,9 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
 
   const hoursChangeHandler = ({ target: el }) => {
     setHours(el.value);
-    console.log(el.value)
   };
   const perhoursChangeHandler = ({ target: el }) => {
     setPerhours(el.value);
-    console.log(el.value)
   };
   const phoneFocusHandler = () => {
     setPhoneError(false);
@@ -324,9 +322,12 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
                 name="swimming_pool" 
                 value="swimming" 
                 defaultChecked={paymentPercent === '100%'}
+                onClick={handleClicekd.bind(null, '100%')}
+                
               />
               <label onClick={handleClicekd.bind(null, '100%')} htmlFor="swimming">Online Payment</label>
           </div> 
+
 
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
