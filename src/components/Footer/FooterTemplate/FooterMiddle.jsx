@@ -28,6 +28,7 @@ const FooterMiddle = () => {
                                 <li><Link to="/checkout">Checkout</Link></li>
                                 <li><Link to="/termsconditions">Terms Conditions</Link></li>
                                 <li><Link to="/privacypolicy">Privacy Policy</Link></li>
+                                <li><Link to="/refund">Refund Policy</Link></li>
                             </ul>
                         </div>
                     </div>

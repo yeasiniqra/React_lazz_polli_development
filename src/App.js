@@ -27,6 +27,7 @@ import SuitsAndRoomDetails from './components/SuitsAndRoomDetails/SuitsAndRoomDe
 import Success from './pages/Success';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import RefundPolicy from './pages/RefundPolicy';
 
 // import { HideInspect } from './lib/Hide';
 
@@ -39,7 +40,7 @@ function App() {
 
 
   useEffect(() => {
-    if (location.pathname === "/checkout" || location.pathname === "/convention" || location.pathname === "/swimmingpool" || location.pathname === "/package" || location.pathname === "/dine" || location.pathname === "/Booking/Status") {
+    if (location.pathname === "/checkout" || location.pathname === "/convention" || location.pathname === "/swimmingpool" || location.pathname === "/package" || location.pathname === "/dine") {
       window.scrollTo({ top: 320, behavior: "smooth" });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -69,6 +70,7 @@ function App() {
             <Route path="/Booking/Status" element={ <Success />} />
             <Route path="/privacypolicy" element={ <PrivacyPolicy />} />
             <Route path="/termsconditions" element={ <TermsConditions />} />
+            <Route path="/refund" element={ <RefundPolicy />} />
             <Route path="/suits/:Id" element={ <SuitsAndRoomDetails />} />
             <Route path="/profile/*" element={ <Profile />} >
               <Route path="order" element={<OrderHistory />} />

@@ -1,8 +1,9 @@
 import React from 'react';
 import { humanizeDate } from '../../../lib/utils';
 
-const InvoiceTeamplate = ({item, index, PayableAmount}) => {
-    const {ReservationDate,ReleaseDate,Quantity,Price,Type, Name} = item
+const InvoiceTeamplate = ({item, index, PayableAmount, setTypecheck}) => {
+    const {ReservationDate,ReleaseDate,Quantity,Price,Type, Name} = item;
+    setTypecheck(Type)
     return (
         <>
             <tr className="tr-border">
@@ -12,8 +13,6 @@ const InvoiceTeamplate = ({item, index, PayableAmount}) => {
                 <td>{humanizeDate(ReleaseDate)}</td>
                 <td>{Quantity}</td>
                 <td>{Type === "HALL" ? PayableAmount : Quantity * Price}</td>
-                <td>0</td>
-                <td>0</td>
                 {/* <td>{Type === "POOL" ? (PayableAmount || (Type === "HALL" || Type === "PACKAGE" ? Quantity * Price : 0)) : Quantity * Price}</td> */}
             </tr>
         </>

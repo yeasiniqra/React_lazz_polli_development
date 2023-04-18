@@ -8,6 +8,8 @@ const ProfileNav = () => {
     const {logout} = useContext(authContext)
     const navigate = useNavigate()
 
+    window.logoutHandler=logout;
+
     const handleLogin = () => {
         logout();
         navigate('/home')

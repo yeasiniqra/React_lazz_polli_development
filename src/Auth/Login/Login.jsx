@@ -18,6 +18,7 @@ const Login = () => {
   const phoneChangeHandler = ({ target: el }) => {
     setPhone(el.value);
   };
+
   const phoneFocusHandler = () => {
     setPhoneError(false);
   };
@@ -57,6 +58,13 @@ const Login = () => {
     open('SIGNUP'); 
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      requestOTP();
+    }
+  };
+
   return (
     <>
       <form>
@@ -68,6 +76,7 @@ const Login = () => {
               id='phone'
               onChange={phoneChangeHandler}
               onFocus={phoneFocusHandler}
+              onKeyPress={handleKeyPress}
               value={phone}
               placeholder={"Type Your Phon Number"}
             />

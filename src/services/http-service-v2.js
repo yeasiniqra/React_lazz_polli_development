@@ -2,7 +2,6 @@ import { AUTH } from "./auth-service.js";
 import { CONFIG } from "./config-service";
 import { getTokenSync } from "../lib/token";
 import { POST_RESUME } from "../lib/endpoints.js";
-import { toast } from "react-toastify";
 
 
 //post method
@@ -87,9 +86,9 @@ export const postV2 = ({ url, payload }) => {
     .then(async (response) => {
       if (!response.ok) {
         const message = httpErrorHandler(response);
-        if (response.status === 401) {
-          toast.warning(`Your Session Expired Please Logout and again Login!`);
-        }
+        // if (response.status === 401) {
+        //   toast.warning(`Your Session Expired Please Logout and again Login!`);
+        // }
         throw new Error(message);
       }
       let responseJSON;
@@ -120,8 +119,9 @@ export const getV2 = ({ url }) => {
     .then(async (response) => {
       if (!response.ok) {
         const message = httpErrorHandler(response);
-        if (response.status === 401) {
-          toast.warning(`Your Session Expired Please Logout and again Login!`);
+        if (response.status === 401 ) {
+          // toast.warning(`Your Session Expired Please Logout and again Login!`);
+          window.logoutHandler&&window.logoutHandler();
         }
         throw new Error(message);
       }
@@ -135,8 +135,44 @@ export const getV2 = ({ url }) => {
       }
 
       return responseJSON;
-    });
+    })
 };
+
+
+// export const getV2 = ({ url }) => {
+//   const token = getTokenSync();
+//   const headers = {};
+//   if (token) {
+//     headers[AUTH.AUTH_TOKEN_NAME] = token;
+//   }
+//   return fetch(`${CONFIG.BASE_URL}/${url}`, {
+//     method: "GET",
+//     headers: {
+//       "content-type": "application/json",
+//       "Access-Control-Allow-Origin": "*",
+//       ...headers,
+//     },
+//   })
+//     .then(async (response) => {
+//       if (!response.ok) {
+//         const message = httpErrorHandler(response);
+//         // if (response.status === 401) {
+//         //   toast.warning(`Your Session Expired Please Logout and again Login!`);
+//         // }
+//         throw new Error(message);
+//       }
+
+//       let responseJSON;
+//       try {
+//         responseJSON = await response.json();
+//       } catch (error) {
+//         console.log(error);
+//         throw new Error("Unexpected Error Occurred!");
+//       }
+
+//       return responseJSON;
+//     });
+// };
 
 
 
@@ -227,44 +263,44 @@ export const post = ({ url, payload }) => {
     });
 };
 
-// const httpErrorHandler = (response) => {
-//   switch (response.State) {
-//     case 404:
-//       return `Not Found! Error Code: ${response.status}`;
-//     default:
-//       return `Unexpected Error Occurred!  Error Code: ${response.status}`;
-//   }
-// };
+const httpErrorHandler = (response) => {
+  switch (response.State) {
+    case 404:
+      return `Not Found! Error Code: ${response.status}`;
+    default:
+      return `Unexpected Error Occurred!  Error Code: ${response.status}`;
+  }
+};
 
 // 'hhtp1',
-const httpErrorHandler = (response) => {
-  if (response.status === 401) {
-    toast.warning(`Unauthorized`);
-    return "Unauthorized";
-  }
+// const httpErrorHandler = (response) => {
+//   if (response.status === 401) {
+//     toast.warning(`Unauthorized`);
+//     return "Unauthorized";
+//   }
 
-  if (response.status === 403) {
-    toast.warning(`Forbidden`);
-    return "Forbidden";
-  }
+//   if (response.status === 403) {
+//     toast.warning(`Forbidden`);
+//     return "Forbidden";
+//   }
 
-  if (response.status === 404) {
-    toast.warning(`Resource not found`);
-    return "Resource not found";
-  }
+//   if (response.status === 404) {
+//     toast.warning(`Resource not found`);
+//     return "Resource not found";
+//   }
 
-  const contentType = response.headers.get("Content-Type");
-  if (contentType && !contentType.includes("application/json")) {
-    return "Unexpected Error Occurred!";
-  }
+//   const contentType = response.headers.get("Content-Type");
+//   if (contentType && !contentType.includes("application/json")) {
+//     return "Unexpected Error Occurred!";
+//   }
 
-  return response.json().then((error) => {
-    if (error.message) {
-      return error.message;
-    }
-    return "Unexpected Error Occurred!";
-  });
-};
+//   return response.json().then((error) => {
+//     if (error.message) {
+//       return error.message;
+//     }
+//     return "Unexpected Error Occurred!";
+//   });
+// };
 
 
 const customErrorHandler = (response) => {

@@ -71,7 +71,7 @@ const SuccessStatus = () => {
                       <div className="common-btn">
                         <Link to="/" tabindex="-1">Home</Link>
                         {isAuthenticated && (
-                            <Link to="/profile" tabindex="-1">View ORder</Link>
+                            <Link to="/profile/order" tabindex="-1">View ORder</Link>
                         )}
                       </div>
                     </div>

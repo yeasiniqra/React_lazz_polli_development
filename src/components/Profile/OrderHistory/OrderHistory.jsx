@@ -31,12 +31,7 @@ const OrderHistory = () => {
               toast.warning(`${data.Msg}`);
             }
           }).catch(err => {
-            if (err === 401) {
-              toast.warning(`Your Session Expired Please Logout and again Login!`);
-            }else{
-              toast.warning(err?.toString());
-            }
-            // toast.warning("Your Session Expired Please Logout and again Login!");
+           console.log("Inside Profile Order History", err)
           }).finally(() => {
             setIsLoading(false)
           });
@@ -115,7 +110,8 @@ const OrderHistory = () => {
                 <span>Check Out</span>
                 <span>Night</span>
                 <span>Status</span>
-                <span>Pax Details</span>
+                <span>Quantity</span>
+                <span>Items</span>
                 <span>Amount</span>
                 <span>Due</span>
                 <span>Paid</span>

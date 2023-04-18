@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { getV2 } from "../../../services/http-service-v2";
 import { GET_SEARCH_BOOKING_ROOM_ISAVAIBLE } from "../../../lib/endpoints";
 import { useRef } from "react";
+import { subDays } from "date-fns";
 
 const today = new Date();
 const SearchRoomFilter = ({ setIsAvailble }) => {
@@ -161,6 +162,7 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
                     onFocus={() => setIsCalendarOpenTwo(true)}
                     onBlur={() => setTimeout(() => setIsCalendarOpenTwo(false), 100)}
                     open={isCalendarOpenTwo}
+                    minDate={subDays(new Date(), -1)}
                     showDisabledMonthNavigation
                     placeholderText="mm/dd/yyyy"
                     monthsShown={2}

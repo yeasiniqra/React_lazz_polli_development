@@ -17,7 +17,10 @@ const Invoice = () => {
   const [invoice, setInvoice] = useState([]);
   const {Code} = useParams();
   const mounted = useRef(false);
-  const { PayableAmount} = invoice
+  const { PayableAmount} = invoice;
+  const [typeChek, setTypecheck] = useState(null);
+
+  console.log("inside order his", typeChek)
 
   const handleGetInvoice = () => {
       setIsLoading(true)
@@ -42,7 +45,9 @@ const Invoice = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Code,mounted]);
 
-  const newTax = invoice.Amount * 0.15;
+  // const newTax = invoice.Amount * 0.15;
+  const dueCount = invoice.PayableAmount - invoice.Paid
+  
   const print = () => {
     printInvoice(invoice)
   };
@@ -90,10 +95,10 @@ const Invoice = () => {
                     <th>Room / House</th>
                     <th>Check In</th>
                     <th>Check Out</th>
-                    <th>Pax Details</th>
+                    <th>Quantity</th>
                     <th>Amount</th>
-                    <th>Due</th>
-                    <th>Paid</th>
+                    {/* <th>Due</th>
+                    <th>Paid</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -104,6 +109,7 @@ const Invoice = () => {
                  key={index} 
                  index={index}
                  PayableAmount={PayableAmount}
+                 setTypecheck={setTypecheck}
                  />)
                 }
                </tbody>
@@ -124,13 +130,19 @@ const Invoice = () => {
                       <tr>
                         <td>Incl.Tax</td>
                         <td className="SubTotal-tab">
-                          <span>{newTax}</span>
+                          <span>{invoice.Tax}</span>
                         </td>
                       </tr>
                       <tr>
                         <td>Due</td>
                         <td className="SubTotal-tab">
-                          <span>0</span>
+                          <span>{dueCount}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Paid Amount</td>
+                        <td className="SubTotal-tab">
+                          <span>{invoice.Paid}</span>
                         </td>
                       </tr>
                     </>
@@ -142,7 +154,7 @@ const Invoice = () => {
                       <strong>Grand Total</strong>
                     </td>
                     <td className="SubTotal-tab">
-                      <strong>&#2547; {invoice.PayableAmount}</strong>
+                      <strong>&#2547; {typeChek === "POOL" ? (invoice.PayableAmount * invoice.Quantity) : invoice.PayableAmount}</strong>
                     </td>
                   </tr>
                 </tbody>

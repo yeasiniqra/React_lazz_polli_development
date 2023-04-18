@@ -13,6 +13,9 @@ import AutoComplete from "../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../Sheared/Input/Input";
 import Suspense from "../../Sheared/Suspense/Suspense";
 import Textarea from "../../Sheared/Textarea/Textarea";
+import DatePicker from 'react-datepicker';
+import DatePickerHeader from "../../Sheared/SharedDate/DatePickerHeader";
+import { humanizeDate } from "../../../lib/utils";
 
 const Edit = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -21,15 +24,16 @@ const Edit = () => {
     const {Id} = profile
     const mounted = useRef(false)
 
-    const formatDate = (date) => {
-      const passedDate = new Date(date);
-      const year = passedDate.getFullYear();
-      let month = (1 + passedDate.getMonth()).toString();
-      month = month.length > 1 ? month : '0' + month;
-      let day = passedDate.getDate().toString();
-      day = day.length > 1 ? day : '0' + day;
-      return `${year}-${month}-${day}`;
-   }
+    // const formatDate = (date) => {
+    //   const passedDate = new Date(date);
+    //   const year = passedDate.getFullYear();
+    //   let month = (1 + passedDate.getMonth()).toString();
+    //   month = month.length > 1 ? month : "0" + month;
+    //   let day = passedDate.getDate().toString();
+    //   day = day.length > 1 ? day : "0" + day;
+    //   return `${year}-${month}-${day}`;
+    // };
+    
     //form validations State
     const [FirstName, setFname] = useState("");
     const [LastName, setLname] = useState("");
@@ -42,8 +46,8 @@ const Edit = () => {
     const [address, setAddress] = useState("");
     const [idNum, setIdNum] = useState("");
     const [country, setCountry] = useState({});
-    const [expDate, setExpDate] = useState(null);
-    const [dob, setDob] = useState(null);
+    const [expDate, setExpDate] = useState(new Date());
+    const [dob, setDob] = useState(new Date());
     const [identity, setIdentity] = useState({});
     const [gender, setGender] = useState({});
 
@@ -114,8 +118,8 @@ const Edit = () => {
          setAddress(data.Data.Address);
          setIdentity({name : data.Data.IdentityType, id : data.Data.IdentityType});
          setIdNum(data.Data.IdentityNumber);
-         setExpDate(data.Data.IdentityExpireDate);
-         setDob(data.Data.DateOfBirth);
+         setExpDate(data.Data.IdentityExpireDate ? data.Data.IdentityExpireDate : new Date());
+         setDob(data.Data.DateOfBirth ? data.Data.DateOfBirth : new Date());
         } else {
           console.log(data);
          alert('Error')
@@ -326,7 +330,6 @@ const Edit = () => {
                         readyToLoad={true}
                         value={identity}
                         placeholder={"--Select--"}
-                        required
                       />
                     </div>
                     <div className="custom-input-resort">
@@ -335,32 +338,25 @@ const Edit = () => {
                         onChange={idnumChangeHandler}
                         value={idNum}
                         placeholder={"No"}
-                        required
                       />
                     </div>
                     <div className="custom-input-resort input-append ">
-                      <Input
-                        label={"Expiry Date"}
+                    <label>Date of Expiry</label>
+                       <DatePicker
+                        renderCustomHeader={DatePickerHeader}
                         onChange={expDateChangeHandler}
-                        value={formatDate(expDate)}
-                        required
-                        type={"date"}
+                        // dateFormat="yyyy-MM-dd"
+                        value={humanizeDate(expDate) ? humanizeDate(expDate) : null }
                       />
-                      <button className="add-on" type="button">
-                        <i className="fa fa-calendar" aria-hidden="true"></i>
-                      </button>
                     </div>
                     <div className="custom-input-resort input-append ">
-                      <Input
-                        label={"Date of Birth"}
+                      <label>Date of Birth *</label>
+                      <DatePicker
+                        renderCustomHeader={DatePickerHeader}
                         onChange={dobChangeHandler}
-                        value={formatDate(dob)}
-                        required
-                        type={"date"}
+                        // dateFormat="yyyy-MM-dd"
+                        value={humanizeDate(dob) ? humanizeDate(dob) : null }
                       />
-                      <button className="add-on" type="button">
-                        <i className="fa fa-calendar" aria-hidden="true"></i>
-                      </button>
                     </div>
                   </div>
                   <div

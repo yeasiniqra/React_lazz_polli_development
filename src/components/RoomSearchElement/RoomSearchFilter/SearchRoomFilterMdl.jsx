@@ -8,6 +8,7 @@ import { GET_ROOM_BOOKING_ISAVAIBLE } from "../../../lib/endpoints";
 import { toast } from "react-toastify";
 import Suspense from "../../Sheared/Suspense/Suspense";
 import { useEffect } from "react";
+import { subDays } from "date-fns";
 
 const today = new Date();
 
@@ -129,6 +130,7 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
                   onFocus={() => setIsCalendarOpenTwo(true)}
                   onBlur={() => setTimeout(() => setIsCalendarOpenTwo(false), 100)}
                   open={isCalendarOpenTwo}
+                  minDate={subDays(new Date(), -1)}
                   showDisabledMonthNavigation
                   placeholderText="mm/dd/yyyy"
                   monthsShown={2}

@@ -104,6 +104,29 @@ const Signup = () => {
   return (
     <>
       <form>
+      <div className={styles.auth_dialouge__form_field}>
+          <label htmlFor='phone'>
+            Phone Number
+            <input
+              type='text'
+              id='phone'
+              name='phone'
+              onChange={phoneChangeHandler}
+              onFocus={phoneFocusHandler}
+              value={phone}
+              placeholder={"Type Your Phon Number"}
+              onBlur={phoneOnBluer}
+            />
+            <div className={styles['mobile-icon']}>
+              <i className="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <small>{phoneError ? 'Phone number is empty' : ' '}</small>
+            <small>{isExist ? 'Phone Number Already Exist' : ' '}</small>
+          </label>
+        </div>
+        <div className={styles.auth_dialouge__error}>
+          <p>{error ? error : ''}</p>
+        </div>
         <div className={styles.auth_dialouge__form_field}>
           <label htmlFor='fname'>
            First Name
@@ -142,29 +165,7 @@ const Signup = () => {
             </small>
           </label>
         </div>
-        <div className={styles.auth_dialouge__form_field}>
-          <label htmlFor='phone'>
-            Phone Number
-            <input
-              type='text'
-              id='phone'
-              name='phone'
-              onChange={phoneChangeHandler}
-              onFocus={phoneFocusHandler}
-              value={phone}
-              placeholder={"Type Your Phon Number"}
-              onBlur={phoneOnBluer}
-            />
-            <div className={styles['mobile-icon']}>
-              <i className="fa fa-user" aria-hidden="true"></i>
-            </div>
-            <small>{phoneError ? 'Phone number is empty' : ' '}</small>
-            <small>{isExist ? 'Phone Number Already Exist' : ' '}</small>
-          </label>
-        </div>
-        <div className={styles.auth_dialouge__error}>
-          <p>{error ? error : ''}</p>
-        </div>
+
         <div className={styles.auth_dialouge__actions}>
           <div>
             <p className={styles.signUp}>

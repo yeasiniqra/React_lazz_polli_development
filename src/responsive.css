@@ -1147,6 +1147,9 @@
     .react-datepicker {
         width: 63%;
     }
+    .custom-input-resort.input-append .react-datepicker {
+        width: 100%;
+    }
     .book_table_item span {
         font-size: 14px;
     }

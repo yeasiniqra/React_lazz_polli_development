@@ -1821,8 +1821,8 @@ p.site ul.footer-links li a:before {
   background: #2b2a2a;
   padding: 5px 0px;
   overflow: hidden;
-  position: relative;
-  z-index: 2;
+  /* position: relative;
+  z-index: 2; */
 }
 
 .footer-top-flex {
@@ -2748,7 +2748,7 @@ span.cl-night {
   display: block;
   font-weight: 500;
   font-size: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 select {
@@ -2768,7 +2768,7 @@ select {
   height: 40px;
   line-height: 40px;
   padding-left: 10px;
-  color: #a0a0a0;
+  color: #0e0a0a;
   background: #fff;
 }
 
@@ -3036,9 +3036,9 @@ select {
   background: var(--secundery-color);
 }
 
-.custom-input-resort {
+/* .custom-input-resort {
   position: relative;
-}
+} */
 
 .custom-input-resort.input-append button {
   top: 24px;
@@ -4181,7 +4181,7 @@ textarea:focus {
   box-shadow: 0 0 25px -5px #9e9c9e;
   margin: 15px 0px;
   border-radius: 5px;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
 }
 
@@ -4232,13 +4232,14 @@ button.sign-out {
   justify-content: space-between;
   padding: 15px 10px;
   margin: 0px 20px;
+  text-align: center;
 }
 
 .order-history-header span {
   font-weight: 700;
   text-transform: capitalize;
   color: #212121;
-  flex: 0 0 11%;
+  flex: 0 0 10%;
 }
 
 .order-history-body {
@@ -4248,10 +4249,11 @@ button.sign-out {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   margin: 0px 20px;
+  text-align: center;
 }
 
 .order-history-body small {
-  flex: 0 0 11%;
+  flex: 0 0 10%;
   font-weight: 500;
   font-size: 14px;
   color: #212121;
@@ -4505,6 +4507,7 @@ tr.grand-total {
 
 .order-invoice-ea .table thead th {
   vertical-align: bottom;
+  text-align: center;
 }
 
 .order-invoice-ea .table-bordered th,
@@ -4570,8 +4573,11 @@ tr.grand-total {
 }
 
 .order-invoice-ea .table.table-bordered.small-table-sum {
-  flex: 0 0 391px;
+  flex: 0 0 386px;
   margin-top: 25px;
+}
+td.SubTotal-tab > span {
+  margin-left: 5px;
 }
 
 table.table.table-bordered.small-table-sum>tbody {
@@ -4617,6 +4623,7 @@ table.table.table-bordered>tbody {
 
 table.table.table-bordered>tbody>tr.tr-border {
   border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
 .phone-verifaction-sec {
@@ -5226,6 +5233,7 @@ small.dateTimes {
 }
 .privacy-main > h2 {
   padding-bottom: 15px;
+  font-size: 25px;
 }
 
 .privacy-main > ul li i {
@@ -5240,6 +5248,7 @@ small.dateTimes {
   font-weight: 500;
   padding: 15px 0px;
   display: block;
+  color: #463a3a;
 }
 
 p.pt-15 {
@@ -5402,5 +5411,17 @@ p.pt-15 {
       -webkit-transform: scale(1);
       transform: scale(1);
   }
+}
+
+
+p.trams-condition > label {
+  display: flex;
+}
+.trams-condition-flex > a {
+  margin: 0px 3px;
+}
+
+.privacy-main.pt-15 {
+  padding-top: 30px;
 }
 

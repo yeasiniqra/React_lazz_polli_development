@@ -7,6 +7,7 @@ import { countries } from "../../../../data/countries";
 import AutoComplete from "../../../Sheared/AutoComplete/AutoComplete";
 import Input from "../../../Sheared/Input/Input";
 import Textarea from "../../../Sheared/Textarea/Textarea";
+import DatePicker from 'react-datepicker';
 import { 
   GET_USER_PROFILE,
   POST_ROOM_BOOKING,
@@ -18,6 +19,8 @@ import cartContext from "../../../../store/cart-context";
 import { useRef } from "react";
 import { toast } from "react-toastify";
 import Suspense from "../../../Sheared/Suspense/Suspense";
+import DatePickerHeader from "../../../Sheared/SharedDate/DatePickerHeader";
+import { humanizeDate } from "../../../../lib/utils";
 
 const NewCustomarInfo = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,15 +36,7 @@ const NewCustomarInfo = () => {
     setIsChecked(event.target.checked);
   };
 
-  const formatDate = (date) => {
-    const passedDate = new Date(date);
-    const year = passedDate.getFullYear();
-    let month = (1 + passedDate.getMonth()).toString();
-    month = month.length > 1 ? month : "0" + month;
-    let day = passedDate.getDate().toString();
-    day = day.length > 1 ? day : "0" + day;
-    return `${year}-${month}-${day}`;
-  };
+ 
 
   //form validations State
   const [FirstName, setFname] = useState("");
@@ -55,12 +50,24 @@ const NewCustomarInfo = () => {
   const [address, setAddress] = useState("");
   const [idNum, setIdNum] = useState("");
   const [country, setCountry] = useState({ name: "Bangladesh", code: "BD" });
-  const [expDate, setExpDate] = useState("");
-  const [dob, setDob] = useState("");
+  const [dob, setDob] = useState(new Date());
+  const [expDate, setExpDate] = useState(new Date());
   const [identity, setIdentity] = useState({});
   const [gender, setGender] = useState({});
   const [paymentPercent, setPaymentPercent] = useState("100%");
 
+
+
+  // const formatDate = (date) => {
+  //   const passedDate = new Date(date);
+  //   const year = passedDate.getFullYear();
+  //   let month = (1 + passedDate.getMonth()).toString();
+  //   month = month.length > 1 ? month : "0" + month;
+  //   let day = passedDate.getDate().toString();
+  //   day = day.length > 1 ? day : "0" + day;
+  //   return `${year}-${month}-${day}`;
+  // };
+  
 
   const handleClicekd = (percent) => {
     setPaymentPercent(percent);
@@ -135,8 +142,9 @@ const NewCustomarInfo = () => {
             id: data.Data.IdentityType,
           });
           setIdNum(data.Data.IdentityNumber);
-          setExpDate(data.Data.IdentityExpireDate);
-          setDob(data.Data.DateOfBirth);
+          setExpDate(data.Data.IdentityExpireDate ?? new Date());
+          setDob(data.Data.DateOfBirth ?? new Date());
+
         } else {
           alert("Error");
         }
@@ -173,8 +181,8 @@ const NewCustomarInfo = () => {
             id: data.Data.IdentityType,
           });
           setIdNum(data.Data.IdentityNumber);
-          setExpDate(data.Data.IdentityExpireDate);
-          setDob(data.Data.DateOfBirth);
+          setExpDate(data.Data.IdentityExpireDate ? data.Data.IdentityExpireDate : new Date());
+          setDob(data.Data.DateOfBirth ? data.Data.DateOfBirth : new Date());
         } else {
           console.log(data);
           alert("Error");
@@ -461,28 +469,24 @@ const NewCustomarInfo = () => {
                     />
                   </div>
                   <div className="custom-input-resort input-append ">
-                    <Input
-                      label={"Expiry Date"}
+                  <label>Date of Expiry *</label>
+                    <DatePicker
+                      renderCustomHeader={DatePickerHeader}
                       onChange={expDateChangeHandler}
-                      value={formatDate(expDate)}
-                      required
-                      type={"date"}
+                      // dateFormat="yyyy-MM-dd"
+                      placeholderText="dd-MM-yyyy"
+                      value={humanizeDate(expDate) ? humanizeDate(expDate) : null }
                     />
-                    <button className="add-on" type="button">
-                      <i className="fa fa-calendar" aria-hidden="true"></i>
-                    </button>
                   </div>
                   <div className="custom-input-resort input-append ">
-                    <Input
-                      label={"Date of Birth"}
+                    <label>Date of Birth *</label>
+                    <DatePicker
+                      renderCustomHeader={DatePickerHeader}
                       onChange={dobChangeHandler}
-                      value={formatDate(dob)}
-                      required
-                      type={"date"}
+                      // dateFormat="yyyy-MM-dd"
+                      placeholderText="dd-MM-yyyy"
+                      value={humanizeDate(dob) ? humanizeDate(dob) : null }
                     />
-                    <button className="add-on" type="button">
-                      <i className="fa fa-calendar" aria-hidden="true"></i>
-                    </button>
                   </div>
                 </div>
                 <div className="paymet-radio-btn">
@@ -527,9 +531,18 @@ const NewCustomarInfo = () => {
                         defaultChecked={isChecked}
                       />
                       I agree with{" "}
-                      <Link to="/termsconditions" target="_blank">
-                        Terms and Conditions
-                      </Link>
+                      <div className="trams-condition-flex">
+                        <Link to="/termsconditions" target="_blank">
+                          Terms and Conditions,
+                        </Link>
+                        <Link to="/privacypolicy" target="_blank">
+                          Privacy Policy,
+                        </Link>
+                        <Link to="/refund" target="_blank">
+                         Refund Policy
+                        </Link>
+                      </div>
+                      
                     </label>
                   </p>
                   <div

@@ -25,8 +25,10 @@ export const printInvoice = (data) => {
 }
 
 const generateHTML = (data) => {
-    const newTax = data.Amount * 0.15;
+    // const newTax = data.Amount * 0.15;
     const PayableAmount = data.PayableAmount;
+
+    const dueCount = data.PayableAmount - data.Paid
     
     return `
     <!DOCTYPE html>
@@ -182,9 +184,20 @@ const generateHTML = (data) => {
           border-collapse: collapse;
           border: 1px solid rgba(0, 0, 0, 0.25);
           text-align: left;
+          flex: 0 0 356px;
+        }
+        td#coupon-discount {
+            text-align: end;
+        }
+        strong#order-value {
+            display: block;
+            text-align: end;
+        }
+        td#sub-total {
+            text-align: end;
         }
         .invoice__bottom table td {
-          padding: 0.25rem 2rem;
+          padding: 5px;
         }
         .cross {
           text-decoration: line-through;
@@ -237,10 +250,8 @@ const generateHTML = (data) => {
                   <th style="text-align: left">Room / House</th>
                   <th class="right">Check In</th>
                   <th class="center">Check Out</th>
-                  <th class="right">Pax Details</th>
+                  <th class="right">Quantity</th>
                   <th class="right">Amount</th>
-                  <th class="right">Due</th>
-                  <th class="right">Paid</th>
                 </tr>
               </thead>
               <tbody>
@@ -268,8 +279,17 @@ const generateHTML = (data) => {
                   </tr>
                   <tr>
                     <td>Incl.Tax</td>
-                    <td id="coupon-discount">${newTax}</td>
-                  </tr>`
+                    <td id="coupon-discount">${data.Tax}</td>
+                  </tr>
+                  <tr>
+                    <td>Due</td>
+                    <td id="coupon-discount">${dueCount}</td>
+                  </tr>
+                  <tr>
+                    <td>Paid Amount</td>
+                    <td id="coupon-discount">${data.Paid}</td>
+                  </tr>
+                  `
                   :
                   ''
                 }
