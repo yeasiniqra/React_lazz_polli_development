@@ -545,14 +545,14 @@ const NewCustomarInfo = () => {
                       
                     </label>
                   </p>
-                  <div
+                  {/* <div
                     onClick={submitHandler}
                     className="book_table_item dtl-btn"
                   >
                     <button type="button" disabled={!isChecked}>
                       Submit
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </form>

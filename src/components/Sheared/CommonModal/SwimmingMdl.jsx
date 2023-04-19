@@ -332,7 +332,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
           </div>
-          <div className='common-modal-action'>
+          {/* <div className='common-modal-action'>
             <button
               className='common-modal-submit'
               onClick={conventionHandler}
@@ -340,7 +340,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
             >
               Submit
             </button>
-          </div>
+          </div> */}
           {isLoading && <Suspense />}
         </form>
         </div>
