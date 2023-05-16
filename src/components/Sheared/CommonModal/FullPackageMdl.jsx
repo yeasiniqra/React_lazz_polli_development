@@ -64,17 +64,24 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
   };
 
   const conventionHandler = (e) => {
-    setIsLoading(true)
+  
     e.preventDefault();
     let isValid = true;
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    
+    if (endDateObj.getTime() < startDateObj.getTime()) {
+      alert('End date  should be greater than start date ');
+      return;
+    }
+
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
+      return
     }
-    if (remark.length === 0) {
-      setRemarkError(true);
-      isValid = false;
-    }
+
+    setIsLoading(true)
     const payload = {
       FromTime: startDate,
       ToTime: endDate,
@@ -83,16 +90,19 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
       Person : adults,
       Remarks: remark,
     }
-    postV2({url: POST_FULL_RESORT_BOOKING, payload})
+    postV2({url: POST_FULL_RESORT_BOOKING, payload, onError:(response)=>{
+      toast.warning(response.Msg);
+    }})
     .then(data => {
       if(data.IsError){
-        toast.warning(data.Msg);
+        console.log(data.Msg)
       } else {
         toast.success(`Your submission has been received. Our agent will call
          your number to reconfirm.`, {className: "login-popup-x"});
       }
     }).catch(err => {
-      toast.warning(err?.toString());
+      // toast.warning(err?.toString());
+      console.log(err)
     }).finally(() => {
       setIsLoading(true)
       setPackage(null)
@@ -121,9 +131,7 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
                   selected={startDate}
                   onChange={startDateChangeHandler}
                   onFocus={starDateFocusHandler}
-                  timeInputLabel="Time:"
-                  dateFormat="MM/dd/yyyy h:mm aa"
-                  showTimeInput
+                  dateFormat="MM/dd/yyyy"
                   minDate={new Date()}
                   showDisabledMonthNavigation
                 />
@@ -139,9 +147,7 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
                   selected={endDate}
                   onChange={endDateChangeHandler}
                   onFocus={endDateFocusHandler}
-                  timeInputLabel="Time:"
-                  dateFormat="MM/dd/yyyy h:mm aa"
-                  showTimeInput
+                  dateFormat="MM/dd/yyyy"
                   minDate={new Date()}
                   showDisabledMonthNavigation
                 />
@@ -208,12 +214,11 @@ const FullPackageMdl = ({ fullpackage, setPackage }) => {
                 value={remark}
                 placeholder={"Type Your remark"}
               />
-              <small>{remarkError ? "Remark is empty" : " "}</small>
             </label>
           </div>
-          <div className='common-modal-error'>
+          {/* <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
-          </div>
+          </div> */}
           <div className='common-modal-action'>
             <button
               className='common-modal-submit'

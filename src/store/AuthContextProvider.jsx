@@ -18,6 +18,7 @@ import {  GET_USER_PROFILE } from "../lib/endpoints";
 import authService from "../services/auth-service";
 import { getV2 } from "../services/http-service-v2";
 import authContext from "./auth-context";
+import { toast } from "react-toastify";
 
 const initialState = {
   isAuthenticating: true,
@@ -218,7 +219,9 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      getV2({ url: GET_USER_PROFILE, payload: {} })
+      getV2({ url: GET_USER_PROFILE, payload: {},onError:(response)=>{
+        toast.warning(response.Msg);
+      } })
         .then((data) => {
           if (data.IsError) {
             logout();

@@ -8,7 +8,7 @@ const HeaderTop = () => {
                 <div className="header-top-left">
                     <ul className="d-flex al-center">
                         <li>
-                            <a href='tel:01521-561151'><i className="fa fa-volume-control-phone" aria-hidden="true"></i><span className="ex-number">+88 01521-561151</span></a>
+                            <a href='tel:01810136609'><i className="fa fa-volume-control-phone" aria-hidden="true"></i><span className="ex-number">+88 01810136609</span></a>
                         </li>
                         <li>
                             <a href='mailto:lazzpolli1@gmail.com'><i className="fa fa-envelope-o" aria-hidden="true"></i>lazzpolli1@gmail.com</a>

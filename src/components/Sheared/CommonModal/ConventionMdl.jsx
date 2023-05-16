@@ -65,18 +65,25 @@ const ConventionMdl = ({ conventions, setConventions }) => {
 
 
   const conventionHandler = (e) => {
-    setIsLoading(true)
+  
     e.preventDefault();
     let isValid = true;
+
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    
+    if (endDateObj.getTime() < startDateObj.getTime()) {
+      alert('End date  should be greater than start date ');
+      return;
+    }
+    
 
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
+      return
     }
-    if (remark.length === 0) {
-      setRemarkError(true);
-      isValid = false;
-    }
+    setIsLoading(true)
 
     const payload = {
       StartingAt: startDate,
@@ -88,16 +95,19 @@ const ConventionMdl = ({ conventions, setConventions }) => {
       remark: remark,
     }
 
-    postV2({url: POST_CONVENTION_BOOKING, payload})
+    postV2({url: POST_CONVENTION_BOOKING, payload, onError:(response)=>{
+      toast.warning(response.Msg);
+    }})
     .then(data => {
       if(data.IsError){
-        toast.warning(data.Msg);
+        console.log(data.Msg)
       } else {
         toast.success(`Your submission has been received. Our agent will call
          your number to reconfirm.`, {className: "login-popup-x"});
       }
     }).catch(err => {
-      toast.warning(err?.toString());
+      // toast.warning(err?.toString());
+      console.log(err)
     }).finally(() => {
       setIsLoading(true)
       setConventions(null) 
@@ -212,12 +222,11 @@ const ConventionMdl = ({ conventions, setConventions }) => {
                 value={remark}
                 placeholder={"Type Your remark"}
               />
-              <small>{remarkError ? "Remark is empty" : " "}</small>
             </label>
           </div>
-          <div className='common-modal-error'>
+          {/* <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
-          </div>
+          </div> */}
           <div className='common-modal-action'>
             <button
               className='common-modal-submit'

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import authContext from '../../store/auth-context';
 import Loader from '../Loader/Loader';
 
@@ -16,6 +16,12 @@ import Loader from '../Loader/Loader';
 const SuccessStatus = () => {
     const { isAuthenticating, isAuthenticated } = useContext(authContext);
     const { search } = useLocation();
+    const navigate = useNavigate();
+
+    
+    const viewOrderClickHandler = () => {
+        navigate('/profile/order')
+    }
 
     const [params, setParams] = useState({
         Code: null,
@@ -68,6 +74,50 @@ const SuccessStatus = () => {
                     {/* {params.transaction === 'CANCELLED' && (
                         <small>Transaction Cancelled!</small>
                     )} */}
+
+                    {/* new code include here */}
+                    {params.transaction === 'SUCCESS' && (
+                        !!params.payment && !isAuthenticating && (
+                            <p className='text-center text-bold py-2 text-primary'>
+                            Your transaction succeeded
+                            </p>
+                        )
+                        )}
+                        {params.transaction === 'FAILED' && (
+                        !!params.payment && !isAuthenticating && (
+                            <p className='text-center text-semibold py-2 text-warn'>
+                            Transaction failed. Check your information in{' '}
+                            <span
+                                className='text-primary text-underline cursor-pointer'
+                                onClick={viewOrderClickHandler}
+                            >
+                                Order Detail Page
+                            </span>
+                            . <br />
+                            If required, call our customer service:{' '}
+                            <a
+                                href='tel:01810136609'
+                                className='text-primary text-underline cursor-pointer'
+                            >
+                                01810136609
+                            </a>
+                            </p>
+                        )
+                        )}
+                        {params.transaction === 'CANCELLED' && (
+                        !!params.payment && !isAuthenticating && (
+                            <p className='text-center text-semibold py-2'>
+                            Transaction cancelled. You can make payment later by calling our customer service{' '}
+                            <a
+                                href='tel:01810136609'
+                                className='text-primary text-underline cursor-pointer'
+                            >
+                                01810136609
+                            </a>
+                            </p>
+                        )
+                        )}
+                    {/* new code include here */}
                    
                     <div className="succes-btn">
                       <div className="common-btn">

@@ -12,10 +12,12 @@ import { getV2 } from "../../../services/http-service-v2";
 import { GET_SEARCH_BOOKING_ROOM_ISAVAIBLE } from "../../../lib/endpoints";
 import { useRef } from "react";
 import { subDays } from "date-fns";
+import cartContext from "../../../store/cart-context";
 
 const today = new Date();
 const SearchRoomFilter = ({ setIsAvailble }) => {
   const { filters, storeFilters } = useContext(appContext);
+  const {clear} = useContext(cartContext)
   const [isLoading, setIsLoading] = useState(false);
   const mounted = useRef(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -74,11 +76,14 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
 
   const submitHandler = (c, a, ArrivalTime, DepartureTime) => {
     setIsLoading(true);
-    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999, 1, c, a, ArrivalTime, DepartureTime) })
+    getV2({ url: GET_SEARCH_BOOKING_ROOM_ISAVAIBLE(999, 1, c, a, ArrivalTime, DepartureTime),onError:(response)=>{
+      toast.warning(response.Msg);
+    } })
       .then((data) => {
         if (!data.IsError) {
           if (data.Data) {
             setIsAvailble(data.Data.Data);
+            // clear()
           } else {
             setIsAvailble([]);
             toast.warning(`the date you have selected is not Available. Please Change the Arrival Date and Departure Date.`);
@@ -90,8 +95,9 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
       })
       .catch((err) => {
         setIsAvailble([]);
-        toast.warning(`Incorrect Date Range!! Please Change the Arrival Date and Departure Date.`);
+        // toast.warning(`Incorrect Date Range!! Please Change the Arrival Date and Departure Date.`);
         // toast.warning(err?.toString());
+        console.log("filter Main:",err)
       })
       .finally(() => {
         setIsLoading(false);
@@ -125,7 +131,7 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
       style={{ backgroundImage: `url(${commonBg})` }}
     >
       <div className="container">
-        <div className="hotel-booking-search">
+        <div className="hotel-booking-search hotel-booking-search-parent">
           <form name="hb-search-form" action="">
             <div className="book_table_inner">
               <div className="book_table_item disable-input-append">
@@ -176,7 +182,7 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
                   </div>
                 </div>
               </div>
-              <div className="book_table_item">
+              {/* <div className="book_table_item">
                 <AutoComplete
                   dataset={[
                     { adults: 1, id: 1 },
@@ -214,10 +220,10 @@ const SearchRoomFilter = ({ setIsAvailble }) => {
                 />
               </div>
               <div className="book_table_item book_table_item_mobile">
-                <button onClick={submitHandler} type="button">
+                <button disabled onClick={submitHandler} type="button">
                   Check Availability
                 </button>
-              </div>
+              </div> */}
             </div>
           </form>
         </div>

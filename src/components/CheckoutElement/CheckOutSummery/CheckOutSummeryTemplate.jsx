@@ -8,6 +8,8 @@ const CheckOutSummeryTemplate = ({room, index,removeClickHandler, setDataCount }
 
     const diffTime = Math.abs(departureDate2 - arrivalDate1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    // console.log(room)
     return (
         <>
             <div className='summery-flexc'>
@@ -18,7 +20,7 @@ const CheckOutSummeryTemplate = ({room, index,removeClickHandler, setDataCount }
                 <div className="check-in-out">
                     <h6>Check-In</h6>
                     <small>{humanizeDate(room.arrivalDate)}</small>
-                    <h5>Stay</h5>
+                    
                 </div>
                 <div className="check-in-out">
                     <h6>Check-Out</h6>
@@ -27,15 +29,16 @@ const CheckOutSummeryTemplate = ({room, index,removeClickHandler, setDataCount }
             </div>
             <div className="super-flex-item">
                 <div className="spk-left">
-                    <h6>For {diffDays} Night</h6>
-                    <p><span>Name : </span>{room.Name}</p>
+                    <h6>Stay For {diffDays} Night</h6>
+                    <p><span>Name : </span><b>{room.Name}</b></p>
                     <p>
-                        {room.Type === 'ROOM' ? room.adultsCount * room.quantity || 0 : ''}
-                        {room.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
-                        {room.quantity} - 
-                        {room.Type === 'ROOM' ? 'Room -' : 'House'} 
-                        {room.Type === 'ROOM' ? room.childrenCount * room.quantity || 0 : ''}
+                        {room.Type === 'ROOM' ? room.AdultPerRoom * room.quantity : ''}
+                        {room.Type === 'ROOM' ? 'Adults -' : 'Full'}  
+                        {room.Type === 'ROOM' ? room.ChildrenPerRoom * room.quantity : ''} 
                         {room.Type === 'ROOM' ? 'Child' : ''}
+                        - {room.quantity}   
+                        {room.Type === 'ROOM' ? 'Room' : 'House'} 
+
                     </p>
                 </div>
             </div>

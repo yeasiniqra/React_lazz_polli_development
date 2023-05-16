@@ -24,14 +24,17 @@ const Invoice = () => {
 
   const handleGetInvoice = () => {
       setIsLoading(true)
-      getV2({ url: GET_INVOICE(Code) }).then((data) => {
+      getV2({ url: GET_INVOICE(Code),onError:(response)=>{
+        toast.warning(response.Msg);
+      } }).then((data) => {
           if (!data.IsError) {
             setInvoice(data.Data)
           } else {
             toast.warning(`${data.Msg}`);
           }
         }).catch(err => {
-          toast.warning(err?.toString());
+          // toast.warning(err?.toString());
+          console.log("Invoice err:", err)
         }).finally(() => {
           setIsLoading(false)
         });

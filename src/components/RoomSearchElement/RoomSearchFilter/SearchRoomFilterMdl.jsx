@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import Suspense from "../../Sheared/Suspense/Suspense";
 import { useEffect } from "react";
 import { subDays } from "date-fns";
+import { Link } from "react-router-dom";
 
 const today = new Date();
 
@@ -20,8 +21,9 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
   const [isCalendarOpenTwo, setIsCalendarOpenTwo] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(
-    new Date(new Date().setDate(today.getDate() + 1))
+    new Date(new Date().setDate(today.getDate() + 1)) 
   );
+
 
 
   const arrivalBlurHandler = (time, x) => {
@@ -42,24 +44,33 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
     );
   };
 
-
+  
   const submitHandler = (ArrivalTime, DepartureTime) => {
     setIsLoading(true);
-    getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(ArrivalTime, DepartureTime, 1, RoomId, Type) })
+    getV2({ url: GET_ROOM_BOOKING_ISAVAIBLE(ArrivalTime, DepartureTime, 1, RoomId, Type),onError:(response)=>{
+      toast.warning(response.Msg);
+    } })
       .then((data) => {
         if (!data.IsError) {
           setIsAvailble(data.Data);
           if (data.Data) {
             console.log(data.Msg);
           } else {
-            toast.warning(`the date  you have selected is not Available. Please Change the Arrival Date and Departure Date.`, {className: "filter-popup",});
+            toast.warning( <span>
+              The date you have selected is not available. Please change the arrival date and departure date. <Link className="checkAvbtn" to="/searchroom">Check Availability</Link>
+            </span>,
+            { 
+              className: "filter-popup",
+              autoClose: false
+            });
           }
         } else {
           toast.warning(`${data.Msg}`);
         }
       })
       .catch((err) => {
-        toast.warning(`Incorrect Date Range!! Please Change the Arrival Date and Departure Date.`);
+        // toast.warning(`Incorrect Date Range!! Please Change the Arrival Date and Departure Date.`);
+        console.log("room filter:", err)
       })
       .finally(() => {
         setIsLoading(false);
@@ -68,25 +79,25 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
      const errors = [];
       if (errors.length !== 0) {
         console.log(errors.join(", ") + " Are Required");
-        alert(`${errors.join(", ")} Are Required`);
+        // alert(`${errors.join(", ")} Are Required`);
         return false;
       }
   };
 
-  useEffect(() => {
-    if (!mounted.current) {
-      submitHandler(
-        new Date(startDate)?.toDateString(),
-        new Date(endDate)?.toDateString()
-      );
-      mounted.current = true;
-      storeFilters({
-        ...filters,
-        arrivalDate: startDate,
-        departureDate: endDate,
-      });
-    }
-  }, [mounted]);
+  // useEffect(() => {
+  //   if (!mounted.current) {
+  //     submitHandler(
+  //       new Date(startDate)?.toDateString(),
+  //       new Date(endDate)?.toDateString()
+  //     );
+  //     mounted.current = true;
+  //     storeFilters({
+  //       ...filters,
+  //       arrivalDate: startDate,
+  //       departureDate: endDate,
+  //     });
+  //   }
+  // }, [mounted]);
 
   
 

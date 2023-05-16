@@ -8,6 +8,7 @@ import { setHouses } from "../../../services/data-service";
 import { getV2 } from "../../../services/http-service-v2";
 import Suspense from "../../Sheared/Suspense/Suspense";
 import CottagesSuits from "./CottagesSuits";
+import { toast } from "react-toastify";
 
 const CottagesSuitsTemplate = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +17,9 @@ const CottagesSuitsTemplate = () => {
 
     const getHouses = useCallback(() => {
         setIsLoading(true);
-        getV2({ url: GET_HOUSE() }).then((data) => {
+        getV2({ url: GET_HOUSE(),onError:(response)=>{
+            toast.warning(response.Msg);
+          } }).then((data) => {
             if (!data.IsError) {
                 setRoom(data.Data.Data);
                 setHouses(data.Data.Data);

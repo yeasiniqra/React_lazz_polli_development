@@ -9,7 +9,7 @@ export const UPDATE_PASSWORD = "CustomerArea/Customer/UpdatePassword";
 export const GET_USER_INFO = 'AppUser';
 export const REGISTER = 'AppUser/Register';
 export const LOGIN = 'ManagedArea/Account/Login';
-export const GET_OTP = (phone, isForLogin = true) => `Message/OTP/${phone}?activityId=${window.Activity || '4271cd21-3fa3-44ba-afd2-c06676cdd4d5'}&otpFor=${isForLogin ? 'LOGIN' : 'REGISTRATION'}`; // REGISTRATION | LOGIN
+export const GET_OTP = (phone, isForLogin = true) => `Message/OTP/${phone}?activityId=${window.Activity || '67c01f96-6176-4ab5-b920-e6c732e118af'}&otpFor=${isForLogin ? 'LOGIN' : 'REGISTRATION'}`; // REGISTRATION | LOGIN
 export const GET_CUSTOMERIS_EXIST = "AppUser/isExist?phoneNumber=";
 
 

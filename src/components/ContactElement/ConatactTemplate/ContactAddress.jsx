@@ -14,7 +14,7 @@ const ContactAddress = () => {
           </li>
           <li>
             <i className="fa fa-volume-control-phone" aria-hidden="true"></i>
-            <a href="tel:01521-561151​">+88 01521-561151​</a>
+            <a href="tel:01810136609​">+88 01810136609​</a>
           </li>
           <li>
             <i className="fa fa-envelope-o" aria-hidden="true"></i>

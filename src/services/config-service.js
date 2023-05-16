@@ -1,16 +1,7 @@
 
 // Bse URL Service
-// export const CONFIG = {
-//     BASE_URL: 'https://client.lazzpolli.com',
-//     LOG_URL: 'https://client.lazzpolli.com',
-//     IMAGE_URL:'https://client.lazzpolli.com',
-// };
 
-export const CONFIG = {
-    BASE_URL: 'https://www.lazzpolli.com',
-    LOG_URL: 'https://www.lazzpolli.com',
-    IMAGE_URL:'https://www.lazzpolli.com',
-}; 
+export const CONFIG ={...window.appConfig};
 
 const init = () => {
     // const globalConfig = {...window.config}

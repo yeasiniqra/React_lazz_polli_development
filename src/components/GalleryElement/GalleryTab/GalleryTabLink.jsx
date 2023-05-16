@@ -9,6 +9,7 @@ import MudHouse from "./MudHouse";
 import RaniyaHouse from "./RaniyaHouse";
 import Suspense from "../../Sheared/Suspense/Suspense";
 import IchamotiHouse from "./IchamotiHouse";
+import { toast } from "react-toastify";
 
 const GalleryTabLink = () => {
     const [galleryImage, setGalleryImage] = useState([]);
@@ -24,15 +25,18 @@ const GalleryTabLink = () => {
 
     const getGalleryImages = useCallback(() => {
         setIsLoading(true)
-        getV2({url: GET_GALLERY(40,1)})
+        getV2({url: GET_GALLERY(40,1),onError:(response)=>{
+          toast.warning(response.Msg);
+        }})
         .then(data => {
           if(!data.IsError){
             setGalleryImage(data.Data);
             setIsLoading(false)
           } else {
-           alert('Error')
+          //  alert('Error')
           }
         }).catch(error => {
+          console.log("gallery", error)
         });
       }, []);
     

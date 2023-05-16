@@ -152,7 +152,7 @@
         overflow: auto;
     }
     .order-history {
-        width: 165%;
+        width: 190%;
     }
 
     div#page {
@@ -506,6 +506,7 @@
     }
 
 
+
 }
 
 @media all and (max-width: 767px) {
@@ -793,7 +794,7 @@
         flex: 0 0 auto;
     }
     .order-history {
-        width: 210%;
+        width: 265%;
     }
 
     .profile-nav-inner > ul > li > a {
@@ -1216,6 +1217,12 @@
         width: 70%;
     }
 
+    .hotel-booking-search-parent .book_table_item {
+        flex: 0 0 100%;
+    }
+    .hotel-booking-search-parent .book_table_inner {
+        padding: 20px 20px;
+    }
     
 
 }
@@ -1261,7 +1268,7 @@
         height: 58px;
     }
     .order-history {
-        width: 235%;
+        width: 300%;
     }
     figure.effect-layla p {
         width: 72%;
@@ -1333,7 +1340,7 @@
         font-size: 14px;
     }
     .order-history {
-        width: 285%;
+        width: 360%;
     }
     div#page {
         width: 205%;

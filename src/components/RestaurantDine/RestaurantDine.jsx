@@ -4,6 +4,7 @@ import { getResortDine } from "../../services/data-service";
 import PageHeader from "../PageHeader/PageHeader";
 import RestaurantDineTemplate from "./RestaurantDineTemplate";
 
+
 const RestaurantDine = () => {
   const getDine = getResortDine();
 

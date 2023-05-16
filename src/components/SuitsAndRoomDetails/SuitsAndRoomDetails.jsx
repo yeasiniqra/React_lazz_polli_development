@@ -9,6 +9,7 @@ import { GET_SINGLE_HOUSES } from "../../lib/endpoints";
 import { getV2 } from "../../services/http-service-v2";
 import { useRef } from "react";
 import Suspense from "../Sheared/Suspense/Suspense";
+import { toast } from "react-toastify";
 
 const SuitsAndRoomDetails = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -19,10 +20,13 @@ const SuitsAndRoomDetails = () => {
 
     const getHousess = useCallback(() => {
         setIsLoading(true);
-        getV2({ url: GET_SINGLE_HOUSES(Id) }).then((data) => {
+        getV2({ url: GET_SINGLE_HOUSES(Id),onError:(response)=>{
+            toast.warning(response.Msg);
+          } }).then((data) => {
             if (!data.IsError) {
                 if (data.Data === null) {
-                    alert("");
+                    // alert("");
+                    console.log("room suits data Null")
                 }
                 setRoomSingle(data.Data);
                 setIsLoading(false);

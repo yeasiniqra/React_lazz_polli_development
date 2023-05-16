@@ -46,7 +46,9 @@ const Review = ({room}) => {
 
   const getRoomReview = useCallback(() => {
     setIsLoading(true)
-    getV2({url: GET_REVIEW(Id,500,page)})
+    getV2({url: GET_REVIEW(Id,500,page),onError:(response)=>{
+      toast.warning(response.Msg);
+    }})
     .then(data => {
       if(!data.IsError){
         setRoomreview(data.Data.data);
@@ -54,9 +56,10 @@ const Review = ({room}) => {
         setPage(1)
         setIsLoading(false)
       } else {
-       alert('Error')
+      //  alert('Error')
       }
     }).catch(error => {
+      console.log("Review", error)
     });
   }, []);
 
@@ -76,17 +79,19 @@ const Review = ({room}) => {
       Text: review,
     }
 
-    postV2({url: POST_REVIEW, payload})
+    postV2({url: POST_REVIEW, payload,onError:(response)=>{
+      toast.warning(response.Msg);
+    }})
     .then(data => {
       if(data.IsError){
-        toast.warning(data.Msg);
+        console.log(data.Msg)
       } else { 
         getRoomReview();
         setReview("")
         setClicked(false);
       }
     }).catch(err => {
-      toast.warning(err?.toString());
+      console.log(err)
     }).finally(() => {
       setIsLoading(false)
     })
@@ -94,14 +99,17 @@ const Review = ({room}) => {
   };
 
   const handleDelete = (Id) => {
-    getV2({url: GET_DELETE_REVIEW(Id)})
+    getV2({url: GET_DELETE_REVIEW(Id),onError:(response)=>{
+      toast.warning(response.Msg);
+    }})
     .then(data => {
       if(!data.IsError){
         getRoomReview();
       } else {
-       alert('Error')
+      //  alert('Error')
       }
     }).catch(error => {
+      console.log(error)
     });
   }
 

@@ -6,6 +6,7 @@ import { GET_CUSTOMERIS_EXIST, GET_OTP } from '../../lib/endpoints';
 import { getV2 } from '../../services/http-service-v2';
 import authContext from '../../store/auth-context';
 import styles from '../Auth.module.css';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const {  open, login: loginCtx, storeSignupData } = useContext(authContext);
@@ -30,17 +31,21 @@ const Login = () => {
       return;
     } 
     // check if user is registered
-    getV2({ url: GET_CUSTOMERIS_EXIST+ phone }).then((data) => {
+    getV2({ url: GET_CUSTOMERIS_EXIST+ phone,onError:(response)=>{
+      toast.warning(response.Msg);
+    } }).then((data) => {
       if (!data.IsError) {
         if (data.Data) { // user is registered
           // request OTP
-          getV2({ url: GET_OTP(phone) }).then((data) => {
+          getV2({ url: GET_OTP(phone),onError:(response)=>{
+            toast.warning(response.Msg);
+          } }).then((data) => {
             if (!data.IsError) {
               storeSignupData({ phoneNumber: phone, messageId : data.Id, otp : ''});
               console.log(data)
               open('OTP_LOGIN');
             } else {
-              console.log(data);
+              console.log(data.Msg);
               setError('inside err', data.Msg);
             }
           });
@@ -51,6 +56,7 @@ const Login = () => {
       } else {
         console.log(data);
         setError('Error occured while checking registration', data.Msg);
+        setIsLoading(false)
       }
     });
   };
@@ -100,9 +106,10 @@ const Login = () => {
             </p>
           </div>
         </div>
-
-        <button className={styles.LogInBtn} label={'Login'} onClick={requestOTP} type={'button'} >Login</button>
-        {isLoading && <SmallLoder />}
+        <div className="login-btn-small">
+          <button className={styles.LogInBtn} label={'Login'} onClick={requestOTP} type={'button'} >Login</button>
+          {isLoading && <SmallLoder />}
+        </div>
       </form>
      
     </>

@@ -32,7 +32,15 @@ const SearchCard = ({ item }) => {
     storeRoom({ ...item, ...filters });
   };
 
+ 
+
   const typeWiseName = item.Type === "HOUSE" ? `Entire - ${item.Name}` : `Single Room From - ${item.Name}`
+
+  const hrDisable = rooms.find(a => a.Id === item.Id);
+  const hrDisableX = rooms.some(room => (
+    room.arrivalDate === filters.arrivalDate && 
+    room.departureDate === filters.departureDate
+  ));
 
   useEffect(() => {
     if (!isInitiating) {
@@ -107,12 +115,12 @@ const SearchCard = ({ item }) => {
           <>
             <div className="common-btn book-search-btn">
               {!!!count && (
-                <button onClick={addToCart} className="searchBtn" disabled={(isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice) || (item.Available < 0 )}>
-                  {((isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice)) ? "Not Available" : "Book Single Room"}
+                <button onClick={addToCart} className="searchBtn" disabled={(isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice) || (item.Available < 0 ) || hrDisable }>
+                  {((isHouseAdded(item.Id, filters.arrivalDate, filters.departureDate)) || (item.Name === "Double Dom (Private Suite)" && item.RoomPrice) || (item.Name === "Mud House" && item.RoomPrice) || hrDisable ) ? "Not Available" : "Book Single Room"}
                 </button>
               )}
               {!!count && (
-                <div className={`add-tocart-overlay show`}>
+                <fieldset disabled={!hrDisableX} className={`add-tocart-overlay overlay-disable show`}>
                   <div className="inner-card-flex">
                     <div className="qty-holder2">
                       <span
@@ -140,7 +148,7 @@ const SearchCard = ({ item }) => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </fieldset>
               )}
             </div>
           </>
@@ -149,9 +157,9 @@ const SearchCard = ({ item }) => {
             <button
               onClick={addToCart}
               className="searchBtn"
-              disabled={isRoomAdded(item.Id, filters.arrivalDate, filters.departureDate) && item.Type === "HOUSE"}
+              disabled={(isRoomAdded(item.Id, filters.arrivalDate, filters.departureDate) && item.Type === "HOUSE") || hrDisable}
             >
-              Book Entire House
+              {((isRoomAdded(item.Id, filters.arrivalDate, filters.departureDate) && item.Type === "HOUSE") || hrDisable) ? "Not Available" : " Book Entire House"}
             </button>
           </div>
         )}

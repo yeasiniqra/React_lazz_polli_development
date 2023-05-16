@@ -37,7 +37,7 @@ const SocialGroup = () => {
             </a>
           </li>
           <li className="list-group-item">
-            <a className="phnCall nav-link" href="tel:8801521561151">
+            <a className="phnCall nav-link" href="tel:8801810136609">
               <img src={telPhone} alt="online booking system" />
             </a>
           </li>

@@ -18,33 +18,33 @@ const CareerContentTemplate = () => {
 
   const {title, subTitle} = careerContent;
 
-  const handleChange = (event) => {
-    setFile(event.target.files[0])
-  }
+  // const handleChange = (event) => {
+  //   setFile(event.target.files[0])
+  // }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    setIsLoading(true)
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   setIsLoading(true)
 
-    const formData = new FormData()
-    formData.append('file', file)
-    formData.append('fileName', file.name)
+  //   const formData = new FormData()
+  //   formData.append('file', file)
+  //   formData.append('fileName', file.name)
 
-    http.file({ url: POST_RESUME, payload: formData })
-      .then(data => {
-        if(data.IsError) {
-          toast.warning(data.Msg)
-        } else {
-          toast.success('Message Sent')
-        }
-      })
-      .catch(err => {
-        toast.warning(err?.toString())
-      })
-      .finally(() => {
-        setIsLoading(false)
-      })
-  }
+  //   http.file({ url: POST_RESUME, payload: formData })
+  //     .then(data => {
+  //       if(data.IsError) {
+  //         toast.warning(data.Msg)
+  //       } else {
+  //         toast.success('Message Sent')
+  //       }
+  //     })
+  //     .catch(err => {
+  //       toast.warning(err?.toString())
+  //     })
+  //     .finally(() => {
+  //       setIsLoading(false)
+  //     })
+  // }
 
   return (
     <div>
@@ -55,9 +55,9 @@ const CareerContentTemplate = () => {
               <h3>{title}</h3>
               <span>{subTitle}</span>
               <div className="career-form">
-                <form onSubmit={handleSubmit} id="resume-form" encType="multipart/form-data">
+                <form id="resume-form" encType="multipart/form-data">
                   <div className="custom-inputs">
-                    <input name='file' onChange={handleChange} type="file" />
+                    <input name='file' type="file" />
                     <button type="submit">
                       Send
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>

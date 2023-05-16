@@ -1,9 +1,10 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { POST_CONTACT } from "../../../lib/endpoints";
 import { postV2 } from "../../../services/http-service-v2";
 import Suspense from "../../Sheared/Suspense/Suspense";
+
 
 const ContactForm = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -12,28 +13,20 @@ const ContactForm = () => {
     }
 
     //set button state
-    const [clicked, setClicked] = useState(false);
+
     //set name state
     const [name, setName] = useState("");
-    const [nameIsTouched, setNameIsTouched] = useState(false);
-    const [nameIsValid, setNameIsValid] = useState(false);
     //set Email state
     const [email, setEmail] = useState("");
     //set phone state
     const [phone, setPhone] = useState("");
-    const [phoneIsTouched, setPhoneIsTouched] = useState(false);
-    const [phoneIsValid, setPhoneIsValid] = useState(false);
     //message State
     const [message, setMessage] = useState("");
-    const [messageIsTouched, setMessageIsTouched] = useState(false);
-    const [messageIsValid, setMessageIsValid] = useState(false);
+
 
     //Name Funcction
     const nameOnChangeHandler = ({ target }) => {
         setName(target.value);
-    };
-    const nameTouchedHandler = () => {
-        setNameIsTouched(true);
     };
     //email functions
     const emailOnChangeHandler = ({ target }) => {
@@ -44,77 +37,48 @@ const ContactForm = () => {
     const phoneOnChangeHandler = ({ target }) => {
         setPhone(target.value);
     };
-    const phoneTouchedHandler = () => {
-        setPhoneIsTouched(true);
-    };
 
     //Message Funcction
     const messageOnChangeHandler = ({ target }) => {
         setMessage(target.value);
     };
-    const messageTouchedHandler = () => {
-        setMessageIsTouched(true);
-    };
 
-    useEffect(() => {
-        if (clicked) {
-          if (
-            (messageIsTouched && message.length === 0) ||
-            (!messageIsTouched && message.length === 0)
-          ) {
-            setMessageIsValid(true);
-          } else setMessageIsValid(false);
-    
-          if (
-            (nameIsTouched && name.length === 0) ||
-            (!nameIsTouched && name.length === 0)
-          ) {
-            setNameIsValid(true);
-          } else setNameIsValid(false);
-    
-          if (
-            (phoneIsTouched && phone.length === 0) ||
-            (!phoneIsTouched && phone.length === 0)
-          ) {
-            setPhoneIsValid(true);
-          } else setPhoneIsValid(false);
+
+
+      const checkField = (fieldName) => {
+        if (!fieldName) {
+          return true;
         }
-      }, [
-        message.length,
-        messageIsTouched,
-        nameIsTouched,
-        name.length,
-        phone.length,
-        phoneIsTouched,
-        clicked,
-      ]);
+        return false;
+      };
+
 
       const sendOnClickedHandler = (evt) => {
-        setIsLoading(true)
-        setClicked(true);
+        
         evt.preventDefault();
 
-        if (name.length < 1 ) {
-          setNameIsValid(true);
-          setIsLoading(false)
-          return
+
+        let emptyFields = [];
+        if (checkField(name)) {
+          emptyFields.push(' Name');
         }
-        if (email.length < 1) {
-          alert("Email Cant Be Empty")
-          setIsLoading(false)
-          return
+        if (checkField(email)) {
+          emptyFields.push('Email');
         }
-        if (phone.length < 1 ) {
-          setPhoneIsValid(true);
-          setIsLoading(false)
-          return
+        if (checkField(phone)) {
+          emptyFields.push('phone');
         }
-        if (message.length < 1 ) {
-          setMessageIsValid(true);
-          setIsLoading(false)
-          return
+        if (checkField(message)) {
+          emptyFields.push('message');
+        }
+    
+        if (emptyFields.length > 0) {
+          const errorMessage = `${emptyFields.join(', ')} ${emptyFields.length > 1 ? 'are' : 'is'} required.`;
+          toast.warning(errorMessage);
+          return;
         }
 
+        setIsLoading(true)
         const payload = {
           Name : name,
           PhoneNumber : phone,
@@ -123,22 +87,26 @@ const ContactForm = () => {
           changeLog: ""
         }
 
-        postV2({url: POST_CONTACT, payload})
+        postV2({url: POST_CONTACT, payload, onError:(response)=>{
+          toast.warning(response.Msg);
+        }})
         .then(data => {
           if(!data.IsError){
-            setClicked(false);
             toast.success("message sent successfully 😊", {className: "login-popup-x"});
             setName("");
             setEmail("");
             setPhone("");
             setMessage("");
           } else {
-            toast.warning(data.Msg);
+            // toast.warning(data.Msg);
+            console.log(data.Msg)
           }
         }).catch(err => {
-          toast.warning(err?.toString());
+          // toast.warning(err?.toString());
+          console.log(err)
         }).finally(() => {
           setIsLoading(false)
+          
         })
     }
   
@@ -161,16 +129,9 @@ const ContactForm = () => {
                       data-binding="name"
                       placeholder="Name"
                       onChange={nameOnChangeHandler}
-                      onBlur={nameTouchedHandler}
                       value={name}
                     />
                   </div>
-                  {nameIsValid && (
-                  <div className="alert alert-error">Name is required.</div>
-                  )}
-                  {nameIsTouched && name.length === 0 && !nameIsValid && (
-                  <div className="alert alert-error newAlert">Name is required.</div>
-                  )}
                 </div>
                 <div className="custom-input">
                   <div className="custom-input">
@@ -197,15 +158,8 @@ const ContactForm = () => {
                   placeholder="phone"
                   value={phone}
                   onChange={phoneOnChangeHandler}
-                  onBlur={phoneTouchedHandler}
                 />
               </div>
-              {phoneIsValid && (
-                <div className="alert alert-error">Phone is required.</div>
-                )}
-                {phoneIsTouched && phone.length === 0 && !phoneIsValid && (
-                <div className="alert alert-error">Phone is required.</div>
-                )}
               <div className="custom-input">
                 <label htmlFor="textarea">Message</label>
                 <textarea
@@ -217,15 +171,8 @@ const ContactForm = () => {
                   required=""
                   value={message}
                   onChange={messageOnChangeHandler}
-                  onBlur={messageTouchedHandler}
                 ></textarea>
               </div>
-              {messageIsValid && (
-                <div className="alert alert-error">Message is required.</div>
-              )}
-              {messageIsTouched && message.length === 0 && !messageIsValid && (
-                <div className="alert alert-error">Message is required.</div>
-              )}
               <div className="custom-submit">
                 <input onClick={sendOnClickedHandler} id="submit" type="submit" value="Send" />
               </div>

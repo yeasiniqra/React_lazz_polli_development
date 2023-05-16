@@ -16,6 +16,7 @@ import Textarea from "../../Sheared/Textarea/Textarea";
 import DatePicker from 'react-datepicker';
 import DatePickerHeader from "../../Sheared/SharedDate/DatePickerHeader";
 import { humanizeDate } from "../../../lib/utils";
+import { toast } from "react-toastify";
 
 const Edit = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -101,7 +102,9 @@ const Edit = () => {
   
     const getProfileInfo = useCallback(() => {
       setIsLoading(true)
-      getV2({url: GET_USER_PROFILE})
+      getV2({url: GET_USER_PROFILE,onError:(response)=>{
+        toast.warning(response.Msg);
+      }})
       .then(data => {
         if(!data.IsError){
          console.log(data);
@@ -122,9 +125,10 @@ const Edit = () => {
          setDob(data.Data.DateOfBirth ? data.Data.DateOfBirth : new Date());
         } else {
           console.log(data);
-         alert('Error')
+        //  alert('Error')
         }
       }).catch(error => {
+        console.log("Review Edit:", error)
       }).finally(()=> {
         setIsLoading(false)
       });
@@ -139,7 +143,9 @@ const Edit = () => {
 
     const postProfileInfo = useCallback((payload) => {
       setIsLoading(true)
-      postV2({url: POST_UPDATE_PROFILE, payload})
+      postV2({url: POST_UPDATE_PROFILE, payload,onError:(response)=>{
+        toast.warning(response.Msg);
+      }})
       .then(data => {
         if(!data.IsError){
           setIsLoading(false)
@@ -161,7 +167,7 @@ const Edit = () => {
          setDob(data.Data.DateOfBirth);
         } else {
           console.log(data);
-         alert('Error')
+        //  alert('Error')
         }
       }).catch(error => {
        console.log(error)

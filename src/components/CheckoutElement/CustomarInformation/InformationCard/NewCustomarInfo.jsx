@@ -122,7 +122,9 @@ const NewCustomarInfo = () => {
 
   const getProfileInfo = useCallback(() => {
     setIsLoading(true);
-    getV2({ url: GET_USER_PROFILE })
+    getV2({ url: GET_USER_PROFILE,onError:(response)=>{
+      toast.warning(response.Msg);
+    } })
       .then((data) => {
         if (!data.IsError) {
           setIsLoading(false);
@@ -146,10 +148,12 @@ const NewCustomarInfo = () => {
           setDob(data.Data.DateOfBirth ?? new Date());
 
         } else {
-          alert("Error");
+          // alert("Error");
         }
       })
-      .catch((error) => {});
+      .catch((error) => { 
+        console.log("Get New Customer:", error)
+      });
   }, []);
 
   useEffect(() => {
@@ -161,10 +165,12 @@ const NewCustomarInfo = () => {
   }, [mounted]);
 
   const postProfileInfo = useCallback((payload) => {
-    return postV2({ url: POST_UPDATE_PROFILE, payload })
+    return postV2({ url: POST_UPDATE_PROFILE, payload,onError:(response)=>{
+      toast.warning(response.Msg);
+    } })
       .then((data) => {
         if (!data.IsError) {
-          console.log(data);
+          // console.log(data);
           setFname(data.Data.FirstName);
           setLname(data.Data.LastName);
           setGender({ name: data.Data.Gender, id: data.Data.Gender });
@@ -184,11 +190,13 @@ const NewCustomarInfo = () => {
           setExpDate(data.Data.IdentityExpireDate ? data.Data.IdentityExpireDate : new Date());
           setDob(data.Data.DateOfBirth ? data.Data.DateOfBirth : new Date());
         } else {
-          console.log(data);
-          alert("Error");
+          // console.log(data);
+          // alert("Error");
         }
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log("new Customer", error)
+      });
   }, []);
 
   //checkout suymmery
@@ -213,7 +221,9 @@ const NewCustomarInfo = () => {
         Name: r.Name,
       })),
     };
-    postV2({ url: POST_ROOM_BOOKING, payload })
+    postV2({ url: POST_ROOM_BOOKING, payload, onError:(response)=>{
+      toast.warning(response.Msg);
+    } })
       .then((data) => {
         if (!data.IsError) {
           if (data.Data.PaymentURL === "") {
@@ -226,12 +236,12 @@ const NewCustomarInfo = () => {
           setError("inside err", data.Msg);
         }
       })
-      .catch((err) => {
-        // toast.warning("Invalid Amount");
-        toast.warning("An error occurred while processing your request.", err);
+      .catch((error) => {
+        console.log(error)
       });
   };
 
+  
 
   const checkField = (fieldName) => {
     if (!fieldName) {
@@ -521,7 +531,7 @@ const NewCustomarInfo = () => {
                   </label>
                 </div>
                 <div className="toggle-condition">
-                  <p className="trams-condition">
+                  <span className="trams-condition">
                     <label onChange={handleCheckboxChange}>
                       <input
                         className="trams-checkbox"
@@ -544,15 +554,15 @@ const NewCustomarInfo = () => {
                       </div>
                       
                     </label>
-                  </p>
-                  {/* <div
+                  </span>
+                  <div
                     onClick={submitHandler}
                     className="book_table_item dtl-btn"
                   >
                     <button type="button" disabled={!isChecked}>
                       Submit
                     </button>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </form>

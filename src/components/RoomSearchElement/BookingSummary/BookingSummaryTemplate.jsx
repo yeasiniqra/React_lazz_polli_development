@@ -22,11 +22,12 @@ const BookingSummaryTemplate = ({summeryItem,removeClickHandler,totalAmount}) =>
                         <p>{summeryItem.Name}</p>
                         <p>
                          {summeryItem.Type === 'ROOM' ? summeryItem.AdultPerRoom * summeryItem.quantity : ''}  
-                         {summeryItem.Type === 'ROOM' ? 'Adults' : 'Full'}  - 
-                         {summeryItem.quantity} - 
-                         {summeryItem.Type === 'ROOM' ? 'Room -' : 'House'} 
+                         {summeryItem.Type === 'ROOM' ? 'Adults -' : 'Full'}  
                          {summeryItem.Type === 'ROOM' ? summeryItem.ChildrenPerRoom * summeryItem.quantity : ''} 
-                         {summeryItem.Type === 'ROOM' ? 'Child' : ''}  
+                         {summeryItem.Type === 'ROOM' ? 'Child ' : ''}  
+                         - {summeryItem.quantity}  
+                         {summeryItem.Type === 'ROOM' ? 'Room ' : 'House '} 
+                         
                         
                          </p>
                         <button><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>

@@ -22,7 +22,9 @@ const OrderHistory = () => {
     //get data from api for order histoey
     const handleGetBooking = () => {
         setIsLoading(true)
-        getV2({ url: GET_ROOM_BOOKING(500,page, "all") }).then((data) => {
+        getV2({ url: GET_ROOM_BOOKING(500,page, "all"),onError:(response)=>{
+          toast.warning(response.Msg);
+        } }).then((data) => {
             if (!data.IsError) {
                 setBooked(data.Data.Data)
                 setTotalPage(Math.ceil(data.Data.Data.length/size));
@@ -108,7 +110,7 @@ const OrderHistory = () => {
                 <span>Order Id</span>
                 <span>Check In</span>
                 <span>Check Out</span>
-                <span>Night</span>
+                <span>Night/Duration</span>
                 <span>Status</span>
                 <span>Quantity</span>
                 <span>Items</span>

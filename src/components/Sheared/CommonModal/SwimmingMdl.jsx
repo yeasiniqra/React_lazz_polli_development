@@ -51,27 +51,14 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     setRemark(el.value);
   };
   const startDateChangeHandler = (date) => {
-    // if (!date || (!date.getHours() && !date.getMinutes())) {
-    //   alert("You select date and now you need to select time");
-    //   return;
-    // }
+    console.log("first Slot:", date)
     setStartDate(date);
   };
 
-  const endDateChangeHandler = (date) => {
-    // if (!date || (!date.getHours() && !date.getMinutes())) {
-    //   alert("You select date and now you need to select time");
-    //   return;
-    // }
-    setEndDate(date);
-    // if (!date.getHours()) {
-    //   setEndDateError(true);
-    // } else {
-    //   setEndDateError(false);
-    //   setEndDate(date);
-    // }
+ const endDateChangeHandler = (date) => {
+      setEndDate(date);
   };
-
+  
   const hoursChangeHandler = ({ target: el }) => {
     setHours(el.value);
   };
@@ -96,20 +83,76 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
     setHoursError(false);
   };
 
-  const totalTime = (humanizeTime(endDate) - humanizeTime(startDate)).toFixed(2)
-  const grandTotal = (adults * totalTime * perhours).toFixed(2);
+  // const totalTime = (humanizeTime(endDate) - humanizeTime(startDate)).toFixed(2)
+  // const grandTotal = (adults * totalTime * perhours).toFixed(2);
+
+
+  // note : time showing 1.5 
+
+  function calculateSolidTime(startTime, endTime) {
+    const start = new Date(startTime);
+    const end = new Date(endTime);
+    const timeDiff = Math.abs(end - start);
+    const timeDiffHours = timeDiff / (1000 * 60 * 60);
+    const totalTime = parseFloat(timeDiffHours.toFixed(3));
+    return totalTime;
+  }
+
+  const totalTime = calculateSolidTime(startDate, endDate);
+  const grandTotal = (adults * totalTime * perhours).toFixed(2); 
+
+// note : time showing 60 min 
+
+//   function calculateSolidTime(startTime, endTime) {
+//     const start = new Date(startTime);
+//     const end = new Date(endTime);
+//     const timeDiff = Math.abs(end - start);
+//     const timeDiffMinutes = Math.round(timeDiff / (1000 * 60));
+//     return timeDiffMinutes;
+//   }
+
+//   const totalTime = calculateSolidTime(startDate, endDate);
+// const grandTotal = (adults * totalTime / 30 * perhours).toFixed(2);
+
+
 
 
 
   const conventionHandler = (e) => {
     e.preventDefault();
-    setIsLoading(true)
     let isValid = true;
+
+    if (!startDate || !endDate) {
+      alert('Please select start and end dates.');
+      return;
+    }
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    
+    if (startDateObj.getDate() === endDateObj.getDate()) {
+      if (startDateObj.getTime() >= endDateObj.getTime()) {
+        alert('End time should be greater than start time.');
+        return;
+      }
+    } else {
+      if (startDateObj.getTime() > endDateObj.getTime()) {
+        alert('End date and time should be greater than start date and time.');
+        return;
+      }
+    }
+   
+   
     if (adults.length === 0) {
       setAdultsError(true);
       isValid = false;
       return
     }
+    if ((totalTime && hours) === 0) {
+      setHoursError(true);
+      isValid = false;
+      return
+    }
+    setIsLoading(true)
     //Note:  convert GMT to use toSTring()
     const payload = {
       StartingAt: startDate,
@@ -123,22 +166,26 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
       remark: remark,
     }
 
-    postV2({url: POST_SWMMING_POOL_BOOKING, payload})
+    postV2({url: POST_SWMMING_POOL_BOOKING, payload,onError:(response)=>{
+      toast.warning(response.Msg);
+    }})
     .then(data => {
       if(data.IsError){
-        toast.warning(data.Msg);
+        console.log(data.Msg)
       } else {
         toast.success(`Your submission has been received. Our agent will call
          your number to reconfirm.`, {className: "login-popup-x"});
          window.location.href = data.Data.PaymentURL;
       }
     }).catch(err => {
-      toast.warning(err?.toString());
+      // toast.warning(err?.toString());
+      console.log(err.Msg)
     }).finally(() => {
       setIsLoading(false)
     })
     if (!isValid) return;
   };
+  
 
 
   return (
@@ -166,7 +213,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
                     onFocus={() => setIsOpen(true)}
                     showTimeSelect
                     timeFormat="HH:mm"
-                    timeIntervals={15}
+                    timeIntervals={30}
                     timeCaption="time"
                     dateFormat="MM/dd/yyyy h:mm aa"
                     isOpen={isOpen}
@@ -190,12 +237,13 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
                   onFocus={() => setIsOpen(true)}
                   showTimeSelect
                   timeFormat="HH:mm"
-                  timeIntervals={15}
+                  timeIntervals={30}
                   timeCaption="time"
                   dateFormat="MM/dd/yyyy h:mm aa"
                   isOpen={isOpen}
                   placeholderText="00/00/2023 0:00"
                   // placeholderText="Select Date And Time"
+                  
                 />
                 <small>{endDateError ? "endDateError is empty" : " "}</small>
               </label>
@@ -282,7 +330,6 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
                   placeholder={"50 tk"}
                   disabled
                 />
-                <small>{adultsError ? "Perhours is empty" : " "}</small>
               </label>
             </div>
             <div className='common-modal-label'>
@@ -332,7 +379,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
           <div className='common-modal-error'>
             <p>{error ? error : ""}</p>
           </div>
-          {/* <div className='common-modal-action'>
+          <div className='common-modal-action'>
             <button
               className='common-modal-submit'
               onClick={conventionHandler}
@@ -340,7 +387,7 @@ const SwimmingMdl = ({ swimmin, setSwimmin }) => {
             >
               Submit
             </button>
-          </div> */}
+          </div>
           {isLoading && <Suspense />}
         </form>
         </div>

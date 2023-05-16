@@ -54,9 +54,19 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
                     htmlFor="cottage"
                     onClick={isToggleClass}
                   >
-                  {suitsAndRoom.Type === 'ROOM' ?
-                   (<button disabled={!isAvaible} onClick={handleNavigate}>Book Room</button>) : 
-                   (<button disabled={!isAvaible} onClick={handleNavigate}>Book House</button>) }
+                  {suitsAndRoom.Type === 'ROOM' ? (
+                    !isAvaible ? (
+                      <button disabled>Not Available</button>
+                    ) : (
+                      <button onClick={handleNavigate}>Book Room</button>
+                    )
+                  ) : (
+                    !isAvaible ? (
+                      <button disabled>Not Available</button>
+                    ) : (
+                      <button onClick={handleNavigate}>Book House</button>
+                    )
+                  )}
                  </label>
               </div>
             </div>

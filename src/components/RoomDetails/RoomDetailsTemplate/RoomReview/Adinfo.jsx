@@ -2,7 +2,7 @@ import React from 'react';
 
 const Adinfo = () => {
     const reviewCustomar = {
-        title : 'Contact Us for more information : 01834781582'
+        title : 'Contact Us for more information : +88 01810136609'
     }
     return (
         <div id="Tab4" className="tabcontent">

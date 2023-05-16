@@ -6,6 +6,7 @@ import authContext from '../../store/auth-context';
 import { getV2 } from '../../services/http-service-v2';
 import { GET_CUSTOMERIS_EXIST, GET_OTP} from '../../lib/endpoints';
 import SmallLoder from '../../components/Sheared/SmallLoder/SmallLoder';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
   const { open, storeSignupData } = useContext(authContext);
@@ -67,20 +68,24 @@ const Signup = () => {
   };
 
   const requestOTP = () => {
-    getV2({ url: GET_OTP(phone, false) }).then((data) => {
+    getV2({ url: GET_OTP(phone, false),onError:(response)=>{
+      toast.warning(response.Msg);
+    } }).then((data) => {
       if (!data.IsError) {
         storeSignupData({ phoneNumber: phone, firstName: fname, lastName:lname, messageId : data.Id, otp : ''});
         console.log(data)
         open('OTP');
       } else {
-        console.log(data);
+        console.log(data.Msg);
         setError('inside err', data.Msg);
       }
     });
   };
 
   const customertIsExist = (phone) => {
-    getV2({ url: GET_CUSTOMERIS_EXIST+ phone }).then((data) => {
+    getV2({ url: GET_CUSTOMERIS_EXIST+ phone,onError:(response)=>{
+      toast.warning(response.Msg);
+    } }).then((data) => {
       if (!data.IsError) {
         setIsvalid(data.Data)
         if (data.Data) {
@@ -178,10 +183,12 @@ const Signup = () => {
               </span>
             </p>
           </div>
-
-           <button disabled={isExist} className={styles.LogInBtn} onClick={signupHandler} type={'button'} >Sign Up</button>
+           <div className="login-btn-small">
+              <button disabled={isExist} className={styles.LogInBtn} onClick={signupHandler} type={'button'} >Sign Up</button>
+              {isLoading && <SmallLoder />}
+           </div>
         </div>
-        {isLoading && <SmallLoder />}
+      
       </form>
     </>
   );

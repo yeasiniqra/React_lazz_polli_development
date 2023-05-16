@@ -8,6 +8,7 @@ import { getV2 } from '../../../services/http-service-v2';
 import RoomCard from '../../RoomCard/RoomCard';
 import RoomSuitsMdl from '../../Sheared/CommonModal/RoomSuitsMdl';
 import Suspense from '../../Sheared/Suspense/Suspense';
+import { toast } from 'react-toastify';
 
 const RoomGrid = () => {
     const [roomdetails, setRoomdetails] = useState(null)
@@ -20,7 +21,9 @@ const RoomGrid = () => {
 
     const getHouses = useCallback(() => {
       setIsLoading(true)
-      getV2({ url: GET_ROOMS() }).then((data) => {
+      getV2({ url: GET_ROOMS(),onError:(response)=>{
+        toast.warning(response.Msg);
+      } }).then((data) => {
         if (!data.IsError) {
           setRoom(data.Data.Data);
           setHouses(data.Data.Data);
