@@ -5085,6 +5085,10 @@ button:disabled,
   border: 2px solid #c9b9b9;
 }
 
+button.date-select {
+  background-color: #dddd;
+  color: #4e4e4e;
+}
 
 
 @media print{

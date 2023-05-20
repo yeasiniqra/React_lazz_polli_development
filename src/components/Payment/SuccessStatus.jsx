@@ -42,11 +42,11 @@ const SuccessStatus = () => {
         <div className='payment-success-area'>
             <div className="container">
                 <div className="payment-content">
-                    {params.isNew ? (
+                    {/* {params.isNew ? (
                     <h2>Order Placed Successfully!</h2>
                     ) : (
                     <h2>Order Placement Failed</h2>
-                    )}
+                    )} */}
 
                     {!!params.payment && (
                     <h2
@@ -54,11 +54,11 @@ const SuccessStatus = () => {
                         }`}
                     >
                         {params.transaction === 'SUCCESS'
-                        ? 'Payment Success'
+                        ? 'Payment Success & Order Placed Successfully!'
                         : params.transaction === 'FAILED'
-                        ? 'Payment Failed'
+                        ? 'Payment Failed & Order Placed Failed!'
                         : params.transaction === 'CANCELLED'
-                        ? 'Payment Cancelled'
+                        ? 'Payment Cancelled & Order Cancelled!'
                         : 'FAILED (error 96)'}
                     </h2>
                     )}

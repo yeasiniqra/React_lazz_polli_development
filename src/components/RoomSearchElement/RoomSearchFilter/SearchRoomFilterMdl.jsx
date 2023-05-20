@@ -13,18 +13,16 @@ import { Link } from "react-router-dom";
 
 const today = new Date();
 
-const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
+const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble, setDataSelect }) => {
   const { filters, storeFilters } = useContext(appContext);
   const [isLoading, setIsLoading] = useState(false);
   const mounted = useRef(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isCalendarOpenTwo, setIsCalendarOpenTwo] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(
-    new Date(new Date().setDate(today.getDate() + 1)) 
-  );
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
-
+  setDataSelect(startDate,endDate)
 
   const arrivalBlurHandler = (time, x) => {
     setStartDate(time);
@@ -84,6 +82,8 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
       }
   };
 
+  //if needed initail a server request the enable this comment line 
+
   // useEffect(() => {
   //   if (!mounted.current) {
   //     submitHandler(
@@ -118,7 +118,7 @@ const SearchRoomFilterMdl = ({ RoomId, Type, setIsAvailble }) => {
                   open={isCalendarOpen}
                   minDate={new Date()}
                   showDisabledMonthNavigation
-                  placeholderText="dd/mm/yyyy"
+                  placeholderText="mm/dd/yyyy"
                   monthsShown={2}
                   showTimeSelect
                   showYearDropdown

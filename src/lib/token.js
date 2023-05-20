@@ -14,4 +14,5 @@ export const getTokenSync = () => {
   return null;
 }
 
+
 export default getToken;

@@ -38,7 +38,7 @@ const HeaderNav = () => {
                             </button>
                             <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
                         </div>
-                        <div id="mySidepanel" className={`main-menu sidepanel ${isActive && 'showMenu'}`}   >
+                        <div id="mySidepanel" className={`main-menu sidepanel ${isActive ? 'showMenu' : ''}`}   >
                             <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>
                             <ul>
                                 <li>
@@ -163,7 +163,7 @@ const HeaderNav = () => {
                             </button>
                             <li className="book-now mobile-desk nav-login"><Link to="/searchroom">Book Now</Link></li>
                         </div>
-                        <div id="mySidepanel2" className={`main-menu sidepanel ${isActive && 'showMenu'}`}>
+                        <div id="mySidepanel2" className={`main-menu sidepanel ${isActive ? 'showMenu' : ''}`}>
                            <div  className="mobile-desk closebtn" onClick={toggleClass}>&times;</div>
                            <ul>
                                 <li>

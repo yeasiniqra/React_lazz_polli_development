@@ -12,6 +12,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
   const { storeRoom } = useContext(cartContext);
   const { filters } = useContext(appContext);
   const [isAvaible, setIsAvailble] = useState(false)
+  const [dateSelect, setDataSelect] = useState(false)
   const navigate = useNavigate()
 
   const isToggleClass = () => {
@@ -26,7 +27,14 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
   const availbilityChangeHandler = (isAvaible) => {
     setIsAvailble(isAvaible)
   }
+  const avaibleDateHandler = (dateSelect) => {
+    setDataSelect(dateSelect)
+  }
 
+  const selectDateAlertHandler = () => {
+    alert("Please select the arrival date and departure date")
+  }
+ 
   const typeWiseName = suitsAndRoom.Type === "HOUSE" ? `Entire - ${suitsAndRoom.Name}` : `Single Room From - ${suitsAndRoom.Name}`
   const newType = suitsAndRoom.Type === 'ROOM' ? "ROOM" : "HOUSE"
 
@@ -45,7 +53,7 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
             </label>
           </div>
           <div className="modal-body-start">
-            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={newType} setIsAvailble={setIsAvailble} />
+            <SearchRoomFilterMdl RoomId={suitsAndRoom.Id} Type={newType} setIsAvailble={setIsAvailble} setDataSelect={setDataSelect} />
             <div className="room-search-area">
               <div className="details-room-main-grid">
                 <RoomDetailsTemplate room={suitsAndRoom} />
@@ -54,19 +62,24 @@ const RoomSuitsMdl = ({ suitsAndRoom, setRoomdetails }) => {
                     htmlFor="cottage"
                     onClick={isToggleClass}
                   >
-                  {suitsAndRoom.Type === 'ROOM' ? (
-                    !isAvaible ? (
-                      <button disabled>Not Available</button>
+                    {dateSelect ? (
+                      suitsAndRoom.Type === 'ROOM' ? (
+                        !isAvaible ? (
+                          <button disabled>Not Available</button>
+                        ) : (
+                          <button onClick={handleNavigate}>Book Room</button>
+                        )
+                      ) : (
+                        !isAvaible ? (
+                          <button disabled>Not Available</button>
+                        ) : (
+                          <button onClick={handleNavigate}>Book House</button>
+                        )
+                      )
                     ) : (
-                      <button onClick={handleNavigate}>Book Room</button>
-                    )
-                  ) : (
-                    !isAvaible ? (
-                      <button disabled>Not Available</button>
-                    ) : (
-                      <button onClick={handleNavigate}>Book House</button>
-                    )
-                  )}
+                      <button className="date-select" onClick={selectDateAlertHandler}>Select Date First</button>
+                    )}
+
                  </label>
               </div>
             </div>
