@@ -30,7 +30,7 @@ const HeaderNav = () => {
                 <div className="container">
                     <div className="main-menu-flex">
                         <div className="logo">
-                            <Link to="/home"><img src={logo} alt="logo" /></Link>
+                            <Link to="/"><img src={logo} alt="logo" /></Link>
                         </div>
                         <div className='normal-mobile-view'>
                             <button className="nav_icon mobile-desk" onClick={toggleClass}>
@@ -43,7 +43,7 @@ const HeaderNav = () => {
                             <ul>
                                 <li>
                                     <NavLink
-                                        to="/home"
+                                        to="/"
                                         onClick={toggleClass}
                                         className={({ isActive }) => (isActive ? "link-active" : "link")}
                                     >
@@ -155,7 +155,7 @@ const HeaderNav = () => {
                 <div className="container">
                     <div className="main-menu-flex">
                         <div className="logo">
-                            <Link to="/home"><img src={logoBlack} alt="logo" /></Link>
+                            <Link to="/"><img src={logoBlack} alt="logo" /></Link>
                         </div>
                         <div className='normal-mobile-view'>
                             <button className="nav_icon mobile-desk" onClick={toggleClass}>
@@ -169,7 +169,7 @@ const HeaderNav = () => {
                                 <li>
                                     <NavLink
                                        onClick={toggleClass}
-                                        to="/home"
+                                        to="/"
                                         className={({ isActive }) => (isActive ? "link-active" : "link")}
                                     >
                                     Home
